@@ -1,0 +1,77 @@
+[
+  {
+    "id": "FR-2024-26343",
+    "type": "official_notice",
+    "date": {
+      "val": "2024-11-08",
+      "precision": "day"
+    },
+    "governance": {
+      "source_tier": "Tier-1",
+      "evidence_level": "official_document",
+      "confidence_rating": "official_confirmed"
+    },
+    "entities": {
+      "agencies": [
+        "Department of Defense",
+        "Office of the Secretary",
+        "All-Domain Anomaly Resolution Office"
+      ]
+    },
+    "content": {
+      "original_language": "en",
+      "en": {
+        "title": "Proposed Collection; Comment Request: All-Domain Anomaly Resolution Office (AARO)",
+        "executive_summary": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions."
+      },
+      "zh_hk": {
+        "title": "擬議資訊收集與意見徵詢：全領域異常解決辦公室 (AARO) 專項業務公告",
+        "executive_summary": "美國國防部正式發布關於設立 UAP 官方通報途徑、目擊數據安全存檔與資訊徵詢機制之法定程序通告。"
+      }
+    },
+    "sources": [
+      {
+        "label": "Federal Register Doc #2024-26343",
+        "url": "https://www.federalregister.gov/documents/2024/11/08/2024-26343/proposed-collection-comment-request",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  {
+    "id": "FR-2023-14732",
+    "type": "official_notice",
+    "date": {
+      "val": "2023-07-12",
+      "precision": "day"
+    },
+    "governance": {
+      "source_tier": "Tier-1",
+      "evidence_level": "official_document",
+      "confidence_rating": "official_confirmed"
+    },
+    "entities": {
+      "agencies": [
+        "Department of Defense",
+        "Office of the Secretary"
+      ]
+    },
+    "content": {
+      "original_language": "en",
+      "en": {
+        "title": "Privacy Act of 1974; System of Records: AARO Records Tracking",
+        "executive_summary": "Notice of a modified system of records to include collection and maintenance of anomalous unidentified sightings reported by service members."
+      },
+      "zh_hk": {
+        "title": "1974年隱私法案；系統記錄修訂：AARO 異常記錄追蹤庫",
+        "executive_summary": "美國國防部正式將現役軍職人員之異常飛行物通報紀錄納入法定系統紀錄庫進行長期建檔與保護。"
+      }
+    },
+    "sources": [
+      {
+        "label": "Federal Register Vol. 88",
+        "url": "https://www.federalregister.gov",
+        "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+      }
+    ]
+  }
+]
