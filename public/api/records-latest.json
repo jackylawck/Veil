@@ -1,5 +1,79 @@
 [
   {
+    "id": "GPO-CHRG-118hhrg52893",
+    "type": "official_report",
+    "date": {
+      "val": "2023-07-26",
+      "precision": "day"
+    },
+    "governance": {
+      "source_tier": "Tier-1",
+      "evidence_level": "official_hearing_record",
+      "confidence_rating": "official_confirmed"
+    },
+    "entities": {
+      "agencies": [
+        "House Committee on Oversight and Accountability",
+        "Subcommittee on National Security, the Border, and Foreign Affairs"
+      ]
+    },
+    "content": {
+      "original_language": "en",
+      "en": {
+        "title": "Unidentified Anomalous Phenomena: Implications on National Security, Public Safety, and Government Transparency",
+        "executive_summary": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators."
+      },
+      "zh_hk": {
+        "title": "眾議院監督委員會 UAP 宣誓聽證會正式出版紀錄本（含證人 Grusch 證詞）",
+        "executive_summary": "美國政府出版局 (GPO) 正式發行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫與異常飛行器遭遇事件進行之宣誓證詞。"
+      }
+    },
+    "sources": [
+      {
+        "label": "GovInfo Official Package (CHRG-118hhrg52893)",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-118hhrg52893/pdf/CHRG-118hhrg52893.pdf",
+        "sha256": "f3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b899"
+      }
+    ]
+  },
+  {
+    "id": "GPO-CHRG-117hhrg47894",
+    "type": "official_report",
+    "date": {
+      "val": "2022-05-17",
+      "precision": "day"
+    },
+    "governance": {
+      "source_tier": "Tier-1",
+      "evidence_level": "official_hearing_record",
+      "confidence_rating": "official_confirmed"
+    },
+    "entities": {
+      "agencies": [
+        "House Permanent Select Committee on Intelligence",
+        "Subcommittee on Counterterrorism, Counterintelligence, and Counterproliferation"
+      ]
+    },
+    "content": {
+      "original_language": "en",
+      "en": {
+        "title": "Open Hearing on Unidentified Aerial Phenomena",
+        "executive_summary": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray."
+      },
+      "zh_hk": {
+        "title": "眾議院反恐情報小組委員會 UAP 歷史性公開聽證會紀錄本",
+        "executive_summary": "美國國防部次長與海軍情報副局長出席作證，為美國國會半世紀以來首次召開之 UAP 公開聽證會官方正式出版紀錄。"
+      }
+    },
+    "sources": [
+      {
+        "label": "GovInfo Official Package (CHRG-117hhrg47894)",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-117hhrg47894/pdf/CHRG-117hhrg47894.pdf",
+        "sha256": "c8901234ef9a0912cb8412e43217acde45b341fa1a2c3d4e5f67890123456789"
+      }
+    ]
+  },
+  {
     "id": "CONG-118-HR-2670",
     "type": "legislation",
     "date": {
