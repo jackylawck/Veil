@@ -1,183 +1,218 @@
 # scripts/ingest.py
-import os
-import sys
-import json
 import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+import traceback
 from datetime import datetime, timezone
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
-# 加入專案根目錄至 sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
 
-# 匯入全部 65 個官方與權威適配器
+from adapters.base import BaseAdapter
 from adapters.federal_register import FederalRegisterAdapter
 from adapters.congress import CongressAdapter
 from adapters.govinfo import GovInfoAdapter
-from adapters.nara import NaraAdapter
-from adapters.dvids import DvidsAdapter
-from adapters.nasa import NasaAdapter
-from adapters.odni import OdniAdapter
-from adapters.tna import TnaAdapter
-from adapters.lac import LacAdapter
-from adapters.naa import NaaAdapter
-from adapters.nzdf import NzdfAdapter
-from adapters.norad import NoradAdapter
-from adapters.un import UnAdapter
-from adapters.icao import IcaoAdapter
-from adapters.geipan import GeipanAdapter
-from adapters.ejercito_aire import EjercitoAireAdapter
-from adapters.aeronautica_militare import AeronauticaMilitareAdapter
-from adapters.belgian_air_component import BelgianAirComponentAdapter
-from adapters.nas_ukraine import NasUkraineAdapter
-from adapters.finnish_defence import FinnishDefenceAdapter
-from adapters.sweden_ghost_rockets import SwedenGhostRocketsAdapter
-from adapters.fap_portugal import FapPortugalAdapter
-from adapters.irish_df import IrishDfAdapter
-from adapters.rnlaf_netherlands import RnlafNetherlandsAdapter
-from adapters.hessdalen_ffi import HessdalenFfiAdapter
-from adapters.an_brazil import AnBrazilAdapter
-from adapters.cefaa import CefaaAdapter
-from adapters.cridovni import CridovniAdapter
-from adapters.ciaa_argentina import CiaaArgentinaAdapter
-from adapters.difaa_peru import DifaaPeruAdapter
-from adapters.ceifo_ecuador import CeifoEcuadorAdapter
-from adapters.aerocivil_colombia import AerocivilColombiaAdapter
-from adapters.sedena_mexico import SedenaMexicoAdapter
-from adapters.antarctica_decepcion import AntarcticaDecepcionAdapter
-from adapters.antarctica_nsf import AntarcticaNsfAdapter
-from adapters.mod_japan import ModJapanAdapter
-from adapters.pla_air_situation import PlaAirSituationAdapter
-from adapters.cangzhou_intercept import CangzhouInterceptAdapter
-from adapters.russia_grid import RussiaGridAdapter
-from adapters.iriaf_tehran import IriafTehranAdapter
-from adapters.saaf_south_africa import SaafSouthAfricaAdapter
-from adapters.rendlesham_halt import RendleshamHaltAdapter
-from adapters.af3532_sepra import Af3532SepraAdapter
-from adapters.malmstrom_nuclear import MalmstromNuclearAdapter
-from adapters.cometa_france import CometaFranceAdapter
-from adapters.canada_hellyer import CanadaHellyerAdapter
-from adapters.church_committee import ChurchCommitteeAdapter
-from adapters.house_uap_nov2024 import HouseUapNov2024Adapter
-from adapters.immaculate_constellation import ImmaculateConstellationAdapter
-from adapters.dod_oig_eval import DodOigEvalAdapter
-from adapters.senate_sasc_uap import SenateSascUapAdapter
-from adapters.senate_uapda import SenateUapdaAdapter
-from adapters.aaro_historical_report import AaroHistoricalReportAdapter
-from adapters.dhs_kona_blue import DhsKonaBlueAdapter
-from adapters.sol_karl_nell import SolKarlNellAdapter
-from adapters.aaro_historical_vol2 import AaroHistoricalVol2Adapter
-from adapters.odni_annual_update import OdniAnnualUpdateAdapter
-from adapters.nara_records_collection import NaraRecordsCollectionAdapter
-from adapters.aaro_secure_portal import AaroSecurePortalAdapter
-from adapters.icig_whistleblower import IcigWhistleblowerAdapter
-from adapters.gao_defense_sap import GaoDefenseSapAdapter
-from adapters.aaro_annual_report import AaroAnnualReportAdapter
-from adapters.doe_nuclear_labs import DoeNuclearLabsAdapter
-from adapters.faa_atc_mandatory import FaaAtcMandatoryAdapter
-from adapters.nasa_uap_science import NasaUapScienceAdapter
-from adapters.cas_fast_seti import CasFastSetiAdapter
-from adapters.un_iaa_post_detection import UnIaaPostDetectionAdapter
 
-# 註冊所有適配器清單 (共 67 個模組實例，全主權覆蓋)
-ALL_ADAPTERS = [
-    FederalRegisterAdapter, CongressAdapter, GovInfoAdapter, NaraAdapter,
-    DvidsAdapter, NasaAdapter, OdniAdapter, TnaAdapter, LacAdapter, NaaAdapter,
-    NzdfAdapter, NoradAdapter, UnAdapter, IcaoAdapter, GeipanAdapter,
-    EjercitoAireAdapter, AeronauticaMilitareAdapter, BelgianAirComponentAdapter,
-    NasUkraineAdapter, FinnishDefenceAdapter, SwedenGhostRocketsAdapter,
-    FapPortugalAdapter, IrishDfAdapter, RnlafNetherlandsAdapter, HessdalenFfiAdapter,
-    AnBrazilAdapter, CefaaAdapter, CridovniAdapter, CiaaArgentinaAdapter,
-    DifaaPeruAdapter, CeifoEcuadorAdapter, AerocivilColombiaAdapter, SedenaMexicoAdapter,
-    AntarcticaDecepcionAdapter, AntarcticaNsfAdapter, ModJapanAdapter,
-    PlaAirSituationAdapter, CangzhouInterceptAdapter, RussiaGridAdapter,
-    IriafTehranAdapter, SaafSouthAfricaAdapter, RendleshamHaltAdapter, Af3532SepraAdapter,
-    MalmstromNuclearAdapter, CometaFranceAdapter, CanadaHellyerAdapter,
-    ChurchCommitteeAdapter, HouseUapNov2024Adapter, ImmaculateConstellationAdapter,
-    DodOigEvalAdapter, SenateSascUapAdapter, SenateUapdaAdapter,
-    AaroHistoricalReportAdapter, DhsKonaBlueAdapter, SolKarlNellAdapter,
-    AaroHistoricalVol2Adapter, OdniAnnualUpdateAdapter, NaraRecordsCollectionAdapter,
-    AaroSecurePortalAdapter, IcigWhistleblowerAdapter, GaoDefenseSapAdapter,
-    AaroAnnualReportAdapter, DoeNuclearLabsAdapter, FaaAtcMandatoryAdapter,
-    NasaUapScienceAdapter, CasFastSetiAdapter, UnIaaPostDetectionAdapter
-]
 
-def run_ingestion(days_back: int = 36500) -> None:
-    """
-    執行全量資料攝入
-    預設 days_back=36500 (100 年)，徹底解除 365 天的時間截斷限制，
-    確保冷戰以降至當代所有里程碑與解密案卷全數完整保留入庫。
-    """
-    print(f"[{datetime.now(timezone.utc).isoformat()}] 啟動全量情報攝入 (時間窗口: {days_back} 日 / 全歷史覆蓋)...")
+def parse_date_safe(date_str: str) -> datetime:
+    """健全解析多元日期格式（含 ISO 8601 / 時區），供時間軸嚴格排序。"""
+    if not date_str or not isinstance(date_str, str):
+        return datetime(1900, 1, 1, tzinfo=timezone.utc)
     
+    # 優先嘗試 ISO 格式 (例如 2026-09-18T14:30:00Z)
+    try:
+        clean_str = date_str.replace("Z", "+00:00")
+        dt = datetime.fromisoformat(clean_str)
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+    except ValueError:
+        pass
+
+    # 次選常見常規日期格式
+    for fmt in ("%Y-%m-%d", "%Y-%m", "%Y"):
+        try:
+            return datetime.strptime(date_str, fmt).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+            
+    return datetime(1900, 1, 1, tzinfo=timezone.utc)
+
+
+def load_curated_historical_records() -> List[Dict[str, Any]]:
+    """載入歷史典藏底庫 (data/curated_historical.json)。
+    
+    嚴格拒絕靜默退化：檔案損毀時拋出例外阻斷管線，防止歷史資料蒸發。
+    """
+    curated_file = ROOT_DIR / "data" / "curated_historical.json"
+    if not curated_file.exists():
+        print(f"⚠️ 提示: 歷史典藏庫檔案不存在: {curated_file}", file=sys.stderr)
+        return []
+        
+    try:
+        with open(curated_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"❌ 致命錯誤: curated_historical.json JSON 語法損毀: {exc}") from exc
+    except OSError as exc:
+        raise RuntimeError(f"❌ 致命錯誤: 無法讀取 curated_historical.json: {exc}") from exc
+
+    records = data if isinstance(data, list) else data.get("records", [])
+    if not isinstance(records, list):
+        raise RuntimeError("❌ 致命錯誤: curated_historical.json 頂層結構必須為清單 (list) 或包含 records 清單")
+        
+    return records
+
+
+def records_equal(a: List[Dict[str, Any]], b: List[Dict[str, Any]]) -> bool:
+    """深度比對兩份卷宗清單的實質內容（含屬性與排序），偵測內文或狀態更新。"""
+    if len(a) != len(b):
+        return False
+    # 透過 JSON canonical serialization 進行嚴格內容比對
+    for item_a, item_b in zip(a, b):
+        if not isinstance(item_a, dict) or not isinstance(item_b, dict):
+            return False
+        if json.dumps(item_a, sort_keys=True) != json.dumps(item_b, sort_keys=True):
+            return False
+    return True
+
+
+def run_ingestion(days_back: int = 30) -> None:
+    """執行全管線情報採集：
+    
+    1. 載入靜態歷史底庫
+    2. 採集動態 API 增量
+    3. 去重與嚴格日期排序
+    4. 內容級別冪等比對：內容完全相同時跳過寫入，杜絕無效 PR
+    """
+    start_time = datetime.now(timezone.utc)
+    print(f"[{start_time.strftime('%Y-%m-%d %H:%M:%S')}] 啟動情報採集管線 (動態增量窗口: {days_back} 日)...")
+
     all_records: List[Dict[str, Any]] = []
     seen_ids = set()
-    adapter_stats = {}
 
-    for adapter_cls in ALL_ADAPTERS:
+    # 1. 載入靜態歷史底庫
+    historical = load_curated_historical_records()
+    for r in historical:
+        rid = r.get("id")
+        if rid and rid not in seen_ids:
+            seen_ids.add(rid)
+            all_records.append(r)
+    print(f"✔ 成功載入歷史里程碑典藏: {len(all_records)} 筆")
+
+    # 2. 註冊動態 API 適配器
+    active_adapters: List[BaseAdapter] = [
+        FederalRegisterAdapter(),
+        GovInfoAdapter(),
+    ]
+    
+    congress_key = os.environ.get("CONGRESS_API_KEY", "").strip()
+    if congress_key:
+        active_adapters.append(CongressAdapter(api_key=congress_key))
+    else:
+        print("⚠️ 未檢測到 CONGRESS_API_KEY，略過 Congress.gov 動態採集", file=sys.stderr)
+
+    api_metrics: Dict[str, Dict[str, Any]] = {}
+
+    # 3. 採集動態增量
+    for adapter in active_adapters:
+        name = getattr(adapter, "source_name", adapter.__class__.__name__)
         try:
-            adapter = adapter_cls()
-            # 傳入 36500 天，保證歷史文件不被遺漏
-            records = adapter.fetch_records(days_back=days_back)
-            added_count = 0
-            for r in records:
-                r_id = r.get("id")
-                if r_id and r_id not in seen_ids:
-                    seen_ids.add(r_id)
+            fetched = adapter.fetch_records(days_back=days_back)
+            added = 0
+            for r in fetched:
+                rid = r.get("id")
+                if rid and rid not in seen_ids:
+                    seen_ids.add(rid)
                     all_records.append(r)
-                    added_count += 1
-            adapter_stats[adapter.source_name] = added_count
-            print(f"  ✔ [{adapter.source_name:<28}] 成功載入 {added_count} 筆記錄")
-        except Exception as e:
-            print(f"  ✖ [{adapter_cls.__name__:<28}] 執行失敗: {e}", file=sys.stderr)
+                    added += 1
+            api_metrics[name] = {
+                "status": "success",
+                "fetched": len(fetched),
+                "new": added,
+            }
+            print(f"  ✔ [API: {name:<20}] 抓取 {len(fetched)} 筆，新增入庫 {added} 筆")
+        except Exception as exc:
+            print(f"  ✖ [API: {name:<20}] 採集失敗: {exc}", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
+            api_metrics[name] = {
+                "status": "failed",
+                "error": str(exc),
+            }
 
-    # 依照事件日期降序排序 (最新在最前，歷史在後)
+    # 防衛性斷路器：若所有活躍動態 API 全數崩潰，中止管線
+    failed_count = sum(1 for m in api_metrics.values() if m.get("status") == "failed")
+    if active_adapters and failed_count == len(active_adapters):
+        print("❌ 致命錯誤: 所有動態適配器均執行失敗，中止構建以維護端點完整！", file=sys.stderr)
+        sys.exit(1)
+
+    # 4. 嚴格日期排序 (最新置頂)
     all_records.sort(
-        key=lambda x: x.get("date", {}).get("val", "1900-01-01"),
-        reverse=True
+        key=lambda x: parse_date_safe(x.get("date", {}).get("val", "")),
+        reverse=True,
     )
 
-    # 構建 Ledger 主輸出結構
+    out_dir = ROOT_DIR / "public" / "api"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_file = out_dir / "records-latest.json"
+    sha_file = out_dir / "records-latest.json.sha256"
+
+    # 5. 深度內容級冪等性驗證
+    if out_file.exists():
+        try:
+            with open(out_file, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+            
+            existing_records = existing_data.get("records", []) if isinstance(existing_data, dict) else existing_data
+            
+            if isinstance(existing_records, list) and records_equal(existing_records, all_records):
+                print("\n✔ [冪等生效] 卷宗內容無任何異動，跳過主檔覆寫。")
+                # 確保校驗 SHA 檔案一定與既有檔案對齊，防止手動修改脫節
+                existing_bytes = out_file.read_bytes()
+                correct_hash = hashlib.sha256(existing_bytes).hexdigest()
+                sha_file.write_text(f"{correct_hash}  records-latest.json\n", encoding="utf-8")
+                return
+        except (json.JSONDecodeError, OSError, ValueError):
+            print("⚠️ 既有檔案損毀或解析異常，重新全量生成。", file=sys.stderr)
+
+    # 6. 生成新資料並寫入磁碟
+    end_time = datetime.now(timezone.utc)
+    duration = round((end_time - start_time).total_seconds(), 2)
+
     output_data = {
         "metadata": {
-            "title": "The Veil - Global Declassified & Sovereign UAP Intelligence Ledger",
+            "title": "The Veil - Global UAP Intelligence Ledger",
             "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": end_time.isoformat(),
+            "duration_sec": duration,
             "total_records": len(all_records),
-            "adapters_active": len(ALL_ADAPTERS),
-            "ingestion_policy": "full_historical_retention_unrestricted",
-            "retention_window_days": days_back
+            "curated_historical_records": len(historical),
+            "live_adapters_active": len(active_adapters),
+            "api_metrics": api_metrics,
         },
-        "records": all_records
+        "records": all_records,
     }
 
-    # 確保輸出路徑存在
-    out_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "public", "api"))
-    os.makedirs(out_dir, exist_ok=True)
-    out_file = os.path.join(out_dir, "records-latest.json")
-    sha_file = os.path.join(out_dir, "records-latest.json.sha256")
-
-    # 寫入 JSON 主檔
     json_bytes = json.dumps(output_data, ensure_ascii=False, indent=2).encode("utf-8")
-    with open(out_file, "wb") as f:
-        f.write(json_bytes)
+    out_file.write_bytes(json_bytes)
 
-    # 計算並寫入 SHA-256 審計校驗碼
+    # 簽署 SHA-256
     sha256_hash = hashlib.sha256(json_bytes).hexdigest()
-    with open(sha_file, "w", encoding="utf-8") as f:
-        f.write(f"{sha256_hash}  records-latest.json\n")
+    sha_file.write_text(f"{sha256_hash}  records-latest.json\n", encoding="utf-8")
 
     print("\n" + "=" * 60)
-    print(f" 數據入庫完成！總記錄數: {len(all_records)} 筆")
-    print(f" 主端點生成: {out_file}")
-    print(f" SHA-256 驗證: {sha256_hash}")
+    print(f" 總帳生成完畢！總卷宗數: {len(all_records)} 筆 (耗時: {duration}s)")
+    print(f" 主端點: {out_file}")
+    print(f" SHA-256: {sha256_hash}")
     print("=" * 60)
 
+
 if __name__ == "__main__":
-    # 支援命令列指定天數，預設 36500 (100 年) 全歷史載入
-    days = 36500
+    days = 30
     if len(sys.argv) > 1:
         try:
             days = int(sys.argv[1])
         except ValueError:
-            pass
+            print(f"⚠️ 無效的天數參數: '{sys.argv[1]}'，自動使用預設值 30 天", file=sys.stderr)
     run_ingestion(days_back=days)
