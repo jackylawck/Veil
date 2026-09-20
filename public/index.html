@@ -65,19 +65,19 @@
       </p>
     </div>
 
-    <!-- 數據統計橫幅 (Metrics Ribbon) -->
+    <!-- 數據統計橫幅 (Metrics Ribbon) - 完整支援 3 大官方分類 -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
         <div class="text-xs text-slate-400" id="statLabel1">收錄官方公報</div>
-        <div class="text-2xl font-bold text-white mt-1" id="statVal1">--</div>
+        <div class="text-2xl font-bold text-emerald-400 mt-1" id="statVal1">--</div>
       </div>
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
         <div class="text-xs text-slate-400" id="statLabel2">國會審議法案</div>
         <div class="text-2xl font-bold text-sky-400 mt-1" id="statVal2">--</div>
       </div>
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
-        <div class="text-xs text-slate-400" id="statLabel3">可信度級別</div>
-        <div class="text-2xl font-bold text-emerald-400 mt-1">Tier-1</div>
+        <div class="text-xs text-slate-400" id="statLabel3">聽證與官方報告</div>
+        <div class="text-2xl font-bold text-amber-400 mt-1" id="statVal3">--</div>
       </div>
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
         <div class="text-xs text-slate-400" id="statLabel4">最後審計巡檢</div>
@@ -98,6 +98,7 @@
         <button onclick="filterRecords('all')" class="filter-btn active px-3 py-1 rounded bg-sky-600 text-white font-medium" data-filter="all">全部</button>
         <button onclick="filterRecords('official_notice')" class="filter-btn px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="official_notice">聯邦公報</button>
         <button onclick="filterRecords('legislation')" class="filter-btn px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="legislation">國會立法</button>
+        <button onclick="filterRecords('official_report')" class="filter-btn px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="official_report">聽證與報告</button>
       </div>
     </div>
 
@@ -112,11 +113,12 @@
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
         <p class="font-semibold text-slate-400">揭帷 The Veil / Veilwatch OSINT Project</p>
-        <p class="mt-1">僅索引美國聯邦公報、國會法案及官方解密檔（Public Domain）。拒絕匿名謠言。</p>
+        <p class="mt-1">僅索引美國聯邦公報、國會法案、政府出版局聽證及官方解密檔（Public Domain）。拒絕匿名謠言。</p>
       </div>
       <div class="flex space-x-4">
         <a href="https://www.federalregister.gov" target="_blank" class="hover:underline">Federal Register</a>
         <a href="https://www.congress.gov" target="_blank" class="hover:underline">Congress.gov</a>
+        <a href="https://www.govinfo.gov" target="_blank" class="hover:underline">GovInfo (GPO)</a>
         <a href="https://github.com/jackylawck/veil" target="_blank" class="hover:underline">Source Code</a>
       </div>
     </div>
@@ -133,7 +135,7 @@
         heroSubtitle: "追蹤官方紀錄，公開每個疑問。穿透帷幕，重歸客觀透明。",
         stat1: "收錄官方公報",
         stat2: "國會審議法案",
-        stat3: "可信度級別",
+        stat3: "聽證與官方報告",
         stat4: "最後審計巡檢",
         timelineHeader: "最新解密與官方時間線",
         viewSource: "官方原始出處 ↗",
@@ -145,7 +147,7 @@
         heroSubtitle: "Official records. Open questions. Tracked in public.",
         stat1: "Federal Notices",
         stat2: "Congress Bills",
-        stat3: "Confidence",
+        stat3: "Hearings & Reports",
         stat4: "Last Audit Run",
         timelineHeader: "Official Timeline Stream",
         viewSource: "Official Document ↗",
@@ -162,32 +164,7 @@
         allRecords = await res.json();
       } catch (err) {
         console.warn('API 載入異常，啟動安全降級：', err);
-        allRecords = [
-          {
-            id: "FR-2024-26343",
-            type: "official_notice",
-            date: { val: "2024-11-08", precision: "day" },
-            governance: { source_tier: "Tier-1", evidence_level: "official_document" },
-            entities: { agencies: ["Department of Defense", "Office of the Secretary"] },
-            content: {
-              en: {
-                title: "Proposed Collection; Comment Request: All-Domain Anomaly Resolution Office (AARO)",
-                executive_summary: "DoD notice regarding reporting channels, secure retention of anomalous sightings, and inter-agency data sharing mechanisms under Title 10/50 oversight."
-              },
-              zh_hk: {
-                title: "擬議資訊收集與意見徵詢：全領域異常解決辦公室 (AARO) 專項業務公告",
-                executive_summary: "美國國防部正式發布關於設立 UAP 官方通報途徑、目擊數據安全存檔與資訊徵詢機制之法定程序通告。"
-              }
-            },
-            sources: [
-              {
-                label: "Federal Register Doc #2024-26343",
-                url: "https://www.federalregister.gov/documents/2024/11/08/2024-26343/proposed-collection-comment-request",
-                sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-              }
-            ]
-          }
-        ];
+        allRecords = [];
       }
 
       updateStats();
@@ -197,6 +174,7 @@
     function updateStats() {
       document.getElementById('statVal1').innerText = allRecords.filter(r => r.type === 'official_notice').length;
       document.getElementById('statVal2').innerText = allRecords.filter(r => r.type === 'legislation').length;
+      document.getElementById('statVal3').innerText = allRecords.filter(r => r.type === 'official_report').length;
       document.getElementById('statVal4').innerText = new Date().toISOString().split('T')[0];
     }
 
@@ -212,10 +190,14 @@
       }
 
       filtered.forEach(record => {
-        const isNotice = record.type === 'official_notice';
-        const typeBadge = isNotice 
-          ? `<span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">聯邦公報 NOTICE</span>`
-          : `<span class="bg-sky-950 text-sky-400 border border-sky-800 text-[10px] font-bold px-2 py-0.5 rounded">國會法案 BILL</span>`;
+        let typeBadge = '';
+        if (record.type === 'official_notice') {
+          typeBadge = `<span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">聯邦公報 NOTICE</span>`;
+        } else if (record.type === 'legislation') {
+          typeBadge = `<span class="bg-sky-950 text-sky-400 border border-sky-800 text-[10px] font-bold px-2 py-0.5 rounded">國會法案 BILL</span>`;
+        } else if (record.type === 'official_report') {
+          typeBadge = `<span class="bg-amber-950 text-amber-400 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">官方聽證/報告 REPORT</span>`;
+        }
 
         const title = currentLang === 'zh' ? (record.content?.zh_hk?.title || record.content?.en?.title || '') : (record.content?.en?.title || '');
         const subTitle = currentLang === 'zh' ? (record.content?.en?.title || '') : '';
