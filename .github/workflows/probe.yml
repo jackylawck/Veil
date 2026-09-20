@@ -2,21 +2,54 @@ name: 99. Diagnostics Probe (FR)
 
 on:
   workflow_dispatch:
+    inputs:
+      days_back:
+        description: "搜尋回溯天數 (預設 365 天)"
+        required: false
+        default: "365"
+      custom_term:
+        description: "自訂搜尋關鍵詞 (留空則使用預設詞組)"
+        required: false
+        default: ""
 
 jobs:
   run-probe:
+    name: Run Federal Register API Probe
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1 pinned SHA
+        with:
+          fetch-depth: 1
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0 pinned SHA
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       - name: Install Dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
       - name: Run Diagnostics Probe
-        run: python scripts/probe_fr.py
+        id: probe
+        env:
+          PYTHONUNBUFFERED: "1"
+          PROBE_DAYS_BACK: ${{ github.event.inputs.days_back || '365' }}
+          PROBE_CUSTOM_TERM: ${{ github.event.inputs.custom_term || '' }}
+        run: |
+          echo "### 🔍 Federal Register 診斷巡檢執行紀錄" >> $GITHUB_STEP_SUMMARY
+          echo "- **執行時間 (UTC)**: $(date -u +'\%Y-\%m-\%d \%H:\%M:\%S')" >> $GITHUB_STEP_SUMMARY
+          echo "- **搜尋回溯窗口**: \`${PROBE_DAYS_BACK}\` 日" >> $GITHUB_STEP_SUMMARY
+          if [ -n "$PROBE_CUSTOM_TERM" ]; then
+            echo "- **自訂關鍵詞**: \`${PROBE_CUSTOM_TERM}\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 執行診斷腳本，同時將 stdout 輸出至終端與 GitHub 執行摘要 (Markdown 程式碼區塊)
+          echo '```text' >> $GITHUB_STEP_SUMMARY
+          python scripts/probe_fr.py 2>&1 | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
