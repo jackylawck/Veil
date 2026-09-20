@@ -6,19 +6,16 @@ from pathlib import Path
 import sys
 from typing import Any, Dict, List
 
-# 動態將專案根目錄加入 Python 模組搜尋路徑（解決 ModuleNotFoundError）
+# 動態將專案根目錄加入模組搜尋路徑
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-# 當前啟用的 Adapters 註冊清單
+# 引入已啟用的 Adapters
 from adapters.federal_register import FederalRegisterAdapter
-
-# 未來逐步新增：
-# from adapters.congress import CongressGovAdapter
-# from adapters.govinfo import GovInfoAdapter
+from adapters.congress import CongressGovAdapter
 
 ACTIVE_ADAPTERS = [
     FederalRegisterAdapter(),
-    # CongressGovAdapter(api_key=os.getenv("CONGRESS_API_KEY")),
+    CongressGovAdapter(api_key=os.getenv("CONGRESS_API_KEY")),
 ]
 
 
