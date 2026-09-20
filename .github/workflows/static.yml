@@ -109,7 +109,7 @@ jobs:
           # 等待 CDN 廣播，最多重試 5 次
           SUCCESS=0
           for i in {1..5}; do
-            STATUS_CODE=$(curl -s -o /dev/null -w "\%{http_code}" "$SITE_URL" || true)
+            STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL" || true)
             if [ "$STATUS_CODE" = "200" ]; then
               SUCCESS=1
               echo "✔ 站點驗證成功 (HTTP 200)"
