@@ -29,6 +29,8 @@ jobs:
 
       - name: Run Ingest Script
         id: run_ingest
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}  # <--- 加上這兩行注入 API Key
         run: python scripts/ingest.py
 
       - name: Create Pull Request for Human Review
