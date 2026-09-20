@@ -24,8 +24,8 @@
         "executive_summary": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators."
       },
       "zh_hk": {
-        "title": "眾議院監督委員會 UAP 宣誓聽證會正式出版紀錄本（含證人 Grusch 證詞）",
-        "executive_summary": "美國政府出版局 (GPO) 正式發行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫與異常飛行器遭遇事件進行之宣誓證詞。"
+        "title": "眾議院監督及問責委員會 UAP 宣誓聽證會正式出版紀錄（含證人 Grusch 證詞）",
+        "executive_summary": "美國政府出版局 (GPO) 正式印行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫、飛行安全及異常航天目標遭遇事件進行之宣誓證詞。"
       }
     },
     "sources": [
@@ -61,8 +61,8 @@
         "executive_summary": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray."
       },
       "zh_hk": {
-        "title": "眾議院反恐情報小組委員會 UAP 歷史性公開聽證會紀錄本",
-        "executive_summary": "美國國防部次長與海軍情報副局長出席作證，為美國國會半世紀以來首次召開之 UAP 公開聽證會官方正式出版紀錄。"
+        "title": "眾議院情報特別委員會反恐情報小組 UAP 歷史性公開聽證會官方紀錄",
+        "executive_summary": "美國國防部次長 Ronald Moultrie 與海軍情報副局長 Scott Bray 出席作證，為美國國會超過半世紀以來首次召開之 UAP 公開聽證會官方出版紀錄。"
       }
     },
     "sources": [
@@ -89,7 +89,7 @@
       "agencies": [
         "US Congress",
         "118th Congress",
-        "House",
+        "House of Representatives",
         "Senate",
         "Department of Defense"
       ]
@@ -102,7 +102,7 @@
       },
       "zh_hk": {
         "title": "2024 財政年度國防授權法案（第 118-31 號公法）",
-        "executive_summary": "美國國會正式簽署生效之國防授權法，內含 UAP 專項披露條款，授權國防部全領域異常解決辦公室 (AARO) 專項經費，並建立吹哨者保護與政府檔案移交審查機制。"
+        "executive_summary": "美國總統簽署生效之聯邦國防法案，包含丙部（未知異常現象披露）專項條款，明令國防部全領域異常解析辦公室 (AARO) 實施中央檔案集中管理、確立軍民通報機制及吹哨者法定義務保障。"
       }
     },
     "sources": [
@@ -129,7 +129,7 @@
       "agencies": [
         "US Senate",
         "118th Congress",
-        "Senate Intelligence Committee"
+        "Senate Select Committee on Intelligence"
       ]
     },
     "content": {
@@ -139,8 +139,8 @@
         "executive_summary": "Bipartisan amendment led by Senate Majority Leader Chuck Schumer proposing a 9-member independent Presidential Review Board to declassify legacy defense materials and recover non-human intelligence technologies."
       },
       "zh_hk": {
-        "title": "2023 年未知異常現象披露法案（舒默－朗茲 UAPDA 跨黨派修正案）",
-        "executive_summary": "參議院多數黨領袖舒默主導之具里程碑法案，提議設立具備獨立傳召權的總統直轄審查委員會，推動跨部會積累之 UAP 機密歷史檔案有序向公眾解密。"
+        "title": "2023 年未知異常現象披露法案（舒默－朗茲 UAPDA 跨黨派修正案 SA 797）",
+        "executive_summary": "參議院多數黨領袖舒默聯同參議員朗茲提出之里程碑修正案，擬設立由 9 名獨立專家組成、直屬總統且具備傳召取證權之審查委員會，推動跨部會積存之歷史機密檔案與潛在地外科技物證有序向公眾解密。"
       }
     },
     "sources": [
@@ -177,8 +177,8 @@
         "executive_summary": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing."
       },
       "zh_hk": {
-        "title": "2025 財政年度國防授權法案（眾議院通過版本）",
-        "executive_summary": "美國眾議院通過之國防預算法案，進一步強化對 AARO 專案進度的監督，強制規範跨情報機構與軍事基地異常目擊數據的通報時限與公眾報告披露機制。"
+        "title": "現役軍人生活質素改善暨 2025 財政年度國防授權法案（眾議院通過版本）",
+        "executive_summary": "美國眾議院審議通過之國防預算法案，進一步擴大國會對 AARO 的法定監督職責，強制收緊跨情報機關與國防設施異常空情數據的共享通報時限，並加強公眾定期報告之問責性。"
       }
     },
     "sources": [
@@ -215,8 +215,8 @@
         "executive_summary": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions."
       },
       "zh_hk": {
-        "title": "擬議資訊收集與意見徵詢：全領域異常解決辦公室 (AARO) 專項業務公告",
-        "executive_summary": "美國國防部正式發布關於設立 UAP 官方通報途徑、目擊數據安全存檔與資訊徵詢機制之法定程序通告。"
+        "title": "擬議資訊收集暨公眾諮詢公告：全領域異常解析辦公室 (AARO) 專項業務",
+        "executive_summary": "美國國防部正式發布之聯邦公報，依據《美國法典》第 10 卷授權，針對設立公眾通報途徑、保障異常現象數據安全存檔與資訊徵詢機制徵集公眾意見。"
       }
     },
     "sources": [
@@ -252,14 +252,14 @@
         "executive_summary": "Notice of a modified system of records to include collection and maintenance of anomalous unidentified sightings reported by service members."
       },
       "zh_hk": {
-        "title": "1974年隱私法案；系統記錄修訂：AARO 異常記錄追蹤庫",
-        "executive_summary": "美國國防部正式將現役軍職人員之異常飛行物通報紀錄納入法定系統紀錄庫進行長期建檔與保護。"
+        "title": "1974 年隱私法案；系統記錄通告 (SORN)：AARO 異常個案追蹤記錄庫修訂",
+        "executive_summary": "美國國防部正式修訂法定系統記錄庫，將現役軍職人員向 AARO 通報之異常飛行與跨領域不明目標目擊數據，納入聯邦私隱法規保護與長期安全存檔機制。"
       }
     },
     "sources": [
       {
-        "label": "Federal Register Vol. 88",
-        "url": "https://www.federalregister.gov",
+        "label": "Federal Register Doc #2023-14732",
+        "url": "https://www.federalregister.gov/documents/2023/07/12/2023-14732/privacy-act-of-1974-system-of-records",
         "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
       }
     ]
