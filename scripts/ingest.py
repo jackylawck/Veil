@@ -2,7 +2,12 @@
 from datetime import datetime
 import json
 import os
+from pathlib import Path
+import sys
 from typing import Any, Dict, List
+
+# 動態將專案根目錄加入 Python 模組搜尋路徑（解決 ModuleNotFoundError）
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # 當前啟用的 Adapters 註冊清單
 from adapters.federal_register import FederalRegisterAdapter
@@ -48,10 +53,11 @@ def run_pipeline():
 
     print(f"[✓] Ingest complete. {new_count} new entries written to {draft_path}")
 
-    # 設定輸出環境變數，讓 GitHub Actions 知道是否有新資料需要開 PR
+    # 設定輸出環境變數，讓 GitHub Actions 知道是否有新資料以及今天的日期字串
     if "GITHUB_OUTPUT" in os.environ:
-        with open(os.environ["GITHUB_OUTPUT"], "a") as env_file:
+        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as env_file:
             env_file.write(f"new_records={new_count}\n")
+            env_file.write(f"today_str={today_str}\n")
 
 
 if __name__ == "__main__":
