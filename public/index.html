@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>揭帷 The Veil | 官方 UAP 披露進程與數據追蹤器</title>
+  <title>揭帷 The Veil | 全球 UAP 官方披露進程與主權情報追蹤器</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -40,14 +40,14 @@
     <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <span class="text-xl font-bold tracking-wider text-white">THE VEIL <span class="text-sky-400 font-light">| 揭帷</span></span>
-        <span class="text-xs bg-sky-950 text-sky-400 border border-sky-800 px-2 py-0.5 rounded-full uppercase tracking-wider">Audit Grade</span>
+        <span class="text-xs bg-sky-950 text-sky-400 border border-sky-800 px-2 py-0.5 rounded-full uppercase tracking-wider">Tier-1 Audit Grade</span>
       </div>
       <div class="flex items-center space-x-4">
         <!-- 語言切換按鈕 -->
         <button id="langToggleBtn" onclick="toggleLanguage()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-surfaceBorder hover:border-sky-400 transition bg-surface text-slate-300">
-          EN / 中文
+          切換為 English
         </button>
-        <a href="https://github.com/jackylawck/veil" target="_blank" class="text-slate-400 hover:text-white transition text-lg" title="GitHub Repository">
+        <a href="https://github.com/jackylawck/veil" target="_blank" class="text-slate-400 hover:text-white transition text-lg" title="GitHub 原始碼庫">
           <i class="fa-brands fa-github"></i>
         </a>
       </div>
@@ -55,50 +55,54 @@
   </header>
 
   <!-- 首頁 Header 氛圍區 -->
-  <section class="max-w-5xl mx-auto px-4 pt-12 pb-8 w-full">
+  <section class="max-w-5xl mx-auto px-4 pt-12 pb-6 w-full">
     <div class="text-center max-w-2xl mx-auto space-y-3">
       <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" id="heroTitle">
         全球 UAP 官方披露進程追蹤器
       </h1>
       <p class="text-slate-400 text-sm sm:text-base leading-relaxed" id="heroSubtitle">
-        追蹤官方紀錄，公開每個疑問。穿透帷幕，重歸客觀透明。
+        追蹤全球主權防衛與官方解密總帳。穿透帷幕，重歸客觀透明。
       </p>
     </div>
 
-    <!-- 數據統計橫幅 (Metrics Ribbon) - 完整支援 3 大官方分類 -->
+    <!-- 數據統計橫幅 (Metrics Ribbon) - 完整動態讀取 Metadata -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
-        <div class="text-xs text-slate-400" id="statLabel1">收錄官方公報</div>
-        <div class="text-2xl font-bold text-emerald-400 mt-1" id="statVal1">--</div>
+        <div class="text-xs text-slate-400" id="statLabel1">官方總帳卷宗</div>
+        <div class="text-2xl font-bold text-sky-400 mt-1" id="statVal1">--</div>
       </div>
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
-        <div class="text-xs text-slate-400" id="statLabel2">國會審議法案</div>
-        <div class="text-2xl font-bold text-sky-400 mt-1" id="statVal2">--</div>
+        <div class="text-xs text-slate-400" id="statLabel2">軍事解密與報告</div>
+        <div class="text-2xl font-bold text-amber-400 mt-1" id="statVal2">--</div>
       </div>
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
-        <div class="text-xs text-slate-400" id="statLabel3">聽證與官方報告</div>
-        <div class="text-2xl font-bold text-amber-400 mt-1" id="statVal3">--</div>
+        <div class="text-xs text-slate-400" id="statLabel3">國會審議與立法</div>
+        <div class="text-2xl font-bold text-emerald-400 mt-1" id="statVal3">--</div>
       </div>
       <div class="bg-surface border border-surfaceBorder rounded-xl p-4 text-center">
-        <div class="text-xs text-slate-400" id="statLabel4">最後審計巡檢</div>
-        <div class="text-sm font-semibold text-slate-300 mt-2" id="statVal4">--</div>
+        <div class="text-xs text-slate-400" id="statLabel4">最後審計時間</div>
+        <div class="text-xs sm:text-sm font-semibold text-slate-300 mt-2 font-mono" id="statVal4">--</div>
       </div>
     </div>
   </section>
 
   <!-- 時間線主體 -->
   <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
-    <!-- 篩選列 -->
-    <div class="flex items-center justify-between border-b border-surfaceBorder pb-4 mb-8">
+    <!-- 篩選列與搜尋欄 -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-surfaceBorder pb-4 mb-8 gap-4">
       <h2 class="text-lg font-bold text-white flex items-center space-x-2" id="timelineHeader">
         <i class="fa-solid fa-timeline text-sky-400"></i>
-        <span>最新解密與官方時間線</span>
+        <span>全球主權官方解密時間線</span>
       </h2>
-      <div class="flex space-x-2 text-xs">
-        <button onclick="filterRecords('all')" class="filter-btn active px-3 py-1 rounded bg-sky-600 text-white font-medium" data-filter="all">全部</button>
-        <button onclick="filterRecords('official_notice')" class="filter-btn px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="official_notice">聯邦公報</button>
-        <button onclick="filterRecords('legislation')" class="filter-btn px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="legislation">國會立法</button>
-        <button onclick="filterRecords('official_report')" class="filter-btn px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="official_report">聽證與報告</button>
+
+      <!-- 多維度分類按鈕組 (支援滾動) -->
+      <div class="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 text-xs scrollbar-none">
+        <button onclick="filterRecords('all')" class="filter-btn active whitespace-nowrap px-3 py-1 rounded bg-sky-600 text-white font-medium" data-filter="all">全部 ALL</button>
+        <button onclick="filterRecords('official_report')" class="filter-btn whitespace-nowrap px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="official_report">聽證與調查 REPORT</button>
+        <button onclick="filterRecords('legislation')" class="filter-btn whitespace-nowrap px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="legislation">法案與條令 LAW</button>
+        <button onclick="filterRecords('declassified_archive')" class="filter-btn whitespace-nowrap px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="declassified_archive">解密案卷 DECLASS</button>
+        <button onclick="filterRecords('scientific_report')" class="filter-btn whitespace-nowrap px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="scientific_report">科學監測 SCIENCE</button>
+        <button onclick="filterRecords('official_notice')" class="filter-btn whitespace-nowrap px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="official_notice">官方通告 NOTICE</button>
       </div>
     </div>
 
@@ -112,14 +116,15 @@
   <footer class="border-t border-surfaceBorder bg-surface/50 mt-16 py-8 text-xs text-slate-500">
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
-        <p class="font-semibold text-slate-400">揭帷 The Veil / Veilwatch OSINT Project</p>
-        <p class="mt-1">僅索引美國聯邦公報、國會法案、政府出版局聽證及官方解密檔（Public Domain）。拒絕匿名謠言。</p>
+        <p class="font-semibold text-slate-400">揭帷 The Veil / OSINT Intelligence Ledger</p>
+        <p class="mt-1">僅索引聯合國、各國防空作戰司令部、國會聽證公報、國家檔案館及聯邦公報。拒絕匿名謠言與未確證傳聞。</p>
       </div>
-      <div class="flex space-x-4">
-        <a href="https://www.federalregister.gov" target="_blank" class="hover:underline">Federal Register</a>
+      <div class="flex flex-wrap gap-x-4 gap-y-2">
+        <a href="https://www.archives.gov/research/topics/uaps" target="_blank" class="hover:underline">NARA Collection</a>
         <a href="https://www.congress.gov" target="_blank" class="hover:underline">Congress.gov</a>
-        <a href="https://www.govinfo.gov" target="_blank" class="hover:underline">GovInfo (GPO)</a>
-        <a href="https://github.com/jackylawck/veil" target="_blank" class="hover:underline">Source Code</a>
+        <a href="https://www.aaro.mil" target="_blank" class="hover:underline">DoD AARO</a>
+        <a href="https://www.geipan.fr" target="_blank" class="hover:underline">CNES GEIPAN</a>
+        <a href="https://github.com/jackylawck/veil" target="_blank" class="hover:underline text-sky-400">GitHub Source</a>
       </div>
     </div>
   </footer>
@@ -127,41 +132,84 @@
   <script>
     let currentLang = 'zh';
     let allRecords = [];
+    let metaInfo = {};
     let currentFilter = 'all';
 
     const UI_TEXT = {
       zh: {
         heroTitle: "全球 UAP 官方披露進程追蹤器",
-        heroSubtitle: "追蹤官方紀錄，公開每個疑問。穿透帷幕，重歸客觀透明。",
-        stat1: "收錄官方公報",
-        stat2: "國會審議法案",
-        stat3: "聽證與官方報告",
-        stat4: "最後審計巡檢",
-        timelineHeader: "最新解密與官方時間線",
+        heroSubtitle: "追蹤全球主權防衛與官方解密總帳。穿透帷幕，重歸客觀透明。",
+        stat1: "官方總帳卷宗",
+        stat2: "軍事解密與報告",
+        stat3: "國會審議與立法",
+        stat4: "最後審計時間",
+        timelineHeader: "全球主權官方解密時間線",
         viewSource: "官方原始出處 ↗",
         langBtn: "切換為 English",
-        shaLabel: "SHA-256 存證"
+        emptyMsg: "此分類下暫無官方紀錄。",
+        filterAll: "全部 ALL",
+        filterReport: "聽證與調查 REPORT",
+        filterLaw: "法案與條令 LAW",
+        filterDeclass: "解密案卷 DECLASS",
+        filterScience: "科學監測 SCIENCE",
+        filterNotice: "官方通告 NOTICE"
       },
       en: {
         heroTitle: "Official UAP Disclosure Ledger",
-        heroSubtitle: "Official records. Open questions. Tracked in public.",
-        stat1: "Federal Notices",
-        stat2: "Congress Bills",
-        stat3: "Hearings & Reports",
-        stat4: "Last Audit Run",
-        timelineHeader: "Official Timeline Stream",
+        heroSubtitle: "Global sovereign defense and official declassified records. Verified & audit-grade.",
+        stat1: "Verified Records",
+        stat2: "Military & Reports",
+        stat3: "Acts & Legislation",
+        stat4: "Audit Timestamp",
+        timelineHeader: "Global Sovereign Timeline Stream",
         viewSource: "Official Document ↗",
         langBtn: "切換為 繁體中文",
-        shaLabel: "SHA-256 Verified"
+        emptyMsg: "No official records found under this filter.",
+        filterAll: "All Records",
+        filterReport: "Hearings & Reports",
+        filterLaw: "Acts & Laws",
+        filterDeclass: "Declassified Files",
+        filterScience: "Scientific Studies",
+        filterNotice: "Official Notices"
       }
     };
 
-    // 精確直連 API，並利用時間戳防止瀏覽器 Local Cache 鎖死
+    // 取得分類徽章 HTML
+    function getTypeBadge(type) {
+      switch (type) {
+        case 'official_notice':
+          return `<span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">官方通告 NOTICE</span>`;
+        case 'legislation':
+        case 'official_directive':
+        case 'international_treaty':
+          return `<span class="bg-sky-950 text-sky-400 border border-sky-800 text-[10px] font-bold px-2 py-0.5 rounded">法規條約 LAW / TREATY</span>`;
+        case 'official_report':
+        case 'official_briefing':
+          return `<span class="bg-amber-950 text-amber-400 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">官方聽證/報告 REPORT</span>`;
+        case 'declassified_archive':
+          return `<span class="bg-purple-950 text-purple-400 border border-purple-800 text-[10px] font-bold px-2 py-0.5 rounded">官方解密卷宗 DECLASS</span>`;
+        case 'scientific_report':
+          return `<span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-2 py-0.5 rounded">科學遙測報告 SCIENCE</span>`;
+        default:
+          return `<span class="bg-slate-800 text-slate-300 border border-slate-700 text-[10px] font-bold px-2 py-0.5 rounded">官方存檔 RECORD</span>`;
+      }
+    }
+
     async function loadData() {
       try {
         const res = await fetch('./api/records-latest.json?v=' + Date.now());
         if (!res.ok) throw new Error('API request failed');
-        allRecords = await res.json();
+        const data = await res.json();
+        
+        // 相容處理：若返回頂層物件包含 records，則提取 records；否則相容舊版陣列
+        if (data && data.records && Array.isArray(data.records)) {
+          allRecords = data.records;
+          metaInfo = data.metadata || {};
+        } else if (Array.isArray(data)) {
+          allRecords = data;
+        } else {
+          allRecords = [];
+        }
       } catch (err) {
         console.warn('API 載入異常，啟動安全降級：', err);
         allRecords = [];
@@ -172,50 +220,68 @@
     }
 
     function updateStats() {
-      document.getElementById('statVal1').innerText = allRecords.filter(r => r.type === 'official_notice').length;
-      document.getElementById('statVal2').innerText = allRecords.filter(r => r.type === 'legislation').length;
-      document.getElementById('statVal3').innerText = allRecords.filter(r => r.type === 'official_report').length;
-      document.getElementById('statVal4').innerText = new Date().toISOString().split('T')[0];
+      document.getElementById('statVal1').innerText = metaInfo.total_records || allRecords.length;
+      document.getElementById('statVal2').innerText = allRecords.filter(r => ['official_report', 'declassified_archive', 'official_briefing'].includes(r.type)).length;
+      document.getElementById('statVal3').innerText = allRecords.filter(r => ['legislation', 'official_directive', 'international_treaty'].includes(r.type)).length;
+      
+      if (metaInfo.generated_at) {
+        const dateStr = metaInfo.generated_at.split('T')[0];
+        document.getElementById('statVal4').innerText = dateStr;
+      } else {
+        document.getElementById('statVal4').innerText = new Date().toISOString().split('T')[0];
+      }
     }
 
     function renderTimeline() {
       const container = document.getElementById('timelineContainer');
       container.innerHTML = '';
 
-      const filtered = currentFilter === 'all' ? allRecords : allRecords.filter(r => r.type === currentFilter);
+      let filtered = allRecords;
+      if (currentFilter !== 'all') {
+        if (currentFilter === 'legislation') {
+          filtered = allRecords.filter(r => ['legislation', 'official_directive', 'international_treaty'].includes(r.type));
+        } else if (currentFilter === 'official_report') {
+          filtered = allRecords.filter(r => ['official_report', 'official_briefing'].includes(r.type));
+        } else {
+          filtered = allRecords.filter(r => r.type === currentFilter);
+        }
+      }
 
       if (filtered.length === 0) {
-        container.innerHTML = '<div class="text-slate-500 text-sm">此分類下暫無官方紀錄。</div>';
+        container.innerHTML = `<div class="text-slate-500 text-sm py-8">${UI_TEXT[currentLang].emptyMsg}</div>`;
         return;
       }
 
       filtered.forEach(record => {
-        let typeBadge = '';
-        if (record.type === 'official_notice') {
-          typeBadge = `<span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">聯邦公報 NOTICE</span>`;
-        } else if (record.type === 'legislation') {
-          typeBadge = `<span class="bg-sky-950 text-sky-400 border border-sky-800 text-[10px] font-bold px-2 py-0.5 rounded">國會法案 BILL</span>`;
-        } else if (record.type === 'official_report') {
-          typeBadge = `<span class="bg-amber-950 text-amber-400 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">官方聽證/報告 REPORT</span>`;
-        }
+        const typeBadge = getTypeBadge(record.type);
 
-        const title = currentLang === 'zh' ? (record.content?.zh_hk?.title || record.content?.en?.title || '') : (record.content?.en?.title || '');
-        const subTitle = currentLang === 'zh' ? (record.content?.en?.title || '') : '';
-        const summary = currentLang === 'zh' ? (record.content?.zh_hk?.executive_summary || record.content?.en?.executive_summary || '') : (record.content?.en?.executive_summary || '');
+        const title = currentLang === 'zh' 
+          ? (record.content?.zh_hk?.title || record.content?.en?.title || '') 
+          : (record.content?.en?.title || '');
+        const subTitle = currentLang === 'zh' 
+          ? (record.content?.en?.title || '') 
+          : '';
+        const summary = currentLang === 'zh' 
+          ? (record.content?.zh_hk?.executive_summary || record.content?.en?.executive_summary || '') 
+          : (record.content?.en?.executive_summary || '');
 
-        const agencies = (record.entities?.agencies || []).map(a => `<span class="text-slate-400 text-xs bg-obsidian px-2 py-0.5 rounded border border-surfaceBorder">${a}</span>`).join(' ');
+        const agencies = (record.entities?.agencies || [])
+          .map(a => `<span class="text-slate-400 text-[11px] bg-obsidian px-2 py-0.5 rounded border border-surfaceBorder">${a}</span>`)
+          .join(' ');
+          
         const primarySource = record.sources?.[0] || {};
         const shaShort = primarySource.sha256 ? primarySource.sha256.substring(0, 10) + '...' : null;
 
         const cardHTML = `
           <div class="relative group">
-            <div class="absolute -left-[49px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-sky-500 group-hover:bg-sky-400 transition"></div>
+            <!-- 時間線指示節點點位 -->
+            <div class="absolute -left-[49px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-sky-500 group-hover:bg-sky-400 transition shadow-sm"></div>
             
             <div class="bg-surface border border-surfaceBorder hover:border-slate-600 transition rounded-xl p-5 shadow-lg">
               <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                 <div class="flex items-center space-x-2">
                   ${typeBadge}
-                  <span class="text-xs font-mono text-slate-400">${record.date?.val || ''}</span>
+                  <span class="text-xs font-mono text-slate-400">${record.date?.val || 'N/A'}</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   ${shaShort ? `<span class="text-[10px] font-mono text-slate-500 bg-obsidian px-1.5 py-0.5 rounded border border-surfaceBorder" title="SHA-256: ${primarySource.sha256}"><i class="fa-solid fa-fingerprint mr-1"></i>${shaShort}</span>` : ''}
@@ -236,7 +302,7 @@
                 <div class="flex flex-wrap gap-1.5">
                   ${agencies}
                 </div>
-                <a href="${primarySource.url || '#'}" target="_blank" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center space-x-1">
+                <a href="${primarySource.url || '#'}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center space-x-1">
                   <span>${UI_TEXT[currentLang].viewSource}</span>
                 </a>
               </div>
@@ -257,6 +323,19 @@
       document.getElementById('statLabel4').innerText = UI_TEXT[currentLang].stat4;
       document.getElementById('timelineHeader').querySelector('span').innerText = UI_TEXT[currentLang].timelineHeader;
       document.getElementById('langToggleBtn').innerText = UI_TEXT[currentLang].langBtn;
+      
+      // 更新按鈕文字
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        const filter = btn.dataset.filter;
+        if (filter === 'all') btn.innerText = UI_TEXT[currentLang].filterAll;
+        if (filter === 'official_report') btn.innerText = UI_TEXT[currentLang].filterReport;
+        if (filter === 'legislation') btn.innerText = UI_TEXT[currentLang].filterLaw;
+        if (filter === 'declassified_archive') btn.innerText = UI_TEXT[currentLang].filterDeclass;
+        if (filter === 'scientific_report') btn.innerText = UI_TEXT[currentLang].filterScience;
+        if (filter === 'official_notice') btn.innerText = UI_TEXT[currentLang].filterNotice;
+      });
+
       renderTimeline();
     }
 
@@ -264,15 +343,15 @@
       currentFilter = type;
       document.querySelectorAll('.filter-btn').forEach(btn => {
         if (btn.dataset.filter === type) {
-          btn.className = "filter-btn active px-3 py-1 rounded bg-sky-600 text-white font-medium";
+          btn.className = "filter-btn active whitespace-nowrap px-3 py-1 rounded bg-sky-600 text-white font-medium";
         } else {
-          btn.className = "filter-btn px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white";
+          btn.className = "filter-btn whitespace-nowrap px-3 py-1 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white";
         }
       });
       renderTimeline();
     }
 
-    // 初始化載入
+    // 初始化執行
     loadData();
   </script>
 </body>
