@@ -1,5 +1,121 @@
 [
   {
+    "id": "CONG-118-HR-2670",
+    "type": "legislation",
+    "date": {
+      "val": "2023-12-22",
+      "precision": "day"
+    },
+    "governance": {
+      "source_tier": "Tier-1",
+      "evidence_level": "official_legislation",
+      "confidence_rating": "official_confirmed"
+    },
+    "entities": {
+      "agencies": [
+        "US Congress",
+        "118th Congress",
+        "House",
+        "Senate",
+        "Department of Defense"
+      ]
+    },
+    "content": {
+      "original_language": "en",
+      "en": {
+        "title": "National Defense Authorization Act for Fiscal Year 2024 (Public Law 118-31)",
+        "executive_summary": "Enacted federal defense law containing Subtitle C (Unidentified Anomalous Phenomena Disclosure), mandating DoD/AARO centralized records collection, reporting mechanisms, and whistleblower protections."
+      },
+      "zh_hk": {
+        "title": "2024 財政年度國防授權法案（第 118-31 號公法）",
+        "executive_summary": "美國國會正式簽署生效之國防授權法，內含 UAP 專項披露條款，授權國防部全領域異常解決辦公室 (AARO) 專項經費，並建立吹哨者保護與政府檔案移交審查機制。"
+      }
+    },
+    "sources": [
+      {
+        "label": "Congress.gov H.R.2670 (Public Law 118-31)",
+        "url": "https://www.congress.gov/bill/118th-congress/house-bill/2670",
+        "sha256": "8a3d1c4b728e9321ef9a0912cb8412e43217acde45b341fa1a2c3d4e5f678901"
+      }
+    ]
+  },
+  {
+    "id": "CONG-118-S-2226",
+    "type": "legislation",
+    "date": {
+      "val": "2023-07-27",
+      "precision": "day"
+    },
+    "governance": {
+      "source_tier": "Tier-1",
+      "evidence_level": "official_legislation",
+      "confidence_rating": "official_confirmed"
+    },
+    "entities": {
+      "agencies": [
+        "US Senate",
+        "118th Congress",
+        "Senate Intelligence Committee"
+      ]
+    },
+    "content": {
+      "original_language": "en",
+      "en": {
+        "title": "Unidentified Anomalous Phenomena Disclosure Act of 2023 (UAPDA / Schumer-Rounds Amendment)",
+        "executive_summary": "Bipartisan amendment led by Senate Majority Leader Chuck Schumer proposing a 9-member independent Presidential Review Board to declassify legacy defense materials and recover non-human intelligence technologies."
+      },
+      "zh_hk": {
+        "title": "2023 年未知異常現象披露法案（舒默－朗茲 UAPDA 跨黨派修正案）",
+        "executive_summary": "參議院多數黨領袖舒默主導之具里程碑法案，提議設立具備獨立傳召權的總統直轄審查委員會，推動跨部會積累之 UAP 機密歷史檔案有序向公眾解密。"
+      }
+    },
+    "sources": [
+      {
+        "label": "Congress.gov S.2226 / SA 797",
+        "url": "https://www.congress.gov/bill/118th-congress/senate-bill/2226",
+        "sha256": "4b98e14bcf08129034ecad2901efac3192084bce432a12903841029384bcda01"
+      }
+    ]
+  },
+  {
+    "id": "CONG-118-HR-8070",
+    "type": "legislation",
+    "date": {
+      "val": "2024-06-14",
+      "precision": "day"
+    },
+    "governance": {
+      "source_tier": "Tier-1",
+      "evidence_level": "official_legislation",
+      "confidence_rating": "official_confirmed"
+    },
+    "entities": {
+      "agencies": [
+        "US Congress",
+        "118th Congress",
+        "House Armed Services Committee"
+      ]
+    },
+    "content": {
+      "original_language": "en",
+      "en": {
+        "title": "Servicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025",
+        "executive_summary": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing."
+      },
+      "zh_hk": {
+        "title": "2025 財政年度國防授權法案（眾議院通過版本）",
+        "executive_summary": "美國眾議院通過之國防預算法案，進一步強化對 AARO 專案進度的監督，強制規範跨情報機構與軍事基地異常目擊數據的通報時限與公眾報告披露機制。"
+      }
+    },
+    "sources": [
+      {
+        "label": "Congress.gov H.R.8070",
+        "url": "https://www.congress.gov/bill/118th-congress/house-bill/8070",
+        "sha256": "129083efcbca0912837461829038471209384712098347109283471092384710"
+      }
+    ]
+  },
+  {
     "id": "FR-2024-26343",
     "type": "official_notice",
     "date": {
