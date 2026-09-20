@@ -13,7 +13,7 @@ class FederalRegisterAdapter(BaseAdapter):
     def source_name(self) -> str:
         return "federal_register"
 
-    def fetch_records(self, days_back: int = 7) -> List[Dict[str, Any]]:
+    def fetch_records(self, days_back: int = 365) -> List[Dict[str, Any]]:
         start_date = (datetime.utcnow() - timedelta(days=days_back)).strftime(
             "%Y-%m-%d"
         )
