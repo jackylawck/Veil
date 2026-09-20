@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'public/**'
+      - 'data/**'
   workflow_dispatch:
 
 permissions:
