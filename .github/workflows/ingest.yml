@@ -1,0 +1,47 @@
+name: Daily Ingest Pipeline
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # 每天 UTC 02:00 (香港時間 10:00)
+  workflow_dispatch:      # 支援手動測試執行
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin SHA (v4.1.1)
+
+      - name: Setup Python
+        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # pin SHA (v5.1.0)
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Ingest Script
+        id: run_ingest
+        run: python scripts/ingest.py
+
+      - name: Create Pull Request for Human Review
+        if: steps.run_ingest.outputs.new_records > 0
+        uses: peter-evans/create-pull-request@b173f07e0ea74d13bb6172e4d74796699110f514 # pin SHA (v5.0.2)
+        with:
+          commit-message: "data: ingest new public records for review"
+          branch: "ingest-draft-${{ steps.run_ingest.outputs.today_str }}"
+          title: "[Draft Review] New Records Ingested"
+          body: |
+            ### 待審核官方公開紀錄
+            自動抓取管線已發現新條目，並已儲存至 `drafts/`。
+            
+            **審查指引**：
+            1. 請點開檔案確認原始 URL 與公報內容。
+            2. 補充或校正中文標題與摘要。
+            3. 確認無誤後點擊 **Merge** 發布。
+          labels: "draft-review"
