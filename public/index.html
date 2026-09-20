@@ -154,28 +154,14 @@
       }
     };
 
-    // 依序嘗試多個數據來源路徑，確保本地與發布環境皆能正確載入
+    // 精確直連 API，並利用時間戳防止瀏覽器 Local Cache 鎖死
     async function loadData() {
-      const endpoints = [
-        './data/records.json',
-        './api/records-latest.json',
-        './drafts/2026-09-20.json'
-      ];
-
-      for (const url of endpoints) {
-        try {
-          const res = await fetch(url);
-          if (res.ok) {
-            allRecords = await res.json();
-            break;
-          }
-        } catch (err) {
-          // 嘗試下一個來源
-        }
-      }
-
-      // 若皆未獲取，採用內置基準官方數據（2024-11-08 DoD 官方 AARO 公告）
-      if (!allRecords || allRecords.length === 0) {
+      try {
+        const res = await fetch('./api/records-latest.json?v=' + Date.now());
+        if (!res.ok) throw new Error('API request failed');
+        allRecords = await res.json();
+      } catch (err) {
+        console.warn('API 載入異常，啟動安全降級：', err);
         allRecords = [
           {
             id: "FR-2024-26343",
@@ -186,7 +172,7 @@
             content: {
               en: {
                 title: "Proposed Collection; Comment Request: All-Domain Anomaly Resolution Office (AARO)",
-                executive_summary: "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions."
+                executive_summary: "DoD notice regarding reporting channels, secure retention of anomalous sightings, and inter-agency data sharing mechanisms under Title 10/50 oversight."
               },
               zh_hk: {
                 title: "擬議資訊收集與意見徵詢：全領域異常解決辦公室 (AARO) 專項業務公告",
