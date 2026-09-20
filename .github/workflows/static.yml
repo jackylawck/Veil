@@ -32,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
           echo "### 🔍 靜態資源與安全審計檢查" >> "$GITHUB_STEP_SUMMARY"
-
+          
           # 1. 確保 public 目錄存在
           if [ ! -d "public" ]; then
             echo "::error::找不到 public 目錄！"
@@ -60,17 +60,17 @@ jobs:
           import json, sys
           with open("public/api/records-latest.json", "r", encoding="utf-8") as f:
               data = json.load(f)
-
+          
           # 相容頂層是 dict 或直接是 list 的情況
           records = data.get("records", data) if isinstance(data, dict) else data
           assert isinstance(records, list), "Schema 錯誤: records 必須為陣列清單"
-
+          
           # 抽檢前 5 筆資料關鍵欄位
           for idx, r in enumerate(records[:5]):
               assert "id" in r, f"第 {idx} 筆紀錄缺少 'id' 欄位"
               assert "date" in r, f"第 {idx} 筆紀錄缺少 'date' 欄位"
               assert "sources" in r, f"第 {idx} 筆紀錄缺少 'sources' 欄位"
-
+              
           print(f"OK:{len(records)}")
           EOF
             TOTAL_RECORDS=$(python3 -c "import json; data=json.load(open('$LEDGER')); records=data.get('records', data) if isinstance(data, dict) else data; print(len(records))")
@@ -105,12 +105,11 @@ jobs:
           set -euo pipefail
           SITE_URL="${{ steps.deployment.outputs.page_url }}"
           echo "正在驗證線上站點可用性: $SITE_URL"
-
+          
           # 等待 CDN 廣播，最多重試 5 次
           SUCCESS=0
           for i in {1..5}; do
-            # 移除 % 前面的反斜線，讓 curl 正常解析 HTTP 狀態碼
-            STATUS_CODE=$(curl -s -o /dev/null -w "\%{http_code}" "$SITE_URL" || true)
+            STATUS_CODE=$(curl -s -o /dev/null -w '\%{http_code}' "$SITE_URL" || true)
             if [ "$STATUS_CODE" = "200" ]; then
               SUCCESS=1
               echo "✔ 站點驗證成功 (HTTP 200)"
