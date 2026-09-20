@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin SHA (v4.1.1)
+        with:
+          fetch-depth: 0 # 確保完整歷史，防範 PR 建立時差異比對錯誤
 
       - name: Setup Python
         uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # pin SHA (v5.1.0)
@@ -27,15 +29,19 @@ jobs:
 
       - name: Run Ingest Script
         id: run_ingest
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
         run: python scripts/ingest.py
 
       - name: Create Pull Request for Human Review
         if: steps.run_ingest.outputs.new_records > 0
         uses: peter-evans/create-pull-request@b173f07e0ea74d13bb6172e4d74796699110f514 # pin SHA (v5.0.2)
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "data: ingest new public records for review"
           branch: "ingest-draft-${{ steps.run_ingest.outputs.today_str }}"
-          title: "[Draft Review] New Records Ingested"
+          delete-branch: true
+          title: "[Draft Review] New Records Ingested (${{ steps.run_ingest.outputs.today_str }})"
           body: |
             ### 待審核官方公開紀錄
             自動抓取管線已發現新條目，並已儲存至 `drafts/`。
