@@ -2,48 +2,75 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Disable Jekyll
-        run: touch public/.nojekyll
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Checkout Code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1 pinned SHA
         with:
-          # 發布 public 資料夾內的 index.html
+          fetch-depth: 1
+
+      - name: Verify Build Artifacts & Integrity
+        run: |
+          echo "### 🔍 靜態資源完整性檢查" >> $GITHUB_STEP_SUMMARY
+          
+          # 1. 確保 public 目錄存在
+          if [ ! -d "public" ]; then
+            echo "❌ 錯誤: 找不到 public 目錄！"
+            exit 1
+          fi
+
+          # 2. 檢查首頁 index.html
+          if [ ! -f "public/index.html" ]; then
+            echo "❌ 錯誤: 找不到 public/index.html！"
+            exit 1
+          fi
+          echo "- ✔ index.html 存在" >> $GITHUB_STEP_SUMMARY
+
+          # 3. 檢查 API JSON 與 SHA-256 驗證檔
+          if [ -f "public/api/records-latest.json" ]; then
+            # 驗證 JSON 語法格式合法性
+            python3 -m json.tool public/api/records-latest.json > /dev/null
+            TOTAL_RECORDS=$(python3 -c "import json; data=json.load(open('public/api/records-latest.json')); print(len(data.get('records', data)))")
+            echo "- ✔ records-latest.json 語法驗證通過 (共 ${TOTAL_RECORDS} 筆紀錄)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ⚠️ 警告: 未發現 public/api/records-latest.json (若為首次發布請確認資料庫狀態)" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # 4. 確保 GitHub Pages 不會略過底線開頭的檔案
+          touch public/.nojekyll
+
+      - name: Setup Pages Configuration
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0 pinned SHA
+
+      - name: Upload Artifact to Pages
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1 pinned SHA
+        with:
           path: 'public'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5 pinned SHA
+
+      - name: Append Deployment Summary
+        if: success()
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🚀 **部署成功！** 線上站點網址: [${{ steps.deployment.outputs.page_url }}](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
