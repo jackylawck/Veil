@@ -13,24 +13,18 @@ class FederalRegisterAdapter(BaseAdapter):
     def source_name(self) -> str:
         return "federal_register"
 
-    def fetch_records(self, days_back: int = 365) -> List[Dict[str, Any]]:
+    def fetch_records(self, days_back: int = 730) -> List[Dict[str, Any]]:
+        # 預設回溯 730 天（涵蓋 2024 年至今），確保歷史基準紀錄能順利入庫
         start_date = (datetime.utcnow() - timedelta(days=days_back)).strftime(
             "%Y-%m-%d"
         )
 
-        # 採用嚴格精確短語搜尋，避免單字拆解雜訊
+        # 採用嚴格精確短語搜尋；移除過度限制的 type 與 agencies 陣列
         params = {
             "conditions[term]": (
-                '"unidentified anomalous phenomena" OR "AARO" OR "unidentified'
-                ' aerial phenomena"'
+                '"unidentified anomalous phenomena" OR "All-domain Anomaly Resolution Office" OR "AARO"'
             ),
             "conditions[publication_date][gte]": start_date,
-            "conditions[type][]": ["RULE", "NOTICE", "PRESDOCU"],
-            "conditions[agencies][]": [
-                "defense-department",
-                "national-aeronautics-and-space-administration",
-                "federal-aviation-administration",
-            ],
             "per_page": 100,
             "order": "newest",
             "fields[]": [
