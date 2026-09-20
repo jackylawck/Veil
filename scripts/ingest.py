@@ -15,7 +15,7 @@ from adapters.congress import CongressGovAdapter
 
 ACTIVE_ADAPTERS = [
     FederalRegisterAdapter(),
-    CongressGovAdapter(api_key=os.getenv("CONGRESS_API_KEY")),
+    CongressGovAdapter(),  # 內部會自動讀取環境變數 CONGRESS_API_KEY
 ]
 
 
@@ -49,6 +49,12 @@ def run_pipeline():
         json.dump(output_list, f, ensure_ascii=False, indent=2)
 
     print(f"[✓] Ingest complete. {new_count} new entries written to {draft_path}")
+
+    # 同步更新 public/api/records-latest.json 供前端儀表板即時調用
+    api_dir = Path("public/api")
+    api_dir.mkdir(parents=True, exist_ok=True)
+    with open(api_dir / "records-latest.json", "w", encoding="utf-8") as f:
+        json.dump(output_list, f, ensure_ascii=False, indent=2)
 
     # 設定輸出環境變數，讓 GitHub Actions 知道是否有新資料以及今天的日期字串
     if "GITHUB_OUTPUT" in os.environ:
