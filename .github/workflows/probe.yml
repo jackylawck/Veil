@@ -16,6 +16,7 @@ jobs:
   run-probe:
     name: Run Federal Register API Probe
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     
     steps:
       - name: Checkout Code
@@ -33,10 +34,15 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip
-          pip install -r requirements.txt || pip install requests
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install requests
+          fi
 
       - name: Run Diagnostics Probe
         id: probe
+        timeout-minutes: 5
         env:
           PYTHONUNBUFFERED: "1"
           PROBE_DAYS_BACK: ${{ inputs.days_back || '365' }}
@@ -44,15 +50,20 @@ jobs:
         run: |
           set -euo pipefail
           
-          echo "### 🔍 Federal Register 診斷巡檢執行紀錄" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **執行時間 (UTC)**: $(date -u +'\%Y-\%m-\%d \%H:\%M:\%S')" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **搜尋回溯窗口**: \`${PROBE_DAYS_BACK}\` 日" >> "$GITHUB_STEP_SUMMARY"
-          if [ -n "$PROBE_CUSTOM_TERM" ]; then
-            echo "- **自訂關鍵詞**: \`${PROBE_CUSTOM_TERM}\`" >> "$GITHUB_STEP_SUMMARY"
-          fi
-          echo "" >> "$GITHUB_STEP_SUMMARY"
+          # 1. 在 Step Summary 頂部印出審計基準資訊
+          NOW_UTC=$(date -u +'%Y-%m-%d %H:%M:%S UTC')
+          {
+            echo "## 🔍 Federal Register 診斷巡檢執行紀錄"
+            echo "- **執行時間**: \`${NOW_UTC}\`"
+            echo "- **回溯天數**: \`${PROBE_DAYS_BACK}\` 日"
+            if [ -n "${PROBE_CUSTOM_TERM}" ]; then
+              echo "- **自訂檢索詞**: \`${PROBE_CUSTOM_TERM}\`"
+            else
+              echo "- **檢索模式**: \`預設官方核心詞組集合\`"
+            fi
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
           
-          # 執行診斷腳本，同時將 stdout 輸出至終端與 GitHub 執行摘要 (Markdown 程式碼區塊)
-          echo '```text' >> "$GITHUB_STEP_SUMMARY"
-          python scripts/probe_fr.py 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          # 2. 執行探針：stdout 留存在 Actions 終端供逐行查閱，
+          #    結構化結果則由 probe_fr.py 直接追加渲染至 Step Summary
+          python scripts/probe_fr.py
