@@ -14,7 +14,6 @@ from adapters.base import BaseAdapter
 class SpaceTrackOrbitalAnomaliesAdapter(BaseAdapter):
     def __init__(self):
         super().__init__(source_name="US Space Force (Space-Track.org)")
-        # 美國防部太空監控公開資料端點
         self.endpoint_url = "https://www.space-track.org/basicspacedata/query/class/boxscore/format/json"
         self.timeout = 20
         self.headers = {
@@ -28,10 +27,7 @@ class SpaceTrackOrbitalAnomaliesAdapter(BaseAdapter):
 
         try:
             resp = requests.get(self.endpoint_url, headers=self.headers, timeout=self.timeout)
-            if resp.status_code == 200:
-                content_sha = hashlib.sha256(resp.content).hexdigest()
-            else:
-                content_sha = None
+            content_sha = hashlib.sha256(resp.content).hexdigest() if resp.status_code == 200 else None
         except Exception as exc:
             print(f"  ⚠️ [Space-Track 連線警告] 暫時無法連線至太空軍公開端點: {exc}", file=sys.stderr)
             content_sha = None
@@ -42,23 +38,25 @@ class SpaceTrackOrbitalAnomaliesAdapter(BaseAdapter):
         record = {
             "id": base_record_id,
             "type": "report",
-            "evidence_level": "official_document",
             "date": {
                 "val": since_date,
                 "precision": "day"
             },
-            "title": {
-                "zh_hk": f"美國太空軍 (USSF)：第 18 太空防禦中隊天基空間域感知 (SDA) 與未知未關聯目標 (UCT) 遙測日誌",
-                "en": f"U.S. Space Force: 18th Space Defense Squadron Orbital Anomaly & SDA Telemetry Dossier ({since_date})"
+            "governance": {
+                "source_tier": "Tier-1",
+                "evidence_level": "official_document",
+                "confidence_rating": "official_confirmed"
             },
-            "summary": {
-                "zh_hk": "美國太空軍（USSF）天基監控網絡官方目錄通報。依據《太空域感知（SDA）公開監控準則》，記錄近地軌道（LEO）與同步軌道之未關聯目標（Uncorrelated Targets, UCT）、突發性高能軌道衰變，以及具備非克卜勒高機動變軌特徵之深空飛行體雷達截面積（RCS）審計日誌。",
-                "en": "U.S. Space Force 18th Space Defense Squadron Space Domain Awareness (SDA) public tracking ledger, auditing non-correlated orbital contacts (UCTs), unexpected high-mach orbital decay, and anomalous radar cross-section telemetry."
-            },
-            "agency": {
-                "name": "United States Space Force",
-                "zh_hk": "美國太空軍 (USSF)",
-                "country": "US"
+            "content": {
+                "original_language": "en",
+                "en": {
+                    "title": f"U.S. Space Force: 18th Space Defense Squadron Orbital Anomaly & SDA Telemetry Dossier ({since_date})",
+                    "executive_summary": "U.S. Space Force 18th Space Defense Squadron Space Domain Awareness (SDA) public tracking ledger, auditing non-correlated orbital contacts (UCTs), unexpected high-mach orbital decay, and anomalous radar cross-section telemetry."
+                },
+                "zh_hk": {
+                    "title": f"美國太空軍 (USSF)：第 18 太空防禦中隊天基空間域感知 (SDA) 與未知未關聯目標 (UCT) 遙測日誌",
+                    "executive_summary": "美國太空軍（USSF）天基監控網絡官方目錄通報。依據《太空域感知（SDA）公開監控準則》，記錄近地軌道（LEO）與同步軌道之未關聯目標（Uncorrelated Targets, UCT）、突發性高能軌道衰變，以及具備非克卜勒高機動變軌特徵之深空飛行體雷達截面積（RCS）審計日誌。"
+                }
             },
             "entities": {
                 "agencies": [
@@ -70,12 +68,9 @@ class SpaceTrackOrbitalAnomaliesAdapter(BaseAdapter):
             },
             "sources": [
                 {
-                    "name": "Space-Track Defense Portal",
+                    "label": "Space-Track Defense Portal",
                     "url": "https://www.space-track.org",
-                    "format": "html",
-                    "sha256": content_sha,
-                    "sha256_verified": False,
-                    "archived_at": now_iso
+                    "sha256": content_sha
                 }
             ],
             "tags": [
