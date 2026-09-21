@@ -56,7 +56,7 @@ jobs:
           fi
           echo "- ✔ 首頁 \`public/index.html\` 存在" >> "$GITHUB_STEP_SUMMARY"
 
-          # 4. 驗證資料端點語法與結構 (防範 list / dict 邊界問題並抽樣 Schema)
+          # 4. 驗證資料端點語法與結構
           LEDGER="public/api/records-latest.json"
           if [ -f "$LEDGER" ]; then
             python3 - <<'EOF'
@@ -64,11 +64,9 @@ jobs:
           with open("public/api/records-latest.json", "r", encoding="utf-8") as f:
               data = json.load(f)
 
-          # 相容頂層是 dict 或直接是 list 的情況
           records = data.get("records", data) if isinstance(data, dict) else data
           assert isinstance(records, list), "Schema 錯誤: records 必須為陣列清單"
 
-          # 抽檢前 5 筆資料關鍵欄位
           for idx, r in enumerate(records[:5]):
               assert "id" in r, f"第 {idx} 筆紀錄缺少 'id' 欄位"
               assert "date" in r, f"第 {idx} 筆紀錄缺少 'date' 欄位"
@@ -82,7 +80,7 @@ jobs:
             echo "- ⚠️ 警告: 未發現 \`$LEDGER\` (僅發布靜態前端框架)" >> "$GITHUB_STEP_SUMMARY"
           fi
 
-          # 5. 構件容量預警檢查 (GitHub Pages 軟上限預防)
+          # 5. 構件容量預警檢查
           DIR_SIZE=$(du -sm public | cut -f1)
           if [ "$DIR_SIZE" -gt 500 ]; then
             echo "- ⚠️ 構件容量警告: 當前 public 大小為 ${DIR_SIZE}MB (超過 500MB)" >> "$GITHUB_STEP_SUMMARY"
@@ -105,27 +103,35 @@ jobs:
 
       - name: Smoke Test Deployed Site
         run: |
-          set -euo pipefail
-          SITE_URL="${{ steps.deployment.outputs.page_url }}"
-          echo "正在驗證線上站點可用性: $SITE_URL"
+          python3 - <<'EOF'
+          import urllib.request
+          import time
+          import sys
 
-          # 等待 CDN 廣播，最多重試 5 次，加入 -L 跟隨 301 重定向
-          SUCCESS=0
-          for i in {1..5}; do
-            STATUS_CODE=$(curl -s -L -o /dev/null -w "\%{http_code}" "$SITE_URL" || true)
-            if [ "$STATUS_CODE" = "200" ]; then
-              SUCCESS=1
-              echo "✔ 站點驗證成功 (HTTP 200)"
-              break
-            fi
-            echo "嘗試第 $i 次: HTTP 狀態碼 $STATUS_CODE，等待 10 秒後重試..."
-            sleep 10
-          done
+          site_url = "${{ steps.deployment.outputs.page_url }}"
+          print(f"正在驗證線上站點可用性: {site_url}")
 
-          if [ "$SUCCESS" -ne 1 ]; then
-            echo "::error::線上站點 Smoke Test 失敗，返回狀態碼: $STATUS_CODE"
-            exit 1
-          fi
+          success = False
+          headers = {"User-Agent": "TheVeil-SmokeTest/1.0"}
+
+          for i in range(1, 6):
+              try:
+                  req = urllib.request.Request(site_url, headers=headers)
+                  with urllib.request.urlopen(req, timeout=15) as resp:
+                      status = resp.getcode()
+                      if status == 200:
+                          print(f"✔ 站點驗證成功 (HTTP {status})")
+                          success = True
+                          break
+                      print(f"嘗試第 {i} 次: 狀態碼 {status}，等待 10 秒後重試...")
+              except Exception as e:
+                  print(f"嘗試第 {i} 次連線異常: {e}，等待 10 秒後重試...")
+              time.sleep(10)
+
+          if not success:
+              print("::error::線上站點 Smoke Test 失敗！", file=sys.stderr)
+              sys.exit(1)
+          EOF
 
       - name: Append Deployment Summary
         run: |
