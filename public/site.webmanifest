@@ -1,0 +1,23 @@
+{
+  "name": "The Veil | 揭帷 - 全球 UAP 官方披露情報總帳",
+  "short_name": "The Veil",
+  "description": "全球主權防衛與 UAP 官方解密總帳，提供審計級第一手公報與 SHA-256 存證。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0f17",
+  "theme_color": "#0b0f17",
+  "icons": [
+    {
+      "src": "veil192icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "veil512icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
