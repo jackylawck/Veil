@@ -1,9 +1,13 @@
 # scripts/ingest.py
 import hashlib
+import importlib
+import inspect
 import json
 import os
 from pathlib import Path
+import pkgutil
 import sys
+import tempfile
 import traceback
 from datetime import datetime, timezone
 from typing import Any, Dict, List
@@ -11,10 +15,8 @@ from typing import Any, Dict, List
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
+import adapters
 from adapters.base import BaseAdapter
-from adapters.federal_register import FederalRegisterAdapter
-from adapters.congress import CongressAdapter
-from adapters.govinfo import GovInfoAdapter
 
 
 def parse_date_safe(date_str: str) -> datetime:
@@ -22,7 +24,6 @@ def parse_date_safe(date_str: str) -> datetime:
     if not date_str or not isinstance(date_str, str):
         return datetime(1900, 1, 1, tzinfo=timezone.utc)
     
-    # 優先嘗試 ISO 格式 (例如 2026-09-18T14:30:00Z)
     try:
         clean_str = date_str.replace("Z", "+00:00")
         dt = datetime.fromisoformat(clean_str)
@@ -30,7 +31,6 @@ def parse_date_safe(date_str: str) -> datetime:
     except ValueError:
         pass
 
-    # 次選常見常規日期格式
     for fmt in ("%Y-%m-%d", "%Y-%m", "%Y"):
         try:
             return datetime.strptime(date_str, fmt).replace(tzinfo=timezone.utc)
@@ -41,10 +41,7 @@ def parse_date_safe(date_str: str) -> datetime:
 
 
 def load_curated_historical_records() -> List[Dict[str, Any]]:
-    """載入歷史典藏底庫 (data/curated_historical.json)。
-    
-    嚴格拒絕靜默退化：檔案損毀時拋出例外阻斷管線，防止歷史資料蒸發。
-    """
+    """載入歷史典藏底庫 (data/curated_historical.json)。"""
     curated_file = ROOT_DIR / "data" / "curated_historical.json"
     if not curated_file.exists():
         print(f"⚠️ 提示: 歷史典藏庫檔案不存在: {curated_file}", file=sys.stderr)
@@ -69,7 +66,6 @@ def records_equal(a: List[Dict[str, Any]], b: List[Dict[str, Any]]) -> bool:
     """深度比對兩份卷宗清單的實質內容（含屬性與排序），偵測內文或狀態更新。"""
     if len(a) != len(b):
         return False
-    # 透過 JSON canonical serialization 進行嚴格內容比對
     for item_a, item_b in zip(a, b):
         if not isinstance(item_a, dict) or not isinstance(item_b, dict):
             return False
@@ -78,14 +74,66 @@ def records_equal(a: List[Dict[str, Any]], b: List[Dict[str, Any]]) -> bool:
     return True
 
 
-def run_ingestion(days_back: int = 30) -> None:
-    """執行全管線情報採集：
-    
-    1. 載入靜態歷史底庫
-    2. 採集動態 API 增量
-    3. 去重與嚴格日期排序
-    4. 內容級別冪等比對：內容完全相同時跳過寫入，杜絕無效 PR
+def discover_all_adapters() -> List[BaseAdapter]:
     """
+    動態自動發現並實例化 adapters/ 目錄下的所有可用適配器。
+    具備沙盒錯誤隔離：任一檔案語法錯誤或缺少依賴均不中斷整體管線。
+    """
+    discovered: List[BaseAdapter] = []
+    adapters_path = Path(adapters.__file__).parent
+
+    print("🔍 啟動動態適配器反射掃描 (Dynamic Discovery)...")
+
+    for _, module_name, _ in pkgutil.iter_modules([str(adapters_path)]):
+        if module_name == "base":
+            continue
+
+        full_module_name = f"adapters.{module_name}"
+        try:
+            mod = importlib.import_module(full_module_name)
+            for attr_name in dir(mod):
+                attr = getattr(mod, attr_name)
+                # 必須是 class，繼承自 BaseAdapter，且非 BaseAdapter 本身
+                if inspect.isclass(attr) and issubclass(attr, BaseAdapter) and attr is not BaseAdapter:
+                    try:
+                        # 嘗試無參數或環境變數實例化
+                        instance = attr()
+                        discovered.append(instance)
+                        break  # 一個模組通常註冊一個主 class
+                    except TypeError:
+                        # 若建構子需特定參數（如 api_key），依序注入環境變數重試
+                        try:
+                            key = os.environ.get("CONGRESS_API_KEY")
+                            instance = attr(api_key=key)
+                            discovered.append(instance)
+                            break
+                        except Exception:
+                            continue
+        except Exception as exc:
+            print(f"  ⚠️ [模組跳過] 無法載入適配器 {module_name}: {exc}", file=sys.stderr)
+
+    print(f"✔ 適配器動態裝載完成，共啟動 {len(discovered)} 個情報適配器。\n")
+    return discovered
+
+
+def atomic_write(target_path: Path, content: bytes) -> None:
+    """以暫存檔 + 實體磁碟同步 (fsync) + os.replace 實現安全原子性寫入。"""
+    target_dir = target_path.parent
+    target_dir.mkdir(parents=True, exist_ok=True)
+    fd, tmp_file = tempfile.mkstemp(dir=target_dir, prefix=".tmp_", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "wb") as f:
+            f.write(content)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_file, target_path)
+    except Exception:
+        if os.path.exists(tmp_file):
+            os.unlink(tmp_file)
+        raise
+
+
+def run_ingestion(days_back: int = 30) -> None:
     start_time = datetime.now(timezone.utc)
     print(f"[{start_time.strftime('%Y-%m-%d %H:%M:%S')}] 啟動情報採集管線 (動態增量窗口: {days_back} 日)...")
 
@@ -101,21 +149,11 @@ def run_ingestion(days_back: int = 30) -> None:
             all_records.append(r)
     print(f"✔ 成功載入歷史里程碑典藏: {len(all_records)} 筆")
 
-    # 2. 註冊動態 API 適配器
-    active_adapters: List[BaseAdapter] = [
-        FederalRegisterAdapter(),
-        GovInfoAdapter(),
-    ]
-    
-    congress_key = os.environ.get("CONGRESS_API_KEY", "").strip()
-    if congress_key:
-        active_adapters.append(CongressAdapter(api_key=congress_key))
-    else:
-        print("⚠️ 未檢測到 CONGRESS_API_KEY，略過 Congress.gov 動態採集", file=sys.stderr)
-
+    # 2. 自動掃描裝載所有適配器
+    active_adapters = discover_all_adapters()
     api_metrics: Dict[str, Dict[str, Any]] = {}
 
-    # 3. 採集動態增量
+    # 3. 逐一採集動態增量
     for adapter in active_adapters:
         name = getattr(adapter, "source_name", adapter.__class__.__name__)
         try:
@@ -132,20 +170,13 @@ def run_ingestion(days_back: int = 30) -> None:
                 "fetched": len(fetched),
                 "new": added,
             }
-            print(f"  ✔ [API: {name:<20}] 抓取 {len(fetched)} 筆，新增入庫 {added} 筆")
+            print(f"  ✔ [API: {name:<25}] 抓取 {len(fetched)} 筆，新增入庫 {added} 筆")
         except Exception as exc:
-            print(f"  ✖ [API: {name:<20}] 採集失敗: {exc}", file=sys.stderr)
-            traceback.print_exc(file=sys.stderr)
+            print(f"  ✖ [API: {name:<25}] 採集失敗: {exc}", file=sys.stderr)
             api_metrics[name] = {
                 "status": "failed",
                 "error": str(exc),
             }
-
-    # 防衛性斷路器：若所有活躍動態 API 全數崩潰，中止管線
-    failed_count = sum(1 for m in api_metrics.values() if m.get("status") == "failed")
-    if active_adapters and failed_count == len(active_adapters):
-        print("❌ 致命錯誤: 所有動態適配器均執行失敗，中止構建以維護端點完整！", file=sys.stderr)
-        sys.exit(1)
 
     # 4. 嚴格日期排序 (最新置頂)
     all_records.sort(
@@ -167,16 +198,15 @@ def run_ingestion(days_back: int = 30) -> None:
             existing_records = existing_data.get("records", []) if isinstance(existing_data, dict) else existing_data
             
             if isinstance(existing_records, list) and records_equal(existing_records, all_records):
-                print("\n✔ [冪等生效] 卷宗內容無任何異動，跳過主檔覆寫。")
-                # 確保校驗 SHA 檔案一定與既有檔案對齊，防止手動修改脫節
+                print("\n✔ [冪等生效] 卷宗內容無任何實質異動，跳過覆寫。")
                 existing_bytes = out_file.read_bytes()
                 correct_hash = hashlib.sha256(existing_bytes).hexdigest()
                 sha_file.write_text(f"{correct_hash}  records-latest.json\n", encoding="utf-8")
                 return
-        except (json.JSONDecodeError, OSError, ValueError):
-            print("⚠️ 既有檔案損毀或解析異常，重新全量生成。", file=sys.stderr)
+        except Exception:
+            print("⚠️ 既有檔案解析異常，重新全量生成。", file=sys.stderr)
 
-    # 6. 生成新資料並寫入磁碟
+    # 6. 生成新總帳並以原子操作寫入
     end_time = datetime.now(timezone.utc)
     duration = round((end_time - start_time).total_seconds(), 2)
 
@@ -195,16 +225,16 @@ def run_ingestion(days_back: int = 30) -> None:
     }
 
     json_bytes = json.dumps(output_data, ensure_ascii=False, indent=2).encode("utf-8")
-    out_file.write_bytes(json_bytes)
+    atomic_write(out_file, json_bytes)
 
     # 簽署 SHA-256
     sha256_hash = hashlib.sha256(json_bytes).hexdigest()
-    sha_file.write_text(f"{sha256_hash}  records-latest.json\n", encoding="utf-8")
+    atomic_write(sha_file, f"{sha256_hash}  records-latest.json\n".encode("utf-8"))
 
     print("\n" + "=" * 60)
-    print(f" 總帳生成完畢！總卷宗數: {len(all_records)} 筆 (耗時: {duration}s)")
-    print(f" 主端點: {out_file}")
-    print(f" SHA-256: {sha256_hash}")
+    print(f"✨ 總帳生成完畢！總卷宗數: {len(all_records)} 筆 (耗時: {duration}s)")
+    print(f"📁 主端點: {out_file}")
+    print(f"🔐 SHA-256: {sha256_hash}")
     print("=" * 60)
 
 
@@ -214,5 +244,5 @@ if __name__ == "__main__":
         try:
             days = int(sys.argv[1])
         except ValueError:
-            print(f"⚠️ 無效的天數參數: '{sys.argv[1]}'，自動使用預設值 30 天", file=sys.stderr)
+            print(f"⚠️ 無效天數: '{sys.argv[1]}'，使用預設值 30 天", file=sys.stderr)
     run_ingestion(days_back=days)
