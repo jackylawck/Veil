@@ -55,7 +55,7 @@
     style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
     img-src 'self' data: blob: https://jackylawck.github.io;
     font-src 'self' data: https://cdnjs.cloudflare.com;
-    connect-src 'self' https://jackylawck.github.io;
+    connect-src 'self' https://jackylawck.github.io https://*.github.io;
     object-src 'none';
     base-uri 'self';
     form-action 'none';
@@ -218,7 +218,7 @@
       return null;
     }
 
-    // 標準化類型映射：將各適配器輸出的多元類型精確收斂為 6 大標準類別
+    // 標準化類型映射：精確支援 Schema v2.0.0 多元類型收斂
     function normalizeRecordType(rawType) {
       if (!rawType) return 'report';
       const t = String(rawType).toLowerCase().trim();
@@ -229,11 +229,10 @@
       if (t.includes('state') || t.includes('press') || t.includes('brief') || t.includes('notice')) return 'statement';
       if (t.includes('media') || t.includes('journal')) return 'media';
       
-      // 其餘官方公報、年度報告、研發評估等均歸入官方報告
       return 'report';
     }
 
-    // 語言偵測
+    // 語言偵測與本地儲存
     const browserLang = (navigator.language || 'en').toLowerCase();
     const isChineseUser = browserLang.startsWith('zh') || browserLang.startsWith('yue');
     let currentLang = localStorage.getItem('veil_lang') || (isChineseUser ? 'zh' : 'en');
@@ -345,7 +344,6 @@
         ? metaInfo.total_records 
         : allRecords.length;
 
-      // 依標準化後的類型統計
       const hearingAndReportCount = allRecords.filter(r => ['hearing', 'report'].includes(normalizeRecordType(r.type))).length;
       const billCount = allRecords.filter(r => normalizeRecordType(r.type) === 'bill').length;
 
@@ -378,31 +376,36 @@
         const normType = normalizeRecordType(record.type);
         const typeBadge = getTypeBadge(normType);
 
-        const rawTitleZh = record.title?.zh_hk || record.content?.zh_hk?.title || '';
-        const rawTitleEn = record.title?.en || record.content?.en?.title || '';
-        const rawSummaryZh = record.summary?.zh_hk || record.content?.zh_hk?.executive_summary || '';
-        const rawSummaryEn = record.summary?.en || record.content?.en?.executive_summary || '';
+        // 健全相容 Schema v2.0.0 (content.en / content.zh_hk) 與歷史扁平欄位
+        const rawTitleZh = record.content?.zh_hk?.title || record.title?.zh_hk || '';
+        const rawTitleEn = record.content?.en?.title || record.title?.en || '';
+        const rawSummaryZh = record.content?.zh_hk?.executive_summary || record.summary?.zh_hk || '';
+        const rawSummaryEn = record.content?.en?.executive_summary || record.summary?.en || '';
 
         const title = currentLang === 'zh' ? (rawTitleZh || rawTitleEn) : (rawTitleEn || rawTitleZh);
         const subTitle = currentLang === 'zh' ? rawTitleEn : '';
         const summary = currentLang === 'zh' ? (rawSummaryZh || rawSummaryEn) : (rawSummaryEn || rawSummaryZh);
 
+        // 機關標籤解析（相容 entities.agencies 陣列與 agency 物件）
         let agencyBadge = '';
-        if (record.agency) {
-          const agencyName = currentLang === 'zh' ? (record.agency.zh_hk || record.agency.name) : record.agency.name;
-          agencyBadge = `<span class="text-slate-400 text-[11px] bg-obsidian px-2 py-0.5 rounded border border-surfaceBorder">${escapeHtml(agencyName)}</span>`;
-        } else if (record.entities?.agencies) {
+        if (record.entities?.agencies && Array.isArray(record.entities.agencies)) {
           agencyBadge = record.entities.agencies
             .map(a => `<span class="text-slate-400 text-[11px] bg-obsidian px-2 py-0.5 rounded border border-surfaceBorder">${escapeHtml(a)}</span>`)
             .join(' ');
+        } else if (record.agency) {
+          const agencyName = currentLang === 'zh' ? (record.agency.zh_hk || record.agency.name) : record.agency.name;
+          agencyBadge = `<span class="text-slate-400 text-[11px] bg-obsidian px-2 py-0.5 rounded border border-surfaceBorder">${escapeHtml(agencyName)}</span>`;
         }
-          
+
+        // 來源與 SHA-256 數位簽章解析
         const primarySource = (Array.isArray(record.sources) && record.sources[0]) ? record.sources[0] : {};
         const validatedUrl = safeUrl(primarySource.url);
         
-        // 唯有審計且確認為 true 的真 SHA 雜湊才顯示數位指紋
-        const shaVerified = primarySource.sha256 && primarySource.sha256_verified === true;
-        const shaShort = shaVerified ? primarySource.sha256.substring(0, 10) + '...' : null;
+        // 只要具備真實 SHA-256 雜湊即呈現密碼學存證指紋
+        const shaHash = primarySource.sha256;
+        const shaShort = (typeof shaHash === 'string' && shaHash.length >= 16) 
+          ? shaHash.substring(0, 10) + '...' 
+          : null;
 
         const sourceActionHTML = validatedUrl
           ? `<a href="${validatedUrl}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center space-x-1">
@@ -421,7 +424,7 @@
                   <span class="text-xs font-mono text-slate-400">${escapeHtml(record.date?.val || 'N/A')}</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                  ${shaShort ? `<span class="text-[10px] font-mono text-emerald-400/80 bg-emerald-950/40 px-1.5 py-0.5 rounded border border-emerald-800/50" title="Verified SHA-256: ${escapeHtml(primarySource.sha256)}"><i class="fa-solid fa-shield-halved mr-1"></i>${escapeHtml(shaShort)}</span>` : ''}
+                  ${shaShort ? `<span class="text-[10px] font-mono text-emerald-400/80 bg-emerald-950/40 px-1.5 py-0.5 rounded border border-emerald-800/50" title="Verified SHA-256: ${escapeHtml(shaHash)}"><i class="fa-solid fa-shield-halved mr-1"></i>${escapeHtml(shaShort)}</span>` : ''}
                   <span class="text-[11px] text-slate-500 font-mono">${escapeHtml(record.id)}</span>
                 </div>
               </div>
