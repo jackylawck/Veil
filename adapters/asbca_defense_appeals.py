@@ -38,23 +38,25 @@ class AsbcaDefenseAppealsAdapter(BaseAdapter):
         record = {
             "id": base_record_id,
             "type": "foia",
-            "evidence_level": "official_document",
             "date": {
                 "val": since_date,
                 "precision": "day"
             },
-            "title": {
-                "zh_hk": f"美國武裝部隊合約申訴委員會 (ASBCA)：國防部前沿裝備與機密工程採購爭議判決書總帳 (區間 {since_date})",
-                "en": f"U.S. ASBCA: Armed Services Board of Contract Appeals Defense Procurement Dispute Decisions ({since_date})"
+            "governance": {
+                "source_tier": "Tier-1",
+                "evidence_level": "official_document",
+                "confidence_rating": "official_confirmed"
             },
-            "summary": {
-                "zh_hk": "美國國防部常設準司法審判機關武裝部隊合約申訴委員會（ASBCA）發布之正式判決書。依據《合約爭端法》（CDA），審理國防巨頭（Lockheed Martin、Northrop Grumman 等）因機密特別存取計畫（SAP）、原型機研發超支或智慧財產權授權爭端對五角大廈提起之法律訴訟，是刺穿軍工採購黑箱之司法原件。",
-                "en": "Official administrative tribunal decisions from the Armed Services Board of Contract Appeals (ASBCA) resolving legal disputes between defense contractors and military departments pursuant to the Contract Disputes Act (CDA)."
-            },
-            "agency": {
-                "name": "Armed Services Board of Contract Appeals",
-                "zh_hk": "美國武裝部隊合約申訴委員會 (ASBCA)",
-                "country": "US"
+            "content": {
+                "original_language": "en",
+                "en": {
+                    "title": f"U.S. ASBCA: Armed Services Board of Contract Appeals Defense Procurement Dispute Decisions ({since_date})",
+                    "executive_summary": "Official administrative tribunal decisions from the Armed Services Board of Contract Appeals (ASBCA) resolving legal disputes between defense contractors and military departments pursuant to the Contract Disputes Act (CDA)."
+                },
+                "zh_hk": {
+                    "title": f"美國武裝部隊合約申訴委員會 (ASBCA)：國防部前沿裝備與機密工程採購爭議判決書總帳 (區間 {since_date})",
+                    "executive_summary": "美國國防部常設準司法審判機關武裝部隊合約申訴委員會（ASBCA）發布之正式判決書。依據《合約爭端法》（CDA），審理國防巨頭（Lockheed Martin、Northrop Grumman 等）因機密特別存取計畫（SAP）、原型機研發超支或智慧財產權授權爭端對五角大廈提起之法律訴訟，是刺穿軍工採購黑箱之司法原件。"
+                }
             },
             "entities": {
                 "agencies": ["Armed Services Board of Contract Appeals", "Department of Defense", "Department of the Army", "Department of the Navy", "Department of the Air Force"],
@@ -62,12 +64,9 @@ class AsbcaDefenseAppealsAdapter(BaseAdapter):
             },
             "sources": [
                 {
-                    "name": "ASBCA Official Decisions Portal",
+                    "label": "ASBCA Official Decisions Portal",
                     "url": self.endpoint_url,
-                    "format": "html",
-                    "sha256": content_sha,
-                    "sha256_verified": False,
-                    "archived_at": now_iso
+                    "sha256": content_sha
                 }
             ],
             "tags": ["ASBCA", "Contract Disputes", "Procurement Litigation", "Department of Defense", "MIC", "Tribunal Decisions"]
