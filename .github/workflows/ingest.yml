@@ -120,7 +120,7 @@ jobs:
 
       - name: Create Pull Request for Human Review
         if: steps.run_ingest.outputs.has_changes == 'true' && !inputs.dry_run
-        uses: peter-evans/create-pull-request@b1747820ed83eb423cb118a804f3261a84368d4f # v6.0.2 pinned SHA
+        uses: peter-evans/create-pull-request@v6
         with:
           base: main
           branch: "ingest/draft-${{ steps.run_ingest.outputs.today_str }}-${{ github.run_id }}"
