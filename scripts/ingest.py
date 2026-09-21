@@ -15,7 +15,6 @@ from typing import Any, Dict, List
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
-import adapters
 from adapters.base import BaseAdapter
 
 
@@ -77,15 +76,19 @@ def records_equal(a: List[Dict[str, Any]], b: List[Dict[str, Any]]) -> bool:
 def discover_all_adapters() -> List[BaseAdapter]:
     """
     動態自動發現並實例化 adapters/ 目錄下的所有可用適配器。
-    具備沙盒錯誤隔離：任一檔案語法錯誤或缺少依賴均不中斷整體管線。
+    具備沙盒隔離：任一模組損毀或缺失依賴均不影響其餘模組正常採集。
     """
     discovered: List[BaseAdapter] = []
-    adapters_path = Path(adapters.__file__).parent
+    adapters_path = ROOT_DIR / "adapters"
 
-    print("🔍 啟動動態適配器反射掃描 (Dynamic Discovery)...")
+    print(f"🔍 啟動動態適配器掃描 (目錄: {adapters_path})...")
+
+    if not adapters_path.exists():
+        print("⚠️ 找不到 adapters 目錄，跳過動態裝載。", file=sys.stderr)
+        return []
 
     for _, module_name, _ in pkgutil.iter_modules([str(adapters_path)]):
-        if module_name == "base":
+        if module_name in ("base", "__init__"):
             continue
 
         full_module_name = f"adapters.{module_name}"
@@ -93,17 +96,17 @@ def discover_all_adapters() -> List[BaseAdapter]:
             mod = importlib.import_module(full_module_name)
             for attr_name in dir(mod):
                 attr = getattr(mod, attr_name)
-                # 必須是 class，繼承自 BaseAdapter，且非 BaseAdapter 本身
+                # 類別驗證：必須繼承 BaseAdapter 且非 BaseAdapter 本身
                 if inspect.isclass(attr) and issubclass(attr, BaseAdapter) and attr is not BaseAdapter:
                     try:
-                        # 嘗試無參數或環境變數實例化
+                        # 1. 優先以預設無參數實例化
                         instance = attr()
                         discovered.append(instance)
-                        break  # 一個模組通常註冊一個主 class
+                        break
                     except TypeError:
-                        # 若建構子需特定參數（如 api_key），依序注入環境變數重試
+                        # 2. 需特定參數（如 API Key）時自動注入
                         try:
-                            key = os.environ.get("CONGRESS_API_KEY")
+                            key = os.environ.get("CONGRESS_API_KEY", "").strip()
                             instance = attr(api_key=key)
                             discovered.append(instance)
                             break
@@ -112,12 +115,12 @@ def discover_all_adapters() -> List[BaseAdapter]:
         except Exception as exc:
             print(f"  ⚠️ [模組跳過] 無法載入適配器 {module_name}: {exc}", file=sys.stderr)
 
-    print(f"✔ 適配器動態裝載完成，共啟動 {len(discovered)} 個情報適配器。\n")
+    print(f"✔ 適配器動態裝載完成，共成功啟動 {len(discovered)} 個情報適配器。\n")
     return discovered
 
 
 def atomic_write(target_path: Path, content: bytes) -> None:
-    """以暫存檔 + 實體磁碟同步 (fsync) + os.replace 實現安全原子性寫入。"""
+    """以暫存檔 + 實體磁碟同步 (fsync) + os.replace 實現安全原子寫入。"""
     target_dir = target_path.parent
     target_dir.mkdir(parents=True, exist_ok=True)
     fd, tmp_file = tempfile.mkstemp(dir=target_dir, prefix=".tmp_", suffix=".tmp")
@@ -140,7 +143,7 @@ def run_ingestion(days_back: int = 30) -> None:
     all_records: List[Dict[str, Any]] = []
     seen_ids = set()
 
-    # 1. 載入靜態歷史底庫
+    # 1. 載入靜態歷史典藏
     historical = load_curated_historical_records()
     for r in historical:
         rid = r.get("id")
@@ -149,11 +152,11 @@ def run_ingestion(days_back: int = 30) -> None:
             all_records.append(r)
     print(f"✔ 成功載入歷史里程碑典藏: {len(all_records)} 筆")
 
-    # 2. 自動掃描裝載所有適配器
+    # 2. 自動裝載所有適配器
     active_adapters = discover_all_adapters()
     api_metrics: Dict[str, Dict[str, Any]] = {}
 
-    # 3. 逐一採集動態增量
+    # 3. 執行增量採集
     for adapter in active_adapters:
         name = getattr(adapter, "source_name", adapter.__class__.__name__)
         try:
@@ -189,7 +192,7 @@ def run_ingestion(days_back: int = 30) -> None:
     out_file = out_dir / "records-latest.json"
     sha_file = out_dir / "records-latest.json.sha256"
 
-    # 5. 深度內容級冪等性驗證
+    # 5. 內容級冪等比對
     if out_file.exists():
         try:
             with open(out_file, "r", encoding="utf-8") as f:
@@ -198,7 +201,7 @@ def run_ingestion(days_back: int = 30) -> None:
             existing_records = existing_data.get("records", []) if isinstance(existing_data, dict) else existing_data
             
             if isinstance(existing_records, list) and records_equal(existing_records, all_records):
-                print("\n✔ [冪等生效] 卷宗內容無任何實質異動，跳過覆寫。")
+                print("\n✔ [冪等生效] 卷宗內容無任何實質異動，跳過主檔覆寫。")
                 existing_bytes = out_file.read_bytes()
                 correct_hash = hashlib.sha256(existing_bytes).hexdigest()
                 sha_file.write_text(f"{correct_hash}  records-latest.json\n", encoding="utf-8")
@@ -206,7 +209,7 @@ def run_ingestion(days_back: int = 30) -> None:
         except Exception:
             print("⚠️ 既有檔案解析異常，重新全量生成。", file=sys.stderr)
 
-    # 6. 生成新總帳並以原子操作寫入
+    # 6. 寫入資料與校驗雜湊
     end_time = datetime.now(timezone.utc)
     duration = round((end_time - start_time).total_seconds(), 2)
 
@@ -244,5 +247,5 @@ if __name__ == "__main__":
         try:
             days = int(sys.argv[1])
         except ValueError:
-            print(f"⚠️ 無效天數: '{sys.argv[1]}'，使用預設值 30 天", file=sys.stderr)
+            print(f"⚠️ 無效天數參數: '{sys.argv[1]}'，使用預設值 30 天", file=sys.stderr)
     run_ingestion(days_back=days)
