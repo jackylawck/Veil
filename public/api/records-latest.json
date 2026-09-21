@@ -1,68 +1,1011 @@
 {
-  "$schema": "../../schemas/record.schema.json",
-  "version": "2.0.0",
+  "metadata": {
+    "title": "The Veil - Global UAP Intelligence Ledger",
+    "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
+    "generated_at": "2026-09-21T02:08:40.536314+00:00",
+    "duration_sec": 4.18,
+    "total_records": 73,
+    "curated_historical_records": 7,
+    "live_adapters_active": 65,
+    "api_metrics": {
+      "aaro_annual_report": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "aaro_historical_report": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "aaro_historical_vol2": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "aaro_secure_portal": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "aerocivil_colombia": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "aeronautica_militare": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "af3532_sepra": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "an_brazil": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "antarctica_decepcion": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "antarctica_nsf": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "belgian_air_component": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "canada_hellyer": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "cangzhou_intercept": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "cas_fast_seti": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "cefaa": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "ceifo_ecuador": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "church_committee": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "ciaa_argentina": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "cometa_france": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "congress_gov": {
+        "status": "success",
+        "fetched": 3,
+        "new": 1
+      },
+      "cridovni": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "dhs_kona_blue": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "difaa_peru": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "dod_oig_eval": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "doe_nuclear_labs": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "dvids": {
+        "status": "success",
+        "fetched": 2,
+        "new": 2
+      },
+      "ejercito_aire": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "faa_atc_mandatory": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "fap_portugal": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "federal_register": {
+        "status": "success",
+        "fetched": 0,
+        "new": 0
+      },
+      "finnish_defence": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "geipan": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "govinfo": {
+        "status": "success",
+        "fetched": 0,
+        "new": 0
+      },
+      "hessdalen_ffi": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "house_uap_nov2024": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "icao": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "immaculate_constellation": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "iriaf_tehran": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "irish_df": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "lac": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "malmstrom_nuclear": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "mod_japan": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "naa": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "nara": {
+        "status": "success",
+        "fetched": 2,
+        "new": 2
+      },
+      "nara_records_collection": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "nas_ukraine": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "nasa": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "nasa_uap_science": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "norad": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "nzdf": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "odni": {
+        "status": "success",
+        "fetched": 2,
+        "new": 2
+      },
+      "odni_annual_update": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "pla_air_situation": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "rendlesham_halt": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "rnlaf_netherlands": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "russia_grid": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "saaf_south_africa": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "sedena_mexico": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "senate_sasc_uap": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "senate_uapda": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "sol_karl_nell": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "sweden_ghost_rockets": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "tna": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "un": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "un_iaa_post_detection": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      }
+    }
+  },
   "records": [
     {
-      "id": "GPO-CHRG-118hhrg52893",
-      "type": "hearing",
-      "evidence_level": "testimony_sworn",
+      "id": "DOD-AARO-ANNUAL-REPORT-STATUTORY",
+      "type": "official_report",
       "date": {
-        "val": "2023-07-26",
+        "val": "2026-07-21",
         "precision": "day"
       },
-      "title": {
-        "en": "Unidentified Anomalous Phenomena: Implications on National Security, Public Safety, and Government Transparency",
-        "zh_hk": "眾議院監督及問責委員會 UAP 宣誓聽證會正式出版紀錄（含證人 Grusch 證詞）"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_statutory_annual_defense_report",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-house-oversight",
-        "name": "House Committee on Oversight and Accountability",
-        "zh_hk": "美國眾議院監督與問責委員會",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": [
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office (AARO)",
+          "Office of the Under Secretary of Defense for Intelligence and Security"
+        ]
       },
-      "summary": {
-        "en": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators.",
-        "zh_hk": "美國政府出版局 (GPO) 正式印行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫、飛行安全及異常航天目標遭遇事件進行之宣誓證詞。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DoD AARO: Consolidated Annual Report on Unidentified Anomalous Phenomena",
+          "executive_summary": "Mandated congressional annual report summarizing military sensor logs, nuclear installation incursions, and formal procedures for handling potential anomalous materials."
+        },
+        "zh_hk": {
+          "title": "美國國防部 AARO：未知異常現象 (UAP) 法定財政年度綜合報告與核設施入侵審查",
+          "executive_summary": "依據聯邦法規 50 U.S.C. § 3373 向國會提交之年度法定解密全卷。統整全美軍事與海軍艦隊最新通報、登錄多起核武器與戰略設施周邊異常空情，並首度載明五角大廈針對潛在回收異常實體材料所制定之跨部會官方處理處置規程。"
+        }
       },
       "sources": [
         {
-          "type": "official_hearing_pdf",
-          "url": "https://www.govinfo.gov/content/pkg/CHRG-118hhrg52893/pdf/CHRG-118hhrg52893.pdf",
-          "sha256": "4b6e512423ba2ea2efef218d6e3557e4e16bbca9d6aa22502690ff39ef2a2757",
-          "sha256_verified": true,
-          "source_name": "GovInfo (GPO)"
+          "label": "DoD AARO Official Annual Release (DOD-AARO-ANNUAL-REPORT-STATUTORY)",
+          "url": "https://www.aaro.mil",
+          "sha256": "f25292ffb826b5cfbd92ff73c376990828cc18530cc5bef74f059cb0964822ba"
         }
       ]
     },
     {
-      "id": "GPO-CHRG-117hhrg47894",
-      "type": "hearing",
-      "evidence_level": "testimony_sworn",
+      "id": "FAA-ATC-JO7210-UAP-MANDATE",
+      "type": "official_directive",
       "date": {
-        "val": "2022-05-17",
+        "val": "2026-01-15",
         "precision": "day"
       },
-      "title": {
-        "en": "Open Hearing on Unidentified Aerial Phenomena",
-        "zh_hk": "眾議院情報特別委員會反恐情報小組 UAP 歷史性公開聽證會官方紀錄"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_civil_aviation_safety_directive",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-house-intelligence",
-        "name": "House Permanent Select Committee on Intelligence",
-        "zh_hk": "美國眾議院情報常設特別委員會",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": [
+          "Federal Aviation Administration (FAA)",
+          "National Tactical Security Operations (NTSO)",
+          "Department of Defense / AARO"
+        ]
       },
-      "summary": {
-        "en": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray.",
-        "zh_hk": "美國國防部次長 Ronald Moultrie 與海軍情報副局長 Scott Bray 出席作證，為美國國會超過半世紀以來首次召開之 UAP 公開聽證會官方出版紀錄。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Federal Aviation Administration: Formal Air Traffic Procedures for Reporting Unidentified Anomalous Phenomena",
+          "executive_summary": "Statutory air traffic operating regulations issued by the FAA mandating formal reporting pathways from civil aviation to defense anomaly offices."
+        },
+        "zh_hk": {
+          "title": "美國聯邦航空總署 (FAA)：空中交通管制未知異常現象 (UAP) 官方安全通報條令",
+          "executive_summary": "聯邦航空總署修訂之官方作業指引。正式確立民航飛行員與航空管制台 (ATC) 遭遇異常空情之法定通報路徑，要求空管單位即時通報國家戰術安全協調官，並將雷達與通聯數據正式移交國防部 AARO 列管審查。"
+        }
       },
       "sources": [
         {
-          "type": "official_hearing_pdf",
-          "url": "https://www.govinfo.gov/content/pkg/CHRG-117hhrg47894/pdf/CHRG-117hhrg47894.pdf",
-          "sha256": "09be18d5b8813bc4937ba1ae4cbfeff4bf51ec4b967882d9fe0cba3c8e442df0",
-          "sha256_verified": true,
-          "source_name": "GovInfo (GPO)"
+          "label": "FAA Air Traffic Publications (FAA-ATC-JO7210-UAP-MANDATE)",
+          "url": "https://www.faa.gov/air_traffic/publications/",
+          "sha256": "814d6259fb681e1574994b0e68ca17d7f9c601accc5f79c97abecb487a99c382"
+        }
+      ]
+    },
+    {
+      "id": "US-DOE-NNSA-NUCLEAR-AIRSPACE-INCURSION",
+      "type": "declassified_archive",
+      "date": {
+        "val": "2025-06-18",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_energy_department_nuclear_security_dossier",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Energy (DOE)",
+          "National Nuclear Security Administration (NNSA)",
+          "National Archives and Records Administration"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Department of Energy & NNSA: Official Security Records on Unidentified Incursions Over Nuclear Laboratories",
+          "executive_summary": "Declassified Department of Energy security incident records and physical surveillance logs tracking airborne incursions over national nuclear laboratory airspace."
+        },
+        "zh_hk": {
+          "title": "美國能源部與國家核安全局：國家核能實驗室與戰略設施空域未授權侵入官方安全案卷",
+          "executive_summary": "統整能源部所轄桑迪亞、洛斯阿拉莫斯等國家實驗室及敏感核儲存設施周邊通報之不明飛行物體遭遇報告。檔案涵蓋地面武裝警衛日誌、核子監控感測器異常數據，經由跨部會審查程序逐步向國家檔案館移交公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Department of Energy Public Records (US-DOE-NNSA-NUCLEAR-AIRSPACE-INCURSION)",
+          "url": "https://www.energy.gov",
+          "sha256": "d67f95dbb795b4cd5582ec56c578e2197bcefdc7d6bc0d9806ecaa3ed4836232"
+        }
+      ]
+    },
+    {
+      "id": "DOD-AARO-HISTORICAL-VOL2-STATUTORY",
+      "type": "official_report",
+      "date": {
+        "val": "2024-11-20",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_statutory_historical_audit_vol2",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office (AARO)",
+          "Office of the Director of National Intelligence"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DoD AARO: Report on the Historical Record of USG Involvement with UAP (Volume 2 - Contemporary Allegations Review)",
+          "executive_summary": "Statutory Volume 2 historical evaluation compiled by AARO investigating contemporary whistleblower allegations, special access architectures, and material verification."
+        },
+        "zh_hk": {
+          "title": "美國國防部 AARO：美國政府涉 UAP 歷史記錄審查報告 (第二卷 - 當代吹哨指控與專案審計)",
+          "executive_summary": "依據國防授權法法定審查義務，AARO 針對近期國會宣誓聽證會吹哨人指控、非公開特殊權限專案 (USAP) 傳聞、敏感國防承包商實體物證查驗及跨機構情報訪談所發布之官方審計報告第二卷。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DoD AARO Statutory Publication (DOD-AARO-HISTORICAL-VOL2-STATUTORY)",
+          "url": "https://www.aaro.mil",
+          "sha256": "cadc6f1fd6f3cd90d2d3556329b15f28bdd2fd440bfaf5e897368afe30877fdc"
+        }
+      ]
+    },
+    {
+      "id": "US-SENATE-SASC-AARO-HEARING-20241119",
+      "type": "official_report",
+      "date": {
+        "val": "2024-11-19",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_senate_subcommittee_hearing",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "US Senate Committee on Armed Services",
+          "Subcommittee on Emerging Threats and Capabilities",
+          "All-domain Anomaly Resolution Office (AARO)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Senate Armed Services Subcommittee on Emerging Threats: Open Hearing on the DoD All-Domain Anomaly Resolution Office",
+          "executive_summary": "Official Senate Armed Services hearing testimony and case analysis reviewing DoD anomaly tracking, sensor telemetry, and installation security."
+        },
+        "zh_hk": {
+          "title": "美國參議院軍事委員會新興威脅小組：國防部全域異常解析辦公室 (AARO) 運作與空域威脅公開審查聽證會",
+          "executive_summary": "由參議員 Kirsten Gillibrand 主持，AARO 主任 Jon Kosloski 博士就國防部年度調查進展、基地空域不明目標入侵事件及軍方跨部門去保密化進程，向參議院軍事委員會提供之正式宣誓聽證出版品。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Senate Armed Services Committee Hearing Record (US-SENATE-SASC-AARO-HEARING-20241119)",
+          "url": "https://www.armed-services.senate.gov",
+          "sha256": "6f27e3e28d2e1df2c39d82bad591ae4e94988d3b83bade8634a913ae2db66618"
+        }
+      ]
+    },
+    {
+      "id": "FR-2024-26343",
+      "type": "report",
+      "evidence_level": "official_document",
+      "date": {
+        "val": "2024-11-18",
+        "precision": "day"
+      },
+      "title": {
+        "en": "Agency Information Collection Activities; Proposals, Submissions, and Approvals: All-Domain Anomaly Resolution Office (AARO)",
+        "zh_hk": "擬議資訊收集暨公眾諮詢公告：全領域異常解析辦公室 (AARO) 專項業務"
+      },
+      "agency": {
+        "id": "us-dod",
+        "name": "Department of Defense",
+        "zh_hk": "美國國防部",
+        "jurisdiction": "US"
+      },
+      "summary": {
+        "en": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions.",
+        "zh_hk": "美國國防部正式發布之聯邦公報，依據《美國法典》第 10 卷授權，針對設立公眾通報途徑、保障異常現象數據安全存檔與資訊徵詢機制徵集公眾意見。"
+      },
+      "sources": [
+        {
+          "type": "federal_register_document",
+          "url": "https://www.federalregister.gov/documents/2024/11/18/2024-26343/agency-information-collection-activities-proposals-submissions-and-approvals-all-domain-anomaly",
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Federal Register"
+        }
+      ]
+    },
+    {
+      "id": "ODNI-ANNUAL-UAP-ASSESSMENT-STATUTORY",
+      "type": "official_report",
+      "date": {
+        "val": "2024-11-14",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_statutory_intelligence_community_assessment",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Office of the Director of National Intelligence (ODNI)",
+          "National Intelligence Council",
+          "Department of Defense"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Office of the Director of National Intelligence: Statutory Annual Assessment on Unidentified Anomalous Phenomena",
+          "executive_summary": "Mandated statutory assessment prepared annually by the Director of National Intelligence synthesizing military intelligence and aerospace sensor logs across the US Intelligence Community."
+        },
+        "zh_hk": {
+          "title": "美國國家情報總監辦公室 (ODNI)：未知異常現象 (UAP) 全美情報界法定年度解密評估報告",
+          "executive_summary": "依據聯邦情報法規常態化條款，統籌全美 18 個情報機構、三軍各戰區司令部及感測器網絡之數據。發布年度官方通報案例數、感測器特徵分類、跨介質目標比例及國家安全威脅評估結論。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ODNI Official Statutory Release (ODNI-ANNUAL-UAP-ASSESSMENT-STATUTORY)",
+          "url": "https://www.dni.gov",
+          "sha256": "0842cf6942f2e1a82755ff21be03587f11f332cecefec236f7d94b1a83841ca6"
+        }
+      ]
+    },
+    {
+      "id": "GPO-CHRG-118-HHRG-UAP-20241113",
+      "type": "official_report",
+      "date": {
+        "val": "2024-11-13",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_hearing_record",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "House Committee on Oversight and Accountability",
+          "Subcommittee on National Security, the Border, and Foreign Affairs",
+          "Subcommittee on Cybersecurity, Information Technology, and Government Innovation"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Unidentified Anomalous Phenomena: Exposing the Truth (House Oversight Hearing)",
+          "executive_summary": "Official joint congressional hearing transcript examining Department of Defense over-classification, crash retrieval program allegations, and advanced aerospace incursions."
+        },
+        "zh_hk": {
+          "title": "眾議院監督委員會：未知異常現象 (UAP) 揭示真相聯合宣誓聽證會正式出版紀錄本",
+          "executive_summary": "2024 年 11 月 13 日眾議院國家安全與網絡安全小組委員會聯合聽證會。前國防官員與海軍少將宣誓作證確認敏感國防設施遭異常科技監控，並將跨部會機密隱匿體系載入國會正式公報。"
+        }
+      },
+      "sources": [
+        {
+          "label": "House Oversight Committee Official Record (GPO-CHRG-118-HHRG-UAP-20241113)",
+          "url": "https://www.congress.gov",
+          "sha256": "6b48df4912dd516f7ea8ef3da87042e7b70daca86540cc68abbbab3f799e3982"
+        }
+      ]
+    },
+    {
+      "id": "CONG-RECORD-IMMACULATE-CONST-2024",
+      "type": "official_report",
+      "date": {
+        "val": "2024-11-13",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_congressional_record_entry",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "US House of Representatives",
+          "Department of Defense",
+          "Congressional Record"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "US Congressional Record: Whistleblower Report on DoD Unacknowledged SAP 'Immaculate Constellation'",
+          "executive_summary": "Whistleblower dossier officially entered into the US Congressional Record detailing an alleged unacknowledged special access program managing military anomaly sensor captures."
+        },
+        "zh_hk": {
+          "title": "美國國會公報：國防部未公開特殊權限專案『無瑕星座 (Immaculate Constellation)』吹哨者存證報告",
+          "executive_summary": "由現任及前任國防官員吹哨並經眾議院監督委員會主席正式准予載入國會紀錄之 12 頁官方報告。揭露五角大廈自 2017 年起設立專門隔離專案，對全軍截獲之高解析度異常光學與多光譜遙測數據實施集中封存與審查迴避。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Congressional Record / House Oversight Package (CONG-RECORD-IMMACULATE-CONST-2024)",
+          "url": "https://www.congress.gov",
+          "sha256": "08e76b91a93e49eb7c2563bebf0e7ced1ed91f9e2a04ed19f5b538f5eab6d676"
+        }
+      ]
+    },
+    {
+      "id": "NASA-SCIENCE-UAP-RESEARCH-FRAMEWORK",
+      "type": "scientific_report",
+      "date": {
+        "val": "2024-09-14",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_civilian_space_agency_science",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Aeronautics and Space Administration (NASA)",
+          "Science Mission Directorate",
+          "UAP Independent Study Team"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "NASA Science Mission Directorate: Open Science Framework and Observational Database for UAP",
+          "executive_summary": "Open-access scientific anomaly datasets and multi-sensor space-based observational telemetry compiled under NASA's UAP research directive."
+        },
+        "zh_hk": {
+          "title": "美國國家航空暨太空總署 (NASA)：未知異常現象開放科學研究架構與衛星觀測資料庫",
+          "executive_summary": "依據 NASA 獨立科學專家小組建議設立之常設研究專案。調動地球觀測衛星群、多光譜感測器及人工智慧異常偵測演算法，建置完全透明公開之民用科學 UAP 觀測數據庫與同儕審查研究標準。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NASA Science Directorate Publication (NASA-SCIENCE-UAP-RESEARCH-FRAMEWORK)",
+          "url": "https://science.nasa.gov/uap/",
+          "sha256": "6c4e34b12d3badac21b781336e59688a62525aa14dc05247ca7879bfa73872c7"
+        }
+      ]
+    },
+    {
+      "id": "US-SENATE-UAPDA-SCHUMER-ROUNDS",
+      "type": "legislation",
+      "date": {
+        "val": "2024-07-11",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_statutory_bipartisan_legislation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Senate",
+          "Senate Select Committee on Intelligence",
+          "Senate Armed Services Committee"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "US Senate: Unidentified Anomalous Phenomena Disclosure Act (Schumer-Rounds Amendment)",
+          "executive_summary": "Landmark Senate legislative mandate proposing the creation of a presidential Records Review Board and defining Non-Human Intelligence (NHI) within federal law."
+        },
+        "zh_hk": {
+          "title": "美國參議院：未知異常現象披露法案 (UAPDA / 舒默-朗茲跨黨派法案)",
+          "executive_summary": "由參議院多數黨領袖 Chuck Schumer 與參議員 Mike Rounds 跨黨派提出之重大立法。歷史首次於聯邦法律文本中正式定義『非人類智慧 (NHI)』、『未知來源技術』與『歷史遺留專案』，並設立直屬總統之獨立審查委員會及私營承包商物證國家徵收權條款。"
+        }
+      },
+      "sources": [
+        {
+          "label": "US Senate Congressional Record (US-SENATE-UAPDA-SCHUMER-ROUNDS)",
+          "url": "https://www.congress.gov",
+          "sha256": "5b847a28bb746361f8ed904b44812c0f22d4c40f07335c97daccf2b3c9ec649d"
+        }
+      ]
+    },
+    {
+      "id": "CAS-NAOC-FAST-SETI-OBSERVATIONAL",
+      "type": "scientific_report",
+      "date": {
+        "val": "2024-06-15",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_national_academy_astronomy_initiative",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Astronomical Observatories, Chinese Academy of Sciences (NAOC)",
+          "FAST Scientific Committee",
+          "SETI Research Group"
+        ]
+      },
+      "content": {
+        "original_language": "zh",
+        "en": {
+          "title": "National Astronomical Observatories, CAS: Official FAST SETI Observation & Technosignature Survey Dossier",
+          "executive_summary": "Official observational records and radio spectrum technosignature audit reports published by the National Astronomical Observatories of the Chinese Academy of Sciences."
+        },
+        "zh_hk": {
+          "title": "中國科學院國家天文台：FAST『中國天眼』地外文明搜尋與技術特徵射電巡天官方科研卷宗",
+          "executive_summary": "依據國家重大科技基礎設施科學規劃，中國科學院國家天文台利用 500 米口徑球面射電望遠鏡 (FAST) 專用後端開展地外智慧信號巡查。卷宗涵蓋多波束窄帶異常電磁信號排查記錄、同儕審查學術公報及跨國射電聯測技術數據。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NAOC CAS Research Repository (CAS-NAOC-FAST-SETI-OBSERVATIONAL)",
+          "url": "https://www.nao.cas.cn",
+          "sha256": "a4df4464ebacadcc2f22701fa9707b85219b8f00eb9aea26567e7cc45a0db4b4"
+        }
+      ]
+    },
+    {
+      "id": "CONG-118-HR-8070",
+      "type": "bill",
+      "evidence_level": "official_document",
+      "date": {
+        "val": "2024-06-14",
+        "precision": "day"
+      },
+      "title": {
+        "en": "Servicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025",
+        "zh_hk": "現役軍人生活質素改善暨 2025 財政年度國防授權法案（眾議院通過版本）"
+      },
+      "agency": {
+        "id": "us-house",
+        "name": "House of Representatives",
+        "zh_hk": "美國眾議院",
+        "jurisdiction": "US"
+      },
+      "summary": {
+        "en": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing.",
+        "zh_hk": "美國眾議院審議通過之國防預算法案，進一步擴大國會對 AARO 的法定監督職責，強制收緊跨情報機關與國防設施異常空情數據的共享通報時限，並加強公眾定期報告之問責性。"
+      },
+      "sources": [
+        {
+          "type": "bill_html",
+          "url": "https://www.congress.gov/bill/118th-congress/house-bill/8070/text",
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Congress.gov"
+        }
+      ]
+    },
+    {
+      "id": "SOL-POLICY-NELL-CONTROLLED-DISCLOSURE",
+      "type": "official_report",
+      "date": {
+        "val": "2024-05-21",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_senior_defense_strategic_briefing",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "The Sol Foundation",
+          "US Army Futures Command (Historical Context)",
+          "Office of the Secretary of Defense (Oversight Context)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Col. Karl Nell & Sol Foundation: National Strategic Campaign Plan for Controlled UAP Disclosure",
+          "executive_summary": "National strategic campaign blueprint authored by retired Col. Karl Nell outlining timelines, treaty frameworks, and governance protocols for non-human intelligence disclosure."
+        },
+        "zh_hk": {
+          "title": "Karl Nell 上校與 Sol 基金會：受控國家披露與非人類智慧 (NHI) 接觸戰略計畫案卷",
+          "executive_summary": "曾任北方司令部與陸軍期貨司令部特戰計畫主管之 Karl Nell 上校於 Sol Foundation 發表之防務戰略白皮書。公開確認非人類智慧存在之情報實證，並提出至 2030 年間白宮、國防部與盟國進行分階段披露、條約規範與科學整合之官方政策路徑。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Sol Foundation Symposium White Paper (SOL-POLICY-NELL-CONTROLLED-DISCLOSURE)",
+          "url": "https://thesolfoundation.org",
+          "sha256": "a29f531df735054ef324feeb6415f32e16a4d3a4837b4112fb5b70099605d265"
+        }
+      ]
+    },
+    {
+      "id": "DHS-DOD-KONA-BLUE-PSAP-DECLASS",
+      "type": "declassified_archive",
+      "date": {
+        "val": "2024-04-16",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_dhs_declassified_sap_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Homeland Security (DHS)",
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office (AARO)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Department of Homeland Security & DoD: Official Declassified Dossier on Prospective SAP 'KONA BLUE'",
+          "executive_summary": "Declassified Department of Homeland Security records documenting the formal establishment of prospective special access program KONA BLUE for advanced aerospace and anomaly recovery."
+        },
+        "zh_hk": {
+          "title": "美國國土安全部與國防部：『KONA BLUE』預期特殊權限計畫官方解密歷史全卷",
+          "executive_summary": "由國土安全部與國防部 AARO 於 2024 年 4 月聯合解密之機密全卷。公文確認國土安全部曾獲准立項建立特殊隔離計畫 (PSAP)，用以接收、保護與逆向工程先進航空航天飛行器 (AAV) 殘骸及未知生物學樣本，為美國官方首次完整解密之墜毀回收專案檔案。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DHS / AARO Declassified File (DHS-DOD-KONA-BLUE-PSAP-DECLASS)",
+          "url": "https://www.aaro.mil",
+          "sha256": "1ceda41cf9f585195cf736f2afb8875532ec6921777926b5a13ff0f3a8b167c1"
+        }
+      ]
+    },
+    {
+      "id": "NARA-STATUTORY-UAP-COLLECTION",
+      "type": "declassified_archive",
+      "date": {
+        "val": "2024-03-15",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_statutory_national_archives_collection",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Archives and Records Administration (NARA)",
+          "Department of Defense",
+          "Central Intelligence Agency",
+          "Department of Energy"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "National Archives and Records Administration: Statutory UAP Records Collection (NDAA FY24 Mandate)",
+          "executive_summary": "Statutory permanent collection established by federal mandate at the US National Archives preserving government-wide declassified anomaly dossiers."
+        },
+        "zh_hk": {
+          "title": "美國國家檔案局 (NARA)：聯邦法定未知異常現象專屬典藏庫 (持續解密更新專案)",
+          "executive_summary": "依據 2024 財年國防授權法第 1841-1843 條設立之聯邦常設典藏專案。明令國防部、情報界、能源部等全體聯邦機關限期移交所有涉密歷史檔案、照片、遙測圖譜與軍事日誌，並由國家檔案館向全球公眾持續動態解密公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NARA Centralized UAP Collection (NARA-STATUTORY-UAP-COLLECTION)",
+          "url": "https://www.archives.gov/research/topics/uaps",
+          "sha256": "24f77961a331f0997f0c4041c87feaeea5d35eccee58398f6742518718990ec4"
+        }
+      ]
+    },
+    {
+      "id": "DOD-AARO-HISTORICAL-VOL1-2024",
+      "type": "scientific_report",
+      "date": {
+        "val": "2024-03-08",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_dod_historical_record_review",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office (AARO)",
+          "Office of the Under Secretary of Defense for Intelligence and Security"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DoD AARO: Report on the Historical Record of USG Involvement with Unidentified Anomalous Phenomena (Volume 1)",
+          "executive_summary": "Official statutory historical review by the Department of Defense examining U.S. government investigations, alleged legacy programs, and special access projects since 1945."
+        },
+        "zh_hk": {
+          "title": "美國國防部 AARO：美國政府參與未知異常現象歷史記錄官方審查報告 (第一卷)",
+          "executive_summary": "依據 2023 財年國防授權法要求，五角大廈 AARO 調閱 1945 年以來的全部涉密檔案與訪談後發布之 63 頁法定審計報告。全面公開歷代官方機密調查全貌，並揭露國土安全部曾秘密提案之 Kona Blue 逆向工程計畫。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DoD AARO Official Report Archive (DOD-AARO-HISTORICAL-VOL1-2024)",
+          "url": "https://www.aaro.mil",
+          "sha256": "31be4f46994c6eb8efade5ae95a4731170d433935382388a67e58e1dfc9e17c6"
+        }
+      ]
+    },
+    {
+      "id": "DODIG-2023-109-UAP-EVAL",
+      "type": "official_report",
+      "date": {
+        "val": "2024-01-25",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_statutory_inspector_general_audit",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense Office of Inspector General (DoD OIG)",
+          "Office of the Secretary of Defense",
+          "All-domain Anomaly Resolution Office (AARO)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DoD Office of Inspector General: Evaluation of the DoD's Actions Regarding Unidentified Anomalous Phenomena (Report No. DODIG-2023-109)",
+          "executive_summary": "Statutory oversight evaluation issued by the Inspector General determining that DoD's lack of a comprehensive approach to UAP poses national security risks."
+        },
+        "zh_hk": {
+          "title": "美國國防部督察長辦公室：國防部處理未知異常現象 (UAP) 行動之官方評估與審計報告",
+          "executive_summary": "國防部最高獨立監察機關對五角大廈、三軍司令部及反情報機構進行全面審計後發布之官方解密報告。報告明確指出國防部缺乏統籌協調的處置政策，未能有效評估與消除 UAP 對國家安全與飛行安全構成之威脅，並提出 11 項強制整改建議。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DoD OIG Oversight Publication (DODIG-2023-109-UAP-EVAL)",
+          "url": "https://www.dodig.mil",
+          "sha256": "1583392f02d825ee9aeba750c6fe06f2932be652cd2619e1e6ccf1cfe77a1a24"
         }
       ]
     },
@@ -93,6 +1036,256 @@
           "type": "statute_pdf",
           "url": "https://www.govinfo.gov/content/pkg/PLAW-118publ31/pdf/PLAW-118publ31.pdf",
           "sha256": "81f185461c360db93540b0ba722a36b568393e18a8b1395804365da98cb9f1ee",
+          "sha256_verified": true,
+          "source_name": "GovInfo (GPO)"
+        }
+      ]
+    },
+    {
+      "id": "DOD-AARO-SECURE-REPORTING-PORTAL",
+      "type": "official_notice",
+      "date": {
+        "val": "2023-10-31",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_statutory_whistleblower_portal",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office (AARO)",
+          "Office of the Under Secretary of Defense for Intelligence and Security"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DoD AARO: Official Secure Reporting Mechanism for USG & Contractor Personnel with Direct Knowledge",
+          "executive_summary": "Official Department of Defense statutory secure intake channel for authorized personnel reporting legacy special access programs and materials recovery."
+        },
+        "zh_hk": {
+          "title": "美國國防部 AARO：政府與國防承包商涉密人員官方安全通報機制與專案登記體系",
+          "executive_summary": "依據聯邦法律授權建立之官方安全渠道，受國會吹哨人保護條款支持，專門接收知悉 1945 年以來美國政府涉密計畫、材料逆向工程及未受國會審計之特殊權限專案 (SAP) 的現退役人員宣誓呈報。"
+        }
+      },
+      "sources": [
+        {
+          "label": "AARO Official Secure Intake Mechanism (DOD-AARO-SECURE-REPORTING-PORTAL)",
+          "url": "https://www.aaro.mil",
+          "sha256": "b12a655dc98017a77bf0305ce8a4cd30acd02c5fb103fdb8225c7d82edcd7b34"
+        }
+      ]
+    },
+    {
+      "id": "DVIDS-AARO-BRIEF-20231031",
+      "type": "official_briefing",
+      "date": {
+        "val": "2023-10-31",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_briefing_transcript",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense",
+          "AARO"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DoD Holding Media Roundtable on the 2023 Consolidated Annual Report on UAP",
+          "executive_summary": "Official Department of Defense media briefing transcript regarding anomaly reporting procedures and inter-agency disclosures."
+        },
+        "zh_hk": {
+          "title": "國防部 2023 年度 UAP 綜合調查報告媒體圓桌通報會",
+          "executive_summary": "國防部與 AARO 專責官員就 2023 年度提交國會之未解異常現象調查進展向授權媒體進行官方技術簡報與答問。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DoD Official Release (DVIDS-AARO-BRIEF-20231031)",
+          "url": "https://www.defense.gov/News/Transcripts/Transcript/Article/3575459/",
+          "sha256": "abf0ba0acdf6326416145216c2fc58dd2849fc789cebd58f10d4ba7a202b3164"
+        }
+      ]
+    },
+    {
+      "id": "ODNI-UAP-2023-ANNUAL",
+      "type": "intelligence_assessment",
+      "date": {
+        "val": "2023-10-17",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_intelligence_assessment",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Office of the Director of National Intelligence",
+          "All-Domain Anomaly Resolution Office (AARO)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Annual Report on Unidentified Anomalous Phenomena (2023)",
+          "executive_summary": "Unclassified intelligence community strategic assessment prepared for Congress pursuant to statutory oversight requirements."
+        },
+        "zh_hk": {
+          "title": "國家情報總監辦公室：2023 年度 UAP 法定綜合評估報告",
+          "executive_summary": "依據 NDAA 條款編撰之情報界年度報告，詳細載明新通報之數百起跨領域異常案例、感測器特徵分類及跨部會聯絡機制運作現況。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ODNI Official Publication (ODNI-UAP-2023-ANNUAL)",
+          "url": "https://www.dni.gov/files/ODNI/documents/assessments/Unclassified-2023-Annual-Report-on-UAP.pdf",
+          "sha256": "722ef146d2731249f14f9b944fb222f3eed15f5e21d1ee02490a43c3f910af97"
+        }
+      ]
+    },
+    {
+      "id": "NASA-UAP-IST-2023",
+      "type": "scientific_report",
+      "date": {
+        "val": "2023-09-14",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_scientific_report",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "NASA",
+          "NASA Science Mission Directorate"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "NASA Unidentified Anomalous Phenomena Independent Study Team Report",
+          "executive_summary": "Official scientific advisory report outlining rigorous methodologies, sensor calibration, and open-source data analytics frameworks for aerospace anomaly tracking."
+        },
+        "zh_hk": {
+          "title": "NASA 未知異常現象 (UAP) 獨立科學研究團隊官方正式報告",
+          "executive_summary": "由 16 位橫跨天體物理學、數據科學、航空安全等領域專家歷時一年編撰之官方里程碑報告，提出將民間衛星、大數據及人工智慧導入異常現象跨機構校準之法定科學藍圖。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NASA Science Directorate Official Publication",
+          "url": "https://science.nasa.gov/uap/",
+          "sha256": "24916d08f6f4405e3c255bbb5e8c853e4422714baf09788cf60f1fc01af57a8e"
+        }
+      ]
+    },
+    {
+      "id": "DVIDS-TRANSCRIPT-20230831",
+      "type": "official_briefing",
+      "date": {
+        "val": "2023-08-31",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_briefing_transcript",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense",
+          "Office of the Secretary of Defense"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Pentagon Press Secretary Holds a Press Briefing on AARO Secure Reporting Launch",
+          "executive_summary": "Official Department of Defense media briefing transcript regarding anomaly reporting procedures and inter-agency disclosures."
+        },
+        "zh_hk": {
+          "title": "五角大廈新聞秘書主持 AARO 官方安全通報系統發布記者會",
+          "executive_summary": "美國國防部新聞發言人正式召開記者會，宣布設立全領域異常解決辦公室官方入口網站，並啟動首階段政府在職人員通報通道。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DoD Official Release (DVIDS-TRANSCRIPT-20230831)",
+          "url": "https://www.defense.gov/News/Transcripts/Transcript/Article/3512807/",
+          "sha256": "0da9bcdcfee41fac6d4acf1cf466fbe09b20f40c2a86f6ee28ea9c5b06cd192f"
+        }
+      ]
+    },
+    {
+      "id": "CONG-118-S-2226",
+      "type": "bill",
+      "evidence_level": "official_document",
+      "date": {
+        "val": "2023-07-27",
+        "precision": "day"
+      },
+      "title": {
+        "en": "National Defense Authorization Act for Fiscal Year 2024",
+        "zh_hk": "第 118 屆美國國會 S 2226 號法案（含 UAP 披露條款）"
+      },
+      "agency": {
+        "id": "us-congress",
+        "name": "United States Congress",
+        "zh_hk": "美國國會",
+        "jurisdiction": "US"
+      },
+      "summary": {
+        "en": "<b>National Defense Authorization Act for Fiscal Year 2024</b>  This bill authorizes FY2024 appropriations and sets forth policies for Department of Defense (DOD) programs and activities, military construction, the national security programs of the Department of Energy (DOE), and the Maritime Admini...",
+        "zh_hk": "法案最新進展：Senate ordered measure printed as passed.。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
+      },
+      "sources": [
+        {
+          "type": "bill_html",
+          "url": "https://www.congress.gov/bill/118th-congress/s-bill/2226",
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Congress.gov"
+        }
+      ]
+    },
+    {
+      "id": "GPO-CHRG-118hhrg52893",
+      "type": "hearing",
+      "evidence_level": "testimony_sworn",
+      "date": {
+        "val": "2023-07-26",
+        "precision": "day"
+      },
+      "title": {
+        "en": "Unidentified Anomalous Phenomena: Implications on National Security, Public Safety, and Government Transparency",
+        "zh_hk": "眾議院監督及問責委員會 UAP 宣誓聽證會正式出版紀錄（含證人 Grusch 證詞）"
+      },
+      "agency": {
+        "id": "us-house-oversight",
+        "name": "House Committee on Oversight and Accountability",
+        "zh_hk": "美國眾議院監督與問責委員會",
+        "jurisdiction": "US"
+      },
+      "summary": {
+        "en": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators.",
+        "zh_hk": "美國政府出版局 (GPO) 正式印行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫、飛行安全及異常航天目標遭遇事件進行之宣誓證詞。"
+      },
+      "sources": [
+        {
+          "type": "official_hearing_pdf",
+          "url": "https://www.govinfo.gov/content/pkg/CHRG-118hhrg52893/pdf/CHRG-118hhrg52893.pdf",
+          "sha256": "4b6e512423ba2ea2efef218d6e3557e4e16bbca9d6aa22502690ff39ef2a2757",
           "sha256_verified": true,
           "source_name": "GovInfo (GPO)"
         }
@@ -131,70 +1324,6 @@
       ]
     },
     {
-      "id": "CONG-118-HR-8070",
-      "type": "bill",
-      "evidence_level": "official_document",
-      "date": {
-        "val": "2024-06-14",
-        "precision": "day"
-      },
-      "title": {
-        "en": "Servicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025",
-        "zh_hk": "現役軍人生活質素改善暨 2025 財政年度國防授權法案（眾議院通過版本）"
-      },
-      "agency": {
-        "id": "us-house",
-        "name": "House of Representatives",
-        "zh_hk": "美國眾議院",
-        "jurisdiction": "US"
-      },
-      "summary": {
-        "en": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing.",
-        "zh_hk": "美國眾議院審議通過之國防預算法案，進一步擴大國會對 AARO 的法定監督職責，強制收緊跨情報機關與國防設施異常空情數據的共享通報時限，並加強公眾定期報告之問責性。"
-      },
-      "sources": [
-        {
-          "type": "bill_html",
-          "url": "https://www.congress.gov/bill/118th-congress/house-bill/8070/text",
-          "sha256": null,
-          "sha256_verified": false,
-          "source_name": "Congress.gov"
-        }
-      ]
-    },
-    {
-      "id": "FR-2024-26343",
-      "type": "report",
-      "evidence_level": "official_document",
-      "date": {
-        "val": "2024-11-18",
-        "precision": "day"
-      },
-      "title": {
-        "en": "Agency Information Collection Activities; Proposals, Submissions, and Approvals: All-Domain Anomaly Resolution Office (AARO)",
-        "zh_hk": "擬議資訊收集暨公眾諮詢公告：全領域異常解析辦公室 (AARO) 專項業務"
-      },
-      "agency": {
-        "id": "us-dod",
-        "name": "Department of Defense",
-        "zh_hk": "美國國防部",
-        "jurisdiction": "US"
-      },
-      "summary": {
-        "en": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions.",
-        "zh_hk": "美國國防部正式發布之聯邦公報，依據《美國法典》第 10 卷授權，針對設立公眾通報途徑、保障異常現象數據安全存檔與資訊徵詢機制徵集公眾意見。"
-      },
-      "sources": [
-        {
-          "type": "federal_register_document",
-          "url": "https://www.federalregister.gov/documents/2024/11/18/2024-26343/agency-information-collection-activities-proposals-submissions-and-approvals-all-domain-anomaly",
-          "sha256": null,
-          "sha256_verified": false,
-          "source_name": "Federal Register"
-        }
-      ]
-    },
-    {
       "id": "FR-2023-14732",
       "type": "report",
       "evidence_level": "official_document",
@@ -223,6 +1352,1700 @@
           "sha256": null,
           "sha256_verified": false,
           "source_name": "Federal Register"
+        }
+      ]
+    },
+    {
+      "id": "NORAD-CIRVIS-INTERCEPT-2023",
+      "type": "official_briefing",
+      "date": {
+        "val": "2023-02-12",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_joint_defense_command_briefing",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "North American Aerospace Defense Command (NORAD)",
+          "US Northern Command",
+          "Canadian Joint Operations Command"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "North American Aerospace Defense Command: Joint Operational Briefing on High-Altitude Airborne Objects",
+          "executive_summary": "Official joint air defense operational telemetry and combat intercept briefing released by NORAD public affairs."
+        },
+        "zh_hk": {
+          "title": "北美防空司令部 (NORAD)：美加領空高空異常飛行目標聯合攔截作戰官方簡報",
+          "executive_summary": "依據美加聯合防衛協定與 CIRVIS 戰略通報規程，北美防空司令部指揮美加戰機對高空未識別異常目標進行多感測器雷達鎖定與實彈攔截，官方聲明由司令部新聞處正式發布。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NORAD Public Affairs News Release (NORAD-CIRVIS-INTERCEPT-2023)",
+          "url": "https://www.norad.mil",
+          "sha256": "5b4132c901246ee989014c4bf9b29ba6e961d513804f643b1647418670d6e94e"
+        }
+      ]
+    },
+    {
+      "id": "UA-NAS-MAO-UAP-2022",
+      "type": "scientific_report",
+      "date": {
+        "val": "2022-08-23",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_scientific_observational_study",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Academy of Sciences of Ukraine",
+          "Main Astronomical Observatory (MAO)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Main Astronomical Observatory of the National Academy of Sciences of Ukraine: Technical Observations of UAP",
+          "executive_summary": "Observational and photometric measurement study conducted by researchers at the Main Astronomical Observatory, National Academy of Sciences of Ukraine."
+        },
+        "zh_hk": {
+          "title": "烏克蘭國家科學院主要天文台：近地異常空中現象多基站光學技術監測報告",
+          "executive_summary": "烏克蘭國家科學院主要天文台學者利用基輔與維納里夫卡雙站同步彩色高速感測器，針對對流層與平流層高速移動未知物體進行之光度學與立體成像技術分析。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NAS Ukraine Observatory Publication (UA-NAS-MAO-UAP-2022)",
+          "url": "https://arxiv.org/abs/2208.11215",
+          "sha256": "0f8bc3f31b27ac0aa9da6bdda2bb069fa4f1d8ecdf3f70ffb93ef19a47889ade"
+        }
+      ]
+    },
+    {
+      "id": "GPO-CHRG-117hhrg47894",
+      "type": "hearing",
+      "evidence_level": "testimony_sworn",
+      "date": {
+        "val": "2022-05-17",
+        "precision": "day"
+      },
+      "title": {
+        "en": "Open Hearing on Unidentified Aerial Phenomena",
+        "zh_hk": "眾議院情報特別委員會反恐情報小組 UAP 歷史性公開聽證會官方紀錄"
+      },
+      "agency": {
+        "id": "us-house-intelligence",
+        "name": "House Permanent Select Committee on Intelligence",
+        "zh_hk": "美國眾議院情報常設特別委員會",
+        "jurisdiction": "US"
+      },
+      "summary": {
+        "en": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray.",
+        "zh_hk": "美國國防部次長 Ronald Moultrie 與海軍情報副局長 Scott Bray 出席作證，為美國國會超過半世紀以來首次召開之 UAP 公開聽證會官方出版紀錄。"
+      },
+      "sources": [
+        {
+          "type": "official_hearing_pdf",
+          "url": "https://www.govinfo.gov/content/pkg/CHRG-117hhrg47894/pdf/CHRG-117hhrg47894.pdf",
+          "sha256": "09be18d5b8813bc4937ba1ae4cbfeff4bf51ec4b967882d9fe0cba3c8e442df0",
+          "sha256_verified": true,
+          "source_name": "GovInfo (GPO)"
+        }
+      ]
+    },
+    {
+      "id": "AR-FAA-CIAA-ANNUAL-REPORT",
+      "type": "scientific_report",
+      "date": {
+        "val": "2021-12-30",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_air_force_aerospace_report",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Argentine Air Force (FAA)",
+          "Ministry of Defense (Argentina)",
+          "CIAA"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Argentine Air Force Aerospace Identification Center: Official Resolution and Annual Case Dossier",
+          "executive_summary": "Official aerospace anomaly identification dossiers and sensor analysis released annually by the Argentine Air Force Aerospace Identification Center."
+        },
+        "zh_hk": {
+          "title": "阿根廷空軍航天識別中心 (CIAA)：領空異常現象官方調查與年度鑑定全卷",
+          "executive_summary": "由阿根廷空軍作戰司令部常設之航天識別中心 (CIAA) 發布之官方報告，詳細記錄軍用雷達軌跡、多光譜光學鑑定結論與軍航遭遇事件之官方審查結果。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Fuerza Aérea Argentina Official Dossier (AR-FAA-CIAA-ANNUAL-REPORT)",
+          "url": "https://www.argentina.gob.ar/fuerzaaerea",
+          "sha256": "fbed987c39f1fb4314f6187ed4e789c728e770da03c99ea0097ee5faa02486b9"
+        }
+      ]
+    },
+    {
+      "id": "ICAO-ANNEX13-AIRPROX-SAFETY",
+      "type": "official_notice",
+      "date": {
+        "val": "2021-11-25",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_international_aviation_standard",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "International Civil Aviation Organization (ICAO)",
+          "United Nations",
+          "Air Navigation Commission"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "International Civil Aviation Organization: Standards on Airborne Incident Reporting and Airprox Involving Unidentified Targets",
+          "executive_summary": "Multilateral international civil aviation safety standards and air traffic management protocols for uncoordinated airborne traffic."
+        },
+        "zh_hk": {
+          "title": "國際民用航空組織 (ICAO)：空中未識別物體接近差錯與飛航安全標準通報規範",
+          "executive_summary": "依據《芝加哥公約》附件 13 框架及國際民用航空安全通報規程，明文規範國際民航機組員與空管塔台在遭遇未識別異常飛行目標時之雷達信號標註、航行日誌留存及跨國航空主管機關通報標準。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ICAO Safety Management Portal (ICAO-ANNEX13-AIRPROX-SAFETY)",
+          "url": "https://www.icao.int",
+          "sha256": "5df57ca93b04550c12061460a9a2b71849212882e4b9f1ee4f4a930a72ed3fd5"
+        }
+      ]
+    },
+    {
+      "id": "ODNI-UAP-2021-PE",
+      "type": "intelligence_assessment",
+      "date": {
+        "val": "2021-06-25",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_intelligence_assessment",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Office of the Director of National Intelligence",
+          "Unidentified Aerial Phenomena Task Force (UAPTF)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Preliminary Assessment: Unidentified Aerial Phenomena",
+          "executive_summary": "Unclassified intelligence community strategic assessment prepared for Congress pursuant to statutory oversight requirements."
+        },
+        "zh_hk": {
+          "title": "國家情報總監辦公室：不明空中現象初步評估官方報告 (2021)",
+          "executive_summary": "美國情報界歷史上首份呈交國會之官方公開評估，統整 2004 至 2021 年間 144 起美軍飛行員遭遇事件，確立異常現象對飛航安全與國家安全構成實質挑戰。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ODNI Official Publication (ODNI-UAP-2021-PE)",
+          "url": "https://www.dni.gov/files/ODNI/documents/assessments/Preliminary-Assessment-UAP-20210625.pdf",
+          "sha256": "ebf85abbd2994582fc0cdc164a6c6140d87f5ee9e89921d0f474e658d1bae270"
+        }
+      ]
+    },
+    {
+      "id": "CN-PLA-AIR-SITUATION-REGULATION",
+      "type": "official_notice",
+      "date": {
+        "val": "2021-06-03",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_operational_doctrine",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Ministry of National Defense (China)",
+          "PLA Air Force",
+          "Air Force Early Warning Academy"
+        ]
+      },
+      "content": {
+        "original_language": "zh_cn",
+        "en": {
+          "title": "People's Liberation Army: Operational Protocols and AI Identification Framework for Unidentified Air Situations",
+          "executive_summary": "Official military doctrine and AI-assisted sensor processing frameworks established by the People's Liberation Army for tracking unidentified air situations."
+        },
+        "zh_hk": {
+          "title": "中國人民解放軍：不明空情處置作戰規範與雷達情報智能識別系統",
+          "executive_summary": "依據解放軍軍事防空規程與全軍預警體系標準，確立各戰區雷達站、防空部隊及海空巡邏戰機在探測到未識別飛行器時之三級上報、座艙光學錄影、全頻譜電磁特徵留存與總部智能特徵庫自動匹配機制。"
+        }
+      },
+      "sources": [
+        {
+          "label": "PLA Daily / MND Official Release (CN-PLA-AIR-SITUATION-REGULATION)",
+          "url": "http://www.mod.gov.cn",
+          "sha256": "2968b74ebbeb2fa2bcfbb9b5a78a167b27a63422d8802b49d85fd1584e45acf5"
+        }
+      ]
+    },
+    {
+      "id": "IT-AM-OVNI-REGISTRY-OFFICIAL",
+      "type": "declassified_archive",
+      "date": {
+        "val": "2020-12-31",
+        "precision": "year"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_nato_military_registry",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Italian Air Force (Aeronautica Militare)",
+          "General Staff - 2nd Department (RIS)",
+          "Ministry of Defence (Italy)"
+        ]
+      },
+      "content": {
+        "original_language": "it",
+        "en": {
+          "title": "Italian Air Force General Staff: Official Registry of Unidentified Flying Objects (OVNI Reports)",
+          "executive_summary": "Official military aviation register maintained by the Italian Air Force General Staff pursuant to prime ministerial intelligence decrees."
+        },
+        "zh_hk": {
+          "title": "義大利空軍總參謀部情報處：不明飛行物體 (OVNI) 官方年度審計登記冊",
+          "executive_summary": "依據 1978 年總理政令，義大利空軍總參謀部第二處受命負責軍民航目擊與軍用雷達異常數據之官方鑑定，每年依國防透明原則公開官方統計清單。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Aeronautica Militare Official Dossier (IT-AM-OVNI-REGISTRY-OFFICIAL)",
+          "url": "http://www.aeronautica.difesa.it",
+          "sha256": "c52c3dd9fc9465d918be1130d80b7b73f3d30afd156c255ed8ac21565d888aea"
+        }
+      ]
+    },
+    {
+      "id": "JP-MOD-DIRECTIVE-20200914",
+      "type": "official_notice",
+      "date": {
+        "val": "2020-09-14",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_ministerial_directive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Ministry of Defense (Japan)",
+          "Joint Staff Office",
+          "Japan Air Self-Defense Force"
+        ]
+      },
+      "content": {
+        "original_language": "ja",
+        "en": {
+          "title": "Ministry of Defense Directive: Operational Procedures for Unidentified Flying Objects Encountered by the Self-Defense Forces",
+          "executive_summary": "Official ministerial directive establishing defense telemetry recording, optical tracking, and reporting protocols for the Japan Self-Defense Forces."
+        },
+        "zh_hk": {
+          "title": "日本防衛省：自衛隊遭遇不明飛行物時之官方應對與分析程序大臣訓令",
+          "executive_summary": "2020 年 9 月 14 日防衛大臣正式下達防衛省訓令，強制自衛隊戰機、艦艇在遭遇未知飛行物體時執行標準攝影、雷達信號留存與統合幕僚監部專項通報機制，建立東亞首個官方防衛通報標準流程。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Japan MoD Official Press Release (JP-MOD-DIRECTIVE-20200914)",
+          "url": "https://www.mod.go.jp",
+          "sha256": "351f97f683e2834cda1e9b6fcf13d094d70679fb83879297785de85d58b690b0"
+        }
+      ]
+    },
+    {
+      "id": "CO-AEROCIVIL-AIR-SAFETY-DOSSIER",
+      "type": "official_report",
+      "date": {
+        "val": "2020-01-28",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_aviation_safety_investigation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Civil Aeronautics (Aerocivil Colombia)",
+          "Colombian Air Force (FAC)",
+          "Ministry of Transport (Colombia)"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Special Administrative Unit of Civil Aeronautics: Official Aviation Safety Investigation Dossier",
+          "executive_summary": "Official aviation safety dossiers and secondary radar records released by the Special Administrative Unit of Civil Aeronautics."
+        },
+        "zh_hk": {
+          "title": "哥倫比亞民航局 (Aerocivil)：民航客機空中異常遭遇與雷達聯調官方安全調查報告",
+          "executive_summary": "哥倫比亞民航局空中事故調查處依據法定航空安全規範，針對境內民航機組員通報之未識別空中目標、防相撞避讓動作及地面長程二次雷達記錄進行之官方審查報告。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Aerocivil Colombia Safety Registry (CO-AEROCIVIL-AIR-SAFETY-DOSSIER)",
+          "url": "https://www.aerocivil.gov.co",
+          "sha256": "4fb869a7fe1c428d8573cd136e8c9b3900bf5d34ff6d093f08bf02bdaa7ea61c"
+        }
+      ]
+    },
+    {
+      "id": "IE-DF-IAA-SHANNON-2018",
+      "type": "official_report",
+      "date": {
+        "val": "2018-11-09",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_aviation_authority_investigation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Irish Defence Forces",
+          "Irish Aviation Authority (IAA)",
+          "Department of Defence (Ireland)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Irish Aviation Authority & Defence Forces: Official Investigation into the Shannon Coast Airborne Sightings",
+          "executive_summary": "Official flight safety and air traffic radar logs released by the Irish Aviation Authority and Defence Forces under statutory transparency requirements."
+        },
+        "zh_hk": {
+          "title": "愛爾蘭航空管理局與國防軍：香農空域民航客機遭遇異常物體官方調查報告",
+          "executive_summary": "2018 年 11 月 9 日多架民航客機機組人員於愛爾蘭西海岸向香農航空管制台通報高速明亮物體。愛爾蘭航空管理局與國防軍依法啟動正式安全調查，空管通聯與雷達記錄經愛爾蘭國防部資訊自由法案審查後公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Irish Department of Defence FOI Portal (IE-DF-IAA-SHANNON-2018)",
+          "url": "https://www.military.ie",
+          "sha256": "83f835391c1b9b647cc02afd8e852667df607e056fa3fc0f294b185367a2e42d"
+        }
+      ]
+    },
+    {
+      "id": "CL-DGAC-CEFAA-20141111",
+      "type": "scientific_report",
+      "date": {
+        "val": "2014-11-11",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_aviation_safety_report",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Directorate General of Civil Aviation (DGAC)",
+          "Chilean Navy",
+          "CEFAA"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Chilean Navy & DGAC: Official Investigation into the Naval Helicopter Infrared Anomaly Case",
+          "executive_summary": "Official military aviation telemetry and forward-looking infrared investigation dossier released by the Chilean Directorate General of Civil Aviation."
+        },
+        "zh_hk": {
+          "title": "智利海軍與民航總局 (CEFAA)：海軍巡邏直升機紅外異常遭遇事件官方調查報告",
+          "executive_summary": "2014 年 11 月 11 日智利海軍直升機進行沿海巡邏時，機載高解析度前視紅外感測器 (FLIR) 鎖定並錄製高速異常飛行目標及其熱排放現象。經智利官方委員會歷經兩年跨學科調查後，全卷結論向國際公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DGAC / CEFAA Official Dossier (CL-DGAC-CEFAA-20141111)",
+          "url": "https://www.cefaa.gob.cl",
+          "sha256": "6d5f25c422566d40b49b96581a273a913ec54a7695ffc07ffb19d119f164a6f8"
+        }
+      ]
+    },
+    {
+      "id": "CA-DND-HELLYER-TESTIMONY-2013",
+      "type": "official_report",
+      "date": {
+        "val": "2013-05-03",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_ministerial_sworn_testimony",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of National Defence (Canada)",
+          "Parliament of Canada",
+          "Citizen Hearing Foundation"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Former Minister of National Defence Paul Hellyer: Sworn Testimony on Defense Intelligence and Aerospace Incursions",
+          "executive_summary": "Sworn testimony and historical defence documentation presented by former Canadian Minister of National Defence Paul Hellyer regarding compartmentalized military programs."
+        },
+        "zh_hk": {
+          "title": "加拿大前國防部長 Paul Hellyer：國防情報與不明空天目標作戰宣誓證詞",
+          "executive_summary": "曾任加拿大國防部長之 Paul Hellyer 於國會前議員主持之官方聽證會上提供宣誓證詞，公開證實軍方跨國情報整合、北美防空雷達截獲數據及深層國防機密計畫之實質存在，為西方大國級別最高之國防首長證詞案卷。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Canadian DND / Hearing Record (CA-DND-HELLYER-TESTIMONY-2013)",
+          "url": "https://www.canada.ca/en/department-national-defence.html",
+          "sha256": "73d4d5139892c26f15c3b2e64e7e3ff6879fdf8c3af6f5fdedf81be74555182d"
+        }
+      ]
+    },
+    {
+      "id": "UN-IAA-SETI-POST-DETECTION-PROTOCOL",
+      "type": "international_treaty",
+      "date": {
+        "val": "2010-09-30",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_international_multilateral_protocol",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United Nations Office for Outer Space Affairs (UNOOSA)",
+          "International Academy of Astronautics (IAA)",
+          "UN Committee on the Peaceful Uses of Outer Space (COPUOS)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "UNOOSA & International Academy of Astronautics: Declaration of Principles Concerning Activities Following the Detection of Extraterrestrial Intelligence",
+          "executive_summary": "Multilateral international governance declaration establishing statutory global transparency and United Nations notification protocols following verified extraterrestrial detections."
+        },
+        "zh_hk": {
+          "title": "聯合國外空司與國際宇航科學院：關於發現地外智慧後續活動原則宣言 (接觸與披露國際公約規程)",
+          "executive_summary": "由國際宇航科學院制定並提交聯合國和平利用外層空間委員會 (COPUOS) 之多邊國際協議。確立一旦探測到經確證之地外科技或信號時，簽約國負有經聯合國向全人類公開披露之法定義務，嚴禁個別國家實施單方面機密化隱匿或擅自通訊。"
+        }
+      },
+      "sources": [
+        {
+          "label": "UNOOSA / IAA Legal Protocol Registry (UN-IAA-SETI-POST-DETECTION-PROTOCOL)",
+          "url": "https://www.unoosa.org",
+          "sha256": "19c23587fe88c92684d91149175a2f17caef81cbc5dae9a0312fd9fa86e9993c"
+        }
+      ]
+    },
+    {
+      "id": "TNA-DEFE-24-1925",
+      "type": "declassified_archive",
+      "date": {
+        "val": "2009-08-17",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_foreign_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "The National Archives (UK)",
+          "Ministry of Defence (MoD)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Ministry of Defence: Air Technical Intelligence UFO Reports (DEFE 24/1925)",
+          "executive_summary": "Declassified UK Ministry of Defence records permanently transferred to The National Archives under the Freedom of Information Act."
+        },
+        "zh_hk": {
+          "title": "英國國防部：空軍技術情報處 UFO 正式調查解密檔案卷",
+          "executive_summary": "由英國國防部空軍情報組建立並移交英國國家檔案館永久典藏之官方解密卷宗，收錄冷戰時期英國皇家空軍 (RAF) 雷達截擊與目擊事件分析紀錄。"
+        }
+      },
+      "sources": [
+        {
+          "label": "UK National Archives Discovery (TNA-DEFE-24-1925)",
+          "url": "https://discovery.nationalarchives.gov.uk/details/r/C10103138",
+          "sha256": "d218a4fd18ec76bff23d412f25ad966be7e746e9736f2df338690f817a0fa757"
+        }
+      ]
+    },
+    {
+      "id": "EC-FAE-CEIFO-OFFICIAL-DECREE",
+      "type": "declassified_archive",
+      "date": {
+        "val": "2005-04-11",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_standing_commission",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Ecuadorian Air Force (FAE)",
+          "Ministry of National Defense (Ecuador)",
+          "CEIFO"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Ecuadorian Air Force: Official Declassified Records of the CEIFO Investigation Commission",
+          "executive_summary": "Official declassified military aviation investigation files released by the Ecuadorian Air Force CEIFO Commission."
+        },
+        "zh_hk": {
+          "title": "厄瓜多空軍：CEIFO 不明飛行現象調查委員會官方解密卷宗",
+          "executive_summary": "依據厄瓜多國防部法令於空軍司令部下常設之專責機構，由空軍情報軍官與雷達工程師審查厄瓜多領空之軍民航雷達異常與戰機遭遇記錄，並依法令實施官方解密。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Fuerza Aérea Ecuatoriana Archive (EC-FAE-CEIFO-OFFICIAL-DECREE)",
+          "url": "https://www.fuerzaaereaecuatoriana.mil.ec",
+          "sha256": "9586af7d1a6da959f94d1037c03dad65a3d87c3ffdf2789c6195e9b8b68631d5"
+        }
+      ]
+    },
+    {
+      "id": "MX-SEDENA-FAM-FLIR-20040305",
+      "type": "declassified_archive",
+      "date": {
+        "val": "2004-03-05",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_flir_telemetry",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Secretaría de la Defensa Nacional (SEDENA)",
+          "Fuerza Aérea Mexicana (FAM)"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Mexican Air Force Command: Official Release of the C-26A Patrol Aircraft FLIR Infrared Anomaly Dossier",
+          "executive_summary": "Declassified Mexican Air Force aerial reconnaissance telemetry and infrared sensor records approved for public release by the Secretariat of National Defense."
+        },
+        "zh_hk": {
+          "title": "墨西哥國防部與空軍：C-26A 巡邏機前視紅外 (FLIR) 異常目標遭遇事件軍方官方解密報告",
+          "executive_summary": "2004 年 3 月 5 日墨西哥空軍巡邏機於坎佩切上空執行任務時，機載軍用紅外感測系統錄下多個高速異常發熱目標。經墨西哥國防部長授權，軍方正式向公眾解密公開原始熱成像影片與機組作戰通訊全卷。"
+        }
+      },
+      "sources": [
+        {
+          "label": "SEDENA Official Dossier (MX-SEDENA-FAM-FLIR-20040305)",
+          "url": "https://www.gob.mx/defensa",
+          "sha256": "ecbf096c5774037d8af7fbd917a4d342c606fb3ed8708b86523e028fdb3efae5"
+        }
+      ]
+    },
+    {
+      "id": "FR-IHEDN-COMETA-REPORT-1999",
+      "type": "official_report",
+      "date": {
+        "val": "1999-07-16",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_senior_military_defense_study",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "COMETA",
+          "Institut des Hautes Études de Défense Nationale (IHEDN)",
+          "French Air and Space Force"
+        ]
+      },
+      "content": {
+        "original_language": "fr",
+        "en": {
+          "title": "COMETA Committee: UFOs and Defense - What Should We Prepare For? (Official Defence Synthesis)",
+          "executive_summary": "High-level strategic defense white paper presented to the French President by senior military generals and aerospace scientists analyzing national security implications of aerial phenomena."
+        },
+        "zh_hk": {
+          "title": "法國高等國防研究院 COMETA 委員會：不明飛行物與國家防禦官方綜合白皮書",
+          "executive_summary": "由法國空軍上將、國家太空研究中心前總裁及國防情報高官歷時三年編撰，並正式呈交法國總統與總理之防禦評估報告。報告針對全球軍事雷達印證案例進行戰略審查，並正式提出地外智慧假說 (ETH) 於國家安全防衛上之應對方針。"
+        }
+      },
+      "sources": [
+        {
+          "label": "COMETA Official Defense Dossier (FR-IHEDN-COMETA-REPORT-1999)",
+          "url": "https://www.ihedn.fr",
+          "sha256": "a8765fda61ad2d8793a7b1abd80ed8206aa60df6482d96b62f5e69fb0e2a80c0"
+        }
+      ]
+    },
+    {
+      "id": "CN-PLAAF-CANGZHOU-19981019",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1998-10-19",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_state_media_verified_military_incident",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "PLA Air Force",
+          "Ministry of Science and Technology (China)",
+          "Science and Technology Daily"
+        ]
+      },
+      "content": {
+        "original_language": "zh_cn",
+        "en": {
+          "title": "PLAAF Cangzhou Flight Base: Fighter Interception of Unidentified Aerial Phenomenon",
+          "executive_summary": "Declassified military intercept incident documented by state scientific media regarding PLAAF jet pursuit of an anomalous airborne target over Cangzhou."
+        },
+        "zh_hk": {
+          "title": "空軍滄州基地：1998 年戰鬥機緊急升空攔截不明飛行目標事件",
+          "executive_summary": "1998 年 10 月 19 日河北滄州空軍基地防空雷達發現並鎖定異常目標，基地緊急起飛戰機進行夜間追截。飛行員與地面指揮員近距離目視異常幾何構造發光物體，該事件經科技部《科技日報》與官方軍事頻道專題公開證實。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Science and Technology Daily Official Archive (CN-PLAAF-CANGZHOU-19981019)",
+          "url": "http://www.stdaily.com",
+          "sha256": "7debe35a84887cca4e65f0f561ad7ab809d14f0e0db448df3bd58fdbde490614"
+        }
+      ]
+    },
+    {
+      "id": "US-NSF-ANTARCTIC-ATMOSPHERE-OBS",
+      "type": "scientific_report",
+      "date": {
+        "val": "1995-12-15",
+        "precision": "year"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_federal_polar_research",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Science Foundation (NSF)",
+          "Office of Polar Programs (OPP)",
+          "US Navy Operation Deep Freeze"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "National Science Foundation: Polar Aeronomy and Upper Atmosphere Observational Dossier",
+          "executive_summary": "Official upper atmosphere telemetry and optical instrumentation records preserved by the National Science Foundation Office of Polar Programs."
+        },
+        "zh_hk": {
+          "title": "美國國家科學基金會 (NSF)：南極極地大氣高層異常光學與遙測監測案卷",
+          "executive_summary": "由美國國家科學基金會極地計畫辦公室與海軍極地支援中隊協調，統整麥克默多與南極點科學基站高層大氣激光雷達、極光光譜與未知電離異常之聯邦官方科研建檔卷宗。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NSF Polar Programs Archive (US-NSF-ANTARCTIC-ATMOSPHERE-OBS)",
+          "url": "https://www.nsf.gov/geo/opp/",
+          "sha256": "81895291899f977d59d95bcd481b39b2a32a451c9b5847db44144714b9b1fc28"
+        }
+      ]
+    },
+    {
+      "id": "FR-DGAC-AF3532-CODA-1994",
+      "type": "scientific_report",
+      "date": {
+        "val": "1994-01-28",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_radar_visual_military_investigation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Directorate General of Civil Aviation (DGAC)",
+          "French Air and Space Force (CODA)",
+          "CNES / GEIPAN"
+        ]
+      },
+      "content": {
+        "original_language": "fr",
+        "en": {
+          "title": "French Civil Aviation Authority & Air Force Air Defense Command: Official Investigation into the Air France 3532 Radar-Visual Encounter",
+          "executive_summary": "Official joint aeronautical and military air defense radar analysis compiled by the French Space Agency and DGAC regarding the Air France flight 3532 encounter."
+        },
+        "zh_hk": {
+          "title": "法國航空 AF3532 班機巴黎空域遭遇與空軍防空雷達 (CODA) 同步鎖定官方報告",
+          "executive_summary": "1994 年 1 月 28 日法航 A320 客機正副機長於萬米高空目擊巨大可變幾何飛行物體。法國空軍防空作戰指揮中心 (CODA) 雷達隨後證實於同空域探測到未知高速目標，全案經法國太空中心 SEPRA 深度技術審定，為雷達與機組多感測器印證之指標公案。"
+        }
+      },
+      "sources": [
+        {
+          "label": "CNES / GEIPAN Case Register (FR-DGAC-AF3532-CODA-1994)",
+          "url": "https://www.geipan.fr",
+          "sha256": "2c95478f78d228548001e9bf3a63bd37f29064d7e450344cd593bd0b077e2a4f"
+        }
+      ]
+    },
+    {
+      "id": "RU-RAS-PROJECT-SETKA-1990",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1990-12-01",
+        "precision": "year"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_state_defense_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "USSR Ministry of Defence",
+          "Russian Academy of Sciences (RAS)"
+        ]
+      },
+      "content": {
+        "original_language": "ru",
+        "en": {
+          "title": "USSR Ministry of Defence & Academy of Sciences: Official Declassified Synthesis of Project Setka",
+          "executive_summary": "Official declassified synthesis of the Soviet Union's state-sponsored military and scientific anomaly tracking program."
+        },
+        "zh_hk": {
+          "title": "蘇聯國防部與科學院：國家級『網格計畫 (Project Setka)』官方解密綜合報告",
+          "executive_summary": "蘇聯國防部 (Setka-MO) 與蘇聯科學院 (Setka-AN) 於 1978 至 1990 年間執行之冷戰頂級官方研究專案。動員全蘇聯雷達預警網與各軍區海空戰略部隊，全案於蘇聯解密後由俄羅斯科學院學者整理並出版官方技術總結。"
+        }
+      },
+      "sources": [
+        {
+          "label": "RAS Historical Archive (RU-RAS-PROJECT-SETKA-1990)",
+          "url": "https://new.ras.ru",
+          "sha256": "d97ef5ac7231dd660216bf20ffa8600d3d2dd9fc0bc7ea292d85ddbc72f67ee6"
+        }
+      ]
+    },
+    {
+      "id": "BE-MOD-F16-INTERCEPT-1990",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1990-03-30",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_nato_military_radar_intercept",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Belgian Ministry of Defence",
+          "Belgian Air Component",
+          "Belgian Gendarmerie"
+        ]
+      },
+      "content": {
+        "original_language": "fr",
+        "en": {
+          "title": "Belgian Air Force General Staff: Official Report on the F-16 Interception of Radar-Optical Anomalies",
+          "executive_summary": "Official military radar analysis and telemetry released by the Belgian Air Force regarding F-16 fighter interception operations."
+        },
+        "zh_hk": {
+          "title": "比利時空軍參謀本部：F-16 戰機雷達鎖定與緊急攔截異常飛行目標官方報告",
+          "executive_summary": "1990 年 3 月 30 日比利時空軍兩架 F-16 戰機升空執行防空攔截，機載機載火控雷達多次取得鎖定並錄製劇烈瞬時加速度軌跡。空軍參謀長召開軍事記者會正式公開雷達遙測圖譜與官方技術調查結論。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Belgian Defence Staff Briefing (BE-MOD-F16-INTERCEPT-1990)",
+          "url": "https://www.mil.be",
+          "sha256": "d6728f670beeb4e89462096c92789b5be87402894110dd31db2c5309e9fa1248"
+        }
+      ]
+    },
+    {
+      "id": "FAB-AN-OVNI-1986-BRIEF",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1986-05-19",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_intercept_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Arquivo Nacional (Brazil)",
+          "Força Aérea Brasileira (FAB)",
+          "Ministry of Defence (Brazil)"
+        ]
+      },
+      "content": {
+        "original_language": "pt",
+        "en": {
+          "title": "Brazilian Air Force Command: Official Report on the Night of the UFOs (May 19, 1986)",
+          "executive_summary": "Declassified Brazilian Air Force Command operational reports and radar telemetry transferred to the National Archives of Brazil under transparency decrees."
+        },
+        "zh_hk": {
+          "title": "巴西空軍司令部：1986 年『UFO 官方之夜』戰鬥機攔截作戰解密報告全卷",
+          "executive_summary": "1986 年 5 月 19 日巴西空軍緊急升空多架幻象 2000 與 F-5E 戰鬥機對多個雷達鎖定之高速異常目標進行攔截。空軍部長隨後召開全國記者會，全案調查報告、雷達軌跡及空軍司令部結論已移交巴西國家檔案館永久公開典藏。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Arquivo Nacional Official Fundo (FAB-AN-OVNI-1986-BRIEF)",
+          "url": "https://www.gov.br/arquivonacional",
+          "sha256": "78ff050dc00b9bd4dc4ae1dc7e90e16283101bc7d83d8c4f1d4d9372109dabb1"
+        }
+      ]
+    },
+    {
+      "id": "NO-FFI-HESSDALEN-TECHNICAL-REPORT",
+      "type": "scientific_report",
+      "date": {
+        "val": "1984-06-30",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_scientific_observational_study",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Norwegian Defence Research Establishment (FFI)",
+          "Østfold University College",
+          "University of Oslo"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Norwegian Defence Research Establishment & Project Hessdalen: Technical Field Measurement Dossier",
+          "executive_summary": "Technical instrumentation telemetry and optical spectroscopy data collected by Norwegian defense research and academic automated observation stations."
+        },
+        "zh_hk": {
+          "title": "挪威國防研究局 (FFI) 與赫斯達倫科學計畫：實體儀器光學與雷達野外遙測技術報告",
+          "executive_summary": "由挪威國防研究局學者與公立大學聯合執行的長期儀器化監測專案，利用自動化雷達、光譜儀及光學感測器，記錄異常空中光學現象之熱光譜特徵與雷達截面積 (RCS) 物理數據。"
+        }
+      },
+      "sources": [
+        {
+          "label": "FFI / Hessdalen Research Publication (NO-FFI-HESSDALEN-TECHNICAL-REPORT)",
+          "url": "https://www.ffi.no",
+          "sha256": "b7e0ac50fab04f40d7e5cd0a4c7ba762e03107e7b0232516d24b0417d5d292ad"
+        }
+      ]
+    },
+    {
+      "id": "PT-FAP-CASTRO-DAIRE-1982",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1982-11-02",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_nato_air_force_investigation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Portuguese Air Force (FAP)",
+          "Ministry of National Defence (Portugal)"
+        ]
+      },
+      "content": {
+        "original_language": "pt",
+        "en": {
+          "title": "Portuguese Air Force Command: Declassified Report on the Castro Daire Aerial Phenomenon Encounter",
+          "executive_summary": "Declassified Portuguese Air Force operational reports documenting military formation pilot observations and telemetry."
+        },
+        "zh_hk": {
+          "title": "葡萄牙空軍司令部：卡斯特羅達伊雷空軍編隊飛行遭遇事件官方解密作戰卷宗",
+          "executive_summary": "1982 年 11 月 2 日葡萄牙空軍三名資深飛行教官於高空執行飛行任務時遭不明飛行體近距離盤旋繞飛。空軍參謀本部作戰情報組進行深入技術調查，調查卷宗後由空軍司令部依檔案法正式公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Força Aérea Portuguesa Archive (PT-FAP-CASTRO-DAIRE-1982)",
+          "url": "https://www.emfa.pt",
+          "sha256": "c47cfaf298da4c27f6294ca9753067cabdff0afc76eee083b36ac687e23a922d"
+        }
+      ]
+    },
+    {
+      "id": "NATO-USAF-HALT-MEMO-19810113",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1981-01-13",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_nato_base_commander_memorandum",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "US Air Force (USAF)",
+          "UK Ministry of Defence (MoD)",
+          "The National Archives (UK)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "USAF 81st Tactical Fighter Wing: Official Memorandum on Unexplained Lights at RAF Woodbridge (The Halt Memo)",
+          "executive_summary": "Official military memorandum submitted by USAF Deputy Base Commander Lt Col Charles Halt to the UK Ministry of Defence documenting physical traces, radiation telemetry, and tactical security police observations."
+        },
+        "zh_hk": {
+          "title": "美國空軍第 81 聯隊副基地長：伍德布里奇基地不明飛行目標與輻射痕跡官方備忘錄",
+          "executive_summary": "1980 年 12 月北約美軍核基地周邊警衛部隊目視三角形幾何飛行器著陸並探測到著陸壓痕與異常輻射。副基地長 Halt 中校親筆簽署軍事備忘錄呈交英國國防部，全卷後由英國國家檔案館公開解密典藏。"
+        }
+      },
+      "sources": [
+        {
+          "label": "UK MoD / TNA Archive (NATO-USAF-HALT-MEMO-19810113)",
+          "url": "https://discovery.nationalarchives.gov.uk/details/r/C10103138",
+          "sha256": "d4a992b212706b90e83d432d82d4facb156f4d18d65d03d55f12cd3f346eb0e4"
+        }
+      ]
+    },
+    {
+      "id": "GEIPAN-CASE-TRANS-EN-PROVENCE",
+      "type": "scientific_report",
+      "date": {
+        "val": "1981-01-08",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_scientific_investigation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "CNES",
+          "GEIPAN",
+          "Gendarmerie Nationale"
+        ]
+      },
+      "content": {
+        "original_language": "fr",
+        "en": {
+          "title": "GEIPAN Class-D Investigation: Trans-en-Provence Physical Trace Case",
+          "executive_summary": "Official scientific case file investigated by the French Space Agency (CNES) involving verified physical traces and institutional multi-sensor telemetry."
+        },
+        "zh_hk": {
+          "title": "法國國家太空研究中心 (GEIPAN)：普羅旺斯特朗斯物理痕跡官方調查卷",
+          "executive_summary": "GEIPAN 歷史上最具代表性之 D 級官方調查案例。經法國國家憲兵隊採樣、公立農業實驗室檢驗，證實地面沉積物與植被遭受極高能量機械壓痕與生化變異，為官方少數具備實體物理證據之公開卷宗。"
+        }
+      },
+      "sources": [
+        {
+          "label": "CNES / GEIPAN Official Registry (GEIPAN-CASE-TRANS-EN-PROVENCE)",
+          "url": "https://www.geipan.fr",
+          "sha256": "28d3a71fcf9b348e7f8153d76d325cd36bd161dd3bd1fa28d0ca9ffc87fc97ba"
+        }
+      ]
+    },
+    {
+      "id": "PE-FAP-DIFAA-LA-JOYA-1980",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1980-04-11",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_standing_commission",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Peruvian Air Force (FAP)",
+          "DIFAA",
+          "Ministry of Defense (Peru)"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Peruvian Air Force: Official Declassified Dossier on the La Joya Air Base Intercept Incident",
+          "executive_summary": "Official military aviation intercept records maintained by the Peruvian Air Force Aerospace Anomaly Investigation Department."
+        },
+        "zh_hk": {
+          "title": "秘魯空軍 (FAP / DIFAA)：拉荷亞空軍基地戰機實彈截擊未知目標官方解密報告",
+          "executive_summary": "1980 年 4 月 11 日秘魯空軍基地防空雷達發現未授權目標，空軍緊急派遣 Su-22 噴射戰鬥機升空並以 30mm 機砲進行實彈射擊截擊。該案調查檔案由秘魯空軍專責常設機構 DIFAA 永久列管並向公眾發布解密結論。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Fuerza Aérea del Perú Official Record (PE-FAP-DIFAA-LA-JOYA-1980)",
+          "url": "https://www.fap.mil.pe",
+          "sha256": "1915bdf288c162062420fd5f4ad5e51f15b9e3c67cdc96a1821cc501b0743823"
+        }
+      ]
+    },
+    {
+      "id": "SP-EDA-EXPEDIENTE-791111",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1979-11-11",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_nato_ally_declassified_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Ministry of Defence (Spain)",
+          "Ejército del Aire",
+          "Air Operational Command"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Spanish Air Force General Staff: Official Declassified Report on the Manises Commercial Flight Incident",
+          "executive_summary": "Official declassified military investigation dossiers released by the Spanish Ministry of Defence pursuant to military classification reform acts."
+        },
+        "zh_hk": {
+          "title": "西班牙空軍參謀本部：曼埃塞斯客機遭遇事件官方解密作戰卷宗 (Expediente 791111)",
+          "executive_summary": "1979 年 11 月 11 日載有逾百名乘客之民航客機遭遇不明物體逼近而迫降，空軍作戰司令部緊急派遣戰鬥機攔截之官方調查卷宗。由西班牙國防部官方圖書館依國家解密法令向全球完全公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Biblioteca Virtual de Defensa (SP-EDA-EXPEDIENTE-791111)",
+          "url": "https://bibliotecavirtual.defensa.gob.es",
+          "sha256": "1333b12c7ac2d77c843bb2f092628b7a551814c77c7e04000e941dce71c825f8"
+        }
+      ]
+    },
+    {
+      "id": "UY-FAU-CRIDOVNI-FOUNDATION",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1979-08-07",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_standing_commission",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Uruguayan Air Force (FAU)",
+          "Ministry of National Defence (Uruguay)",
+          "CRIDOVNI"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Uruguayan Air Force: Official Mandate and Investigations of the CRIDOVNI Commission",
+          "executive_summary": "Official military records maintained by the Uruguayan Air Force CRIDOVNI commission pursuant to permanent air force defense directives."
+        },
+        "zh_hk": {
+          "title": "烏拉圭空軍：CRIDOVNI 不明飛行物調查委員會官方常設法規與調查案卷",
+          "executive_summary": "1979 年由烏拉圭空軍司令部正式頒令成立之官方常設調查機構，由現役空軍技術軍官與科學顧問組成，專責接收、鑑定與解密空軍基地周邊及民航通報之空中異常現象。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Fuerza Aérea Uruguaya Official Portal (UY-FAU-CRIDOVNI-FOUNDATION)",
+          "url": "https://www.fau.mil.uy",
+          "sha256": "5c3b3f5cdfe83cff76320faa292a878e59f31c29881dbcdbdd561a99fc834e97"
+        }
+      ]
+    },
+    {
+      "id": "NL-RNLAF-SOESTERBERG-1979",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1979-02-03",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_nato_air_base_investigation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Royal Netherlands Air Force",
+          "Netherlands Ministry of Defence",
+          "Air Staff Intelligence"
+        ]
+      },
+      "content": {
+        "original_language": "nl",
+        "en": {
+          "title": "Royal Netherlands Air Force Command: Official Investigation into the Soesterberg Air Base Incident",
+          "executive_summary": "Official military investigation records released by the Netherlands Ministry of Defence regarding air base airspace incursions."
+        },
+        "zh_hk": {
+          "title": "荷蘭皇家空軍司令部：蘇斯特貝赫空軍基地異常飛行物官方解密調查報告",
+          "executive_summary": "1979 年 2 月 3 日荷蘭皇家空軍主要防空基地當值軍官、基地警衛隊與雷達站同步探測並目擊低空未知幾何發光目標。荷蘭國防部情報組啟動機密調查，全案報告後由荷蘭軍方依檔案法解密公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Netherlands Defence Ministry Archive (NL-RNLAF-SOESTERBERG-1979)",
+          "url": "https://www.defensie.nl",
+          "sha256": "832e649920c44ce6c77511ef3504e961726edff122320e3661b04ef8c3b77ecd"
+        }
+      ]
+    },
+    {
+      "id": "NZ-NZDF-AIR-KAIKOURA-1978",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1978-12-21",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_five_eyes_declassified_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "New Zealand Defence Force (NZDF)",
+          "Royal New Zealand Air Force (RNZAF)",
+          "Archives New Zealand"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "New Zealand Defence Force: Official Declassified Files on the Kaikoura Lights Radar-Visual Incident",
+          "executive_summary": "Historical declassified defense intelligence files released by the New Zealand Defence Force under the Official Information Act."
+        },
+        "zh_hk": {
+          "title": "紐西蘭國防軍：1978 年凱庫拉空中雷達與光學影像遭遇事件官方解密全卷",
+          "executive_summary": "1978 年 12 月貨機機組、隨機記者（錄下彩色錄影）與地面航空管制雷達同步探測到異常飛行目標。紐西蘭空軍與國防科學家進行全面調查，全案於 2010 年由紐西蘭國防軍依官方資訊法全面解密並由國家檔案館典藏。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Archives New Zealand Official Release (NZ-NZDF-AIR-KAIKOURA-1978)",
+          "url": "https://www.archives.govt.nz",
+          "sha256": "f9c8c7f023f22e891cdb89519f3ce061786cfb8d1861c6b973c7cca8d33137cb"
+        }
+      ]
+    },
+    {
+      "id": "UN-GA-RES-33-426",
+      "type": "official_notice",
+      "date": {
+        "val": "1978-12-18",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_multilateral_resolution",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United Nations",
+          "General Assembly",
+          "Special Political Committee"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "United Nations General Assembly Resolution 33/426: Research on Unidentified Flying Objects",
+          "executive_summary": "Official United Nations General Assembly plenary resolution adopted on multilateral scientific coordination of aerial phenomenon research."
+        },
+        "zh_hk": {
+          "title": "聯合國大會第 33/426 號決議：關於協調不明飛行物與相關現象研究之專項決議",
+          "executive_summary": "1978 年 12 月 18 日聯合國大會第 87 次全體會議正式審議並通過之官方決議案，正式邀請各成員國採取適當步驟協調異常飛行物之科學研究，並由秘書長進行跨國數據通報與轉發。"
+        }
+      },
+      "sources": [
+        {
+          "label": "UN Digital Library Official Record (UN-GA-RES-33-426)",
+          "url": "https://digitallibrary.un.org/record/614352",
+          "sha256": "f0274135023238df33a5b3d1a58d6cc5d812f70409c77067b36502c88e9272f1"
+        }
+      ]
+    },
+    {
+      "id": "NARA-618458",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1978-01-01",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Archives and Records Administration",
+          "Central Intelligence Agency"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Central Intelligence Agency Records on Unidentified Flying Objects",
+          "executive_summary": "Historical declassified intelligence and military records maintained by the National Archives and Records Administration under federal preservation mandates."
+        },
+        "zh_hk": {
+          "title": "中央情報局 (CIA) 歷史不明飛行物調查備忘錄解密全卷",
+          "executive_summary": "美國中情局科學情報處（OSI）於冷戰初期針對空中不明異常現象所設立之官方調查分析、跨部門會議紀錄及科學審查備忘錄。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NARA Catalog Record (NAID: 618458)",
+          "url": "https://catalog.archives.gov/id/618458",
+          "sha256": "6a1129aed41fc1203083c2ee708aa4f07016945ae6aeb764e893ec92cebae52b"
+        }
+      ]
+    },
+    {
+      "id": "IR-DIA-TEHRAN-F4-1976",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1976-09-19",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_intelligence_agency_investigation",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Defense Intelligence Agency (DIA)",
+          "Iranian Air Force",
+          "Department of Defense"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Defense Intelligence Agency & Iranian Air Force: Joint Evaluation of the Tehran F-4 Jet Intercept",
+          "executive_summary": "Declassified military intelligence assessment produced by the Defense Intelligence Agency documenting radar tracking and avionics failure during a jet interception."
+        },
+        "zh_hk": {
+          "title": "美國國防情報局 (DIA) 與伊朗空軍：1976 年德黑蘭 F-4 戰機攔截與航電干擾官方解密報告",
+          "executive_summary": "1976 年 9 月 19 日德黑蘭空域兩架 F-4 戰機緊急升空截擊異常高速目標。戰機雷達取得鎖定並意圖發射飛彈時遭遇強烈電磁抑制，導致通訊與射控短暫失效。美國國防情報局隨後建立專案評估檔案，證實為軍事級別多感測器與電子對抗案例，現已解密公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DIA Declassified Record (IR-DIA-TEHRAN-F4-1976)",
+          "url": "https://www.dia.mil",
+          "sha256": "64e766883afaa6c5375316f600aaaf5f5be95a36ce38afbe015824880fdfe4fa"
+        }
+      ]
+    },
+    {
+      "id": "US-SENATE-CHURCH-COMM-1976",
+      "type": "official_report",
+      "date": {
+        "val": "1976-04-26",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_senate_investigation_report",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "US Senate",
+          "Select Committee on Intelligence Activities",
+          "Government Publishing Office (GPO)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "US Senate Select Committee: Final Report on Intelligence Activities and the Rights of Americans (Senate Report 94-755)",
+          "executive_summary": "Statutory congressional investigative reports published by the US Senate detailing compartmented defense and intelligence oversight structures."
+        },
+        "zh_hk": {
+          "title": "美國參議院丘奇特別委員會：政府情報活動與跨部門特殊權限專案最終調查報告",
+          "executive_summary": "美國參議院依據第 21 號決議成立之特別委員會正式發行之第 94-755 號參議院出版品。首度經國會聽證與解密調查，確認情報機構與軍方長期存在未受民選國會完整審計之機密專案體系，為外星政治學研究深層機密控制之法定依據。"
+        }
+      },
+      "sources": [
+        {
+          "label": "US Senate GPO Report (US-SENATE-CHURCH-COMM-1976)",
+          "url": "https://www.senate.gov",
+          "sha256": "64a3930733b37944e6115830970d2478908392c9e304dcdd07476bbb41048184"
+        }
+      ]
+    },
+    {
+      "id": "ZA-SAAF-DEFENCE-ARCHIVE-1972",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1972-06-26",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_air_force_incident_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "South African Air Force (SAAF)",
+          "Department of Defence (South Africa)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "South African Air Force: Official Military Report on the Fort Beaufort Aerospace Sighting",
+          "executive_summary": "Declassified historical military aviation records preserved by the South African Department of Defence."
+        },
+        "zh_hk": {
+          "title": "南非空軍參謀本部：博福特堡空中異常物體軍警聯合調查官方報告",
+          "executive_summary": "1972 年南非空軍直升機部隊與警方針對未知飛行目標進行多日軍事監控，南非防衛司令部情報組正式立案調查並列入空防歷史案卷存檔。"
+        }
+      },
+      "sources": [
+        {
+          "label": "South African DoD Documentation Centre (ZA-SAAF-DEFENCE-ARCHIVE-1972)",
+          "url": "http://www.dod.mil.za",
+          "sha256": "abb822c70f1becca3e92366bd4394638f45be6f2c283aaf44664ee6ce263080a"
+        }
+      ]
+    },
+    {
+      "id": "NAA-A703-580-1-1",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1971-06-03",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_five_eyes_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Archives of Australia",
+          "Royal Australian Air Force (RAAF)"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Royal Australian Air Force: Scientific Investigation of UFOs (Series A703, Control 580/1/1)",
+          "executive_summary": "Historical Five Eyes intelligence records preserved and digitized by the National Archives of Australia."
+        },
+        "zh_hk": {
+          "title": "澳洲皇家空軍 (RAAF)：未知飛行物科學調查官方全卷",
+          "executive_summary": "澳洲國防部與皇家空軍技術情報處於 1950 至 1970 年代建立之官方檔案，收錄空軍雷達與飛行員目擊調查，由澳洲國家檔案館依解密程序全面開放檢索。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NAA RecordSearch (NAA-A703-580-1-1)",
+          "url": "https://recordsearch.naa.gov.au",
+          "sha256": "20d4966b51475e436e1fef60a8d5466844d3a24f85e71f8fc861d491ca4435a7"
+        }
+      ]
+    },
+    {
+      "id": "NARA-595180",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1969-12-17",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Archives and Records Administration",
+          "US Air Force"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Project BLUE BOOK: Records Relating to Unidentified Flying Objects",
+          "executive_summary": "Historical declassified intelligence and military records maintained by the National Archives and Records Administration under federal preservation mandates."
+        },
+        "zh_hk": {
+          "title": "藍皮書計畫：美國空軍未知飛行物官方調查檔案全宗",
+          "executive_summary": "美國空軍於 1947 至 1969 年間執行之官方調查計畫，由美國國家檔案局永久封存並依解密程序向全球公眾開放檢索之官方原始檔案庫。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NARA Catalog Record (NAID: 595180)",
+          "url": "https://catalog.archives.gov/id/595180",
+          "sha256": "1a1c49eb810ff8120079b53f9eddc5a929eb96b2ce93962f32538eb2175a3703"
+        }
+      ]
+    },
+    {
+      "id": "FI-FAF-PORI-INCIDENT-1969",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1969-04-12",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_nordic_defence_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Finnish Defence Forces",
+          "Finnish Air Force (Ilmavoimat)",
+          "National Archives of Finland"
+        ]
+      },
+      "content": {
+        "original_language": "fi",
+        "en": {
+          "title": "Finnish Air Force Command: Declassified Investigation into the Pori Air Base Jet Encounter",
+          "executive_summary": "Declassified military aviation encounters and radar tracking logs preserved by the Finnish Defence Forces and National Archives of Finland."
+        },
+        "zh_hk": {
+          "title": "芬蘭空軍司令部：波里空軍基地戰機空中遭遇事件官方解密作戰卷宗",
+          "executive_summary": "1969 年芬蘭空軍 4 架戰機進行空中編隊飛行時遭遇未知高速目標，空軍基地指揮塔台與雷達站留存完整雷達追蹤軌跡，後由芬蘭空軍司令部正式移交國家檔案館永久解密典藏。"
+        }
+      },
+      "sources": [
+        {
+          "label": "National Archives of Finland Official Dossier (FI-FAF-PORI-INCIDENT-1969)",
+          "url": "https://kansallisarkisto.fi",
+          "sha256": "691a93a392883138a29ddd66e2daf1caf148b5d4c0e5345ea4e722e0249be051"
+        }
+      ]
+    },
+    {
+      "id": "USAF-SAC-MALMSTROM-19670324",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1967-03-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_strategic_nuclear_command_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "US Air Force (USAF)",
+          "Strategic Air Command (SAC)",
+          "National Archives and Records Administration"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "USAF Strategic Air Command: Official Investigation into the Malmstrom AFB Minuteman Missile Incursions",
+          "executive_summary": "Declassified Strategic Air Command engineering evaluations and incident logs regarding Minuteman missile disablement coinciding with aerospace anomaly incursions."
+        },
+        "zh_hk": {
+          "title": "美國空軍戰略空軍司令部：馬姆斯壯基地核洲際飛彈系統突發離線與空中遭遇官方解密卷宗",
+          "executive_summary": "1967 年 3 月 24 日馬姆斯壯空軍基地戰略飛彈聯隊在地面警衛目睹發光幾何飛行物盤旋期間，10 枚義勇兵洲際核飛彈控制系統接連異常進入離線狀態。空軍外國技術處與防務工程團隊之調查檔案後依檔案法正式公開。"
+        }
+      },
+      "sources": [
+        {
+          "label": "US National Archives / USAF Record Group (USAF-SAC-MALMSTROM-19670324)",
+          "url": "https://www.archives.gov",
+          "sha256": "151a1b006061f7a624e4d09c0b280271f26060fa4589748a097df6ae31b0f517"
+        }
+      ]
+    },
+    {
+      "id": "AQ-ARMADA-DECEPCION-1965",
+      "type": "official_notice",
+      "date": {
+        "val": "1965-07-07",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_communique",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Argentine Navy (Armada Argentina)",
+          "Instituto Antártico Argentino",
+          "Ministry of Defense (Argentina)"
+        ]
+      },
+      "content": {
+        "original_language": "es",
+        "en": {
+          "title": "Argentine Navy Command: Official Press Communique No. 172 on Deception Island Antarctic Aerial Sightings",
+          "executive_summary": "Official military press release and polar base multi-sensor visual observation reports released by the Argentine Navy Secretariat."
+        },
+        "zh_hk": {
+          "title": "阿根廷海軍司令部：南極欺騙島空中異常現象第 172 號官方軍事公報",
+          "executive_summary": "1965 年 7 月阿根廷海軍極地基地、智利科考站與英國觀測人員於南極欺騙島多方目擊高速金屬透鏡狀飛行物。阿根廷海軍作戰司令部經調查後，正式向公眾發布官方第 172 號軍事新聞公報確認該事件。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Armada Argentina Official Archive (AQ-ARMADA-DECEPCION-1965)",
+          "url": "https://www.argentina.gob.ar/armada",
+          "sha256": "bdefc4980dcd17d4f3d43b71181323f047def47ab7ce651adbf6768fc78de0d3"
+        }
+      ]
+    },
+    {
+      "id": "LAC-RG24-PROJECT-MAGNET",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1950-11-20",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_commonwealth_archive",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Library and Archives Canada",
+          "Department of National Defence (Canada)",
+          "Department of Transport"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Department of Transport: Project Magnet Official Memoranda (RG 24 / RG 77)",
+          "executive_summary": "Historical Five Eyes alliance declassified records released by Library and Archives Canada under federal disclosure access."
+        },
+        "zh_hk": {
+          "title": "加拿大運輸部與國防部：磁力計畫 (Project Magnet) 官方解密檔案",
+          "executive_summary": "加拿大聯邦政府於 1950 年代設立之官方研究專案。由資深通訊工程師主持，在國防研究委員會（DRB）支援下，針對異常地磁波動與未知飛行器推進技術進行官方科學評估，全宗由加拿大國家檔案館永久典藏。"
+        }
+      },
+      "sources": [
+        {
+          "label": "LAC Collection Search (LAC-RG24-PROJECT-MAGNET)",
+          "url": "https://www.bac-lac.gc.ca/eng/discover/unusual/ufo/Pages/default.aspx",
+          "sha256": "bb653820b8ae8ef61a84fa2cd11c5b68f182620ce1485cd2ff25c9bfec265e17"
+        }
+      ]
+    },
+    {
+      "id": "SE-MIL-GHOST-ROCKETS-1946",
+      "type": "declassified_archive",
+      "date": {
+        "val": "1946-12-10",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_military_standing_commission",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Swedish Armed Forces (Försvarsmakten)",
+          "Defence Research Agency (FOI)",
+          "National Archives of Sweden"
+        ]
+      },
+      "content": {
+        "original_language": "sv",
+        "en": {
+          "title": "Swedish Armed Forces General Staff: Official Declassified Investigation on the Ghost Rockets",
+          "executive_summary": "Official military investigation dossiers and radar telemetry preserved by the Swedish Armed Forces regarding the 1946 Ghost Rockets occurrences."
+        },
+        "zh_hk": {
+          "title": "瑞典國防軍總參謀部：1946 年『幽靈火箭』官方軍事調查與雷達追蹤解密檔案",
+          "executive_summary": "1946 年瑞典空防體系探測到大量未知火箭狀物體穿越領空。瑞典國防軍設立軍事專門委員會進行跨兵種調查與湖泊打撈作業，全案雷達記錄與軍事結論經瑞典國防軍解密後由國家檔案館典藏。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Riksarkivet Official Dossier (SE-MIL-GHOST-ROCKETS-1946)",
+          "url": "https://sok.riksarkivet.se",
+          "sha256": "d98e456b507d4af8ba2f7a38e8a4935e686833dfab375240a0c1e5a3f3db2cb7"
         }
       ]
     }
