@@ -162,5 +162,5 @@ python scripts/compute_hashes.py --write
 
 ## ⚖️ 授權條款 (License)
 
-本專案採用 [MIT License](https://www.google.com/search?q=LICENSE&utm_source=gemini) 開源授權，歡迎各界開源情報研究員、學術機構與資料審計員共同維護與使用。
+本專案採用 [MIT License](https://github.com/jackylawck/veil/blob/main/LICENSE) 開源授權，歡迎各界開源情報研究員、學術機構與資料審計員共同維護與使用。
 
