@@ -6,15 +6,18 @@ import requests
 from .base import BaseAdapter
 
 
-class CongressGovAdapter(BaseAdapter):
+class CongressAdapter(BaseAdapter):
+    """
+    美國國會 API 適配器 (對齊 Schema v2)
+    類別名稱已對齊 scripts/ingest.py 的匯入需求
+    """
     BASE_URL = "https://api.congress.gov/v3"
 
     # 重點監控包含 UAP / AARO 核心條款的指標性法案 (NDAA / IAA)
-    # 涵蓋 117、118、119 屆國會的核心法案
     TARGET_BILLS = [
-        {"congress": 118, "type": "hr", "number": 2670},  # FY2024 NDAA (含 AARO 撥款與通報機制)
-        {"congress": 118, "type": "s", "number": 2226},   # Schumer UAPDA 原始提案法案
-        {"congress": 118, "type": "hr", "number": 8070},  # FY2025 NDAA (UAP 條款追蹤)
+        {"congress": 118, "type": "hr", "number": 2670},   # FY2024 NDAA (含 AARO 撥款與通報機制)
+        {"congress": 118, "type": "s", "number": 2226},    # Schumer UAPDA 原始提案法案
+        {"congress": 118, "type": "hr", "number": 8070},   # FY2025 NDAA (UAP 條款追蹤)
     ]
 
     @property
@@ -24,7 +27,7 @@ class CongressGovAdapter(BaseAdapter):
     def fetch_records(self, days_back: int = 365) -> List[Dict[str, Any]]:
         api_key = os.getenv("CONGRESS_API_KEY")
         if not api_key:
-            print("[CongressGovAdapter] 未檢測到 CONGRESS_API_KEY，跳過國會法案抓取。")
+            print("[CongressAdapter] ℹ 未檢測到 CONGRESS_API_KEY，跳過國會法案抓取（安全優雅降級）。")
             return []
 
         results: List[Dict[str, Any]] = []
@@ -53,7 +56,7 @@ class CongressGovAdapter(BaseAdapter):
                 data["fetched_summary"] = summary_text
                 results.append(self._normalize(data))
             except Exception as e:
-                print(f"[CongressGovAdapter] 獲取法案 {cong}-{b_type}-{b_num} 失敗: {e}")
+                print(f"[CongressAdapter] ⚠️ 獲取法案 {cong}-{b_type}-{b_num} 失敗: {e}")
 
         return results
 
@@ -70,7 +73,6 @@ class CongressGovAdapter(BaseAdapter):
         return ""
 
     def _normalize(self, raw: Dict[str, Any]) -> Dict[str, Any]:
-        raw_str = json.dumps(raw, sort_keys=True)
         cong = raw.get("congress")
         b_type = str(raw.get("type", "")).upper()
         b_num = raw.get("number")
@@ -78,44 +80,50 @@ class CongressGovAdapter(BaseAdapter):
 
         # 取得最新動作日期
         latest_action = raw.get("latestAction", {})
-        action_date = latest_action.get("actionDate") or raw.get("updateDate", "2026-01-01")
+        action_date = latest_action.get("actionDate") or raw.get("updateDate", "2024-01-01")
 
         title = raw.get("title", f"{cong}th Congress {b_type} {b_num}")
         summary = raw.get("fetched_summary") or title
 
         # 清除摘要中常見的 HTML 標籤
-        clean_summary = summary.replace("<p>", "").replace("</p>", "").replace("<br>", "")
+        clean_summary = summary.replace("<p>", "").replace("</p>", "").replace("<br>", "").replace("\n", " ").strip()
         if len(clean_summary) > 300:
             clean_summary = clean_summary[:300] + "..."
 
+        # 完全對齊 Schema v2.0.0 結構
         return {
             "id": doc_id,
-            "type": "legislation",
-            "date": {"val": action_date, "precision": "day"},
-            "governance": {
-                "source_tier": "Tier-1",
-                "evidence_level": "official_legislation",
-                "confidence_rating": "official_confirmed",
+            "type": "bill",
+            "evidence_level": "official_document",
+            "date": {
+                "val": action_date,
+                "precision": "day"
             },
-            "entities": {
-                "agencies": ["US Congress", f"{cong}th Congress", b_type]
+            "title": {
+                "en": title,
+                "zh_hk": f"第 {cong} 屆美國國會 {b_type} {b_num} 號法案（含 UAP 披露條款）"
             },
-            "content": {
-                "original_language": "en",
-                "en": {
-                    "title": title,
-                    "executive_summary": clean_summary,
-                },
-                "zh_hk": {
-                    "title": f"第 {cong} 屆美國國會 {b_type} {b_num} 號法案（含 UAP 披露條款）",
-                    "executive_summary": f"法案最新進展：{latest_action.get('text', '審議中')}。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。",
-                },
+            "agency": {
+                "id": "us-congress",
+                "name": "United States Congress",
+                "zh_hk": "美國國會",
+                "jurisdiction": "US"
+            },
+            "summary": {
+                "en": clean_summary,
+                "zh_hk": f"法案最新進展：{latest_action.get('text', '審議中')}。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
             },
             "sources": [
                 {
-                    "label": f"Congress.gov ({cong}th Congress)",
+                    "type": "bill_html",
                     "url": f"https://www.congress.gov/bill/{cong}th-congress/{b_type.lower()}-bill/{b_num}",
-                    "sha256": self.calculate_sha256(raw_str),
+                    "sha256": None,
+                    "sha256_verified": False,
+                    "source_name": "Congress.gov"
                 }
-            ],
+            ]
         }
+
+
+# 同時保留別名以防其他舊模組引用
+CongressGovAdapter = CongressAdapter
