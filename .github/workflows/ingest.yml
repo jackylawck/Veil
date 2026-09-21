@@ -56,12 +56,11 @@ jobs:
           TODAY=$(date -u +'%Y-%m-%d')
           echo "today_str=${TODAY}" >> "$GITHUB_OUTPUT"
 
-          # 執行 scripts/ingest.py：批次調用 adapters/ 目錄下定義之全球官方資料來源模組
-          # 產出成果彙整至 public/api/records-latest.json、drafts/ 及 data/
+          # 執行 scripts/ingest.py：批次調用動態適配器模組
           python scripts/ingest.py
 
-          # 以目標目錄檢測是否有實質檔案變動（不手動 git add，staging 由 create-pull-request add-paths 統一管轄）
-          CHANGES_DETECTED=$(git status --porcelain public/api drafts data 2>/dev/null || true)
+          # 以目標目錄檢測是否有實質檔案變動（僅檢測存在的目錄）
+          CHANGES_DETECTED=$(git status --porcelain public/api data 2>/dev/null || true)
           if [ -z "$CHANGES_DETECTED" ]; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
             STATUS_MSG="✔ 本次巡檢無新增官方紀錄。"
@@ -70,7 +69,7 @@ jobs:
             STATUS_MSG="✔ 檢測到新官方數據變更，已暫存準備開啟 PR。"
           fi
 
-          # 精確提取總卷宗數，杜絕將 dict 的 key 數量誤判為記錄數
+          # 精確提取總卷宗數
           TOTAL_COUNT=$(python3 - <<'EOF'
           import json, os
           ledger = "public/api/records-latest.json"
@@ -92,9 +91,7 @@ jobs:
           )
           echo "total_records=${TOTAL_COUNT}" >> "$GITHUB_OUTPUT"
 
-          # 統計變動檔案數，使用 awk 消除前導空格確保 Markdown 排版整齊
           COUNT_API=$(git status --porcelain public/api/ 2>/dev/null | awk 'END {print NR}')
-          COUNT_DRAFTS=$(git status --porcelain drafts/ 2>/dev/null | awk 'END {print NR}')
           COUNT_DATA=$(git status --porcelain data/ 2>/dev/null | awk 'END {print NR}')
 
           # 判斷執行模式
@@ -114,7 +111,6 @@ jobs:
             echo "| 檢查目標目錄 | 變動檔案數 |"
             echo "|---|---:|"
             echo "| \`public/api/\` | ${COUNT_API} |"
-            echo "| \`drafts/\` | ${COUNT_DRAFTS} |"
             echo "| \`data/\` | ${COUNT_DATA} |"
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -127,14 +123,13 @@ jobs:
           delete-branch: true
           add-paths: |
             public/api/
-            drafts/
             data/
           commit-message: "data: ingest new public records [${{ steps.run_ingest.outputs.today_str }}]"
           title: "[Draft Review] 官方紀錄更新 (${{ steps.run_ingest.outputs.today_str }})"
           body: |
             ### 📋 官方情報總帳每日巡檢結果
             
-            自動採集管線已檢測到資料變更並已更新資料庫/草稿區。
+            自動採集管線已檢測到資料變更並已更新資料庫。
             
             - **執行日期**: `${{ steps.run_ingest.outputs.today_str }}`
             - **當前總記錄數**: `${{ steps.run_ingest.outputs.total_records }}`
@@ -159,7 +154,7 @@ jobs:
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const labelName = 'pipeline-failure';
 
-            // 1. 保證 Label 一定存在（動態檢查與自動創建，根除降級帶來的去重漏洞）
+            // 1. 保證 Label 一定存在
             try {
               await github.rest.issues.getLabel({
                 owner: context.repo.owner,
