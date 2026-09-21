@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
@@ -47,7 +49,6 @@
   <link rel="manifest" href="./site.webmanifest">
 
   <!-- 🛡️ 企業級安全策略：Content Security Policy (CSP) 與權限隔離 -->
-  <!-- 針對本站引用的 cdn.tailwindcss.com 與 cdnjs Font Awesome 精確配置白名單 -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
@@ -159,7 +160,7 @@
         <span>全球主權官方解密時間線</span>
       </h2>
 
-      <!-- 分類按鈕組 (嚴格對齊 Schema v2: hearing, bill, report, statement, foia, media) -->
+      <!-- 分類按鈕組 -->
       <div class="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 text-xs scrollbar-none" id="filterBtnGroup">
         <button onclick="filterRecords('all')" class="filter-btn active whitespace-nowrap px-3 py-1.5 rounded bg-sky-600 text-white font-medium" data-filter="all">全部 ALL</button>
         <button onclick="filterRecords('hearing')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="hearing">聽證會 HEARING</button>
@@ -205,7 +206,7 @@
         .replace(/'/g, '&#39;');
     }
 
-    // 嚴格協議白名單防禦，阻絕 javascript: 偽協議注入
+    // 嚴格協議白名單防禦
     function safeUrl(url) {
       if (!url) return null;
       try {
@@ -213,13 +214,26 @@
         if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
           return escapeHtml(url);
         }
-      } catch (e) {
-        // 無效 URL 結構
-      }
+      } catch (e) {}
       return null;
     }
 
-    // 語言偵測：完整支援 zh 以及香港常見的 yue Locale
+    // 標準化類型映射：將各適配器輸出的多元類型精確收斂為 6 大標準類別
+    function normalizeRecordType(rawType) {
+      if (!rawType) return 'report';
+      const t = String(rawType).toLowerCase().trim();
+      
+      if (t.includes('hear') || t.includes('testimony')) return 'hearing';
+      if (t.includes('bill') || t.includes('legis') || t.includes('act') || t.includes('law')) return 'bill';
+      if (t.includes('foia') || t.includes('declass') || t.includes('archive') || t.includes('cable') || t.includes('memo')) return 'foia';
+      if (t.includes('state') || t.includes('press') || t.includes('brief') || t.includes('notice')) return 'statement';
+      if (t.includes('media') || t.includes('journal')) return 'media';
+      
+      // 其餘官方公報、年度報告、研發評估等均歸入官方報告
+      return 'report';
+    }
+
+    // 語言偵測
     const browserLang = (navigator.language || 'en').toLowerCase();
     const isChineseUser = browserLang.startsWith('zh') || browserLang.startsWith('yue');
     let currentLang = localStorage.getItem('veil_lang') || (isChineseUser ? 'zh' : 'en');
@@ -275,8 +289,8 @@
       }
     };
 
-    function getTypeBadge(type) {
-      switch (type) {
+    function getTypeBadge(normalizedType) {
+      switch (normalizedType) {
         case 'hearing':
           return `<span class="bg-amber-950 text-amber-400 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">聽證會 HEARING</span>`;
         case 'bill':
@@ -290,7 +304,7 @@
         case 'media':
           return `<span class="bg-slate-800 text-slate-300 border border-slate-700 text-[10px] font-bold px-2 py-0.5 rounded">權威媒體 MEDIA</span>`;
         default:
-          return `<span class="bg-slate-800 text-slate-300 border border-slate-700 text-[10px] font-bold px-2 py-0.5 rounded">存檔卷宗 ARCHIVE</span>`;
+          return `<span class="bg-sky-950 text-sky-400 border border-sky-800 text-[10px] font-bold px-2 py-0.5 rounded">官方報告 REPORT</span>`;
       }
     }
 
@@ -327,14 +341,17 @@
     }
 
     function updateStats() {
-      // 避免 0 值時錯誤回退
       const totalCount = (typeof metaInfo.total_records === 'number') 
         ? metaInfo.total_records 
         : allRecords.length;
 
+      // 依標準化後的類型統計
+      const hearingAndReportCount = allRecords.filter(r => ['hearing', 'report'].includes(normalizeRecordType(r.type))).length;
+      const billCount = allRecords.filter(r => normalizeRecordType(r.type) === 'bill').length;
+
       document.getElementById('statVal1').innerText = totalCount;
-      document.getElementById('statVal2').innerText = allRecords.filter(r => ['hearing', 'report'].includes(r.type)).length;
-      document.getElementById('statVal3').innerText = allRecords.filter(r => r.type === 'bill').length;
+      document.getElementById('statVal2').innerText = hearingAndReportCount;
+      document.getElementById('statVal3').innerText = billCount;
       
       if (metaInfo.generated_at) {
         document.getElementById('statVal4').innerText = metaInfo.generated_at.split('T')[0];
@@ -349,7 +366,7 @@
 
       let filtered = allRecords;
       if (currentFilter !== 'all') {
-        filtered = allRecords.filter(r => r.type === currentFilter);
+        filtered = allRecords.filter(r => normalizeRecordType(r.type) === currentFilter);
       }
 
       if (filtered.length === 0) {
@@ -358,7 +375,8 @@
       }
 
       filtered.forEach(record => {
-        const typeBadge = getTypeBadge(record.type);
+        const normType = normalizeRecordType(record.type);
+        const typeBadge = getTypeBadge(normType);
 
         const rawTitleZh = record.title?.zh_hk || record.content?.zh_hk?.title || '';
         const rawTitleEn = record.title?.en || record.content?.en?.title || '';
@@ -382,7 +400,7 @@
         const primarySource = (Array.isArray(record.sources) && record.sources[0]) ? record.sources[0] : {};
         const validatedUrl = safeUrl(primarySource.url);
         
-        // 唯有真正經過審計且標記為 verified 的真 SHA 雜湊才顯示指紋
+        // 唯有審計且確認為 true 的真 SHA 雜湊才顯示數位指紋
         const shaVerified = primarySource.sha256 && primarySource.sha256_verified === true;
         const shaShort = shaVerified ? primarySource.sha256.substring(0, 10) + '...' : null;
 
@@ -434,7 +452,7 @@
       currentLang = currentLang === 'zh' ? 'en' : 'zh';
       localStorage.setItem('veil_lang', currentLang);
       applyLanguage();
-      renderTimeline(); // 僅在主動切換語系時觸發重新渲染
+      renderTimeline();
     }
 
     function applyLanguage() {
@@ -460,7 +478,6 @@
         if (filter === 'statement') btn.innerText = UI_TEXT[currentLang].filterStatement;
         if (filter === 'foia') btn.innerText = UI_TEXT[currentLang].filterFoia;
       });
-      // 注意：初始載入時不呼叫 renderTimeline()，防止閃爍「暫無紀錄」
     }
 
     function filterRecords(type) {
