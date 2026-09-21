@@ -4,6 +4,9 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["main"]
+    paths:
+      - 'public/**'
+      - '.github/workflows/static.yml'
   workflow_dispatch:
 
 permissions:
@@ -106,10 +109,10 @@ jobs:
           SITE_URL="${{ steps.deployment.outputs.page_url }}"
           echo "正在驗證線上站點可用性: $SITE_URL"
 
-          # 等待 CDN 廣播，最多重試 5 次
+          # 等待 CDN 廣播，最多重試 5 次，加入 -L 跟隨 301 重定向
           SUCCESS=0
           for i in {1..5}; do
-            STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL" || true)
+            STATUS_CODE=$(curl -s -L -o /dev/null -w "\%{http_code}" "$SITE_URL" || true)
             if [ "$STATUS_CODE" = "200" ]; then
               SUCCESS=1
               echo "✔ 站點驗證成功 (HTTP 200)"
