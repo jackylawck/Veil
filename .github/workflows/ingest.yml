@@ -24,7 +24,7 @@ jobs:
   ingest:
     name: Run OSINT Ingestion & Review Pipeline
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35   # 適度放寬總超時，避免 80+ 適配器連線耗時觸發強退
 
     steps:
       - name: Checkout Repository
@@ -46,7 +46,7 @@ jobs:
 
       - name: Run Ingest Script & Generate Metrics
         id: run_ingest
-        timeout-minutes: 12
+        timeout-minutes: 25   # 適度放寬腳本逾時至 25 分鐘
         env:
           PYTHONUNBUFFERED: "1"
           CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
@@ -59,8 +59,8 @@ jobs:
           # 執行 scripts/ingest.py：批次調用動態適配器模組
           python scripts/ingest.py
 
-          # 以目標目錄檢測是否有實質檔案變動（僅檢測存在的目錄）
-          CHANGES_DETECTED=$(git status --porcelain public/api data 2>/dev/null || true)
+          # 精確檢測 data 與 public/api 目錄是否有實質檔案變動（包含未追蹤檔案）
+          CHANGES_DETECTED=$(git status --porcelain -uall public/api data 2>/dev/null || true)
           if [ -z "$CHANGES_DETECTED" ]; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
             STATUS_MSG="✔ 本次巡檢無新增官方紀錄。"
@@ -91,13 +91,15 @@ jobs:
           )
           echo "total_records=${TOTAL_COUNT}" >> "$GITHUB_OUTPUT"
 
-          COUNT_API=$(git status --porcelain public/api/ 2>/dev/null | awk 'END {print NR}')
-          COUNT_DATA=$(git status --porcelain data/ 2>/dev/null | awk 'END {print NR}')
+          COUNT_API=$(git status --porcelain -uall public/api/ 2>/dev/null | awk 'END {print NR}')
+          COUNT_DATA=$(git status --porcelain -uall data/ 2>/dev/null | awk 'END {print NR}')
 
-          # 判斷執行模式
-          MODE_LABEL="正式排程執行"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          # 判定執行模式（安全處理排程與手動觸發布林值）
+          IS_DRY_RUN="${{ inputs.dry_run || 'false' }}"
+          if [ "$IS_DRY_RUN" = "true" ]; then
             MODE_LABEL="🔸 Dry Run（僅採集測試，不開啟 PR）"
+          else
+            MODE_LABEL="正式排程執行"
           fi
 
           # 輸出結構化指標至 GitHub Step Summary
@@ -115,7 +117,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create Pull Request for Human Review
-        if: steps.run_ingest.outputs.has_changes == 'true' && !inputs.dry_run
+        if: steps.run_ingest.outputs.has_changes == 'true' && (inputs.dry_run == false || inputs.dry_run == null)
         uses: peter-evans/create-pull-request@v6
         with:
           base: main
