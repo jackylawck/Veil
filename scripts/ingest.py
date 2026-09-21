@@ -39,6 +39,116 @@ def parse_date_safe(date_str: str) -> datetime:
     return datetime(1900, 1, 1, tzinfo=timezone.utc)
 
 
+def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RECORD") -> Dict[str, Any]:
+    """
+    Schema v2.0.0 強制正規化過濾器
+    保證任何進入總帳的紀錄皆具備 governance、entities、content (雙語) 與 sources。
+    """
+    if not isinstance(raw, dict):
+        return {}
+
+    rid = raw.get("id") or f"{fallback_id_prefix}-{int(datetime.now(timezone.utc).timestamp())}"
+    rec_type = raw.get("type") or "official_report"
+    
+    # 處理日期結構
+    raw_date = raw.get("date")
+    if isinstance(raw_date, dict) and "val" in raw_date:
+        date_obj = {"val": str(raw_date["val"]), "precision": raw_date.get("precision", "day")}
+    elif isinstance(raw_date, str):
+        date_obj = {"val": raw_date, "precision": "day"}
+    else:
+        date_obj = {"val": datetime.now(timezone.utc).strftime("%Y-%m-%d"), "precision": "day"}
+
+    # 1. 治理屬性 (governance)
+    raw_gov = raw.get("governance")
+    if isinstance(raw_gov, dict):
+        gov = {
+            "source_tier": raw_gov.get("source_tier", "Tier-1"),
+            "evidence_level": raw_gov.get("evidence_level", raw.get("evidence_level", "official_document")),
+            "confidence_rating": raw_gov.get("confidence_rating", "official_confirmed")
+        }
+    else:
+        gov = {
+            "source_tier": "Tier-1",
+            "evidence_level": raw.get("evidence_level", "official_document"),
+            "confidence_rating": "official_confirmed"
+        }
+
+    # 2. 機構實體 (entities)
+    raw_entities = raw.get("entities")
+    if isinstance(raw_entities, dict) and "agencies" in raw_entities:
+        entities = raw_entities
+    elif "agency" in raw:
+        agency_data = raw.get("agency")
+        if isinstance(agency_data, dict):
+            agency_name = agency_data.get("zh_hk") or agency_data.get("name") or "Official Agency"
+        else:
+            agency_name = str(agency_data)
+        entities = {"agencies": [agency_name]}
+    else:
+        entities = {"agencies": ["Official Sovereign Authority"]}
+
+    # 3. 雙語內容 (content)
+    raw_content = raw.get("content")
+    if isinstance(raw_content, dict) and "en" in raw_content and "zh_hk" in raw_content:
+        content = raw_content
+    else:
+        # 相容扁平 title / summary
+        raw_title = raw.get("title", {})
+        raw_summary = raw.get("summary", {})
+
+        if isinstance(raw_title, dict):
+            t_en = raw_title.get("en") or "Official Sovereign Disclosure Dossier"
+            t_zh = raw_title.get("zh_hk") or t_en
+        else:
+            t_en = str(raw_title or "Official Sovereign Disclosure Dossier")
+            t_zh = t_en
+
+        if isinstance(raw_summary, dict):
+            s_en = raw_summary.get("en") or ""
+            s_zh = raw_summary.get("zh_hk") or s_en
+        else:
+            s_en = str(raw_summary or "")
+            s_zh = s_en
+
+        content = {
+            "original_language": raw.get("original_language", "en"),
+            "en": {
+                "title": t_en,
+                "executive_summary": s_en
+            },
+            "zh_hk": {
+                "title": t_zh,
+                "executive_summary": s_zh
+            }
+        }
+
+    # 4. 來源簽章 (sources)
+    normalized_sources = []
+    raw_sources = raw.get("sources", [])
+    if isinstance(raw_sources, list):
+        for s in raw_sources:
+            if isinstance(s, dict):
+                label = s.get("label") or s.get("name") or s.get("source_name") or f"Source ({rid})"
+                url = s.get("url", "")
+                sha = s.get("sha256")
+                normalized_sources.append({
+                    "label": label,
+                    "url": url,
+                    "sha256": sha
+                })
+
+    return {
+        "id": rid,
+        "type": rec_type,
+        "date": date_obj,
+        "governance": gov,
+        "entities": entities,
+        "content": content,
+        "sources": normalized_sources
+    }
+
+
 def load_curated_historical_records() -> List[Dict[str, Any]]:
     """載入歷史典藏底庫 (data/curated_historical.json)。"""
     curated_file = ROOT_DIR / "data" / "curated_historical.json"
@@ -99,12 +209,10 @@ def discover_all_adapters() -> List[BaseAdapter]:
                 # 類別驗證：必須繼承 BaseAdapter 且非 BaseAdapter 本身
                 if inspect.isclass(attr) and issubclass(attr, BaseAdapter) and attr is not BaseAdapter:
                     try:
-                        # 1. 優先以預設無參數實例化
                         instance = attr()
                         discovered.append(instance)
                         break
                     except TypeError:
-                        # 2. 需特定參數（如 API Key）時自動注入
                         try:
                             key = os.environ.get("CONGRESS_API_KEY", "").strip()
                             instance = attr(api_key=key)
@@ -143,14 +251,15 @@ def run_ingestion(days_back: int = 30) -> None:
     all_records: List[Dict[str, Any]] = []
     seen_ids = set()
 
-    # 1. 載入靜態歷史典藏
+    # 1. 載入歷史典藏庫並強制正規化
     historical = load_curated_historical_records()
-    for r in historical:
+    for raw in historical:
+        r = normalize_record(raw, fallback_id_prefix="HISTORICAL")
         rid = r.get("id")
         if rid and rid not in seen_ids:
             seen_ids.add(rid)
             all_records.append(r)
-    print(f"✔ 成功載入歷史里程碑典藏: {len(all_records)} 筆")
+    print(f"✔ 成功載入歷史里程碑典藏: {len(all_records)} 筆 (已正規化)")
 
     # 2. 自動裝載所有適配器
     active_adapters = discover_all_adapters()
@@ -159,10 +268,12 @@ def run_ingestion(days_back: int = 30) -> None:
     # 3. 執行增量採集
     for adapter in active_adapters:
         name = getattr(adapter, "source_name", adapter.__class__.__name__)
+        prefix = adapter.__class__.__name__.replace("Adapter", "").upper()
         try:
             fetched = adapter.fetch_records(days_back=days_back)
             added = 0
-            for r in fetched:
+            for raw in fetched:
+                r = normalize_record(raw, fallback_id_prefix=prefix)
                 rid = r.get("id")
                 if rid and rid not in seen_ids:
                     seen_ids.add(rid)
@@ -173,9 +284,9 @@ def run_ingestion(days_back: int = 30) -> None:
                 "fetched": len(fetched),
                 "new": added,
             }
-            print(f"  ✔ [API: {name:<25}] 抓取 {len(fetched)} 筆，新增入庫 {added} 筆")
+            print(f"  ✔ [API: {name:<35}] 抓取 {len(fetched)} 筆，新增入庫 {added} 筆")
         except Exception as exc:
-            print(f"  ✖ [API: {name:<25}] 採集失敗: {exc}", file=sys.stderr)
+            print(f"  ✖ [API: {name:<35}] 採集失敗: {exc}", file=sys.stderr)
             api_metrics[name] = {
                 "status": "failed",
                 "error": str(exc),
