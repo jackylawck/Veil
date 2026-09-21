@@ -2,9 +2,9 @@
   "metadata": {
     "title": "The Veil - Global UAP Intelligence Ledger",
     "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
-    "generated_at": "2026-09-21T02:08:40.536314+00:00",
-    "duration_sec": 4.18,
-    "total_records": 73,
+    "generated_at": "2026-09-21T13:27:07.403330+00:00",
+    "duration_sec": 2.09,
+    "total_records": 64,
     "curated_historical_records": 7,
     "live_adapters_active": 57,
     "api_metrics": {
@@ -373,44 +373,6 @@
       ]
     },
     {
-      "id": "US-DOE-NNSA-NUCLEAR-AIRSPACE-INCURSION",
-      "type": "declassified_archive",
-      "date": {
-        "val": "2025-06-18",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_energy_department_nuclear_security_dossier",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "Department of Energy (DOE)",
-          "National Nuclear Security Administration (NNSA)",
-          "National Archives and Records Administration"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Department of Energy & NNSA: Official Security Records on Unidentified Incursions Over Nuclear Laboratories",
-          "executive_summary": "Declassified Department of Energy security incident records and physical surveillance logs tracking airborne incursions over national nuclear laboratory airspace."
-        },
-        "zh_hk": {
-          "title": "美國能源部與國家核安全局：國家核能實驗室與戰略設施空域未授權侵入官方安全案卷",
-          "executive_summary": "統整能源部所轄桑迪亞、洛斯阿拉莫斯等國家實驗室及敏感核儲存設施周邊通報之不明飛行物體遭遇報告。檔案涵蓋地面武裝警衛日誌、核子監控感測器異常數據，經由跨部會審查程序逐步向國家檔案館移交公開。"
-        }
-      },
-      "sources": [
-        {
-          "label": "Department of Energy Public Records (US-DOE-NNSA-NUCLEAR-AIRSPACE-INCURSION)",
-          "url": "https://www.energy.gov",
-          "sha256": "d67f95dbb795b4cd5582ec56c578e2197bcefdc7d6bc0d9806ecaa3ed4836232"
-        }
-      ]
-    },
-    {
       "id": "DOD-AARO-HISTORICAL-VOL2-STATUTORY",
       "type": "official_report",
       "date": {
@@ -488,39 +450,33 @@
     },
     {
       "id": "FR-2024-26343",
-      "type": "official_notice",
+      "type": "report",
+      "evidence_level": "official_document",
       "date": {
         "val": "2024-11-18",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_federal_register_notice",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "Agency Information Collection Activities; Proposals, Submissions, and Approvals: All-Domain Anomaly Resolution Office (AARO)",
+        "zh_hk": "擬議資訊收集暨公眾諮詢公告：全領域異常解析辦公室 (AARO) 專項業務"
       },
-      "entities": {
-        "agencies": [
-          "Department of Defense",
-          "All-domain Anomaly Resolution Office (AARO)",
-          "Office of the Federal Register"
-        ]
+      "agency": {
+        "id": "us-dod",
+        "name": "Department of Defense",
+        "zh_hk": "美國國防部",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Agency Information Collection Activities; Proposals, Submissions, and Approvals: All-Domain Anomaly Resolution Office (AARO)",
-          "executive_summary": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions."
-        },
-        "zh_hk": {
-          "title": "擬議資訊收集暨公眾諮詢公告：全領域異常解析辦公室 (AARO) 專項業務",
-          "executive_summary": "美國國防部正式發布之聯邦公報，依據《美國法典》第 10 卷授權，針對設立公眾通報途徑、保障異常現象數據安全存檔與資訊徵詢機制徵集公眾意見。"
-        }
+      "summary": {
+        "en": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions.",
+        "zh_hk": "美國國防部正式發布之聯邦公報，依據《美國法典》第 10 卷授權，針對設立公眾通報途徑、保障異常現象數據安全存檔與資訊徵詢機制徵集公眾意見。"
       },
       "sources": [
         {
-          "label": "Federal Register Official Publication (FR-2024-26343)",
+          "type": "federal_register_document",
           "url": "https://www.federalregister.gov/documents/2024/11/18/2024-26343/agency-information-collection-activities-proposals-submissions-and-approvals-all-domain-anomaly",
-          "sha256": null
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Federal Register"
         }
       ]
     },
@@ -754,39 +710,33 @@
     },
     {
       "id": "CONG-118-HR-8070",
-      "type": "legislation",
+      "type": "bill",
+      "evidence_level": "official_document",
       "date": {
         "val": "2024-06-14",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_statutory_bipartisan_legislation",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "Servicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025",
+        "zh_hk": "現役軍人生活質素改善暨 2025 財政年度國防授權法案（眾議院通過版本）"
       },
-      "entities": {
-        "agencies": [
-          "United States Congress",
-          "House of Representatives",
-          "All-domain Anomaly Resolution Office (AARO)"
-        ]
+      "agency": {
+        "id": "us-house",
+        "name": "House of Representatives",
+        "zh_hk": "美國眾議院",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Servicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025 (House Passed)",
-          "executive_summary": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing."
-        },
-        "zh_hk": {
-          "title": "現役軍人生活質素改善暨 2025 財政年度國防授權法案（眾議院通過版本）",
-          "executive_summary": "美國眾議院審議通過之國防預算法案，進一步擴大國會對 AARO 的法定監督職責，強制收緊跨情報機關與國防設施異常空情數據的共享通報時限，並加強公眾定期報告之問責性。"
-        }
+      "summary": {
+        "en": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing.",
+        "zh_hk": "美國眾議院審議通過之國防預算法案，進一步擴大國會對 AARO 的法定監督職責，強制收緊跨情報機關與國防設施異常空情數據的共享通報時限，並加強公眾定期報告之問責性。"
       },
       "sources": [
         {
-          "label": "Congress.gov Bill Text (CONG-118-HR-8070)",
+          "type": "bill_html",
           "url": "https://www.congress.gov/bill/118th-congress/house-bill/8070/text",
-          "sha256": null
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Congress.gov"
         }
       ]
     },
@@ -983,39 +933,33 @@
     },
     {
       "id": "CONG-118-HR-2670",
-      "type": "legislation",
+      "type": "bill",
+      "evidence_level": "official_document",
       "date": {
         "val": "2023-12-22",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_statutory_bipartisan_legislation",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "National Defense Authorization Act for Fiscal Year 2024 (Public Law 118-31)",
+        "zh_hk": "2024 財政年度國防授權法案（聯邦公法第 118-31 號）"
       },
-      "entities": {
-        "agencies": [
-          "United States Congress",
-          "Department of Defense",
-          "All-domain Anomaly Resolution Office (AARO)"
-        ]
+      "agency": {
+        "id": "us-congress",
+        "name": "United States Congress",
+        "zh_hk": "美國國會",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "National Defense Authorization Act for Fiscal Year 2024 (Public Law 118-31)",
-          "executive_summary": "Enacted federal defense law containing Subtitle C (Unidentified Anomalous Phenomena Disclosure), mandating DoD/AARO centralized records collection, reporting mechanisms, and whistleblower protections."
-        },
-        "zh_hk": {
-          "title": "2024 財政年度國防授權法案（聯邦公法第 118-31 號）",
-          "executive_summary": "美國總統簽署生效之聯邦國防法案，包含丙部（未知異常現象披露）專項條款，明令國防部全領域異常解析辦公室 (AARO) 實施中央檔案集中管理、確立軍民通報機制及吹哨者法定義務保障。"
-        }
+      "summary": {
+        "en": "Enacted federal defense law containing Subtitle C (Unidentified Anomalous Phenomena Disclosure), mandating DoD/AARO centralized records collection, reporting mechanisms, and whistleblower protections.",
+        "zh_hk": "美國總統簽署生效之聯邦國防法案，包含丙部（未知異常現象披露）專項條款，明令國防部全領域異常解析辦公室 (AARO) 實施中央檔案集中管理、確立軍民通報機制及吹哨者法定義務保障。"
       },
       "sources": [
         {
-          "label": "GovInfo (GPO) Statute PDF (PLAW-118publ31)",
+          "type": "statute_pdf",
           "url": "https://www.govinfo.gov/content/pkg/PLAW-118publ31/pdf/PLAW-118publ31.pdf",
-          "sha256": "81f185461c360db93540b0ba722a36b568393e18a8b1395804365da98cb9f1ee"
+          "sha256": "81f185461c360db93540b0ba722a36b568393e18a8b1395804365da98cb9f1ee",
+          "sha256_verified": true,
+          "source_name": "GovInfo (GPO)"
         }
       ]
     },
@@ -1095,80 +1039,6 @@
       ]
     },
     {
-      "id": "ODNI-UAP-2023-ANNUAL",
-      "type": "intelligence_assessment",
-      "date": {
-        "val": "2023-10-17",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_intelligence_assessment",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "Office of the Director of National Intelligence",
-          "All-Domain Anomaly Resolution Office (AARO)"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Annual Report on Unidentified Anomalous Phenomena (2023)",
-          "executive_summary": "Unclassified intelligence community strategic assessment prepared for Congress pursuant to statutory oversight requirements."
-        },
-        "zh_hk": {
-          "title": "國家情報總監辦公室：2023 年度 UAP 法定綜合評估報告",
-          "executive_summary": "依據 NDAA 條款編撰之情報界年度報告，詳細載明新通報之數百起跨領域異常案例、感測器特徵分類及跨部會聯絡機制運作現況。"
-        }
-      },
-      "sources": [
-        {
-          "label": "ODNI Official Publication (ODNI-UAP-2023-ANNUAL)",
-          "url": "https://www.dni.gov/files/ODNI/documents/assessments/Unclassified-2023-Annual-Report-on-UAP.pdf",
-          "sha256": "722ef146d2731249f14f9b944fb222f3eed15f5e21d1ee02490a43c3f910af97"
-        }
-      ]
-    },
-    {
-      "id": "NASA-UAP-IST-2023",
-      "type": "scientific_report",
-      "date": {
-        "val": "2023-09-14",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_scientific_report",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "NASA",
-          "NASA Science Mission Directorate"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "NASA Unidentified Anomalous Phenomena Independent Study Team Report",
-          "executive_summary": "Official scientific advisory report outlining rigorous methodologies, sensor calibration, and open-source data analytics frameworks for aerospace anomaly tracking."
-        },
-        "zh_hk": {
-          "title": "NASA 未知異常現象 (UAP) 獨立科學研究團隊官方正式報告",
-          "executive_summary": "由 16 位橫跨天體物理學、數據科學、航空安全等領域專家歷時一年編撰之官方里程碑報告，提出將民間衛星、大數據及人工智慧導入異常現象跨機構校準之法定科學藍圖。"
-        }
-      },
-      "sources": [
-        {
-          "label": "NASA Science Directorate Official Publication",
-          "url": "https://science.nasa.gov/uap/",
-          "sha256": "24916d08f6f4405e3c255bbb5e8c853e4422714baf09788cf60f1fc01af57a8e"
-        }
-      ]
-    },
-    {
       "id": "DVIDS-TRANSCRIPT-20230831",
       "type": "official_briefing",
       "date": {
@@ -1207,189 +1077,129 @@
     },
     {
       "id": "CONG-118-S-2226",
-      "type": "legislation",
+      "type": "bill",
+      "evidence_level": "official_document",
       "date": {
         "val": "2023-07-27",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_statutory_bipartisan_legislation",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "National Defense Authorization Act for Fiscal Year 2024",
+        "zh_hk": "第 118 屆美國國會 S 2226 號法案（含 UAP 披露條款）"
       },
-      "entities": {
-        "agencies": [
-          "United States Senate",
-          "Department of Defense",
-          "Department of Energy"
-        ]
+      "agency": {
+        "id": "us-congress",
+        "name": "United States Congress",
+        "zh_hk": "美國國會",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "National Defense Authorization Act for Fiscal Year 2024 (S. 2226 Passed Senate Version)",
-          "executive_summary": "National Defense Authorization Act for Fiscal Year 2024 authorizing appropriations and establishing inter-agency declassification review procedures for unidentified anomalous phenomena."
-        },
-        "zh_hk": {
-          "title": "第 118 屆美國國會 S 2226 號法案（含 UAP 披露條款）",
-          "executive_summary": "法案最新進展：參議院審議通過並印行。法案涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
-        }
+      "summary": {
+        "en": "<b>National Defense Authorization Act for Fiscal Year 2024</b>  This bill authorizes FY2024 appropriations and sets forth policies for Department of Defense (DOD) programs and activities, military construction, the national security programs of the Department of Energy (DOE), and the Maritime Admini...",
+        "zh_hk": "法案最新進展：Senate ordered measure printed as passed.。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
       },
       "sources": [
         {
-          "label": "Congress.gov S. 2226 Bill Record",
+          "type": "bill_html",
           "url": "https://www.congress.gov/bill/118th-congress/s-bill/2226",
-          "sha256": null
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Congress.gov"
         }
       ]
     },
     {
       "id": "GPO-CHRG-118hhrg52893",
-      "type": "official_report",
+      "type": "hearing",
+      "evidence_level": "testimony_sworn",
       "date": {
         "val": "2023-07-26",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_hearing_record",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "Unidentified Anomalous Phenomena: Implications on National Security, Public Safety, and Government Transparency",
+        "zh_hk": "眾議院監督及問責委員會 UAP 宣誓聽證會正式出版紀錄（含證人 Grusch 證詞）"
       },
-      "entities": {
-        "agencies": [
-          "House Committee on Oversight and Accountability",
-          "Government Publishing Office (GPO)"
-        ]
+      "agency": {
+        "id": "us-house-oversight",
+        "name": "House Committee on Oversight and Accountability",
+        "zh_hk": "美國眾議院監督與問責委員會",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Unidentified Anomalous Phenomena: Implications on National Security, Public Safety, and Government Transparency (CHRG-118hhrg52893)",
-          "executive_summary": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators."
-        },
-        "zh_hk": {
-          "title": "眾議院監督及問責委員會 UAP 宣誓聽證會正式出版紀錄（含證人 Grusch 證詞）",
-          "executive_summary": "美國政府出版局 (GPO) 正式印行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫、飛行安全及異常航天目標遭遇事件進行之宣誓證詞。"
-        }
+      "summary": {
+        "en": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators.",
+        "zh_hk": "美國政府出版局 (GPO) 正式印行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫、飛行安全及異常航天目標遭遇事件進行之宣誓證詞。"
       },
       "sources": [
         {
-          "label": "GovInfo (GPO) Hearing Transcript (CHRG-118hhrg52893)",
+          "type": "official_hearing_pdf",
           "url": "https://www.govinfo.gov/content/pkg/CHRG-118hhrg52893/pdf/CHRG-118hhrg52893.pdf",
-          "sha256": "4b6e512423ba2ea2efef218d6e3557e4e16bbca9d6aa22502690ff39ef2a2757"
+          "sha256": "4b6e512423ba2ea2efef218d6e3557e4e16bbca9d6aa22502690ff39ef2a2757",
+          "sha256_verified": true,
+          "source_name": "GovInfo (GPO)"
         }
       ]
     },
     {
       "id": "CONG-118-S-2226-AMDT-797",
-      "type": "legislation",
+      "type": "bill",
+      "evidence_level": "official_document",
       "date": {
         "val": "2023-07-13",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_statutory_bipartisan_legislation",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "UAP Disclosure Act of 2023 (Schumer-Rounds Amendment SA 797 to S. 2226)",
+        "zh_hk": "2023 年未知異常現象披露法案（舒默－朗茲 UAPDA 跨黨派修正案 SA 797）"
       },
-      "entities": {
-        "agencies": [
-          "United States Senate",
-          "Senate Select Committee on Intelligence"
-        ]
+      "agency": {
+        "id": "us-senate",
+        "name": "United States Senate",
+        "zh_hk": "美國參議院",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "UAP Disclosure Act of 2023 (Schumer-Rounds Amendment SA 797 to S. 2226)",
-          "executive_summary": "Bipartisan amendment led by Senate Majority Leader Chuck Schumer proposing a 9-member independent Presidential Review Board to declassify legacy defense materials and recover non-human intelligence technologies."
-        },
-        "zh_hk": {
-          "title": "2023 年未知異常現象披露法案（舒默－朗茲 UAPDA 跨黨派修正案 SA 797）",
-          "executive_summary": "參議院多數黨領袖舒默聯同參議員朗茲提出之里程碑修正案，擬設立由 9 名獨立專家組成、直屬總統且具備傳召取證權之審查委員會，推動跨部會積存之歷史機密檔案與潛在地外科技物證有序向公眾解密。"
-        }
+      "summary": {
+        "en": "Bipartisan amendment led by Senate Majority Leader Chuck Schumer proposing a 9-member independent Presidential Review Board to declassify legacy defense materials and recover non-human intelligence technologies.",
+        "zh_hk": "參議院多數黨領袖舒默聯同參議員朗茲提出之里程碑修正案，擬設立由 9 名獨立專家組成、直屬總統且具備傳召取證權之審查委員會，推動跨部會積存之歷史機密檔案與潛在地外科技物證有序向公眾解密。"
       },
       "sources": [
         {
-          "label": "Congress.gov Amendment Text (SA 797)",
+          "type": "amendment_html",
           "url": "https://www.congress.gov/amendment/118th-congress/senate-amendment/797/text",
-          "sha256": null
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Congress.gov"
         }
       ]
     },
     {
       "id": "FR-2023-14732",
-      "type": "official_notice",
+      "type": "report",
+      "evidence_level": "official_document",
       "date": {
         "val": "2023-07-11",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_federal_register_notice",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "Privacy Act of 1974; System of Records: AARO Records Tracking",
+        "zh_hk": "1974 年隱私法案；系統記錄通告 (SORN)：AARO 異常個案追蹤記錄庫修訂"
       },
-      "entities": {
-        "agencies": [
-          "Department of Defense",
-          "All-domain Anomaly Resolution Office (AARO)",
-          "Office of the Federal Register"
-        ]
+      "agency": {
+        "id": "us-dod",
+        "name": "Department of Defense",
+        "zh_hk": "美國國防部",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Privacy Act of 1974; System of Records: AARO Records Tracking",
-          "executive_summary": "Notice of a modified system of records to include collection and maintenance of anomalous unidentified sightings reported by service members."
-        },
-        "zh_hk": {
-          "title": "1974 年隱私法案；系統記錄通告 (SORN)：AARO 異常個案追蹤記錄庫修訂",
-          "executive_summary": "美國國防部正式修訂法定系統記錄庫，將現役軍職人員向 AARO 通報之異常飛行與跨領域不明目標目擊數據，納入聯邦私隱法規保護與長期安全存檔機制。"
-        }
+      "summary": {
+        "en": "Notice of a modified system of records to include collection and maintenance of anomalous unidentified sightings reported by service members.",
+        "zh_hk": "美國國防部正式修訂法定系統記錄庫，將現役軍職人員向 AARO 通報之異常飛行與跨領域不明目標目擊數據，納入聯邦私隱法規保護與長期安全存檔機制。"
       },
       "sources": [
         {
-          "label": "Federal Register Official Publication (FR-2023-14732)",
+          "type": "federal_register_document",
           "url": "https://www.federalregister.gov/documents/2023/07/11/2023-14732/privacy-act-of-1974-system-of-records",
-          "sha256": null
-        }
-      ]
-    },
-    {
-      "id": "NORAD-CIRVIS-INTERCEPT-2023",
-      "type": "official_briefing",
-      "date": {
-        "val": "2023-02-12",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_joint_defense_command_briefing",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "North American Aerospace Defense Command (NORAD)",
-          "US Northern Command",
-          "Canadian Joint Operations Command"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "North American Aerospace Defense Command: Joint Operational Briefing on High-Altitude Airborne Objects",
-          "executive_summary": "Official joint air defense operational telemetry and combat intercept briefing released by NORAD public affairs."
-        },
-        "zh_hk": {
-          "title": "北美防空司令部 (NORAD)：美加領空高空異常飛行目標聯合攔截作戰官方簡報",
-          "executive_summary": "依據美加聯合防衛協定與 CIRVIS 戰略通報規程，北美防空司令部指揮美加戰機對高空未識別異常目標進行多感測器雷達鎖定與實彈攔截，官方聲明由司令部新聞處正式發布。"
-        }
-      },
-      "sources": [
-        {
-          "label": "NORAD Public Affairs News Release (NORAD-CIRVIS-INTERCEPT-2023)",
-          "url": "https://www.norad.mil",
-          "sha256": "5b4132c901246ee989014c4bf9b29ba6e961d513804f643b1647418670d6e94e"
+          "sha256": null,
+          "sha256_verified": false,
+          "source_name": "Federal Register"
         }
       ]
     },
@@ -1432,38 +1242,33 @@
     },
     {
       "id": "GPO-CHRG-117hhrg47894",
-      "type": "official_report",
+      "type": "hearing",
+      "evidence_level": "testimony_sworn",
       "date": {
         "val": "2022-05-17",
         "precision": "day"
       },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_hearing_record",
-        "confidence_rating": "official_confirmed"
+      "title": {
+        "en": "Open Hearing on Unidentified Aerial Phenomena",
+        "zh_hk": "眾議院情報特別委員會反恐情報小組 UAP 歷史性公開聽證會官方紀錄"
       },
-      "entities": {
-        "agencies": [
-          "House Permanent Select Committee on Intelligence",
-          "Government Publishing Office (GPO)"
-        ]
+      "agency": {
+        "id": "us-house-intelligence",
+        "name": "House Permanent Select Committee on Intelligence",
+        "zh_hk": "美國眾議院情報常設特別委員會",
+        "jurisdiction": "US"
       },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Open Hearing on Unidentified Aerial Phenomena (CHRG-117hhrg47894)",
-          "executive_summary": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray."
-        },
-        "zh_hk": {
-          "title": "眾議院情報特別委員會反恐情報小組 UAP 歷史性公開聽證會官方紀錄",
-          "executive_summary": "美國國防部次長 Ronald Moultrie 與海軍情報副局長 Scott Bray 出席作證，為美國國會超過半世紀以來首次召開之 UAP 公開聽證會官方出版紀錄。"
-        }
+      "summary": {
+        "en": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray.",
+        "zh_hk": "美國國防部次長 Ronald Moultrie 與海軍情報副局長 Scott Bray 出席作證，為美國國會超過半世紀以來首次召開之 UAP 公開聽證會官方出版紀錄。"
       },
       "sources": [
         {
-          "label": "GovInfo (GPO) Hearing Record (CHRG-117hhrg47894)",
+          "type": "official_hearing_pdf",
           "url": "https://www.govinfo.gov/content/pkg/CHRG-117hhrg47894/pdf/CHRG-117hhrg47894.pdf",
-          "sha256": "09be18d5b8813bc4937ba1ae4cbfeff4bf51ec4b967882d9fe0cba3c8e442df0"
+          "sha256": "09be18d5b8813bc4937ba1ae4cbfeff4bf51ec4b967882d9fe0cba3c8e442df0",
+          "sha256_verified": true,
+          "source_name": "GovInfo (GPO)"
         }
       ]
     },
@@ -1540,43 +1345,6 @@
           "label": "ICAO Safety Management Portal (ICAO-ANNEX13-AIRPROX-SAFETY)",
           "url": "https://www.icao.int",
           "sha256": "5df57ca93b04550c12061460a9a2b71849212882e4b9f1ee4f4a930a72ed3fd5"
-        }
-      ]
-    },
-    {
-      "id": "ODNI-UAP-2021-PE",
-      "type": "intelligence_assessment",
-      "date": {
-        "val": "2021-06-25",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_intelligence_assessment",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "Office of the Director of National Intelligence",
-          "Unidentified Aerial Phenomena Task Force (UAPTF)"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Preliminary Assessment: Unidentified Aerial Phenomena",
-          "executive_summary": "Unclassified intelligence community strategic assessment prepared for Congress pursuant to statutory oversight requirements."
-        },
-        "zh_hk": {
-          "title": "國家情報總監辦公室：不明空中現象初步評估官方報告 (2021)",
-          "executive_summary": "美國情報界歷史上首份呈交國會之官方公開評估，統整 2004 至 2021 年間 144 起美軍飛行員遭遇事件，確立異常現象對飛航安全與國家安全構成實質挑戰。"
-        }
-      },
-      "sources": [
-        {
-          "label": "ODNI Official Publication (ODNI-UAP-2021-PE)",
-          "url": "https://www.dni.gov/files/ODNI/documents/assessments/Preliminary-Assessment-UAP-20210625.pdf",
-          "sha256": "ebf85abbd2994582fc0cdc164a6c6140d87f5ee9e89921d0f474e658d1bae270"
         }
       ]
     },
@@ -1956,43 +1724,6 @@
           "label": "Fuerza Aérea Ecuatoriana Archive (EC-FAE-CEIFO-OFFICIAL-DECREE)",
           "url": "https://www.fuerzaaereaecuatoriana.mil.ec",
           "sha256": "9586af7d1a6da959f94d1037c03dad65a3d87c3ffdf2789c6195e9b8b68631d5"
-        }
-      ]
-    },
-    {
-      "id": "MX-SEDENA-FAM-FLIR-20040305",
-      "type": "declassified_archive",
-      "date": {
-        "val": "2004-03-05",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_military_flir_telemetry",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "Secretaría de la Defensa Nacional (SEDENA)",
-          "Fuerza Aérea Mexicana (FAM)"
-        ]
-      },
-      "content": {
-        "original_language": "es",
-        "en": {
-          "title": "Mexican Air Force Command: Official Release of the C-26A Patrol Aircraft FLIR Infrared Anomaly Dossier",
-          "executive_summary": "Declassified Mexican Air Force aerial reconnaissance telemetry and infrared sensor records approved for public release by the Secretariat of National Defense."
-        },
-        "zh_hk": {
-          "title": "墨西哥國防部與空軍：C-26A 巡邏機前視紅外 (FLIR) 異常目標遭遇事件軍方官方解密報告",
-          "executive_summary": "2004 年 3 月 5 日墨西哥空軍巡邏機於坎佩切上空執行任務時，機載軍用紅外感測系統錄下多個高速異常發熱目標。經墨西哥國防部長授權，軍方正式向公眾解密公開原始熱成像影片與機組作戰通訊全卷。"
-        }
-      },
-      "sources": [
-        {
-          "label": "SEDENA Official Dossier (MX-SEDENA-FAM-FLIR-20040305)",
-          "url": "https://www.gob.mx/defensa",
-          "sha256": "ecbf096c5774037d8af7fbd917a4d342c606fb3ed8708b86523e028fdb3efae5"
         }
       ]
     },
@@ -2641,43 +2372,6 @@
       ]
     },
     {
-      "id": "NARA-618458",
-      "type": "declassified_archive",
-      "date": {
-        "val": "1978-01-01",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_archive",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "National Archives and Records Administration",
-          "Central Intelligence Agency"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Central Intelligence Agency Records on Unidentified Flying Objects",
-          "executive_summary": "Historical declassified intelligence and military records maintained by the National Archives and Records Administration under federal preservation mandates."
-        },
-        "zh_hk": {
-          "title": "中央情報局 (CIA) 歷史不明飛行物調查備忘錄解密全卷",
-          "executive_summary": "美國中情局科學情報處（OSI）於冷戰初期針對空中不明異常現象所設立之官方調查分析、跨部門會議紀錄及科學審查備忘錄。"
-        }
-      },
-      "sources": [
-        {
-          "label": "NARA Catalog Record (NAID: 618458)",
-          "url": "https://catalog.archives.gov/id/618458",
-          "sha256": "6a1129aed41fc1203083c2ee708aa4f07016945ae6aeb764e893ec92cebae52b"
-        }
-      ]
-    },
-    {
       "id": "IR-DIA-TEHRAN-F4-1976",
       "type": "declassified_archive",
       "date": {
@@ -2824,43 +2518,6 @@
           "label": "NAA RecordSearch (NAA-A703-580-1-1)",
           "url": "https://recordsearch.naa.gov.au",
           "sha256": "20d4966b51475e436e1fef60a8d5466844d3a24f85e71f8fc861d491ca4435a7"
-        }
-      ]
-    },
-    {
-      "id": "NARA-595180",
-      "type": "declassified_archive",
-      "date": {
-        "val": "1969-12-17",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_archive",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "National Archives and Records Administration",
-          "US Air Force"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "Project BLUE BOOK: Records Relating to Unidentified Flying Objects",
-          "executive_summary": "Historical declassified intelligence and military records maintained by the National Archives and Records Administration under federal preservation mandates."
-        },
-        "zh_hk": {
-          "title": "藍皮書計畫：美國空軍未知飛行物官方調查檔案全宗",
-          "executive_summary": "美國空軍於 1947 至 1969 年間執行之官方調查計畫，由美國國家檔案局永久封存並依解密程序向全球公眾開放檢索之官方原始檔案庫。"
-        }
-      },
-      "sources": [
-        {
-          "label": "NARA Catalog Record (NAID: 595180)",
-          "url": "https://catalog.archives.gov/id/595180",
-          "sha256": "1a1c49eb810ff8120079b53f9eddc5a929eb96b2ce93962f32538eb2175a3703"
         }
       ]
     },
@@ -3013,44 +2670,6 @@
           "label": "LAC Collection Search (LAC-RG24-PROJECT-MAGNET)",
           "url": "https://www.bac-lac.gc.ca/eng/discover/unusual/ufo/Pages/default.aspx",
           "sha256": "bb653820b8ae8ef61a84fa2cd11c5b68f182620ce1485cd2ff25c9bfec265e17"
-        }
-      ]
-    },
-    {
-      "id": "SE-MIL-GHOST-ROCKETS-1946",
-      "type": "declassified_archive",
-      "date": {
-        "val": "1946-12-10",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_military_standing_commission",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "Swedish Armed Forces (Försvarsmakten)",
-          "Defence Research Agency (FOI)",
-          "National Archives of Sweden"
-        ]
-      },
-      "content": {
-        "original_language": "sv",
-        "en": {
-          "title": "Swedish Armed Forces General Staff: Official Declassified Investigation on the Ghost Rockets",
-          "executive_summary": "Official military investigation dossiers and radar telemetry preserved by the Swedish Armed Forces regarding the 1946 Ghost Rockets occurrences."
-        },
-        "zh_hk": {
-          "title": "瑞典國防軍總參謀部：1946 年『幽靈火箭』官方軍事調查與雷達追蹤解密檔案",
-          "executive_summary": "1946 年瑞典空防體系探測到大量未知火箭狀物體穿越領空。瑞典國防軍設立軍事專門委員會進行跨兵種調查與湖泊打撈作業，全案雷達記錄與軍事結論經瑞典國防軍解密後由國家檔案館典藏。"
-        }
-      },
-      "sources": [
-        {
-          "label": "Riksarkivet Official Dossier (SE-MIL-GHOST-ROCKETS-1946)",
-          "url": "https://sok.riksarkivet.se",
-          "sha256": "d98e456b507d4af8ba2f7a38e8a4935e686833dfab375240a0c1e5a3f3db2cb7"
         }
       ]
     }
