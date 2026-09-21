@@ -93,7 +93,6 @@ def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RE
     if isinstance(raw_content, dict) and "en" in raw_content and "zh_hk" in raw_content:
         content = raw_content
     else:
-        # 相容扁平 title / summary
         raw_title = raw.get("title", {})
         raw_summary = raw.get("summary", {})
 
@@ -186,7 +185,7 @@ def records_equal(a: List[Dict[str, Any]], b: List[Dict[str, Any]]) -> bool:
 def discover_all_adapters() -> List[BaseAdapter]:
     """
     動態自動發現並實例化 adapters/ 目錄下的所有可用適配器。
-    具備沙盒隔離：任一模組損毀或缺失依賴均不影響其餘模組正常採集。
+    具備沙盒隔離與完整 Traceback 報錯，確保任何模組失效均有跡可循。
     """
     discovered: List[BaseAdapter] = []
     adapters_path = ROOT_DIR / "adapters"
@@ -206,7 +205,6 @@ def discover_all_adapters() -> List[BaseAdapter]:
             mod = importlib.import_module(full_module_name)
             for attr_name in dir(mod):
                 attr = getattr(mod, attr_name)
-                # 類別驗證：必須繼承 BaseAdapter 且非 BaseAdapter 本身
                 if inspect.isclass(attr) and issubclass(attr, BaseAdapter) and attr is not BaseAdapter:
                     try:
                         instance = attr()
@@ -221,7 +219,8 @@ def discover_all_adapters() -> List[BaseAdapter]:
                         except Exception:
                             continue
         except Exception as exc:
-            print(f"  ⚠️ [模組跳過] 無法載入適配器 {module_name}: {exc}", file=sys.stderr)
+            print(f"  ❌ [模組載入失敗] {module_name}: {exc}", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
 
     print(f"✔ 適配器動態裝載完成，共成功啟動 {len(discovered)} 個情報適配器。\n")
     return discovered
