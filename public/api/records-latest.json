@@ -2,11 +2,11 @@
   "metadata": {
     "title": "The Veil - Global UAP Intelligence Ledger",
     "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
-    "generated_at": "2026-09-21T14:28:16.101092+00:00",
-    "duration_sec": 2.24,
-    "total_records": 64,
+    "generated_at": "2026-09-21T15:03:42.466909+00:00",
+    "duration_sec": 0.63,
+    "total_records": 63,
     "curated_historical_records": 7,
-    "live_adapters_active": 57,
+    "live_adapters_active": 56,
     "api_metrics": {
       "aaro_annual_report": {
         "status": "success",
@@ -101,11 +101,6 @@
       "cometa_france": {
         "status": "success",
         "fetched": 1,
-        "new": 1
-      },
-      "congress_gov": {
-        "status": "success",
-        "fetched": 3,
         "new": 1
       },
       "cridovni": {
@@ -1084,42 +1079,6 @@
           "label": "DoD Official Release (DVIDS-TRANSCRIPT-20230831)",
           "url": "https://www.defense.gov/News/Transcripts/Transcript/Article/3512807/",
           "sha256": "0da9bcdcfee41fac6d4acf1cf466fbe09b20f40c2a86f6ee28ea9c5b06cd192f"
-        }
-      ]
-    },
-    {
-      "id": "CONG-118-S-2226",
-      "type": "bill",
-      "date": {
-        "val": "2023-07-27",
-        "precision": "day"
-      },
-      "governance": {
-        "source_tier": "Tier-1",
-        "evidence_level": "official_document",
-        "confidence_rating": "official_confirmed"
-      },
-      "entities": {
-        "agencies": [
-          "美國國會"
-        ]
-      },
-      "content": {
-        "original_language": "en",
-        "en": {
-          "title": "National Defense Authorization Act for Fiscal Year 2024",
-          "executive_summary": "<b>National Defense Authorization Act for Fiscal Year 2024</b>  This bill authorizes FY2024 appropriations and sets forth policies for Department of Defense (DOD) programs and activities, military construction, the national security programs of the Department of Energy (DOE), and the Maritime Admini..."
-        },
-        "zh_hk": {
-          "title": "第 118 屆美國國會 S 2226 號法案（含 UAP 披露條款）",
-          "executive_summary": "法案最新進展：Senate ordered measure printed as passed.。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
-        }
-      },
-      "sources": [
-        {
-          "label": "Congress.gov",
-          "url": "https://www.congress.gov/bill/118th-congress/s-bill/2226",
-          "sha256": null
         }
       ]
     },
