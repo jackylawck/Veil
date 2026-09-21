@@ -31,25 +31,28 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
-          pip install requests
+          pip install -r requirements.txt || pip install requests
 
       - name: Run Diagnostics Probe
         id: probe
         env:
           PYTHONUNBUFFERED: "1"
-          PROBE_DAYS_BACK: ${{ github.event.inputs.days_back || '365' }}
-          PROBE_CUSTOM_TERM: ${{ github.event.inputs.custom_term || '' }}
+          PROBE_DAYS_BACK: ${{ inputs.days_back || '365' }}
+          PROBE_CUSTOM_TERM: ${{ inputs.custom_term || '' }}
         run: |
-          echo "### 🔍 Federal Register 診斷巡檢執行紀錄" >> $GITHUB_STEP_SUMMARY
-          echo "- **執行時間 (UTC)**: $(date -u +'\%Y-\%m-\%d \%H:\%M:\%S')" >> $GITHUB_STEP_SUMMARY
-          echo "- **搜尋回溯窗口**: \`${PROBE_DAYS_BACK}\` 日" >> $GITHUB_STEP_SUMMARY
+          set -euo pipefail
+          
+          echo "### 🔍 Federal Register 診斷巡檢執行紀錄" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **執行時間 (UTC)**: $(date -u +'\%Y-\%m-\%d \%H:\%M:\%S')" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **搜尋回溯窗口**: \`${PROBE_DAYS_BACK}\` 日" >> "$GITHUB_STEP_SUMMARY"
           if [ -n "$PROBE_CUSTOM_TERM" ]; then
-            echo "- **自訂關鍵詞**: \`${PROBE_CUSTOM_TERM}\`" >> $GITHUB_STEP_SUMMARY
+            echo "- **自訂關鍵詞**: \`${PROBE_CUSTOM_TERM}\`" >> "$GITHUB_STEP_SUMMARY"
           fi
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "" >> "$GITHUB_STEP_SUMMARY"
           
           # 執行診斷腳本，同時將 stdout 輸出至終端與 GitHub 執行摘要 (Markdown 程式碼區塊)
-          echo '```text' >> $GITHUB_STEP_SUMMARY
-          python scripts/probe_fr.py 2>&1 | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          python scripts/probe_fr.py 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
