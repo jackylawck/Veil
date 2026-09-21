@@ -38,36 +38,35 @@ class CfiusForeignInvestmentAdapter(BaseAdapter):
         record = {
             "id": base_record_id,
             "type": "report",
-            "evidence_level": "official_document",
             "date": {
                 "val": since_date,
                 "precision": "day"
             },
-            "title": {
-                "zh_hk": f"美國財政部 (CFIUS)：關鍵技術、先進航太材料與敏感國防供應鏈國家安全阻斷審查公報 (區間 {since_date})",
-                "en": f"U.S. Treasury (CFIUS): Critical Technologies & Aerospace National Security Enforcement Audit ({since_date})"
+            "governance": {
+                "source_tier": "Tier-1",
+                "evidence_level": "official_document",
+                "confidence_rating": "official_confirmed"
             },
-            "summary": {
-                "zh_hk": "美國外國在美投資委員會（CFIUS）依據《國防生產法》第 721 條發布之法定安全審查記錄。針對涉足極端環境感測器、非常規合金冶煉、衛星通訊加密及先進推進技術之國防新創公司與航太供應商，行使強制性國家安全穿透審查與總統行政阻斷令，防範敏感前沿技術外流。",
-                "en": "Official enforcement ledger from the Committee on Foreign Investment in the United States (CFIUS) auditing transactions involving critical aerospace technologies, advanced materials, and defense supply chain national security determinations."
-            },
-            "agency": {
-                "name": "Department of the Treasury (CFIUS)",
-                "zh_hk": "美國財政部外國在美投資委員會 (CFIUS)",
-                "country": "US"
+            "content": {
+                "original_language": "en",
+                "en": {
+                    "title": f"U.S. Treasury (CFIUS): Critical Technologies & Aerospace National Security Enforcement Audit ({since_date})",
+                    "executive_summary": "Official enforcement ledger from the Committee on Foreign Investment in the United States (CFIUS) auditing transactions involving critical aerospace technologies, advanced materials, and defense supply chain national security determinations."
+                },
+                "zh_hk": {
+                    "title": f"美國財政部 (CFIUS)：關鍵技術、先進航太材料與敏感國防供應鏈國家安全阻斷審查公報 (區間 {since_date})",
+                    "executive_summary": "美國外國在美投資委員會（CFIUS）依據《國防生產法》第 721 條發布之法定安全審查記錄。針對涉足極端環境感測器、非常規合金冶煉、衛星通訊加密及先進推進技術之國防新創公司與航太供應商，行使強制性國家安全穿透審查與總統行政阻斷令，防範敏感前沿技術外流。"
+                }
             },
             "entities": {
-                "agencies": ["Department of the Treasury", "Department of Defense", "Office of the Director of National Intelligence", "Department of Homeland Security"],
+                "agencies": ["Committee on Foreign Investment in the United States", "Department of the Treasury", "Department of Defense", "Office of the Director of National Intelligence", "Department of Homeland Security"],
                 "people": []
             },
             "sources": [
                 {
-                    "name": "U.S. Treasury CFIUS Official Portal",
+                    "label": "U.S. Treasury CFIUS Official Portal",
                     "url": self.endpoint_url,
-                    "format": "html",
-                    "sha256": content_sha,
-                    "sha256_verified": False,
-                    "archived_at": now_iso
+                    "sha256": content_sha
                 }
             ],
             "tags": ["CFIUS", "Treasury", "Critical Technology", "National Security", "Foreign Investment", "Defense Supply Chain"]
