@@ -1,33 +1,32 @@
-# adapters/congress.py
-import json
+"""
+Congress.gov UAP Legislative Tracking Adapter
+美國國會 API 法案與情報授權條款動態適配器 (對齊 Schema v2.0.0)
+"""
 import os
 from typing import Any, Dict, List
 import requests
-from .base import BaseAdapter
+from adapters.base import BaseAdapter
 
 
 class CongressAdapter(BaseAdapter):
     """
-    美國國會 API 適配器 (對齊 Schema v2)
-    類別名稱已對齊 scripts/ingest.py 的匯入需求
+    美國國會 API 適配器 (對齊 Schema v2.0.0)
     """
     BASE_URL = "https://api.congress.gov/v3"
 
-    # 重點監控包含 UAP / AARO 核心條款的指標性法案 (NDAA / IAA)
     TARGET_BILLS = [
-        {"congress": 118, "type": "hr", "number": 2670},   # FY2024 NDAA (含 AARO 撥款與通報機制)
-        {"congress": 118, "type": "s", "number": 2226},    # Schumer UAPDA 原始提案法案
-        {"congress": 118, "type": "hr", "number": 8070},   # FY2025 NDAA (UAP 條款追蹤)
+        {"congress": 118, "type": "hr", "number": 2670},   # FY2024 NDAA
+        {"congress": 118, "type": "s", "number": 2226},    # Schumer UAPDA
+        {"congress": 118, "type": "hr", "number": 8070},   # FY2025 NDAA
     ]
 
-    @property
-    def source_name(self) -> str:
-        return "congress_gov"
+    def __init__(self, api_key: str = ""):
+        super().__init__(source_name="congress_gov")
+        self.api_key = api_key or os.getenv("CONGRESS_API_KEY", "").strip()
 
     def fetch_records(self, days_back: int = 365) -> List[Dict[str, Any]]:
-        api_key = os.getenv("CONGRESS_API_KEY")
-        if not api_key:
-            print("[CongressAdapter] ℹ 未檢測到 CONGRESS_API_KEY，跳過國會法案抓取（安全優雅降級）。")
+        if not self.api_key:
+            print("[CongressAdapter] ℹ 未檢測到 CONGRESS_API_KEY，跳過國會法案抓取（優雅降級）。")
             return []
 
         results: List[Dict[str, Any]] = []
@@ -38,7 +37,7 @@ class CongressAdapter(BaseAdapter):
             b_num = target["number"]
 
             url = f"{self.BASE_URL}/bill/{cong}/{b_type}/{b_num}"
-            headers = {"x-api-key": api_key}
+            headers = {"x-api-key": self.api_key}
             params = {"format": "json"}
 
             try:
@@ -48,8 +47,7 @@ class CongressAdapter(BaseAdapter):
                 res.raise_for_status()
                 data = res.json().get("bill", {})
 
-                # 嘗試抓取最新摘要
-                summary_text = self._fetch_summary(cong, b_type, b_num, api_key)
+                summary_text = self._fetch_summary(cong, b_type, b_num, self.api_key)
                 if not summary_text:
                     summary_text = data.get("title", "")
 
@@ -78,52 +76,55 @@ class CongressAdapter(BaseAdapter):
         b_num = raw.get("number")
         doc_id = f"CONG-{cong}-{b_type}-{b_num}"
 
-        # 取得最新動作日期
         latest_action = raw.get("latestAction", {})
         action_date = latest_action.get("actionDate") or raw.get("updateDate", "2024-01-01")
 
         title = raw.get("title", f"{cong}th Congress {b_type} {b_num}")
         summary = raw.get("fetched_summary") or title
 
-        # 清除摘要中常見的 HTML 標籤
         clean_summary = summary.replace("<p>", "").replace("</p>", "").replace("<br>", "").replace("\n", " ").strip()
         if len(clean_summary) > 300:
             clean_summary = clean_summary[:300] + "..."
 
-        # 完全對齊 Schema v2.0.0 結構
+        bill_url = f"https://www.congress.gov/bill/{cong}th-congress/{b_type.lower()}-bill/{b_num}"
+
         return {
             "id": doc_id,
             "type": "bill",
-            "evidence_level": "official_document",
             "date": {
                 "val": action_date,
                 "precision": "day"
             },
-            "title": {
-                "en": title,
-                "zh_hk": f"第 {cong} 屆美國國會 {b_type} {b_num} 號法案（含 UAP 披露條款）"
+            "governance": {
+                "source_tier": "Tier-1",
+                "evidence_level": "official_document",
+                "confidence_rating": "official_confirmed"
             },
-            "agency": {
-                "id": "us-congress",
-                "name": "United States Congress",
-                "zh_hk": "美國國會",
-                "jurisdiction": "US"
+            "content": {
+                "original_language": "en",
+                "en": {
+                    "title": title,
+                    "executive_summary": clean_summary
+                },
+                "zh_hk": {
+                    "title": f"第 {cong} 屆美國國會 {b_type} {b_num} 號法案（含 UAP 披露條款）",
+                    "executive_summary": f"法案最新進展：{latest_action.get('text', '審議中')}。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
+                }
             },
-            "summary": {
-                "en": clean_summary,
-                "zh_hk": f"法案最新進展：{latest_action.get('text', '審議中')}。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
+            "entities": {
+                "agencies": ["United States Congress"],
+                "people": []
             },
             "sources": [
                 {
-                    "type": "bill_html",
-                    "url": f"https://www.congress.gov/bill/{cong}th-congress/{b_type.lower()}-bill/{b_num}",
-                    "sha256": None,
-                    "sha256_verified": False,
-                    "source_name": "Congress.gov"
+                    "label": "Congress.gov Official Portal",
+                    "url": bill_url,
+                    "sha256": None
                 }
-            ]
+            ],
+            "tags": ["Congress", "Legislation", "NDAA", "UAPDA", "Statutory"]
         }
 
 
-# 同時保留別名以防其他舊模組引用
+# 別名相容
 CongressGovAdapter = CongressAdapter
