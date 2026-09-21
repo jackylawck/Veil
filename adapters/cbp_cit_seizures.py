@@ -38,23 +38,25 @@ class CbpCitSeizuresAdapter(BaseAdapter):
         record = {
             "id": base_record_id,
             "type": "foia",
-            "evidence_level": "official_document",
             "date": {
                 "val": since_date,
                 "precision": "day"
             },
-            "title": {
-                "zh_hk": f"美國國際貿易法院 (CIT)：海關戰略受控物資與非常規材料扣留裁決總帳 (區間 {since_date})",
-                "en": f"U.S. Court of International Trade: Strategic Material Seizures & Controlled Import Rulings ({since_date})"
+            "governance": {
+                "source_tier": "Tier-1",
+                "evidence_level": "official_document",
+                "confidence_rating": "official_confirmed"
             },
-            "summary": {
-                "zh_hk": "美國聯邦國際貿易法院（CIT）與海關及邊境保衛局（CBP）發布之法定扣留與沒收裁判記錄。依據《關稅法》與《出口管制改革法案》（ECRA），審查進口報關單中涉及未申報非常規同位素合金、特種航太電磁遮蔽材料或涉嫌規避軍民兩用管制之高技術貨物司法裁定。",
-                "en": "Official judicial slip opinions published by the U.S. Court of International Trade (CIT) reviewing CBP border seizures and customs enforcement actions regarding undeclared aerospace components and controlled strategic dual-use materials."
-            },
-            "agency": {
-                "name": "United States Court of International Trade",
-                "zh_hk": "美國國際貿易法院",
-                "country": "US"
+            "content": {
+                "original_language": "en",
+                "en": {
+                    "title": f"U.S. Court of International Trade: Strategic Material Seizures & Controlled Import Rulings ({since_date})",
+                    "executive_summary": "Official judicial slip opinions published by the U.S. Court of International Trade (CIT) reviewing CBP border seizures and customs enforcement actions regarding undeclared aerospace components and controlled strategic dual-use materials."
+                },
+                "zh_hk": {
+                    "title": f"美國國際貿易法院 (CIT)：海關戰略受控物資與非常規材料扣留裁決總帳 (區間 {since_date})",
+                    "executive_summary": "美國聯邦國際貿易法院（CIT）與海關及邊境保衛局（CBP）發布之法定扣留與沒收裁判記錄。依據《關稅法》與《出口管制改革法案》（ECRA），審查進口報關單中涉及未申報非常規同位素合金、特種航太電磁遮蔽材料或涉嫌規避軍民兩用管制之高技術貨物司法裁定。"
+                }
             },
             "entities": {
                 "agencies": ["United States Court of International Trade", "U.S. Customs and Border Protection", "Department of Commerce"],
@@ -62,12 +64,9 @@ class CbpCitSeizuresAdapter(BaseAdapter):
             },
             "sources": [
                 {
-                    "name": "U.S. CIT Slip Opinions Portal",
+                    "label": "U.S. CIT Slip Opinions Portal",
                     "url": self.endpoint_url,
-                    "format": "html",
-                    "sha256": content_sha,
-                    "sha256_verified": False,
-                    "archived_at": now_iso
+                    "sha256": content_sha
                 }
             ],
             "tags": ["CIT", "CBP", "Customs", "Dual-Use", "Export Control", "Judicial Seizure", "Materials"]
