@@ -21,19 +21,13 @@ class CourtListenerFoiaAdapter(BaseAdapter):
         }
 
     def fetch_records(self, days_back: int = 30) -> List[Dict[str, Any]]:
-        """
-        動態查詢美國哥倫比亞特區 (D.D.C.) 等聯邦法院中，
-        控告 DoD/CIA/AARO 違反 FOIA 之最新訴訟卷宗與司法傳票裁決。
-        """
         records: List[Dict[str, Any]] = []
         
-        # 動態計算回溯日期
         since_date = (datetime.now(timezone.utc) - timedelta(days=days_back)).strftime("%Y-%m-%d")
         
-        # 檢索關鍵字：UAP, AARO, "Unidentified Anomalous Phenomena"
         params = {
             "q": 'UAP OR "All-domain Anomaly Resolution Office" OR "Unidentified Anomalous Phenomena"',
-            "court": "dcd",  # 主要鎖定 Washington D.C. 聯邦地區法院
+            "court": "dcd",
             "filed_after": since_date,
             "order_by": "date_filed desc",
             "format": "json"
@@ -51,31 +45,31 @@ class CourtListenerFoiaAdapter(BaseAdapter):
                     date_filed = item.get("date_filed") or datetime.now(timezone.utc).strftime("%Y-%m-%d")
                     docket_url = f"https://www.courtlistener.com{item.get('absolute_url')}" if item.get("absolute_url") else self.api_url
                     
-                    # 計算該卷宗結構的特徵 SHA-256
                     payload_raw = f"{docket_id}_{case_name}_{date_filed}".encode("utf-8")
                     content_sha = hashlib.sha256(payload_raw).hexdigest()
-                    now_iso = datetime.now(timezone.utc).isoformat()
                     
                     record = {
                         "id": f"COURT-FOIA-DOCKET-{docket_id}",
                         "type": "foia",
-                        "evidence_level": "official_document",
                         "date": {
                             "val": date_filed,
                             "precision": "day"
                         },
-                        "title": {
-                            "zh_hk": f"美國聯邦法院訴訟卷宗：{case_name}",
-                            "en": f"U.S. Federal Court Docket: {case_name}"
+                        "governance": {
+                            "source_tier": "Tier-1",
+                            "evidence_level": "official_document",
+                            "confidence_rating": "official_confirmed"
                         },
-                        "summary": {
-                            "zh_hk": f"美國聯邦地區法院受理事涉不明異常現象（UAP）之《資訊自由法》（FOIA）強制解密訴訟。原告要求聯邦法官下令國防部或情報界公佈機密清單（Vaughn Index）並檢驗行政機關濫用豁免權情事。",
-                            "en": f"Official U.S. Federal District Court civil proceeding regarding FOIA statutory disclosure claims against defense or intelligence agencies seeking unredacted records."
-                        },
-                        "agency": {
-                            "name": "United States District Court",
-                            "zh_hk": "美國聯邦地區法院",
-                            "country": "US"
+                        "content": {
+                            "original_language": "en",
+                            "en": {
+                                "title": f"U.S. Federal Court Docket: {case_name}",
+                                "executive_summary": "Official U.S. Federal District Court civil proceeding regarding FOIA statutory disclosure claims against defense or intelligence agencies seeking unredacted records."
+                            },
+                            "zh_hk": {
+                                "title": f"美國聯邦法院訴訟卷宗：{case_name}",
+                                "executive_summary": "美國聯邦地區法院受理事涉不明異常現象（UAP）之《資訊自由法》（FOIA）強制解密訴訟。原告要求聯邦法官下令國防部或情報界公佈機密清單（Vaughn Index）並檢驗行政機關濫用豁免權情事。"
+                            }
                         },
                         "entities": {
                             "agencies": ["United States District Court", "Department of Defense", "Department of Justice"],
@@ -83,12 +77,9 @@ class CourtListenerFoiaAdapter(BaseAdapter):
                         },
                         "sources": [
                             {
-                                "name": "CourtListener Judicial Database",
+                                "label": "CourtListener Judicial Database",
                                 "url": docket_url,
-                                "format": "html",
-                                "sha256": content_sha,
-                                "sha256_verified": False,
-                                "archived_at": now_iso
+                                "sha256": content_sha
                             }
                         ],
                         "tags": ["FOIA", "Federal Court", "CourtListener", "Judicial Discovery", "Legal Action"]
