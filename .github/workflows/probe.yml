@@ -17,7 +17,7 @@ jobs:
     name: Run Federal Register API Probe
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1 pinned SHA
@@ -29,6 +29,7 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
 
       - name: Install Dependencies
         run: |
@@ -49,7 +50,7 @@ jobs:
           PROBE_CUSTOM_TERM: ${{ inputs.custom_term || '' }}
         run: |
           set -euo pipefail
-          
+
           # 1. 在 Step Summary 頂部印出審計基準資訊
           NOW_UTC=$(date -u +'%Y-%m-%d %H:%M:%S UTC')
           {
@@ -63,7 +64,6 @@ jobs:
             fi
             echo ""
           } >> "$GITHUB_STEP_SUMMARY"
-          
-          # 2. 執行探針：stdout 留存在 Actions 終端供逐行查閱，
-          #    結構化結果則由 probe_fr.py 直接追加渲染至 Step Summary
+
+          # 2. 執行探針腳本
           python scripts/probe_fr.py
