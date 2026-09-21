@@ -1,230 +1,264 @@
 {
   "$schema": "../schemas/record.schema.json",
-  "version": "2.0.0",
+  "metadata": {
+    "title": "The Veil - Curated Historical Intelligence Archive",
+    "zh_title": "揭帷 - 歷史里程碑官方典藏底庫",
+    "generated_at": "2026-09-21T15:30:00Z",
+    "total_records": 7,
+    "version": "2.0.0"
+  },
   "records": [
     {
       "id": "GPO-CHRG-118hhrg52893",
       "type": "hearing",
-      "evidence_level": "testimony_sworn",
       "date": {
         "val": "2023-07-26",
         "precision": "day"
       },
-      "title": {
-        "en": "Unidentified Anomalous Phenomena: Implications on National Security, Public Safety, and Government Transparency",
-        "zh_hk": "眾議院監督及問責委員會 UAP 宣誓聽證會正式出版紀錄（含證人 Grusch 證詞）"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "testimony_sworn",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-house-oversight",
-        "name": "House Committee on Oversight and Accountability",
-        "zh_hk": "美國眾議院監督與問責委員會",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": ["House Committee on Oversight and Accountability", "United States Congress"],
+        "people": ["David Grusch", "Ryan Graves", "David Fravor"]
       },
-      "summary": {
-        "en": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators.",
-        "zh_hk": "美國政府出版局 (GPO) 正式印行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫、飛行安全及異常航天目標遭遇事件進行之宣誓證詞。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Unidentified Anomalous Phenomena: Implications on National Security, Public Safety, and Government Transparency",
+          "executive_summary": "Official printed transcript of the landmark House Oversight sworn hearing featuring testimony from former intelligence officer David Grusch and former naval aviators."
+        },
+        "zh_hk": {
+          "title": "眾議院監督及問責委員會 UAP 宣誓聽證會正式出版紀錄（含證人 Grusch 證詞）",
+          "executive_summary": "美國政府出版局 (GPO) 正式印行之法定公報。記錄前情報官員與海軍飛行員就未公開國防計畫、飛行安全及異常航天目標遭遇事件進行之宣誓證詞。"
+        }
       },
       "sources": [
         {
-          "type": "official_hearing_pdf",
+          "label": "GovInfo (GPO) Hearing Transcript PDF",
           "url": "https://www.govinfo.gov/content/pkg/CHRG-118hhrg52893/pdf/CHRG-118hhrg52893.pdf",
-          "sha256": "4b6e512423ba2ea2efef218d6e3557e4e16bbca9d6aa22502690ff39ef2a2757",
-          "sha256_verified": true,
-          "source_name": "GovInfo (GPO)"
+          "sha256": "4b6e512423ba2ea2efef218d6e3557e4e16bbca9d6aa22502690ff39ef2a2757"
         }
-      ]
+      ],
+      "tags": ["Hearing", "House Oversight", "Grusch", "Sworn Testimony", "Whistleblower"]
     },
     {
       "id": "GPO-CHRG-117hhrg47894",
       "type": "hearing",
-      "evidence_level": "testimony_sworn",
       "date": {
         "val": "2022-05-17",
         "precision": "day"
       },
-      "title": {
-        "en": "Open Hearing on Unidentified Aerial Phenomena",
-        "zh_hk": "眾議院情報特別委員會反恐情報小組 UAP 歷史性公開聽證會官方紀錄"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "testimony_sworn",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-house-intelligence",
-        "name": "House Permanent Select Committee on Intelligence",
-        "zh_hk": "美國眾議院情報常設特別委員會",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": ["House Permanent Select Committee on Intelligence", "Department of Defense", "Office of Naval Intelligence"],
+        "people": ["Ronald Moultrie", "Scott Bray"]
       },
-      "summary": {
-        "en": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray.",
-        "zh_hk": "美國國防部次長 Ronald Moultrie 與海軍情報副局長 Scott Bray 出席作證，為美國國會超過半世紀以來首次召開之 UAP 公開聽證會官方出版紀錄。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Open Hearing on Unidentified Aerial Phenomena",
+          "executive_summary": "First open congressional hearing on unidentified aerial phenomena in more than 50 years, featuring testimony from Under Secretary of Defense Ronald Moultrie and Deputy Director of Naval Intelligence Scott Bray."
+        },
+        "zh_hk": {
+          "title": "眾議院情報特別委員會反恐情報小組 UAP 歷史性公開聽證會官方紀錄",
+          "executive_summary": "美國國防部次長 Ronald Moultrie 與海軍情報副局長 Scott Bray 出席作證，為美國國會超過半世紀以來首次召開之 UAP 公開聽證會官方出版紀錄。"
+        }
       },
       "sources": [
         {
-          "type": "official_hearing_pdf",
+          "label": "GovInfo (GPO) Open Hearing PDF",
           "url": "https://www.govinfo.gov/content/pkg/CHRG-117hhrg47894/pdf/CHRG-117hhrg47894.pdf",
-          "sha256": "09be18d5b8813bc4937ba1ae4cbfeff4bf51ec4b967882d9fe0cba3c8e442df0",
-          "sha256_verified": true,
-          "source_name": "GovInfo (GPO)"
+          "sha256": "09be18d5b8813bc4937ba1ae4cbfeff4bf51ec4b967882d9fe0cba3c8e442df0"
         }
-      ]
+      ],
+      "tags": ["Hearing", "HPSCI", "Moultrie", "Bray", "Declassification"]
     },
     {
       "id": "CONG-118-HR-2670",
       "type": "bill",
-      "evidence_level": "official_document",
       "date": {
         "val": "2023-12-22",
         "precision": "day"
       },
-      "title": {
-        "en": "National Defense Authorization Act for Fiscal Year 2024 (Public Law 118-31)",
-        "zh_hk": "2024 財政年度國防授權法案（聯邦公法第 118-31 號）"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-congress",
-        "name": "United States Congress",
-        "zh_hk": "美國國會",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": ["United States Congress", "Department of Defense", "All-domain Anomaly Resolution Office"],
+        "people": []
       },
-      "summary": {
-        "en": "Enacted federal defense law containing Subtitle C (Unidentified Anomalous Phenomena Disclosure), mandating DoD/AARO centralized records collection, reporting mechanisms, and whistleblower protections.",
-        "zh_hk": "美國總統簽署生效之聯邦國防法案，包含丙部（未知異常現象披露）專項條款，明令國防部全領域異常解析辦公室 (AARO) 實施中央檔案集中管理、確立軍民通報機制及吹哨者法定義務保障。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "National Defense Authorization Act for Fiscal Year 2024 (Public Law 118-31)",
+          "executive_summary": "Enacted federal defense law containing Subtitle C (Unidentified Anomalous Phenomena Disclosure), mandating DoD/AARO centralized records collection, reporting mechanisms, and whistleblower protections."
+        },
+        "zh_hk": {
+          "title": "2024 財政年度國防授權法案（聯邦公法第 118-31 號）",
+          "executive_summary": "美國總統簽署生效之聯邦國防法案，包含丙部（未知異常現象披露）專項條款，明令國防部全領域異常解析辦公室 (AARO) 實施中央檔案集中管理、確立軍民通報機制及吹哨者法定義務保障。"
+        }
       },
       "sources": [
         {
-          "type": "statute_pdf",
+          "label": "GovInfo (GPO) Public Law 118-31 PDF",
           "url": "https://www.govinfo.gov/content/pkg/PLAW-118publ31/pdf/PLAW-118publ31.pdf",
-          "sha256": "81f185461c360db93540b0ba722a36b568393e18a8b1395804365da98cb9f1ee",
-          "sha256_verified": true,
-          "source_name": "GovInfo (GPO)"
+          "sha256": "81f185461c360db93540b0ba722a36b568393e18a8b1395804365da98cb9f1ee"
         }
-      ]
+      ],
+      "tags": ["Statute", "Public Law", "NDAA FY2024", "AARO Mandate"]
     },
     {
       "id": "CONG-118-S-2226-AMDT-797",
       "type": "bill",
-      "evidence_level": "official_document",
       "date": {
         "val": "2023-07-13",
         "precision": "day"
       },
-      "title": {
-        "en": "UAP Disclosure Act of 2023 (Schumer-Rounds Amendment SA 797 to S. 2226)",
-        "zh_hk": "2023 年未知異常現象披露法案（舒默－朗茲 UAPDA 跨黨派修正案 SA 797）"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-senate",
-        "name": "United States Senate",
-        "zh_hk": "美國參議院",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": ["United States Senate", "National Archives and Records Administration"],
+        "people": ["Chuck Schumer", "Mike Rounds"]
       },
-      "summary": {
-        "en": "Bipartisan amendment led by Senate Majority Leader Chuck Schumer proposing a 9-member independent Presidential Review Board to declassify legacy defense materials and recover non-human intelligence technologies.",
-        "zh_hk": "參議院多數黨領袖舒默聯同參議員朗茲提出之里程碑修正案，擬設立由 9 名獨立專家組成、直屬總統且具備傳召取證權之審查委員會，推動跨部會積存之歷史機密檔案與潛在地外科技物證有序向公眾解密。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "UAP Disclosure Act of 2023 (Schumer-Rounds Amendment SA 797 to S. 2226)",
+          "executive_summary": "Bipartisan amendment led by Senate Majority Leader Chuck Schumer proposing a 9-member independent Presidential Review Board to declassify legacy defense materials and recover non-human intelligence technologies."
+        },
+        "zh_hk": {
+          "title": "2023 年未知異常現象披露法案（舒默－朗茲 UAPDA 跨黨派修正案 SA 797）",
+          "executive_summary": "參議院多數黨領袖舒默聯同參議員朗茲提出之里程碑修正案，擬設立由 9 名獨立專家組成、直屬總統且具備傳召取證權之審查委員會，推動跨部會積存之歷史機密檔案與潛在地外科技物證有序向公眾解密。"
+        }
       },
       "sources": [
         {
-          "type": "amendment_html",
+          "label": "Congress.gov SA 797 Statutory Text",
           "url": "https://www.congress.gov/amendment/118th-congress/senate-amendment/797/text",
-          "sha256": null,
-          "sha256_verified": false,
-          "source_name": "Congress.gov"
+          "sha256": null
         }
-      ]
+      ],
+      "tags": ["Legislation", "UAPDA", "Schumer-Rounds", "Presidential Review Board"]
     },
     {
       "id": "CONG-118-HR-8070",
       "type": "bill",
-      "evidence_level": "official_document",
       "date": {
         "val": "2024-06-14",
         "precision": "day"
       },
-      "title": {
-        "en": "Servicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025",
-        "zh_hk": "現役軍人生活質素改善暨 2025 財政年度國防授權法案（眾議院通過版本）"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-house",
-        "name": "House of Representatives",
-        "zh_hk": "美國眾議院",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": ["House of Representatives", "United States Congress"],
+        "people": []
       },
-      "summary": {
-        "en": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing.",
-        "zh_hk": "美國眾議院審議通過之國防預算法案，進一步擴大國會對 AARO 的法定監督職責，強制收緊跨情報機關與國防設施異常空情數據的共享通報時限，並加強公眾定期報告之問責性。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Servicemember Quality of Life Improvement and National Defense Authorization Act for Fiscal Year 2025",
+          "executive_summary": "House-passed defense authorization bill expanding AARO oversight, mandating ongoing public reporting timelines, and tightening inter-agency anomaly intelligence data sharing."
+        },
+        "zh_hk": {
+          "title": "現役軍人生活質素改善暨 2025 財政年度國防授權法案（眾議院通過版本）",
+          "executive_summary": "美國眾議院審議通過之國防預算法案，進一步擴大國會對 AARO 的法定監督職責，強制收緊跨情報機關與國防設施異常空情數據的共享通報時限，並加強公眾定期報告之問責性。"
+        }
       },
       "sources": [
         {
-          "type": "bill_html",
+          "label": "Congress.gov HR 8070 Statutory Text",
           "url": "https://www.congress.gov/bill/118th-congress/house-bill/8070/text",
-          "sha256": null,
-          "sha256_verified": false,
-          "source_name": "Congress.gov"
+          "sha256": null
         }
-      ]
+      ],
+      "tags": ["Legislation", "NDAA FY2025", "AARO Oversight", "Data Sharing"]
     },
     {
       "id": "FR-2024-26343",
       "type": "report",
-      "evidence_level": "official_document",
       "date": {
         "val": "2024-11-18",
         "precision": "day"
       },
-      "title": {
-        "en": "Agency Information Collection Activities; Proposals, Submissions, and Approvals: All-Domain Anomaly Resolution Office (AARO)",
-        "zh_hk": "擬議資訊收集暨公眾諮詢公告：全領域異常解析辦公室 (AARO) 專項業務"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-dod",
-        "name": "Department of Defense",
-        "zh_hk": "美國國防部",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": ["Department of Defense", "All-domain Anomaly Resolution Office"],
+        "people": []
       },
-      "summary": {
-        "en": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions.",
-        "zh_hk": "美國國防部正式發布之聯邦公報，依據《美國法典》第 10 卷授權，針對設立公眾通報途徑、保障異常現象數據安全存檔與資訊徵詢機制徵集公眾意見。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Agency Information Collection Activities; Proposals, Submissions, and Approvals: All-Domain Anomaly Resolution Office (AARO)",
+          "executive_summary": "Department of Defense notice regarding public information collection, secure reporting procedures, and data repository integrity under Title 10 provisions."
+        },
+        "zh_hk": {
+          "title": "擬議資訊收集暨公眾諮詢公告：全領域異常解析辦公室 (AARO) 專項業務",
+          "executive_summary": "美國國防部正式發布之聯邦公報，依據《美國法典》第 10 卷授權，針對設立公眾通報途徑、保障異常現象數據安全存檔與資訊徵詢機制徵集公眾意見。"
+        }
       },
       "sources": [
         {
-          "type": "federal_register_document",
+          "label": "Federal Register Official Notice 2024-26343",
           "url": "https://www.federalregister.gov/documents/2024/11/18/2024-26343/agency-information-collection-activities-proposals-submissions-and-approvals-all-domain-anomaly",
-          "sha256": null,
-          "sha256_verified": false,
-          "source_name": "Federal Register"
+          "sha256": null
         }
-      ]
+      ],
+      "tags": ["Federal Register", "DoD", "AARO", "Public Intake", "Regulatory"]
     },
     {
       "id": "FR-2023-14732",
       "type": "report",
-      "evidence_level": "official_document",
       "date": {
         "val": "2023-07-11",
         "precision": "day"
       },
-      "title": {
-        "en": "Privacy Act of 1974; System of Records: AARO Records Tracking",
-        "zh_hk": "1974 年隱私法案；系統記錄通告 (SORN)：AARO 異常個案追蹤記錄庫修訂"
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
       },
-      "agency": {
-        "id": "us-dod",
-        "name": "Department of Defense",
-        "zh_hk": "美國國防部",
-        "jurisdiction": "US"
+      "entities": {
+        "agencies": ["Department of Defense", "All-domain Anomaly Resolution Office"],
+        "people": []
       },
-      "summary": {
-        "en": "Notice of a modified system of records to include collection and maintenance of anomalous unidentified sightings reported by service members.",
-        "zh_hk": "美國國防部正式修訂法定系統記錄庫，將現役軍職人員向 AARO 通報之異常飛行與跨領域不明目標目擊數據，納入聯邦私隱法規保護與長期安全存檔機制。"
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Privacy Act of 1974; System of Records: AARO Records Tracking",
+          "executive_summary": "Notice of a modified system of records to include collection and maintenance of anomalous unidentified sightings reported by service members."
+        },
+        "zh_hk": {
+          "title": "1974 年隱私法案；系統記錄通告 (SORN)：AARO 異常個案追蹤記錄庫修訂",
+          "executive_summary": "美國國防部正式修訂法定系統記錄庫，將現役軍職人員向 AARO 通報之異常飛行與跨領域不明目標目擊數據，納入聯邦私隱法規保護與長期安全存檔機制。"
+        }
       },
       "sources": [
         {
-          "type": "federal_register_document",
+          "label": "Federal Register SORN Notice 2023-14732",
           "url": "https://www.federalregister.gov/documents/2023/07/11/2023-14732/privacy-act-of-1974-system-of-records",
-          "sha256": null,
-          "sha256_verified": false,
-          "source_name": "Federal Register"
+          "sha256": null
         }
-      ]
+      ],
+      "tags": ["Federal Register", "Privacy Act", "SORN", "DoD", "Security Tracking"]
     }
   ]
 }
