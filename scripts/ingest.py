@@ -50,7 +50,6 @@ def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RE
     rid = raw.get("id") or f"{fallback_id_prefix}-{int(datetime.now(timezone.utc).timestamp())}"
     rec_type = raw.get("type") or "official_report"
     
-    # 處理日期結構
     raw_date = raw.get("date")
     if isinstance(raw_date, dict) and "val" in raw_date:
         date_obj = {"val": str(raw_date["val"]), "precision": raw_date.get("precision", "day")}
@@ -59,7 +58,6 @@ def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RE
     else:
         date_obj = {"val": datetime.now(timezone.utc).strftime("%Y-%m-%d"), "precision": "day"}
 
-    # 1. 治理屬性 (governance)
     raw_gov = raw.get("governance")
     if isinstance(raw_gov, dict):
         gov = {
@@ -74,7 +72,6 @@ def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RE
             "confidence_rating": "official_confirmed"
         }
 
-    # 2. 機構實體 (entities)
     raw_entities = raw.get("entities")
     if isinstance(raw_entities, dict) and "agencies" in raw_entities:
         entities = raw_entities
@@ -88,7 +85,6 @@ def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RE
     else:
         entities = {"agencies": ["Official Sovereign Authority"]}
 
-    # 3. 雙語內容 (content)
     raw_content = raw.get("content")
     if isinstance(raw_content, dict) and "en" in raw_content and "zh_hk" in raw_content:
         content = raw_content
@@ -122,7 +118,6 @@ def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RE
             }
         }
 
-    # 4. 來源簽章 (sources)
     normalized_sources = []
     raw_sources = raw.get("sources", [])
     if isinstance(raw_sources, list):
@@ -149,7 +144,6 @@ def normalize_record(raw: Dict[str, Any], fallback_id_prefix: str = "OFFICIAL-RE
 
 
 def load_curated_historical_records() -> List[Dict[str, Any]]:
-    """載入歷史典藏底庫 (data/curated_historical.json)。"""
     curated_file = ROOT_DIR / "data" / "curated_historical.json"
     if not curated_file.exists():
         print(f"⚠️ 提示: 歷史典藏庫檔案不存在: {curated_file}", file=sys.stderr)
@@ -171,7 +165,6 @@ def load_curated_historical_records() -> List[Dict[str, Any]]:
 
 
 def records_equal(a: List[Dict[str, Any]], b: List[Dict[str, Any]]) -> bool:
-    """深度比對兩份卷宗清單的實質內容（含屬性與排序），偵測內文或狀態更新。"""
     if len(a) != len(b):
         return False
     for item_a, item_b in zip(a, b):
@@ -183,10 +176,6 @@ def records_equal(a: List[Dict[str, Any]], b: List[Dict[str, Any]]) -> bool:
 
 
 def discover_all_adapters() -> List[BaseAdapter]:
-    """
-    動態自動發現並實例化 adapters/ 目錄下的所有可用適配器。
-    具備沙盒隔離與完整 Traceback 報錯，確保任何模組失效均有跡可循。
-    """
     discovered: List[BaseAdapter] = []
     adapters_path = ROOT_DIR / "adapters"
 
@@ -227,7 +216,6 @@ def discover_all_adapters() -> List[BaseAdapter]:
 
 
 def atomic_write(target_path: Path, content: bytes) -> None:
-    """以暫存檔 + 實體磁碟同步 (fsync) + os.replace 實現安全原子寫入。"""
     target_dir = target_path.parent
     target_dir.mkdir(parents=True, exist_ok=True)
     fd, tmp_file = tempfile.mkstemp(dir=target_dir, prefix=".tmp_", suffix=".tmp")
@@ -250,7 +238,6 @@ def run_ingestion(days_back: int = 30) -> None:
     all_records: List[Dict[str, Any]] = []
     seen_ids = set()
 
-    # 1. 載入歷史典藏庫並強制正規化
     historical = load_curated_historical_records()
     for raw in historical:
         r = normalize_record(raw, fallback_id_prefix="HISTORICAL")
@@ -260,11 +247,9 @@ def run_ingestion(days_back: int = 30) -> None:
             all_records.append(r)
     print(f"✔ 成功載入歷史里程碑典藏: {len(all_records)} 筆 (已正規化)")
 
-    # 2. 自動裝載所有適配器
     active_adapters = discover_all_adapters()
     api_metrics: Dict[str, Dict[str, Any]] = {}
 
-    # 3. 執行增量採集
     for adapter in active_adapters:
         name = getattr(adapter, "source_name", adapter.__class__.__name__)
         prefix = adapter.__class__.__name__.replace("Adapter", "").upper()
@@ -291,7 +276,6 @@ def run_ingestion(days_back: int = 30) -> None:
                 "error": str(exc),
             }
 
-    # 4. 嚴格日期排序 (最新置頂)
     all_records.sort(
         key=lambda x: parse_date_safe(x.get("date", {}).get("val", "")),
         reverse=True,
@@ -302,7 +286,6 @@ def run_ingestion(days_back: int = 30) -> None:
     out_file = out_dir / "records-latest.json"
     sha_file = out_dir / "records-latest.json.sha256"
 
-    # 5. 內容級冪等比對
     if out_file.exists():
         try:
             with open(out_file, "r", encoding="utf-8") as f:
@@ -319,7 +302,6 @@ def run_ingestion(days_back: int = 30) -> None:
         except Exception:
             print("⚠️ 既有檔案解析異常，重新全量生成。", file=sys.stderr)
 
-    # 6. 寫入資料與校驗雜湊
     end_time = datetime.now(timezone.utc)
     duration = round((end_time - start_time).total_seconds(), 2)
 
@@ -340,7 +322,6 @@ def run_ingestion(days_back: int = 30) -> None:
     json_bytes = json.dumps(output_data, ensure_ascii=False, indent=2).encode("utf-8")
     atomic_write(out_file, json_bytes)
 
-    # 簽署 SHA-256
     sha256_hash = hashlib.sha256(json_bytes).hexdigest()
     atomic_write(sha_file, f"{sha256_hash}  records-latest.json\n".encode("utf-8"))
 
