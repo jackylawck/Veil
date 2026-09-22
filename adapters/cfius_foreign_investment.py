@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class CfiusForeignInvestmentAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "cfius_foreign_investment"
+
     def __init__(self):
         super().__init__(source_name="Committee on Foreign Investment in the United States (CFIUS)")
         self.endpoint_url = "https://home.treasury.gov/policy-issues/international/the-committee-on-foreign-investment-in-the-united-states-cfius"

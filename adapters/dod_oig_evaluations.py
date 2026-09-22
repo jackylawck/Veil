@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class DodOigEvaluationsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "dod_oig_evaluations"
+
     def __init__(self):
         super().__init__(source_name="DoD Office of Inspector General (OIG)")
         self.endpoint_url = "https://www.dodig.mil/Reports/"

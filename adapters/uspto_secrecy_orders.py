@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class UsptoSecrecyOrdersAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "uspto_secrecy_orders"
+
     def __init__(self):
         super().__init__(source_name="USPTO & Armed Services Patent Advisory Board (ASPAB)")
         self.endpoint_url = "https://www.uspto.gov/patents/apply/patent-secrecy-orders"

@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class SwedenUfoSverigeAfiseAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "sweden_ufo_sverige_afise"
+
     def __init__(self):
         super().__init__(source_name="Sweden Military Defence Archives (Krigsarkivet)")
         self.endpoint_url = "https://riksarkivet.se/krigsarkivet"

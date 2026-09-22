@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class FccExperimentalRfAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "fcc_experimental_rf"
+
     def __init__(self):
         super().__init__(source_name="FCC Experimental Licensing System (OET)")
         self.endpoint_url = "https://licensing.fcc.gov/els/index.jsp"

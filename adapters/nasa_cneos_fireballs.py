@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class NasaCneosFireballsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "nasa_cneos_fireballs"
+
     def __init__(self):
         super().__init__(source_name="NASA JPL Center for Near-Earth Object Studies (CNEOS)")
         # NASA JPL 官方大氣高能碰撞即時 API 端點

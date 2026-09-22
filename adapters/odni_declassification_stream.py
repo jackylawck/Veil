@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class OdniDeclassificationStreamAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "odni_declassification_stream"
+
     def __init__(self):
         super().__init__(source_name="Office of the Director of National Intelligence (ODNI)")
         self.endpoint_url = "https://www.dni.gov/index.php/newsroom/reports-publications"

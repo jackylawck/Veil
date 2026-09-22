@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class IscapOverruledDecisionsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "iscap_overruled_decisions"
+
     def __init__(self):
         super().__init__(source_name="Interagency Security Classification Appeals Panel (ISCAP)")
         self.endpoint_url = "https://www.archives.gov/declassification/iscap"

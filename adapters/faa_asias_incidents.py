@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class FaaAsiasIncidentsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "faa_asias_incidents"
+
     def __init__(self):
         super().__init__(source_name="FAA Aviation Safety Reporting (ASIAS)")
         # FAA 開放事故與通報檢索端點

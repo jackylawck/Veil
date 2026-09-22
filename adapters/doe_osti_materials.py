@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class DoeOstiMaterialsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "doe_osti_materials"
+
     def __init__(self):
         super().__init__(source_name="DOE Office of Scientific and Technical Information (OSTI)")
         self.api_url = "https://www.osti.gov/api/v1/records"

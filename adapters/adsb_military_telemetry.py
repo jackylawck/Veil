@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class AdsbMilitaryTelemetryAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "adsb_military_telemetry"
+
     def __init__(self):
         super().__init__(source_name="ADS-B Military Flight Telemetry")
         self.api_url = "https://opendata.adsb.fi/api/v2/mil"

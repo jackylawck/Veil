@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class OscWhistleblowerDisclosuresAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "osc_whistleblower_disclosures"
+
     def __init__(self):
         super().__init__(source_name="U.S. Office of Special Counsel (OSC)")
         self.endpoint_url = "https://osc.gov/News"

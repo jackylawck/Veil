@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class NatoJapccAirspaceAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "nato_japcc_airspace"
+
     def __init__(self):
         super().__init__(source_name="NATO Joint Air Power Competence Centre (JAPCC)")
         self.endpoint_url = "https://www.japcc.org"

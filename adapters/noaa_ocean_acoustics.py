@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class NoaaOceanAcousticsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "noaa_ocean_acoustics"
+
     def __init__(self):
         super().__init__(source_name="NOAA Ocean Acoustics (PMEL)")
         self.endpoint_url = "https://www.pmel.noaa.gov/acoustics/sounds_archive.html"

@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class UsgsGeomagneticAnomaliesAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "usgs_geomagnetic_anomalies"
+
     def __init__(self):
         super().__init__(source_name="USGS Geomagnetism Program (INTERMAGNET)")
         self.endpoint_url = "https://geomag.usgs.gov/ws/data/"

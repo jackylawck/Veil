@@ -12,6 +12,11 @@ class CongressAdapter(BaseAdapter):
     """
     美國國會 API 適配器 (對齊 Schema v2.0.0)
     """
+
+    @property
+    def source_name(self) -> str:
+        return "congress"
+
     BASE_URL = "https://api.congress.gov/v3"
 
     TARGET_BILLS = [

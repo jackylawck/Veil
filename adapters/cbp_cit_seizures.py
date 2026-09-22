@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class CbpCitSeizuresAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "cbp_cit_seizures"
+
     def __init__(self):
         super().__init__(source_name="U.S. Court of International Trade (CIT / CBP)")
         self.endpoint_url = "https://www.cit.uscourts.gov/slip-opinions"

@@ -13,6 +13,11 @@ from adapters.base import BaseAdapter
 
 
 class NrcNuclearIncursionsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "nrc_nuclear_incursions"
+
     def __init__(self):
         super().__init__(source_name="U.S. Nuclear Regulatory Commission (NRC Events)")
         # NRC 每日官方公開事件通報日誌端點

@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class UnoosaSpaceRegisterAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "unoosa_space_register"
+
     def __init__(self):
         super().__init__(source_name="United Nations Office for Outer Space Affairs (UNOOSA)")
         self.endpoint_url = "https://www.unoosa.org/oosa/en/spaceobjectregister/index.html"

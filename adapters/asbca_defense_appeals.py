@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class AsbcaDefenseAppealsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "asbca_defense_appeals"
+
     def __init__(self):
         super().__init__(source_name="Armed Services Board of Contract Appeals (ASBCA)")
         self.endpoint_url = "https://www.asbca.mil/Decisions/decisions.html"

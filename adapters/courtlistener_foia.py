@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class CourtListenerFoiaAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "courtlistener_foia"
+
     def __init__(self):
         super().__init__(source_name="CourtListener Federal FOIA Docket")
         self.api_url = "https://www.courtlistener.com/api/rest/v4/dockets/"

@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class GaoDefenseAuditsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "gao_defense_audits"
+
     def __init__(self):
         super().__init__(source_name="U.S. Government Accountability Office (GAO)")
         self.endpoint_url = "https://www.gao.gov/reports-testimonies"

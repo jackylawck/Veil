@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class FaaDefenseNotamsAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "faa_defense_notams"
+
     def __init__(self):
         super().__init__(source_name="FAA Temporary Flight Restrictions (Security TFR)")
         # FAA TFR 即時通報官方端點

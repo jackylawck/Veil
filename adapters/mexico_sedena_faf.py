@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class MexicoSedenaFafAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "mexico_sedena_faf"
+
     def __init__(self):
         super().__init__(source_name="Secretariat of National Defense (SEDENA - Mexico)")
         self.endpoint_url = "https://www.gob.mx/defensa"

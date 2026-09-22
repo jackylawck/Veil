@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class NoradNorthcomDirectivesAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "norad_northcom_directives"
+
     def __init__(self):
         super().__init__(source_name="NORAD & US Northern Command (USNORTHCOM)")
         self.endpoint_url = "https://www.norad.mil/Newsroom/Press-Releases/"

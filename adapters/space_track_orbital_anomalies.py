@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class SpaceTrackOrbitalAnomaliesAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "space_track_orbital_anomalies"
+
     def __init__(self):
         super().__init__(source_name="US Space Force (Space-Track.org)")
         self.endpoint_url = "https://www.space-track.org/basicspacedata/query/class/boxscore/format/json"

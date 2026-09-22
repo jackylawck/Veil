@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class FederalRegisterRulesAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "federal_register_rules"
+
     def __init__(self):
         super().__init__(source_name="Federal Register (Executive Rules)")
         self.api_url = "https://www.federalregister.gov/api/v1/documents.json"

@@ -12,6 +12,11 @@ from adapters.base import BaseAdapter
 
 
 class EsaSpaceSafetyNeoccAdapter(BaseAdapter):
+
+    @property
+    def source_name(self) -> str:
+        return "esa_space_safety_neocc"
+
     def __init__(self):
         super().__init__(source_name="ESA Space Safety Programme (NEOCC)")
         self.endpoint_url = "https://neo.ssa.esa.int/close-approaches"
