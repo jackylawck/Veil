@@ -2,8 +2,8 @@
   "metadata": {
     "title": "The Veil - Global UAP Intelligence Ledger",
     "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
-    "generated_at": "2026-09-21T15:03:42.466909+00:00",
-    "duration_sec": 0.63,
+    "generated_at": "2026-09-22T07:00:35.135270+00:00",
+    "duration_sec": 1.15,
     "total_records": 63,
     "curated_historical_records": 7,
     "live_adapters_active": 56,
@@ -457,8 +457,10 @@
       },
       "entities": {
         "agencies": [
-          "美國國防部"
-        ]
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office"
+        ],
+        "people": []
       },
       "content": {
         "original_language": "en",
@@ -473,7 +475,7 @@
       },
       "sources": [
         {
-          "label": "Federal Register",
+          "label": "Federal Register Official Notice 2024-26343",
           "url": "https://www.federalregister.gov/documents/2024/11/18/2024-26343/agency-information-collection-activities-proposals-submissions-and-approvals-all-domain-anomaly",
           "sha256": null
         }
@@ -721,8 +723,10 @@
       },
       "entities": {
         "agencies": [
-          "美國眾議院"
-        ]
+          "House of Representatives",
+          "United States Congress"
+        ],
+        "people": []
       },
       "content": {
         "original_language": "en",
@@ -737,7 +741,7 @@
       },
       "sources": [
         {
-          "label": "Congress.gov",
+          "label": "Congress.gov HR 8070 Statutory Text",
           "url": "https://www.congress.gov/bill/118th-congress/house-bill/8070/text",
           "sha256": null
         }
@@ -948,8 +952,11 @@
       },
       "entities": {
         "agencies": [
-          "美國國會"
-        ]
+          "United States Congress",
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office"
+        ],
+        "people": []
       },
       "content": {
         "original_language": "en",
@@ -964,7 +971,7 @@
       },
       "sources": [
         {
-          "label": "GovInfo (GPO)",
+          "label": "GovInfo (GPO) Public Law 118-31 PDF",
           "url": "https://www.govinfo.gov/content/pkg/PLAW-118publ31/pdf/PLAW-118publ31.pdf",
           "sha256": "81f185461c360db93540b0ba722a36b568393e18a8b1395804365da98cb9f1ee"
         }
@@ -1096,7 +1103,13 @@
       },
       "entities": {
         "agencies": [
-          "美國眾議院監督與問責委員會"
+          "House Committee on Oversight and Accountability",
+          "United States Congress"
+        ],
+        "people": [
+          "David Grusch",
+          "Ryan Graves",
+          "David Fravor"
         ]
       },
       "content": {
@@ -1112,7 +1125,7 @@
       },
       "sources": [
         {
-          "label": "GovInfo (GPO)",
+          "label": "GovInfo (GPO) Hearing Transcript PDF",
           "url": "https://www.govinfo.gov/content/pkg/CHRG-118hhrg52893/pdf/CHRG-118hhrg52893.pdf",
           "sha256": "4b6e512423ba2ea2efef218d6e3557e4e16bbca9d6aa22502690ff39ef2a2757"
         }
@@ -1132,7 +1145,12 @@
       },
       "entities": {
         "agencies": [
-          "美國參議院"
+          "United States Senate",
+          "National Archives and Records Administration"
+        ],
+        "people": [
+          "Chuck Schumer",
+          "Mike Rounds"
         ]
       },
       "content": {
@@ -1148,7 +1166,7 @@
       },
       "sources": [
         {
-          "label": "Congress.gov",
+          "label": "Congress.gov SA 797 Statutory Text",
           "url": "https://www.congress.gov/amendment/118th-congress/senate-amendment/797/text",
           "sha256": null
         }
@@ -1168,8 +1186,10 @@
       },
       "entities": {
         "agencies": [
-          "美國國防部"
-        ]
+          "Department of Defense",
+          "All-domain Anomaly Resolution Office"
+        ],
+        "people": []
       },
       "content": {
         "original_language": "en",
@@ -1184,7 +1204,7 @@
       },
       "sources": [
         {
-          "label": "Federal Register",
+          "label": "Federal Register SORN Notice 2023-14732",
           "url": "https://www.federalregister.gov/documents/2023/07/11/2023-14732/privacy-act-of-1974-system-of-records",
           "sha256": null
         }
@@ -1241,7 +1261,13 @@
       },
       "entities": {
         "agencies": [
-          "美國眾議院情報常設特別委員會"
+          "House Permanent Select Committee on Intelligence",
+          "Department of Defense",
+          "Office of Naval Intelligence"
+        ],
+        "people": [
+          "Ronald Moultrie",
+          "Scott Bray"
         ]
       },
       "content": {
@@ -1257,7 +1283,7 @@
       },
       "sources": [
         {
-          "label": "GovInfo (GPO)",
+          "label": "GovInfo (GPO) Open Hearing PDF",
           "url": "https://www.govinfo.gov/content/pkg/CHRG-117hhrg47894/pdf/CHRG-117hhrg47894.pdf",
           "sha256": "09be18d5b8813bc4937ba1ae4cbfeff4bf51ec4b967882d9fe0cba3c8e442df0"
         }
