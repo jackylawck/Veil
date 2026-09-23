@@ -18,7 +18,7 @@ class NoaaOceanAcousticsAdapter(BaseAdapter):
         return "noaa_ocean_acoustics"
 
     def __init__(self):
-        super().__init__(source_name="NOAA Ocean Acoustics (PMEL)")
+        super().__init__()
         self.endpoint_url = "https://www.pmel.noaa.gov/acoustics/sounds_archive.html"
         self.timeout = 15
         self.headers = {

@@ -18,7 +18,7 @@ class NatoJapccAirspaceAdapter(BaseAdapter):
         return "nato_japcc_airspace"
 
     def __init__(self):
-        super().__init__(source_name="NATO Joint Air Power Competence Centre (JAPCC)")
+        super().__init__()
         self.endpoint_url = "https://www.japcc.org"
         self.timeout = 15
         self.headers = {

@@ -18,7 +18,7 @@ class OdniDeclassificationStreamAdapter(BaseAdapter):
         return "odni_declassification_stream"
 
     def __init__(self):
-        super().__init__(source_name="Office of the Director of National Intelligence (ODNI)")
+        super().__init__()
         self.endpoint_url = "https://www.dni.gov/index.php/newsroom/reports-publications"
         self.timeout = 15
         self.headers = {

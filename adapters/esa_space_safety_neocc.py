@@ -18,7 +18,7 @@ class EsaSpaceSafetyNeoccAdapter(BaseAdapter):
         return "esa_space_safety_neocc"
 
     def __init__(self):
-        super().__init__(source_name="ESA Space Safety Programme (NEOCC)")
+        super().__init__()
         self.endpoint_url = "https://neo.ssa.esa.int/close-approaches"
         self.timeout = 15
         self.headers = {

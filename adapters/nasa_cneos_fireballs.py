@@ -18,7 +18,7 @@ class NasaCneosFireballsAdapter(BaseAdapter):
         return "nasa_cneos_fireballs"
 
     def __init__(self):
-        super().__init__(source_name="NASA JPL Center for Near-Earth Object Studies (CNEOS)")
+        super().__init__()
         # NASA JPL 官方大氣高能碰撞即時 API 端點
         self.api_url = "https://ssd-api.jpl.nasa.gov/fireball.api"
         self.timeout = 20

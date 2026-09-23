@@ -18,7 +18,7 @@ class FccExperimentalRfAdapter(BaseAdapter):
         return "fcc_experimental_rf"
 
     def __init__(self):
-        super().__init__(source_name="FCC Experimental Licensing System (OET)")
+        super().__init__()
         self.endpoint_url = "https://licensing.fcc.gov/els/index.jsp"
         self.timeout = 15
         self.headers = {

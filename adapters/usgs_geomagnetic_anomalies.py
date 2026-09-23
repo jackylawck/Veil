@@ -18,7 +18,7 @@ class UsgsGeomagneticAnomaliesAdapter(BaseAdapter):
         return "usgs_geomagnetic_anomalies"
 
     def __init__(self):
-        super().__init__(source_name="USGS Geomagnetism Program (INTERMAGNET)")
+        super().__init__()
         self.endpoint_url = "https://geomag.usgs.gov/ws/data/"
         self.timeout = 15
         self.headers = {

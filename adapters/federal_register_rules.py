@@ -18,7 +18,7 @@ class FederalRegisterRulesAdapter(BaseAdapter):
         return "federal_register_rules"
 
     def __init__(self):
-        super().__init__(source_name="Federal Register (Executive Rules)")
+        super().__init__()
         self.api_url = "https://www.federalregister.gov/api/v1/documents.json"
         self.timeout = 20
         self.headers = {

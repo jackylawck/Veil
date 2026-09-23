@@ -18,7 +18,7 @@ class SwedenUfoSverigeAfiseAdapter(BaseAdapter):
         return "sweden_ufo_sverige_afise"
 
     def __init__(self):
-        super().__init__(source_name="Sweden Military Defence Archives (Krigsarkivet)")
+        super().__init__()
         self.endpoint_url = "https://riksarkivet.se/krigsarkivet"
         self.timeout = 15
         self.headers = {

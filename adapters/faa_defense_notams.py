@@ -18,7 +18,7 @@ class FaaDefenseNotamsAdapter(BaseAdapter):
         return "faa_defense_notams"
 
     def __init__(self):
-        super().__init__(source_name="FAA Temporary Flight Restrictions (Security TFR)")
+        super().__init__()
         # FAA TFR 即時通報官方端點
         self.endpoint_url = "https://tfr.faa.gov/tfr2/list.html"
         self.timeout = 15

@@ -18,7 +18,7 @@ class DoeOstiMaterialsAdapter(BaseAdapter):
         return "doe_osti_materials"
 
     def __init__(self):
-        super().__init__(source_name="DOE Office of Scientific and Technical Information (OSTI)")
+        super().__init__()
         self.api_url = "https://www.osti.gov/api/v1/records"
         self.timeout = 20
         self.headers = {

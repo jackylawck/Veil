@@ -18,7 +18,7 @@ class NoradNorthcomDirectivesAdapter(BaseAdapter):
         return "norad_northcom_directives"
 
     def __init__(self):
-        super().__init__(source_name="NORAD & US Northern Command (USNORTHCOM)")
+        super().__init__()
         self.endpoint_url = "https://www.norad.mil/Newsroom/Press-Releases/"
         self.timeout = 15
         self.headers = {

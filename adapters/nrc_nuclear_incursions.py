@@ -19,7 +19,7 @@ class NrcNuclearIncursionsAdapter(BaseAdapter):
         return "nrc_nuclear_incursions"
 
     def __init__(self):
-        super().__init__(source_name="U.S. Nuclear Regulatory Commission (NRC Events)")
+        super().__init__()
         # NRC 每日官方公開事件通報日誌端點
         self.base_url = "https://www.nrc.gov/reading-rm/doc-collections/event-status/event/"
         self.timeout = 20

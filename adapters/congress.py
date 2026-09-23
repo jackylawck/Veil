@@ -26,7 +26,7 @@ class CongressAdapter(BaseAdapter):
     ]
 
     def __init__(self, api_key: str = ""):
-        super().__init__(source_name="congress_gov")
+        super().__init__()
         self.api_key = api_key or os.getenv("CONGRESS_API_KEY", "").strip()
 
     def fetch_records(self, days_back: int = 365) -> List[Dict[str, Any]]:

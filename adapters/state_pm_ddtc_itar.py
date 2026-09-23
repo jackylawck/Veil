@@ -18,7 +18,7 @@ class StatePmDdtcItarAdapter(BaseAdapter):
         return "state_pm_ddtc_itar"
 
     def __init__(self):
-        super().__init__(source_name="U.S. Department of State (PM/DDTC)")
+        super().__init__()
         self.endpoint_url = "https://www.pmddtc.state.gov/ddtc_public"
         self.timeout = 15
         self.headers = {

@@ -18,7 +18,7 @@ class UsptoSecrecyOrdersAdapter(BaseAdapter):
         return "uspto_secrecy_orders"
 
     def __init__(self):
-        super().__init__(source_name="USPTO & Armed Services Patent Advisory Board (ASPAB)")
+        super().__init__()
         self.endpoint_url = "https://www.uspto.gov/patents/apply/patent-secrecy-orders"
         self.timeout = 15
         self.headers = {

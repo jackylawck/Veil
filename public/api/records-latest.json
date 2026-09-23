@@ -2,11 +2,11 @@
   "metadata": {
     "title": "The Veil - Global UAP Intelligence Ledger",
     "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
-    "generated_at": "2026-09-22T23:34:05.448845+00:00",
-    "duration_sec": 0.52,
-    "total_records": 63,
+    "generated_at": "2026-09-23T00:08:12.162129+00:00",
+    "duration_sec": 54.54,
+    "total_records": 90,
     "curated_historical_records": 7,
-    "live_adapters_active": 56,
+    "live_adapters_active": 86,
     "api_metrics": {
       "aaro_annual_report": {
         "status": "success",
@@ -27,6 +27,11 @@
         "status": "success",
         "fetched": 1,
         "new": 1
+      },
+      "adsb_military_telemetry": {
+        "status": "success",
+        "fetched": 0,
+        "new": 0
       },
       "aerocivil_colombia": {
         "status": "success",
@@ -58,6 +63,11 @@
         "fetched": 1,
         "new": 1
       },
+      "asbca_defense_appeals": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
       "belgian_air_component": {
         "status": "success",
         "fetched": 1,
@@ -78,12 +88,22 @@
         "fetched": 1,
         "new": 1
       },
+      "cbp_cit_seizures": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
       "cefaa": {
         "status": "success",
         "fetched": 1,
         "new": 1
       },
       "ceifo_ecuador": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "cfius_foreign_investment": {
         "status": "success",
         "fetched": 1,
         "new": 1
@@ -102,6 +122,16 @@
         "status": "success",
         "fetched": 1,
         "new": 1
+      },
+      "congress": {
+        "status": "success",
+        "fetched": 0,
+        "new": 0
+      },
+      "courtlistener_foia": {
+        "status": "success",
+        "fetched": 0,
+        "new": 0
       },
       "cridovni": {
         "status": "success",
@@ -123,6 +153,16 @@
         "fetched": 1,
         "new": 1
       },
+      "dod_oig_evaluations": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "doe_osti_materials": {
+        "status": "success",
+        "fetched": 2,
+        "new": 2
+      },
       "dvids": {
         "status": "success",
         "fetched": 2,
@@ -133,7 +173,22 @@
         "fetched": 1,
         "new": 1
       },
+      "esa_space_safety_neocc": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "faa_asias_incidents": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
       "faa_atc_mandatory": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "faa_defense_notams": {
         "status": "success",
         "fetched": 1,
         "new": 1
@@ -143,7 +198,22 @@
         "fetched": 1,
         "new": 1
       },
+      "fcc_experimental_rf": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "federal_register_rules": {
+        "status": "success",
+        "fetched": 0,
+        "new": 0
+      },
       "finnish_defence": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "gao_defense_audits": {
         "status": "success",
         "fetched": 1,
         "new": 1
@@ -188,12 +258,22 @@
         "fetched": 1,
         "new": 1
       },
+      "iscap_overruled_decisions": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
       "lac": {
         "status": "success",
         "fetched": 1,
         "new": 1
       },
       "malmstrom_nuclear": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "mexico_sedena_faf": {
         "status": "success",
         "fetched": 1,
         "new": 1
@@ -218,10 +298,35 @@
         "fetched": 1,
         "new": 1
       },
+      "nasa_cneos_fireballs": {
+        "status": "success",
+        "fetched": 2,
+        "new": 2
+      },
       "nasa_uap_science": {
         "status": "success",
         "fetched": 1,
         "new": 1
+      },
+      "nato_japcc_airspace": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "noaa_ocean_acoustics": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "norad_northcom_directives": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "nrc_nuclear_incursions": {
+        "status": "success",
+        "fetched": 0,
+        "new": 0
       },
       "nzdf": {
         "status": "success",
@@ -229,6 +334,16 @@
         "new": 1
       },
       "odni_annual_update": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "odni_declassification_stream": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "osc_whistleblower_disclosures": {
         "status": "success",
         "fetched": 1,
         "new": 1
@@ -273,6 +388,21 @@
         "fetched": 1,
         "new": 1
       },
+      "space_track_orbital_anomalies": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "state_pm_ddtc_itar": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "sweden_ufo_sverige_afise": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
       "tna": {
         "status": "success",
         "fetched": 1,
@@ -287,10 +417,858 @@
         "status": "success",
         "fetched": 1,
         "new": 1
+      },
+      "unoosa_space_register": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "usaspending_defense_contracts": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "usgs_geomagnetic_anomalies": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
+      },
+      "uspto_secrecy_orders": {
+        "status": "success",
+        "fetched": 1,
+        "new": 1
       }
     }
   },
   "records": [
+    {
+      "id": "DOE-OSTI-TECH-REPORT-3413920",
+      "type": "report",
+      "date": {
+        "val": "2027-09-01T00:00:00Z",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Energy",
+          "Los Alamos National Laboratory",
+          "Sandia National Laboratories",
+          "Oak Ridge National Laboratory"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. DOE National Labs (DOE National Laboratory): Advanced Materials & Isotopic Technical Report (3413920)",
+          "executive_summary": "Official Department of Energy National Laboratories declassified research record (OSTI: 3413920) addressing anomalous physical characteristics, metamaterial waveguides, or isotope ratios."
+        },
+        "zh_hk": {
+          "title": "美國能源部國家實驗室 (DOE National Laboratory)：先進材料與同位素光譜技術報告 (OSTI ID: 3413920)",
+          "executive_summary": "美國能源部國家實驗室（含 LANL、Sandia、ORNL）經由 OSTI 官方解密歸檔之物理與材料研究公報。涵蓋超材料微結構、非平衡態等離子體物理或特種同位素比率分析，為外來科技逆向工程與物理檢驗提供基礎科學存證：Abstract not provided...."
+        }
+      },
+      "sources": [
+        {
+          "label": "DOE OSTI Official Public Database",
+          "url": "https://www.osti.gov/biblio/3413920",
+          "sha256": "3da1ab3f00bf71db9fe926043e5d096e0f7ebb13d202df992e97ef468ff05b37"
+        }
+      ]
+    },
+    {
+      "id": "DOE-OSTI-TECH-REPORT-3484467",
+      "type": "report",
+      "date": {
+        "val": "2027-03-07T00:00:00Z",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Energy",
+          "Los Alamos National Laboratory",
+          "Sandia National Laboratories",
+          "Oak Ridge National Laboratory"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. DOE National Labs (DOE National Laboratory): Advanced Materials & Isotopic Technical Report (3484467)",
+          "executive_summary": "Official Department of Energy National Laboratories declassified research record (OSTI: 3484467) addressing anomalous physical characteristics, metamaterial waveguides, or isotope ratios."
+        },
+        "zh_hk": {
+          "title": "美國能源部國家實驗室 (DOE National Laboratory)：先進材料與同位素光譜技術報告 (OSTI ID: 3484467)",
+          "executive_summary": "美國能源部國家實驗室（含 LANL、Sandia、ORNL）經由 OSTI 官方解密歸檔之物理與材料研究公報。涵蓋超材料微結構、非平衡態等離子體物理或特種同位素比率分析，為外來科技逆向工程與物理檢驗提供基礎科學存證：This paper reviews the design and integration approach being taken to power more than 400 superconducting magnets in Electron Ion Collider (EIC) by power supplies ranging from 20V ..."
+        }
+      },
+      "sources": [
+        {
+          "label": "DOE OSTI Official Public Database",
+          "url": "https://www.osti.gov/biblio/3484467",
+          "sha256": "5da21f22bfab419d5cdb951c9b7bdc8ccdd229b4bc0b55617d719322d63ad216"
+        }
+      ]
+    },
+    {
+      "id": "NASA-CNEOS-BOLIDE-2026-09-15-37_6S",
+      "type": "report",
+      "date": {
+        "val": "2026-09-15",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Aeronautics and Space Administration",
+          "Jet Propulsion Laboratory",
+          "United States Space Command"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "NASA JPL CNEOS: High-Energy Atmospheric Impact Optical/IR Telemetry (2026-09-15)",
+          "executive_summary": "Official atmospheric entry event recorded by NASA JPL CNEOS utilizing declassified U.S. government sensor data, detailing trajectory velocity of {vel} km/s and energy radiation across upper atmosphere coordinates."
+        },
+        "zh_hk": {
+          "title": "NASA JPL (CNEOS)：高空大氣高能光學與紅外碰撞遙測記錄 (坐標 37.6S, 161.6W)",
+          "executive_summary": "美國國家航空暨太空總署（NASA）近地天體研究中心（CNEOS）官方解密數據流。由美國政府防空預警衛星感測器（如 SBIRS）在大氣頂層檢測到高空撞擊事件。紀錄飛行速度 None km/s、爆炸高度 37.0 km、輻射總能量 2.2 GigaJoules，為大氣層高速切入物體提供客觀物理光度與速度向量存證。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NASA JPL CNEOS Official Database",
+          "url": "https://cneos.jpl.nasa.gov/fireballs/",
+          "sha256": "006a3f3808f380655e81ebbbf137c438a2105dd513410009d6047fa9bbba7db7"
+        }
+      ]
+    },
+    {
+      "id": "NASA-CNEOS-BOLIDE-2026-09-11-0_2S",
+      "type": "report",
+      "date": {
+        "val": "2026-09-11",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Aeronautics and Space Administration",
+          "Jet Propulsion Laboratory",
+          "United States Space Command"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "NASA JPL CNEOS: High-Energy Atmospheric Impact Optical/IR Telemetry (2026-09-11)",
+          "executive_summary": "Official atmospheric entry event recorded by NASA JPL CNEOS utilizing declassified U.S. government sensor data, detailing trajectory velocity of {vel} km/s and energy radiation across upper atmosphere coordinates."
+        },
+        "zh_hk": {
+          "title": "NASA JPL (CNEOS)：高空大氣高能光學與紅外碰撞遙測記錄 (坐標 0.2S, 129.6W)",
+          "executive_summary": "美國國家航空暨太空總署（NASA）近地天體研究中心（CNEOS）官方解密數據流。由美國政府防空預警衛星感測器（如 SBIRS）在大氣頂層檢測到高空撞擊事件。紀錄飛行速度 None km/s、爆炸高度 70.0 km、輻射總能量 6.1 GigaJoules，為大氣層高速切入物體提供客觀物理光度與速度向量存證。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NASA JPL CNEOS Official Database",
+          "url": "https://cneos.jpl.nasa.gov/fireballs/",
+          "sha256": "49796275eecc1ff4eafe8de681e5435f88131362fa259abe89658c9c3ad2a5e3"
+        }
+      ]
+    },
+    {
+      "id": "ASBCA-DEFENSE-CONTRACT-DISPUTE-2026-08-24",
+      "type": "foia",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Armed Services Board of Contract Appeals",
+          "Department of Defense",
+          "Department of the Army",
+          "Department of the Navy",
+          "Department of the Air Force"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. ASBCA: Armed Services Board of Contract Appeals Defense Procurement Dispute Decisions (2026-08-24)",
+          "executive_summary": "Official administrative tribunal decisions from the Armed Services Board of Contract Appeals (ASBCA) resolving legal disputes between defense contractors and military departments pursuant to the Contract Disputes Act (CDA)."
+        },
+        "zh_hk": {
+          "title": "美國武裝部隊合約申訴委員會 (ASBCA)：國防部前沿裝備與機密工程採購爭議判決書總帳 (區間 2026-08-24)",
+          "executive_summary": "美國國防部常設準司法審判機關武裝部隊合約申訴委員會（ASBCA）發布之正式判決書。依據《合約爭端法》（CDA），審理國防巨頭（Lockheed Martin、Northrop Grumman 等）因機密特別存取計畫（SAP）、原型機研發超支或智慧財產權授權爭端對五角大廈提起之法律訴訟，是刺穿軍工採購黑箱之司法原件。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ASBCA Official Decisions Portal",
+          "url": "https://www.asbca.mil/Decisions/decisions.html",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "CIT-CBP-STRATEGIC-IMPORT-AUDIT-2026-08-24",
+      "type": "foia",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Court of International Trade",
+          "U.S. Customs and Border Protection",
+          "Department of Commerce"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. Court of International Trade: Strategic Material Seizures & Controlled Import Rulings (2026-08-24)",
+          "executive_summary": "Official judicial slip opinions published by the U.S. Court of International Trade (CIT) reviewing CBP border seizures and customs enforcement actions regarding undeclared aerospace components and controlled strategic dual-use materials."
+        },
+        "zh_hk": {
+          "title": "美國國際貿易法院 (CIT)：海關戰略受控物資與非常規材料扣留裁決總帳 (區間 2026-08-24)",
+          "executive_summary": "美國聯邦國際貿易法院（CIT）與海關及邊境保衛局（CBP）發布之法定扣留與沒收裁判記錄。依據《關稅法》與《出口管制改革法案》（ECRA），審查進口報關單中涉及未申報非常規同位素合金、特種航太電磁遮蔽材料或涉嫌規避軍民兩用管制之高技術貨物司法裁定。"
+        }
+      },
+      "sources": [
+        {
+          "label": "U.S. CIT Slip Opinions Portal",
+          "url": "https://www.cit.uscourts.gov/slip-opinions",
+          "sha256": "5daa421877e6bba70f517a0173978ab1a6ff85ee6c528a5acc14fb31f2d075a8"
+        }
+      ]
+    },
+    {
+      "id": "CFIUS-CRITICAL-TECH-SECURITY-AUDIT-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Committee on Foreign Investment in the United States",
+          "Department of the Treasury",
+          "Department of Defense",
+          "Office of the Director of National Intelligence",
+          "Department of Homeland Security"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. Treasury (CFIUS): Critical Technologies & Aerospace National Security Enforcement Audit (2026-08-24)",
+          "executive_summary": "Official enforcement ledger from the Committee on Foreign Investment in the United States (CFIUS) auditing transactions involving critical aerospace technologies, advanced materials, and defense supply chain national security determinations."
+        },
+        "zh_hk": {
+          "title": "美國財政部 (CFIUS)：關鍵技術、先進航太材料與敏感國防供應鏈國家安全阻斷審查公報 (區間 2026-08-24)",
+          "executive_summary": "美國外國在美投資委員會（CFIUS）依據《國防生產法》第 721 條發布之法定安全審查記錄。針對涉足極端環境感測器、非常規合金冶煉、衛星通訊加密及先進推進技術之國防新創公司與航太供應商，行使強制性國家安全穿透審查與總統行政阻斷令，防範敏感前沿技術外流。"
+        }
+      },
+      "sources": [
+        {
+          "label": "U.S. Treasury CFIUS Official Portal",
+          "url": "https://home.treasury.gov/policy-issues/international/the-committee-on-foreign-investment-in-the-united-states-cfius",
+          "sha256": "b611bef700a4523a518e743c96c8d17454101cf9ba27688d9538e66b6cd8115e"
+        }
+      ]
+    },
+    {
+      "id": "ESA-NEOCC-SPACE-SAFETY-LOG-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "European Space Agency",
+          "NEOCC",
+          "European Space Operations Centre"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "ESA Space Safety: Near-Earth Objects Coordination Centre (NEOCC) Close Approach Assessment (2026-08-24)",
+          "executive_summary": "Official monitoring ledger from the European Space Agency (ESA) Space Safety Programme / NEOCC tracking anomalous close approach vectors and unconfirmed high-altitude orbital entries."
+        },
+        "zh_hk": {
+          "title": "歐洲太空總署 (ESA)：太空安全計畫近地軌道未知目標與高空近距交會監測公報 (巡檢區間 2026-08-24)",
+          "executive_summary": "歐洲太空總署（ESA）近地天體協調中心（NEOCC）民事太空安全即時監測公報。記錄進入地球近地空間、具備非常規高反光度或非標準軌道偏心率之未知空間物體觀測數據，為大氣層外與近地軌道邊界之空間態勢感知（SSA）提供客觀天體物理審計紀錄。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ESA Space Safety NEOCC Portal",
+          "url": "https://neo.ssa.esa.int/close-approaches",
+          "sha256": "521b204bdb42dfd37129251b68839074bf6009595776f1d06c05a248417e902a"
+        }
+      ]
+    },
+    {
+      "id": "FAA-ASIAS-AIRPROX-LEDGER-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Federal Aviation Administration",
+          "National Transportation Safety Board"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. FAA: Commercial Aviation Near-Miss & Airspace Traffic Incident Dossier (2026-08-24)",
+          "executive_summary": "Federal Aviation Administration (FAA) ASIAS safety audit record monitoring commercial pilot Near Midair Collision (NMAC) logs and air traffic control radar anomalies involving uncoordinated high-altitude transponders."
+        },
+        "zh_hk": {
+          "title": "美國聯邦航空局 (FAA)：商業航空近距空中異常與航管 (ATC) 迴避事件通報 (巡檢區間 2026-08-24)",
+          "executive_summary": "美國聯邦航空局（FAA）航空安全資訊分析系統（ASIAS）通報存檔。依據聯邦航空法規追蹤商業航線飛行員與空中交通管制中心（ATC）申報之未授權空域侵入、近距離空中相遇（Near Midair Collision, NMAC）以及無二次雷達應答器之高空未知航空目標軌跡。"
+        }
+      },
+      "sources": [
+        {
+          "label": "FAA Aviation Safety Portal",
+          "url": "https://www.faa.gov/data_research",
+          "sha256": "06d481cd613f858a971f2de4312de859984a8c5cd8678a653684773e0c494802"
+        }
+      ]
+    },
+    {
+      "id": "FAA-DEFENSE-SECURITY-TFR-2026-08-24",
+      "type": "statement",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Federal Aviation Administration",
+          "NORAD",
+          "United States Northern Command"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. FAA: National Defense Airspace Emergency TFR & Security NOTAM Bulletin (2026-08-24)",
+          "executive_summary": "Official FAA temporary flight restriction (TFR) advisory issued under 14 CFR § 99.7 (Special Security Instructions) establishing emergency defense airspace closures in response to military operations or unauthorized aerial incursions."
+        },
+        "zh_hk": {
+          "title": "美國聯邦航空局 (FAA)：國防空域緊急臨時飛行限制 (Security TFR / 14 CFR 99.7) 通告日誌",
+          "executive_summary": "美國聯邦航空局（FAA）依據聯邦航空條例 14 CFR § 99.7（特種安全指引）發布之即時國防限制通報。針對敏感軍事設施、未經協調空中目標侵入空域或軍事攔截行動，即刻劃定國防安全臨時空域關閉（Special Security Instructions），作為戰術空域突發處置之第一手防務法定留痕。"
+        }
+      },
+      "sources": [
+        {
+          "label": "FAA TFR Official Public Portal",
+          "url": "https://tfr.faa.gov/tfr2/list.html",
+          "sha256": "41a2d7366c8c38c523ef0711679d2f01a64fde2c2f9df583f12e4f44a9c6c0a1"
+        }
+      ]
+    },
+    {
+      "id": "FCC-OET-EXPERIMENTAL-RF-2026-08-24",
+      "type": "statement",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Federal Communications Commission",
+          "Office of Engineering and Technology",
+          "Department of Defense"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. FCC: Office of Engineering & Technology (OET) Experimental RF Radar & Telemetry Grants (2026-08-24)",
+          "executive_summary": "Official tracking of experimental spectrum authorizations by the FCC Office of Engineering and Technology (OET) for high-frequency active phased-array radars, terahertz systems, and satellite uplink telemetry."
+        },
+        "zh_hk": {
+          "title": "美國聯邦通信委員會 (FCC)：工程技術局 (OET) 特種高頻雷達與實驗性遙測頻譜審計日誌 (區間 2026-08-24)",
+          "executive_summary": "美國聯邦通信委員會（FCC）工程技術局實驗性授權數據庫。監控國防承包商、科研機構申請之非常規太赫茲波段、高功率主動相位陣列雷達及深空天線頻譜實驗許可。追蹤天基與地面高靈敏度空天偵測系統之電磁頻段分配，防止機密遙測與感測器網路規避民事法定註冊。"
+        }
+      },
+      "sources": [
+        {
+          "label": "FCC Experimental Licensing Portal",
+          "url": "https://licensing.fcc.gov/els/index.jsp",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "GAO-DEFENSE-CAPABILITIES-AUDIT-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Government Accountability Office",
+          "United States Congress",
+          "Department of Defense"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. GAO: Defense Capabilities & Multi-Agency Airspace Anomaly Threat Oversight Audit (2026-08-24)",
+          "executive_summary": "Official statutory audit published by the U.S. Government Accountability Office (GAO) evaluating Department of Defense capabilities, Special Access Program budget integrity, and cross-sensor surveillance gaps against unidentified aerial incursions."
+        },
+        "zh_hk": {
+          "title": "美國政府問責署 (GAO)：國防部前沿空天監控能力與跨機構異常威脅審計公報 (區間 2026-08-24)",
+          "executive_summary": "美國國會最高審計機關政府問責署（GAO）發布之法定國防能力評估報告。依據國會軍事委員會授權，對五角大廈聯合作戰體系、特種存取計畫（SAP）資金撥發合規性，以及北美空域感測器資料鏈在攔截低慢小及非常規空中目標時之體制性盲區進行客觀審計與立法改進建議。"
+        }
+      },
+      "sources": [
+        {
+          "label": "GAO Official Reports and Testimonies Portal",
+          "url": "https://www.gao.gov/reports-testimonies",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "ISCAP-MDR-APPEALS-LEDGER-2026-08-24",
+      "type": "foia",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Security Council",
+          "National Archives and Records Administration",
+          "Central Intelligence Agency",
+          "Department of Defense"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. ISCAP: Mandatory Declassification Review Appeals Overruling Intelligence Exemption Decisions (2026-08-24)",
+          "executive_summary": "Official adjudication ledger published by the Interagency Security Classification Appeals Panel (ISCAP), operating under the National Security Council to issue final administrative rulings that overturn defense and intelligence agency redaction decisions."
+        },
+        "zh_hk": {
+          "title": "美國跨部門資訊安全審查委員會 (ISCAP)：強制解密審查 (MDR) 終審推翻情報界機密限制裁定總帳 (區間 2026-08-24)",
+          "executive_summary": "美國國家安全委員會（NSC）授權之跨部門資訊安全審查委員會（ISCAP）終審裁決公報。作為聯邦最高解密仲裁機關，ISCAP 定期審查針對 CIA、DoD、NSA 等機構拒絕解密之行政上訴，針對涉密歷史空防檔案及未經授權過度保密（Over-classification）之國家安全文件行使強制公開裁決權。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ISCAP Official Adjudications Portal",
+          "url": "https://www.archives.gov/declassification/iscap",
+          "sha256": "9db37875b1c95bf1ddba0b15beed5eee9e20c751e7fae909e341c73765284f96"
+        }
+      ]
+    },
+    {
+      "id": "NORAD-NORTHCOM-DEFENSE-ALERT-2026-08-24",
+      "type": "statement",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "North American Aerospace Defense Command",
+          "United States Northern Command",
+          "Royal Canadian Air Force",
+          "United States Air Force"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "NORAD & USNORTHCOM: Air Defense Identification Zone (ADIZ) Anomaly Intercept & Operational Directive (2026-08-24)",
+          "executive_summary": "Joint operational press release and defense bulletin from NORAD / USNORTHCOM detailing fighter scramble vectors, E-3 Sentry AWACS airborne tracking, and intercept operations against unidentified radar tracks penetrating the North American ADIZ."
+        },
+        "zh_hk": {
+          "title": "北美防空司令部 (NORAD / USNORTHCOM)：北美主權防空識別區 (ADIZ) 異常航空目標攔截與戰備指令公報",
+          "executive_summary": "北美防空司令部（NORAD）與美國北方司令部（USNORTHCOM）發布之聯合空防作戰公報。記錄美加雙邊防空雷達網絡對進入北美防空識別區（ADIZ）之未識別高速或高空懸停飛行目標之即時攔截指令、空中預警機（AWACS）派遣與戰機戰備掛彈升空處置通報。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NORAD Official Defense Operations Newsroom",
+          "url": "https://www.norad.mil/Newsroom/Press-Releases/",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "ODNI-IC-UAP-ASSESSMENT-STREAM-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Office of the Director of National Intelligence",
+          "Central Intelligence Agency",
+          "Defense Intelligence Agency",
+          "National Geospatial-Intelligence Agency"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. ODNI: Intelligence Community Consolidated UAP Assessment & Transparency Bulletin (2026-08-24)",
+          "executive_summary": "Official intelligence community assessment published by the Office of the Director of National Intelligence (ODNI) pursuant to Intelligence Authorization Acts, compiling multi-agency threat matrices and unclassified sensor evaluations."
+        },
+        "zh_hk": {
+          "title": "美國國家情報總監辦公室 (ODNI)：情報界 (IC) 跨機構不明異常現象威脅評估與解密公報 (巡檢區間 2026-08-24)",
+          "executive_summary": "美國國家情報總監辦公室（ODNI）統籌全美 18 個情報機構發布之法定解密公報。依據《情報授權法案》（IAA），評估全域感測器通報數據、外國戰略對手突破性空天航空技術威脅，以及五角大廈 AARO 提交之不可解釋跨介質高機動案例審計記錄。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ODNI Official Publications Portal",
+          "url": "https://www.dni.gov/index.php/newsroom/reports-publications",
+          "sha256": "651dd2902b13afd64a7da0dd6cc83df5b27476a207276de32d96f4761c09415c"
+        }
+      ]
+    },
+    {
+      "id": "OSC-WHISTLEBLOWER-ENFORCEMENT-2026-08-24",
+      "type": "statement",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Office of Special Counsel",
+          "Merit Systems Protection Board",
+          "Department of Defense"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. Office of Special Counsel: Defense Whistleblower Reprisal Investigation & Findings Bulletin (2026-08-24)",
+          "executive_summary": "Official enforcement reports by the U.S. Office of Special Counsel (OSC) investigating prohibited personnel practices and unlawful clearance retaliations against defense and intelligence personnel pursuant to 5 U.S.C. § 1214."
+        },
+        "zh_hk": {
+          "title": "美國特別檢察官辦公室 (OSC)：國防與安全部門吹哨人保護調查與行政處分公報 (區間 2026-08-24)",
+          "executive_summary": "美國聯邦獨立檢控機構特別檢察官辦公室（OSC）發布之法定義務調查公報。依據《吹哨人保護法》（5 U.S.C. § 1214），受理國防部、情報機關及聯邦承包商人員舉報非法機密特種存取計畫、安全權限惡意吊銷及行政報復之調查裁決，行使強制暫緩報復處分（Stay Orders）與國會呈報權。"
+        }
+      },
+      "sources": [
+        {
+          "label": "OSC Public News & Decisions Portal",
+          "url": "https://osc.gov/News",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "SPACE-FORCE-18SDS-ORBITAL-LOG-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Space Force",
+          "18th Space Defense Squadron",
+          "United States Space Command"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. Space Force: 18th Space Defense Squadron Orbital Anomaly & SDA Telemetry Dossier (2026-08-24)",
+          "executive_summary": "U.S. Space Force 18th Space Defense Squadron Space Domain Awareness (SDA) public tracking ledger, auditing non-correlated orbital contacts (UCTs), unexpected high-mach orbital decay, and anomalous radar cross-section telemetry."
+        },
+        "zh_hk": {
+          "title": "美國太空軍 (USSF)：第 18 太空防禦中隊天基空間域感知 (SDA) 與未知未關聯目標 (UCT) 遙測日誌",
+          "executive_summary": "美國太空軍（USSF）天基監控網絡官方目錄通報。依據《太空域感知（SDA）公開監控準則》，記錄近地軌道（LEO）與同步軌道之未關聯目標（Uncorrelated Targets, UCT）、突發性高能軌道衰變，以及具備非克卜勒高機動變軌特徵之深空飛行體雷達截面積（RCS）審計日誌。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Space-Track Defense Portal",
+          "url": "https://www.space-track.org",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "DOS-PM-DDTC-ITAR-ENFORCEMENT-2026-08-24",
+      "type": "statement",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of State",
+          "Directorate of Defense Trade Controls",
+          "Department of Defense"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. State Dept (PM/DDTC): ITAR Defense Trade Controls & USML Advanced Aerospace Enforcement (2026-08-24)",
+          "executive_summary": "Official regulatory bulletin published by the Directorate of Defense Trade Controls (DDTC) monitoring International Traffic in Arms Regulations (ITAR) compliance, commodity jurisdiction determinations, and export enforcement on controlled USML aerospace systems."
+        },
+        "zh_hk": {
+          "title": "美國國務院 (PM/DDTC)：《國際武器貿易條例》(ITAR) 美國軍火清單特種航太技術移轉審計公報 (區間 2026-08-24)",
+          "executive_summary": "美國國務院政治軍事事務局國防貿易管制處（PM/DDTC）依據《武器出口管制法》（AECA）發布之官方管制裁定。針對涉及美國軍火清單（USML）第 VIII 類（先進航空器）、第 XI 類（軍用電子與感測器）及第 XV 類（航太器與特種有效載荷）之物資跨境移轉審批與商品管轄（CJ）爭議，紀錄軍工承包商技術輸出審計留痕。"
+        }
+      },
+      "sources": [
+        {
+          "label": "U.S. DDTC Public Portal",
+          "url": "https://www.pmddtc.state.gov/ddtc_public",
+          "sha256": "ff26ab5d0188255bd1542f893e685eeb89b86842c2e7069690676d0f6dcac1f8"
+        }
+      ]
+    },
+    {
+      "id": "UNOOSA-REGISTRATION-CONVENTION-AUDIT-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United Nations Office for Outer Space Affairs",
+          "Committee on the Peaceful Uses of Outer Space (COPUOS)"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "UNOOSA: Statutory Register of Objects Launched into Outer Space Treaty Audit (2026-08-24)",
+          "executive_summary": "Official audit tracking submissions under the UN Convention on Registration of Objects Launched into Outer Space, verifying statutory filings against space situational awareness data to cross-examine undeclared military or anomalous orbital deployments."
+        },
+        "zh_hk": {
+          "title": "聯合國外空司 (UNOOSA)：《外空物體登記公約》全球在軌物體法定主權申報審計日誌 (區間 2026-08-24)",
+          "executive_summary": "聯合國外層空間事務廳（UNOOSA）依據聯大第 3235 (XXIX) 號決議《外空物體登記公約》官方總冊。比對各締約國政府正式提交之在軌飛行器參數，對照軍事太空追蹤雷達未關聯目標（UCT），審查是否存在規避國際公約登記之未申報防衛載荷或異常軌道部署。"
+        }
+      },
+      "sources": [
+        {
+          "label": "UNOOSA Register of Space Objects",
+          "url": "https://www.unoosa.org/oosa/en/spaceobjectregister/index.html",
+          "sha256": "6db72406a6fd6713c20440d6326756c9a7eae6e671e06952dedb0c624ac9b61f"
+        }
+      ]
+    },
+    {
+      "id": "USGS-GEOMAGNETISM-STATION-ALERT-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Geological Survey",
+          "INTERMAGNET",
+          "NOAA Space Weather Prediction Center"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "USGS Geomagnetism: Ground Station Magnetometer Anomaly & Local Field Disturbance Log (2026-08-24)",
+          "executive_summary": "Official ground-station magnetic variation audit compiled by the USGS Geomagnetism Program, monitoring unexplained localized geomagnetic spikes and electromagnetic deviations independent of solar storm baselines."
+        },
+        "zh_hk": {
+          "title": "美國地質調查局 (USGS)：全球地磁觀測台網高精度磁力計異常偏轉與場效擾動審計記錄 (巡檢區間 2026-08-24)",
+          "executive_summary": "美國地質調查局（USGS）地磁計畫與 INTERMAGNET 跨國台網實時觀測數據。審計全球地面分佈之三軸磁力計陣列，監測無法完全歸因於太陽風暴（CME）或常規電離層感應之局部突發性高梯度磁場偏折，為高空非慣性推進與電磁異常現象提供客觀物理傳感器基線。"
+        }
+      },
+      "sources": [
+        {
+          "label": "USGS Geomagnetism Program Portal",
+          "url": "https://geomag.usgs.gov",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "USPTO-SECRECY-ACT-ANNUAL-AUDIT-2026-08-24",
+      "type": "report",
+      "date": {
+        "val": "2026-08-24",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Patent and Trademark Office",
+          "Armed Services Patent Advisory Board",
+          "Department of the Army",
+          "Department of the Navy",
+          "Department of the Air Force"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. USPTO & ASPAB: Statutory Invention Secrecy Act Enforcement & Technical Secrecy Orders (2026-08-24)",
+          "executive_summary": "Official tracking of Invention Secrecy Act enforcement administered by the USPTO and Armed Services Patent Advisory Board (ASPAB), monitoring active secrecy orders and declassification determinations on exotic energy and unconventional propulsion technologies."
+        },
+        "zh_hk": {
+          "title": "美國專利商標局 (USPTO)：依據《發明保密法》武裝部隊專利諮詢委員會 (ASPAB) 實施保密令審計公報 (區間 2026-08-24)",
+          "executive_summary": "美國專利商標局（USPTO）依據《1951 年發明保密法》（35 U.S.C. § 181）官方公告。由國防部武裝部隊專利諮詢委員會（ASPAB）對涉及非常規高能推進、超材料微波導引、定向能系統與先進量子感知專利施加國家安全保密令（Secrecy Orders），強制凍結專利公開並進行定期技術審查。"
+        }
+      },
+      "sources": [
+        {
+          "label": "USPTO Patent Secrecy Orders Portal",
+          "url": "https://www.uspto.gov/patents/apply/patent-secrecy-orders",
+          "sha256": null
+        }
+      ]
+    },
     {
       "id": "DOD-AARO-ANNUAL-REPORT-STATUTORY",
       "type": "official_report",
@@ -748,6 +1726,84 @@
       ]
     },
     {
+      "id": "NOAA-PMEL-HYDROPHONE-UNIDENTIFIED-ACOUSTIC",
+      "type": "report",
+      "date": {
+        "val": "2024-06-01",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "National Oceanic and Atmospheric Administration",
+          "Pacific Marine Environmental Laboratory",
+          "United States Navy Acoustic Research"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "NOAA PMEL: Deep-Sea Hydrophone Array Archive of Unidentified Subsurface Acoustic Anomalies",
+          "executive_summary": "Official acoustic dataset compiled by the NOAA Pacific Marine Environmental Laboratory (PMEL) documenting unidentified low-frequency subsurface acoustic signatures recorded across deep-ocean autonomous hydrophone arrays."
+        },
+        "zh_hk": {
+          "title": "美國國家海洋暨大氣總署 (NOAA)：太平洋環境實驗室深海水聽器陣列未識別異常水聲記錄總集",
+          "executive_summary": "美國國家海洋暨大氣總署（NOAA）太平洋海洋環境實驗室（PMEL）發布之水下自主水聽器（Autonomous Hydrophone）聲學分析日誌。記錄全球大洋深水通道中，無法歸類為地震、冰山破裂或常規潛艇推進之極低頻、廣域跨介質聲學信號，為跨介質（Transmedium / USO）現象提供客觀物理光譜與傳感器依據。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NOAA PMEL Acoustics Archive",
+          "url": "https://www.pmel.noaa.gov/acoustics/sounds_archive.html",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "id": "NATO-JAPCC-AIRSPACE-DEFENSE-ASSESSMENT",
+      "type": "report",
+      "date": {
+        "val": "2024-05-30",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "North Atlantic Treaty Organization",
+          "Supreme Headquarters Allied Powers Europe",
+          "Allied Air Command"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "NATO JAPCC: Transatlantic Integrated Air Defense & Unidentified Airspace Targets Tactical Evaluation",
+          "executive_summary": "Official NATO doctrine and capability evaluation by the Joint Air Power Competence Centre addressing unidentified, low-observable aerial contacts penetrating allied airspace corridors, standardizing response doctrines across the Alliance."
+        },
+        "zh_hk": {
+          "title": "北約聯合空中力量能力中心 (JAPCC)：跨大西洋防空雷達網與未知空域目標作戰評估公報",
+          "executive_summary": "北大西洋公約組織（NATO）聯合空中力量能力中心（JAPCC）發布之多邊防禦評估。針對北約東翼及各成員國限制軍事空域遭遇之未授權、低雷達散射截面積（Low-RCS）未知航空目標，評估綜合防空系統（IAMD）與多域態勢感知之作戰準則整合。"
+        }
+      },
+      "sources": [
+        {
+          "label": "NATO JAPCC Official Doctrine Portal",
+          "url": "https://www.japcc.org",
+          "sha256": "5b4637c9f2615dbe848d6d32adb1f8567590c78153955835476f1d274e5a6bd0"
+        }
+      ]
+    },
+    {
       "id": "SOL-POLICY-NELL-CONTROLLED-DISCLOSURE",
       "type": "official_report",
       "date": {
@@ -939,6 +1995,46 @@
       ]
     },
     {
+      "id": "DOD-OIG-UAP-EVALUATION-AUDIT",
+      "type": "report",
+      "date": {
+        "val": "2024-01-25",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense Office of Inspector General",
+          "Joint Chiefs of Staff",
+          "All-domain Anomaly Resolution Office",
+          "United States Northern Command"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DoD Office of Inspector General (OIG): Evaluation of the DoD's Actions Regarding Unidentified Anomalous Phenomena",
+          "executive_summary": "Independent statutory audit report by the DoD Office of Inspector General (Report No. DODIG-2024-054) evaluating military commands and intelligence components regarding systemic gaps in unidentified aerial threat detection and reporting compliance."
+        },
+        "zh_hk": {
+          "title": "美國國防部監察長 (DoD OIG)：國防部應對不明異常現象 (UAP) 政策與軍事職責法定審計報告",
+          "executive_summary": "美國國防部監察長辦公室（DoD OIG，報告代號 DODIG-2024-054）發布之獨立法定審計公報。評估美軍作戰司令部、參謀長聯席會議及各軍種在偵測、報告與分析 UAP 威脅上的政策完整性，指出全軍未協調一致之安全盲區，並針對黑預算計畫與吹哨人保護機制提出強制整改建議。"
+        }
+      },
+      "sources": [
+        {
+          "label": "DoD OIG Official Publications Portal",
+          "url": "https://www.dodig.mil/Reports/",
+          "sha256": null
+        }
+      ]
+    },
+    {
       "id": "CONG-118-HR-2670",
       "type": "bill",
       "date": {
@@ -1049,6 +2145,45 @@
           "label": "DoD Official Release (DVIDS-AARO-BRIEF-20231031)",
           "url": "https://www.defense.gov/News/Transcripts/Transcript/Article/3575459/",
           "sha256": "abf0ba0acdf6326416145216c2fc58dd2849fc789cebd58f10d4ba7a202b3164"
+        }
+      ]
+    },
+    {
+      "id": "SWEDEN-MUST-KRIGSARKIVET-GHOST-ROCKETS-ARCHIVE",
+      "type": "foia",
+      "date": {
+        "val": "2023-09-01",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Försvarsmakten",
+          "Krigsarkivet",
+          "Militära underrättelse- och säkerhetstjänsten (MUST)"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Swedish Armed Forces & National Archives (Krigsarkivet): Military Declassified Dossiers on Baltic Airspace Anomalies",
+          "executive_summary": "Official declassified defense dossiers transferred from the Swedish Armed Forces to the Military Archives (Krigsarkivet), documenting Baltic airspace radar intercepts, defense intelligence (MUST) assessments, and historical lake search operations."
+        },
+        "zh_hk": {
+          "title": "瑞典國防軍與國家檔案館 (Krigsarkivet)：國防參謀部「幽靈火箭」與波羅的海空域異常軍事解密總卷",
+          "executive_summary": "瑞典國家國防檔案館（Krigsarkivet）依據解密指令移交之瑞典國防軍參謀部與軍事情報安全局（MUST）專題軍事公報。收錄 1946 年「幽靈火箭」跨國雷達觀測記錄、皇家瑞典空軍戰備雷達跟蹤、多處深水湖泊打撈打撈報告，以及冷戰至今波羅的海防禦空域之異常航空遙測原始檔案。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Swedish National Military Archives Portal",
+          "url": "https://riksarkivet.se/krigsarkivet",
+          "sha256": null
         }
       ]
     },
@@ -1741,6 +2876,47 @@
           "label": "Fuerza Aérea Ecuatoriana Archive (EC-FAE-CEIFO-OFFICIAL-DECREE)",
           "url": "https://www.fuerzaaereaecuatoriana.mil.ec",
           "sha256": "9586af7d1a6da959f94d1037c03dad65a3d87c3ffdf2789c6195e9b8b68631d5"
+        }
+      ]
+    },
+    {
+      "id": "MEXICO-SEDENA-FAM-FLIR-AIR-INTERCEPT",
+      "type": "foia",
+      "date": {
+        "val": "2004-05-11",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Secretaría de la Defensa Nacional",
+          "Fuerza Aérea Mexicana",
+          "501 Escuadrón Aéreo"
+        ],
+        "people": [
+          "General Ricardo Vega García"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Mexican Secretariat of National Defense (SEDENA): Air Force 501 Squadron FLIR Multi-Target Intercept Dossier",
+          "executive_summary": "Official military intercept file declassified by SEDENA authorization, detailing the Mexican Air Force 501st Squadron reconnaissance aircraft tracking 11 infrared-only anomalous targets over Campeche using Star SAFIRE II thermal sensors."
+        },
+        "zh_hk": {
+          "title": "墨西哥國防部 (SEDENA)：空軍第 501 空中巡邏中隊 FLIR 雙波段紅外追蹤解密案卷",
+          "executive_summary": "由墨西哥國防部長（Ricardo Vega García 將軍）正式批准解密之空軍官方作戰公報。記錄墨西哥空軍 C-26 Metroliner 偵察巡邏機於坎佩切州上空執行反毒巡航時，以 Star SAFIRE II 軍規 FLIR 紅外系統鎖定並追蹤 11 個肉眼不可見、高速伴飛之未知空中編隊，機載氣象雷達未檢測到常規應答機信號。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Mexico SEDENA Official Government Portal",
+          "url": "https://www.gob.mx/defensa",
+          "sha256": "35f169ce5dd571b298a54ffe4bcff58ed84727c3a651bc3283a03b35a755f7e8"
         }
       ]
     },
@@ -2687,6 +3863,45 @@
           "label": "LAC Collection Search (LAC-RG24-PROJECT-MAGNET)",
           "url": "https://www.bac-lac.gc.ca/eng/discover/unusual/ufo/Pages/default.aspx",
           "sha256": "bb653820b8ae8ef61a84fa2cd11c5b68f182620ce1485cd2ff25c9bfec265e17"
+        }
+      ]
+    },
+    {
+      "id": "USASPEND-DEFENSE-AWARD-75N90022C00018",
+      "type": "report",
+      "date": {
+        "val": "None",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Department of Defense",
+          "DARPA",
+          "Defense Contract Audit Agency"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "U.S. DoD Advanced Award Audit: Obligated Federal R&D to THE HENRY M. JACKSON FOUNDATION FOR THE ADVANCEMENT OF MILITARY MEDICINE, INC. (ID: 75N90022C00018)",
+          "executive_summary": "Federal transparency audit trail recording Department of Defense prime contract award obligation to THE HENRY M. JACKSON FOUNDATION FOR THE ADVANCEMENT OF MILITARY MEDICINE, INC. totaling $4,639,796.06, referencing classified or advanced aerospace materials development."
+        },
+        "zh_hk": {
+          "title": "美國國防部前沿合約審計：授權 THE HENRY M. JACKSON FOUNDATION FOR THE ADVANCEMENT OF MILITARY MEDICINE, INC. 之聯邦研發資金 (合約代碼 75N90022C00018)",
+          "executive_summary": "依據美國聯邦支出透明度法規，財政部總帳記錄國防部向主承包商【THE HENRY M. JACKSON FOUNDATION FOR THE ADVANCEMENT OF MILITARY MEDICINE, INC.】撥付之先進前沿科技研發合約（金額約 $4,639,796.06 美元）。該合約涉及特種航太材料、感測器整合或非常規推進領域之公共審計存證。"
+        }
+      },
+      "sources": [
+        {
+          "label": "USASpending Official Federal Awards Portal",
+          "url": "https://www.usaspending.gov/award/CONT_AW_75N90022C00018",
+          "sha256": "af6f6a2d8459e3508f6dc9679ac8105f583fb208db5ac655502ae935b4aa320f"
         }
       ]
     }

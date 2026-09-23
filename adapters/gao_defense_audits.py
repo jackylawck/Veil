@@ -18,7 +18,7 @@ class GaoDefenseAuditsAdapter(BaseAdapter):
         return "gao_defense_audits"
 
     def __init__(self):
-        super().__init__(source_name="U.S. Government Accountability Office (GAO)")
+        super().__init__()
         self.endpoint_url = "https://www.gao.gov/reports-testimonies"
         self.timeout = 15
         self.headers = {

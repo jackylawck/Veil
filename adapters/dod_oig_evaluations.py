@@ -18,7 +18,7 @@ class DodOigEvaluationsAdapter(BaseAdapter):
         return "dod_oig_evaluations"
 
     def __init__(self):
-        super().__init__(source_name="DoD Office of Inspector General (OIG)")
+        super().__init__()
         self.endpoint_url = "https://www.dodig.mil/Reports/"
         self.timeout = 15
         self.headers = {

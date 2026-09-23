@@ -18,7 +18,7 @@ class IscapOverruledDecisionsAdapter(BaseAdapter):
         return "iscap_overruled_decisions"
 
     def __init__(self):
-        super().__init__(source_name="Interagency Security Classification Appeals Panel (ISCAP)")
+        super().__init__()
         self.endpoint_url = "https://www.archives.gov/declassification/iscap"
         self.timeout = 15
         self.headers = {

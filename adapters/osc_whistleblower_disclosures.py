@@ -18,7 +18,7 @@ class OscWhistleblowerDisclosuresAdapter(BaseAdapter):
         return "osc_whistleblower_disclosures"
 
     def __init__(self):
-        super().__init__(source_name="U.S. Office of Special Counsel (OSC)")
+        super().__init__()
         self.endpoint_url = "https://osc.gov/News"
         self.timeout = 15
         self.headers = {

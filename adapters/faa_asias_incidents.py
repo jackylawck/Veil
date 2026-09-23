@@ -18,7 +18,7 @@ class FaaAsiasIncidentsAdapter(BaseAdapter):
         return "faa_asias_incidents"
 
     def __init__(self):
-        super().__init__(source_name="FAA Aviation Safety Reporting (ASIAS)")
+        super().__init__()
         # FAA 開放事故與通報檢索端點
         self.endpoint_url = "https://www.faa.gov/data_research"
         self.timeout = 15

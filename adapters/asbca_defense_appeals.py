@@ -18,7 +18,7 @@ class AsbcaDefenseAppealsAdapter(BaseAdapter):
         return "asbca_defense_appeals"
 
     def __init__(self):
-        super().__init__(source_name="Armed Services Board of Contract Appeals (ASBCA)")
+        super().__init__()
         self.endpoint_url = "https://www.asbca.mil/Decisions/decisions.html"
         self.timeout = 15
         self.headers = {

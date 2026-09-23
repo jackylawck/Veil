@@ -18,7 +18,7 @@ class UsaspendingDefenseContractsAdapter(BaseAdapter):
         return "usaspending_defense_contracts"
 
     def __init__(self):
-        super().__init__(source_name="USASpending Defense R&D Ledger")
+        super().__init__()
         self.api_url = "https://api.usaspending.gov/api/v2/search/spending_by_award/"
         self.timeout = 20
         self.headers = {

@@ -18,7 +18,7 @@ class SpaceTrackOrbitalAnomaliesAdapter(BaseAdapter):
         return "space_track_orbital_anomalies"
 
     def __init__(self):
-        super().__init__(source_name="US Space Force (Space-Track.org)")
+        super().__init__()
         self.endpoint_url = "https://www.space-track.org/basicspacedata/query/class/boxscore/format/json"
         self.timeout = 20
         self.headers = {

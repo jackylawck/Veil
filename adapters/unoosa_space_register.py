@@ -18,7 +18,7 @@ class UnoosaSpaceRegisterAdapter(BaseAdapter):
         return "unoosa_space_register"
 
     def __init__(self):
-        super().__init__(source_name="United Nations Office for Outer Space Affairs (UNOOSA)")
+        super().__init__()
         self.endpoint_url = "https://www.unoosa.org/oosa/en/spaceobjectregister/index.html"
         self.timeout = 15
         self.headers = {

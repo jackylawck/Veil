@@ -18,7 +18,7 @@ class CfiusForeignInvestmentAdapter(BaseAdapter):
         return "cfius_foreign_investment"
 
     def __init__(self):
-        super().__init__(source_name="Committee on Foreign Investment in the United States (CFIUS)")
+        super().__init__()
         self.endpoint_url = "https://home.treasury.gov/policy-issues/international/the-committee-on-foreign-investment-in-the-united-states-cfius"
         self.timeout = 15
         self.headers = {

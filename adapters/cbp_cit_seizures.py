@@ -18,7 +18,7 @@ class CbpCitSeizuresAdapter(BaseAdapter):
         return "cbp_cit_seizures"
 
     def __init__(self):
-        super().__init__(source_name="U.S. Court of International Trade (CIT / CBP)")
+        super().__init__()
         self.endpoint_url = "https://www.cit.uscourts.gov/slip-opinions"
         self.timeout = 15
         self.headers = {

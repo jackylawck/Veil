@@ -18,7 +18,7 @@ class CourtListenerFoiaAdapter(BaseAdapter):
         return "courtlistener_foia"
 
     def __init__(self):
-        super().__init__(source_name="CourtListener Federal FOIA Docket")
+        super().__init__()
         self.api_url = "https://www.courtlistener.com/api/rest/v4/dockets/"
         self.timeout = 20
         self.headers = {

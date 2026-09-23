@@ -18,7 +18,7 @@ class MexicoSedenaFafAdapter(BaseAdapter):
         return "mexico_sedena_faf"
 
     def __init__(self):
-        super().__init__(source_name="Secretariat of National Defense (SEDENA - Mexico)")
+        super().__init__()
         self.endpoint_url = "https://www.gob.mx/defensa"
         self.timeout = 15
         self.headers = {

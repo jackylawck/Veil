@@ -18,7 +18,7 @@ class AdsbMilitaryTelemetryAdapter(BaseAdapter):
         return "adsb_military_telemetry"
 
     def __init__(self):
-        super().__init__(source_name="ADS-B Military Flight Telemetry")
+        super().__init__()
         self.api_url = "https://opendata.adsb.fi/api/v2/mil"
         self.timeout = 15
         self.headers = {
