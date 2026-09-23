@@ -2,9 +2,9 @@
   "metadata": {
     "title": "The Veil - Global UAP Intelligence Ledger",
     "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
-    "generated_at": "2026-09-23T00:08:12.162129+00:00",
-    "duration_sec": 54.54,
-    "total_records": 90,
+    "generated_at": "2026-09-23T06:55:40.789305+00:00",
+    "duration_sec": 27.83,
+    "total_records": 91,
     "curated_historical_records": 7,
     "live_adapters_active": 86,
     "api_metrics": {
@@ -125,8 +125,8 @@
       },
       "congress": {
         "status": "success",
-        "fetched": 0,
-        "new": 0
+        "fetched": 3,
+        "new": 1
       },
       "courtlistener_foia": {
         "status": "success",
@@ -755,7 +755,7 @@
         {
           "label": "ESA Space Safety NEOCC Portal",
           "url": "https://neo.ssa.esa.int/close-approaches",
-          "sha256": "521b204bdb42dfd37129251b68839074bf6009595776f1d06c05a248417e902a"
+          "sha256": "803a163b98b914a96af79bcb7ac9445e72a8905b742f15c1e9513bb2b83f152d"
         }
       ]
     },
@@ -832,7 +832,7 @@
         {
           "label": "FAA TFR Official Public Portal",
           "url": "https://tfr.faa.gov/tfr2/list.html",
-          "sha256": "41a2d7366c8c38c523ef0711679d2f01a64fde2c2f9df583f12e4f44a9c6c0a1"
+          "sha256": "c21b1e5fd314f9ad692f81623b224029e1c2c1242e5d0bcdeea6d9182c2201aa"
         }
       ]
     },
@@ -950,7 +950,7 @@
         {
           "label": "ISCAP Official Adjudications Portal",
           "url": "https://www.archives.gov/declassification/iscap",
-          "sha256": "9db37875b1c95bf1ddba0b15beed5eee9e20c751e7fae909e341c73765284f96"
+          "sha256": "711484d013948659cd250b0e16ec76ab6d998fa0ba090c8c9b4a916b771d44ae"
         }
       ]
     },
@@ -1030,7 +1030,7 @@
         {
           "label": "ODNI Official Publications Portal",
           "url": "https://www.dni.gov/index.php/newsroom/reports-publications",
-          "sha256": "651dd2902b13afd64a7da0dd6cc83df5b27476a207276de32d96f4761c09415c"
+          "sha256": "2eb54181597c9de19913ac51037deb792d363dec006083935f862f57a3b088fa"
         }
       ]
     },
@@ -1147,7 +1147,7 @@
         {
           "label": "U.S. DDTC Public Portal",
           "url": "https://www.pmddtc.state.gov/ddtc_public",
-          "sha256": "ff26ab5d0188255bd1542f893e685eeb89b86842c2e7069690676d0f6dcac1f8"
+          "sha256": "b1a3b0b0171dfcf3a4d0d96eb5a2675f8ef87145efe21c3573243ce421d3c1a7"
         }
       ]
     },
@@ -1799,7 +1799,7 @@
         {
           "label": "NATO JAPCC Official Doctrine Portal",
           "url": "https://www.japcc.org",
-          "sha256": "5b4637c9f2615dbe848d6d32adb1f8567590c78153955835476f1d274e5a6bd0"
+          "sha256": "97af6cd5f6e2917ba8272129b6a8e01b3983f64379056dc72ffcbf7457ebc8e8"
         }
       ]
     },
@@ -2183,7 +2183,7 @@
         {
           "label": "Swedish National Military Archives Portal",
           "url": "https://riksarkivet.se/krigsarkivet",
-          "sha256": null
+          "sha256": "448da440e82894c3b3b6f7c72195f74affe793234d1cfff1c77e404464cfeaee"
         }
       ]
     },
@@ -2221,6 +2221,43 @@
           "label": "DoD Official Release (DVIDS-TRANSCRIPT-20230831)",
           "url": "https://www.defense.gov/News/Transcripts/Transcript/Article/3512807/",
           "sha256": "0da9bcdcfee41fac6d4acf1cf466fbe09b20f40c2a86f6ee28ea9c5b06cd192f"
+        }
+      ]
+    },
+    {
+      "id": "CONG-118-S-2226",
+      "type": "bill",
+      "date": {
+        "val": "2023-07-27",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Congress"
+        ],
+        "people": []
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "National Defense Authorization Act for Fiscal Year 2024",
+          "executive_summary": "<b>National Defense Authorization Act for Fiscal Year 2024</b>  This bill authorizes FY2024 appropriations and sets forth policies for Department of Defense (DOD) programs and activities, military construction, the national security programs of the Department of Energy (DOE), and the Maritime Admini..."
+        },
+        "zh_hk": {
+          "title": "第 118 屆美國國會 S 2226 號法案（含 UAP 披露條款）",
+          "executive_summary": "法案最新進展：Senate ordered measure printed as passed.。涵蓋國防部異常現象調查撥款與跨部會解密審查程序要求。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Congress.gov Official Portal",
+          "url": "https://www.congress.gov/bill/118th-congress/s-bill/2226",
+          "sha256": null
         }
       ]
     },
@@ -2916,7 +2953,7 @@
         {
           "label": "Mexico SEDENA Official Government Portal",
           "url": "https://www.gob.mx/defensa",
-          "sha256": "35f169ce5dd571b298a54ffe4bcff58ed84727c3a651bc3283a03b35a755f7e8"
+          "sha256": "b0fac77d2429afd2e012cdfceb06df23b6076d61103a0598e88f1fc6186b2232"
         }
       ]
     },
