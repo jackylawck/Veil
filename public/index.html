@@ -153,21 +153,47 @@
 
   <!-- 時間線主體 -->
   <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
-    <!-- 篩選列 -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-surfaceBorder pb-4 mb-8 gap-4">
-      <h2 class="text-lg font-bold text-white flex items-center space-x-2" id="timelineHeader">
-        <i class="fa-solid fa-timeline text-sky-400"></i>
-        <span>全球主權官方解密時間線</span>
-      </h2>
+    <!-- 篩選與搜尋列 -->
+    <div class="border-b border-surfaceBorder pb-6 mb-8 space-y-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <h2 class="text-lg font-bold text-white flex items-center space-x-2" id="timelineHeader">
+          <i class="fa-solid fa-timeline text-sky-400"></i>
+          <span>全球主權官方解密時間線</span>
+        </h2>
 
-      <!-- 分類按鈕組 -->
-      <div class="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 text-xs scrollbar-none" id="filterBtnGroup">
-        <button onclick="filterRecords('all')" class="filter-btn active whitespace-nowrap px-3 py-1.5 rounded bg-sky-600 text-white font-medium" data-filter="all">全部 ALL</button>
-        <button onclick="filterRecords('hearing')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="hearing">聽證會 HEARING</button>
-        <button onclick="filterRecords('bill')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="bill">法案條例 BILL</button>
-        <button onclick="filterRecords('report')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="report">官方報告 REPORT</button>
-        <button onclick="filterRecords('statement')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="statement">正式聲明 STATEMENT</button>
-        <button onclick="filterRecords('foia')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="foia">情報解密 FOIA</button>
+        <!-- 分類按鈕組 -->
+        <div class="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 text-xs scrollbar-none" id="filterBtnGroup">
+          <button onclick="filterRecords('all')" class="filter-btn active whitespace-nowrap px-3 py-1.5 rounded bg-sky-600 text-white font-medium" data-filter="all">全部 ALL</button>
+          <button onclick="filterRecords('hearing')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="hearing">聽證會 HEARING</button>
+          <button onclick="filterRecords('bill')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="bill">法案條例 BILL</button>
+          <button onclick="filterRecords('report')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="report">官方報告 REPORT</button>
+          <button onclick="filterRecords('statement')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="statement">正式聲明 STATEMENT</button>
+          <button onclick="filterRecords('foia')" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded bg-surface border border-surfaceBorder text-slate-400 hover:text-white" data-filter="foia">情報解密 FOIA</button>
+        </div>
+      </div>
+
+      <!-- 🔍 全文即時搜尋欄 -->
+      <div class="flex items-center gap-2 max-w-2xl">
+        <div class="relative flex-grow">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+          </div>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleSearchInput(event)"
+            placeholder="搜尋卷宗 ID、機構、關鍵字（如 AARO, Grusch, 核設施）..." 
+            class="w-full pl-9 pr-8 py-2 bg-surface/90 border border-surfaceBorder rounded-lg text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+          />
+          <button 
+            id="clearSearchBtn" 
+            onclick="clearSearch()" 
+            class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-300 hidden text-xs" 
+            title="清除搜尋">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="searchCounter" class="text-xs text-slate-500 whitespace-nowrap px-2 font-mono"></div>
       </div>
     </div>
 
@@ -193,6 +219,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- 🔤 引入獨立多語系字典 -->
+  <script src="./js/i18n.js"></script>
 
   <script>
     // 嚴格 XSS 消毒轉義函數
@@ -240,53 +269,7 @@
     let allRecords = [];
     let metaInfo = {};
     let currentFilter = 'all';
-
-    const UI_TEXT = {
-      zh: {
-        pageTitle: "揭帷 The Veil | 全球 UAP 官方披露進程與主權情報總帳",
-        heroTitle: "全球 UAP 官方披露進程追蹤器",
-        heroSubtitle: "追蹤全球主權防衛與官方解密總帳。穿透帷幕，重歸客觀透明。",
-        stat1: "官方總帳卷宗",
-        stat2: "法定聽證與公報",
-        stat3: "國會法案與命令",
-        stat4: "最後審計時間",
-        timelineHeader: "全球主權官方解密時間線",
-        viewSource: "官方原始文檔 ↗",
-        noSource: "暫無公開存證端點",
-        langBtn: "切換為 English",
-        emptyMsg: "此分類下暫無官方審計卷宗。",
-        loadFailed: "⚠️ 無法載入官方紀錄。端點連線異常或資料庫初始化中。",
-        retryBtn: "點擊重試",
-        filterAll: "全部 ALL",
-        filterHearing: "聽證會 HEARING",
-        filterBill: "法案條例 BILL",
-        filterReport: "官方報告 REPORT",
-        filterStatement: "正式聲明 STATEMENT",
-        filterFoia: "情報解密 FOIA"
-      },
-      en: {
-        pageTitle: "The Veil | Global UAP Disclosure Intelligence Ledger",
-        heroTitle: "Official UAP Disclosure Ledger",
-        heroSubtitle: "Global sovereign defense and official declassified records. Verified & audit-grade.",
-        stat1: "Verified Records",
-        stat2: "Hearings & Gazettes",
-        stat3: "Bills & Enacted Laws",
-        stat4: "Audit Timestamp",
-        timelineHeader: "Global Sovereign Timeline Stream",
-        viewSource: "Official Document ↗",
-        noSource: "No public endpoint",
-        langBtn: "切換為 繁體中文",
-        emptyMsg: "No official audit records found under this filter.",
-        loadFailed: "⚠️ Failed to fetch ledger records. Endpoint unavailable or initializing.",
-        retryBtn: "Retry",
-        filterAll: "All Records",
-        filterHearing: "Hearings",
-        filterBill: "Bills & Laws",
-        filterReport: "Reports",
-        filterStatement: "Statements",
-        filterFoia: "FOIA / Declass"
-      }
-    };
+    let searchQuery = '';
 
     function getTypeBadge(normalizedType) {
       switch (normalizedType) {
@@ -358,17 +341,84 @@
       }
     }
 
+    // 搜尋輸入監聽器
+    function handleSearchInput(event) {
+      searchQuery = (event.target.value || '').trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (searchQuery.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderTimeline();
+    }
+
+    // 清除搜尋
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      input.value = '';
+      searchQuery = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      renderTimeline();
+      input.focus();
+    }
+
     function renderTimeline() {
       const container = document.getElementById('timelineContainer');
+      const counterEl = document.getElementById('searchCounter');
       container.innerHTML = '';
 
-      let filtered = allRecords;
-      if (currentFilter !== 'all') {
-        filtered = allRecords.filter(r => normalizeRecordType(r.type) === currentFilter);
+      // 聯合過濾：分類 + 搜尋詞
+      const filtered = allRecords.filter(record => {
+        // 1. 分類篩選
+        if (currentFilter !== 'all' && normalizeRecordType(record.type) !== currentFilter) {
+          return false;
+        }
+
+        // 2. 關鍵字搜尋比對
+        if (!searchQuery) return true;
+
+        const idText = (record.id || '').toLowerCase();
+        const dateText = (record.date?.val || '').toLowerCase();
+        
+        // 提取雙語內容
+        const titleZh = (record.content?.zh_hk?.title || record.title?.zh_hk || '').toLowerCase();
+        const titleEn = (record.content?.en?.title || record.title?.en || '').toLowerCase();
+        const sumZh = (record.content?.zh_hk?.executive_summary || record.summary?.zh_hk || '').toLowerCase();
+        const sumEn = (record.content?.en?.executive_summary || record.summary?.en || '').toLowerCase();
+
+        // 機關、人物與標籤
+        let agencies = '';
+        if (record.entities?.agencies && Array.isArray(record.entities.agencies)) {
+          agencies = record.entities.agencies.join(' ').toLowerCase();
+        } else if (record.agency) {
+          agencies = `${record.agency.name || ''} ${record.agency.zh_hk || ''}`.toLowerCase();
+        }
+
+        const people = (record.entities?.people && Array.isArray(record.entities.people))
+          ? record.entities.people.join(' ').toLowerCase()
+          : '';
+
+        const tags = (record.tags && Array.isArray(record.tags))
+          ? record.tags.join(' ').toLowerCase()
+          : '';
+
+        const corpus = `${idText} ${dateText} ${titleZh} ${titleEn} ${sumZh} ${sumEn} ${agencies} ${people} ${tags}`;
+        return corpus.includes(searchQuery);
+      });
+
+      // 更新即時計數器
+      if (searchQuery) {
+        counterEl.innerText = UI_TEXT[currentLang].searchMatches.replace('{n}', filtered.length);
+        counterEl.classList.remove('hidden');
+      } else {
+        counterEl.innerText = '';
+        counterEl.classList.add('hidden');
       }
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div class="text-slate-500 text-sm py-8">${escapeHtml(UI_TEXT[currentLang].emptyMsg)}</div>`;
+        const msg = searchQuery ? UI_TEXT[currentLang].searchEmptyMsg : UI_TEXT[currentLang].emptyMsg;
+        container.innerHTML = `<div class="text-slate-500 text-sm py-8">${escapeHtml(msg)}</div>`;
         return;
       }
 
@@ -376,7 +426,6 @@
         const normType = normalizeRecordType(record.type);
         const typeBadge = getTypeBadge(normType);
 
-        // 健全相容 Schema v2.0.0 (content.en / content.zh_hk) 與歷史扁平欄位
         const rawTitleZh = record.content?.zh_hk?.title || record.title?.zh_hk || '';
         const rawTitleEn = record.content?.en?.title || record.title?.en || '';
         const rawSummaryZh = record.content?.zh_hk?.executive_summary || record.summary?.zh_hk || '';
@@ -386,7 +435,6 @@
         const subTitle = currentLang === 'zh' ? rawTitleEn : '';
         const summary = currentLang === 'zh' ? (rawSummaryZh || rawSummaryEn) : (rawSummaryEn || rawSummaryZh);
 
-        // 機關標籤解析（相容 entities.agencies 陣列與 agency 物件）
         let agencyBadge = '';
         if (record.entities?.agencies && Array.isArray(record.entities.agencies)) {
           agencyBadge = record.entities.agencies
@@ -397,11 +445,9 @@
           agencyBadge = `<span class="text-slate-400 text-[11px] bg-obsidian px-2 py-0.5 rounded border border-surfaceBorder">${escapeHtml(agencyName)}</span>`;
         }
 
-        // 來源與 SHA-256 數位簽章解析
         const primarySource = (Array.isArray(record.sources) && record.sources[0]) ? record.sources[0] : {};
         const validatedUrl = safeUrl(primarySource.url);
         
-        // 只要具備真實 SHA-256 雜湊即呈現密碼學存證指紋
         const shaHash = primarySource.sha256;
         const shaShort = (typeof shaHash === 'string' && shaHash.length >= 16) 
           ? shaHash.substring(0, 10) + '...' 
@@ -470,6 +516,11 @@
       document.getElementById('statLabel4').innerText = UI_TEXT[currentLang].stat4;
       document.getElementById('timelineHeader').querySelector('span').innerText = UI_TEXT[currentLang].timelineHeader;
       document.getElementById('langToggleBtn').innerText = UI_TEXT[currentLang].langBtn;
+      
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.placeholder = UI_TEXT[currentLang].searchPlaceholder;
+      }
       
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => {
