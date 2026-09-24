@@ -1,3 +1,9 @@
+mkdir -p public/js
+cat <<'EOF' > public/js/i18n.js
+/**
+ * The Veil | 揭帷 - 多語系國際化字典 (Bilingual i18n Dictionary)
+ * 支援: zh-HK (香港繁體), en (English)
+ */
 const UI_TEXT = {
   zh: {
     pageTitle: "揭帷 The Veil | 全球 UAP 官方披露進程與主權情報總帳",
@@ -50,3 +56,4 @@ const UI_TEXT = {
     filterFoia: "FOIA / Declass"
   }
 };
+EOF
