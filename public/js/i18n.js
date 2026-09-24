@@ -1,4 +1,3 @@
-cat <<'EOF' > public/js/i18n.js
 // The Veil - Multilingual Dictionary
 window.UI_TEXT = {
   zh: {
@@ -53,4 +52,3 @@ window.UI_TEXT = {
   }
 };
 var UI_TEXT = window.UI_TEXT;
-EOF
