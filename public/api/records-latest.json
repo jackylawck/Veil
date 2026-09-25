@@ -2,10 +2,10 @@
   "metadata": {
     "title": "The Veil - Global UAP Intelligence Ledger",
     "zh_title": "揭帷 - 全球主權防衛與官方解密情報總帳",
-    "generated_at": "2026-09-25T08:30:09.105052+00:00",
-    "duration_sec": 79.76,
-    "total_records": 88,
-    "curated_historical_records": 7,
+    "generated_at": "2026-09-25T08:42:20.532812+00:00",
+    "duration_sec": 71.04,
+    "total_records": 96,
+    "curated_historical_records": 15,
     "live_adapters_active": 86,
     "api_metrics": {
       "aaro_annual_report": {
@@ -675,7 +675,7 @@
         {
           "label": "ESA Space Safety NEOCC Portal",
           "url": "https://neo.ssa.esa.int/close-approaches",
-          "sha256": "a5d32e90baa85ca84dbb83a23569741b0d5c61ac06aa1b5a9b587b4f5efc2077"
+          "sha256": "3bb72611229f3c3a05277a5d3c193ca9be7b349e1aee81d2e08ac44b980459be"
         }
       ]
     },
@@ -752,7 +752,7 @@
         {
           "label": "FAA TFR Official Public Portal",
           "url": "https://tfr.faa.gov/tfr2/list.html",
-          "sha256": "c5ec7bc1569c3fb3152d61026cc0d5a093ba9f10c2326892b2c6ae7387dc08b8"
+          "sha256": "0b62338b14b1c7904a5781bd370f6298f1ddb52b91cbfe670a9a699d3716a90e"
         }
       ]
     },
@@ -950,7 +950,7 @@
         {
           "label": "ODNI Official Publications Portal",
           "url": "https://www.dni.gov/index.php/newsroom/reports-publications",
-          "sha256": "f77af983b14842dcb0b27047de6291265b1adbacb53808759c5aa5d26bd168c9"
+          "sha256": "d80b0d4760d22b72b5c191de675d81c7d49598d1beee4541a45c0669abbba981"
         }
       ]
     },
@@ -1067,7 +1067,7 @@
         {
           "label": "U.S. DDTC Public Portal",
           "url": "https://www.pmddtc.state.gov/ddtc_public",
-          "sha256": "c93a031666b32bb1858c0d0a4ac02d77fad46e85005168fdc9fd33f33e72e8b2"
+          "sha256": "ee3b0bb079274432c9d4116004ca3f9bafae28e3d410acc6f7199ae47e5901f6"
         }
       ]
     },
@@ -1418,6 +1418,49 @@
       ]
     },
     {
+      "id": "GPO-CHRG-118-UAP-NOV2024",
+      "type": "hearing",
+      "date": {
+        "val": "2024-11-13",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "testimony_sworn",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "House Committee on Oversight and Accountability",
+          "United States Congress"
+        ],
+        "people": [
+          "Tim Gallaudet",
+          "Luis Elizondo",
+          "Michael Gold",
+          "Michael Shellenberger"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Unidentified Anomalous Phenomena: Exposing the Truth (House Oversight Hearing)",
+          "executive_summary": "Joint subcommittee hearing examining federal secrecy, undisclosed Special Access Programs (SAP), oceanographic UAP detections, and the Immaculate Constellation whistleblower disclosure."
+        },
+        "zh_hk": {
+          "title": "眾議院監督委員會：未知異常現象——揭開真相聯合宣誓聽證會",
+          "executive_summary": "美國眾議院兩小組聯合召開之法定宣誓聽證會。退役海軍少將 Gallaudet、前國防部官員 Elizondo 及調查記者出席，揭露未向國會報告之特別存取計畫 (USAP)『無瑕星座』(Immaculate Constellation) 與海洋水下異常探測紀錄。"
+        }
+      },
+      "sources": [
+        {
+          "label": "House Oversight Committee Official Hearing Record",
+          "url": "https://oversight.house.gov/hearing/unidentified-anomalous-phenomena-exposing-the-truth/",
+          "sha256": null
+        }
+      ]
+    },
+    {
       "id": "GPO-CHRG-118-HHRG-UAP-20241113",
       "type": "official_report",
       "date": {
@@ -1719,7 +1762,7 @@
         {
           "label": "NATO JAPCC Official Doctrine Portal",
           "url": "https://www.japcc.org",
-          "sha256": "e0e4a956d831a2acae82d927816bb2afb4db0c25ecfd7d7f7e46ba67cddb981e"
+          "sha256": "2a27ffa6afd648cfb11548fdc7b774ba1ad38a04d9082cb6488f7ac5d061b750"
         }
       ]
     },
@@ -2421,6 +2464,46 @@
       ]
     },
     {
+      "id": "ODNI-PRELIM-EVAL-2021",
+      "type": "report",
+      "date": {
+        "val": "2021-06-25",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Office of the Director of National Intelligence",
+          "Unidentified Aerial Phenomena Task Force"
+        ],
+        "people": [
+          "Avril Haines"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Preliminary Assessment: Unidentified Aerial Phenomena (ODNI Public Report)",
+          "executive_summary": "Landmark interagency declassified report analyzing 144 military aviator sightings between 2004 and 2021, concluding that most UAP represent physical objects."
+        },
+        "zh_hk": {
+          "title": "美國國家情報總監辦公室 (ODNI)：未知空中現象初階評估報告",
+          "executive_summary": "美國情報界跨部會向國會提交之歷史性解密報告。深入剖析 2004 至 2021 年間 144 起軍事飛行員遭遇案例，正式確認絕大多數通報目標均為具備實體物理特徵之物體。"
+        }
+      },
+      "sources": [
+        {
+          "label": "ODNI Official Declassified Report PDF",
+          "url": "https://www.dni.gov/files/ODNI/documents/assessments/Preliminary-Assessment-UAP-20210625.pdf",
+          "sha256": "4c2ea2f7d3dfa640ce976865261314ffba99db50a7f14b6cce7d8f5ec7e099a8"
+        }
+      ]
+    },
+    {
       "id": "CN-PLA-AIR-SITUATION-REGULATION",
       "type": "official_notice",
       "date": {
@@ -3068,6 +3151,46 @@
       ]
     },
     {
+      "id": "FAB-BRAZIL-NIGHT-1986",
+      "type": "report",
+      "date": {
+        "val": "1986-05-19",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Brazilian Air Force (FAB)",
+          "Air Aerospace Defense Command (COMDA)"
+        ],
+        "people": [
+          "Octávio Júlio Moreira Lima"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Official Report on the Night of the UFOs: Aerospace Defense Command Interception Logs",
+          "executive_summary": "Declassified report signed by the Brazilian Air Force Minister following nationwide radar tracks and scramble operations involving Mirage III and F-5E fighter jets."
+        },
+        "zh_hk": {
+          "title": "巴西航空部空軍司令部「幽浮之夜」防空攔截作戰官方解密報告",
+          "executive_summary": "巴西空軍部長於全國電視記者會公開之作戰報告。記錄防空司令部（COMDA）緊急出動幻象三型與 F-5E 戰機，於多個地面雷達站協同追蹤下進行多輪攔截之完整軍事日誌。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Arquivo Nacional do Brasil - Fundo Força Aérea Brasileira",
+          "url": "https://www.gov.br/an/pt-br",
+          "sha256": null
+        }
+      ]
+    },
+    {
       "id": "FAB-AN-OVNI-1986-BRIEF",
       "type": "declassified_archive",
       "date": {
@@ -3177,6 +3300,47 @@
           "label": "Força Aérea Portuguesa Archive (PT-FAP-CASTRO-DAIRE-1982)",
           "url": "https://www.emfa.pt",
           "sha256": "c47cfaf298da4c27f6294ca9753067cabdff0afc76eee083b36ac687e23a922d"
+        }
+      ]
+    },
+    {
+      "id": "UK-MOD-HALT-MEMO-1980",
+      "type": "foia",
+      "date": {
+        "val": "1981-01-13",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Ministry of Defence (UK)",
+          "Royal Air Force",
+          "United States Air Force"
+        ],
+        "people": [
+          "Charles I. Halt"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Unexplained Lights: Official Memorandum from Deputy Base Commander to UK Ministry of Defence",
+          "executive_summary": "Lt. Col. Charles I. Halt's official memorandum detailing consecutive nocturnal incursions, ground radiation readings, and broken tree canopies at RAF Bentwaters / Woodbridge."
+        },
+        "zh_hk": {
+          "title": "英國國防部倫道森森林事件霍爾特副基地司令官方通報備忘錄（Halt Memo）",
+          "executive_summary": "美國空軍駐英基地副司令霍爾特中校呈交予英國國防部之法定報告，詳載官兵連續夜間遭遇異常發光物、現場所錄得之 Beta/Gamma 輻射異常讀數與物理撞擊痕跡。"
+        }
+      },
+      "sources": [
+        {
+          "label": "The National Archives (UK) File DEFE 24/1948",
+          "url": "https://discovery.nationalarchives.gov.uk/details/r/C10115396",
+          "sha256": null
         }
       ]
     },
@@ -3485,6 +3649,47 @@
       ]
     },
     {
+      "id": "DIA-IRAN-INTERCEPT-1976",
+      "type": "report",
+      "date": {
+        "val": "1976-09-19",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "Defense Intelligence Agency",
+          "Imperial Iranian Air Force",
+          "Joint Chiefs of Staff"
+        ],
+        "people": [
+          "Parviz Jafari"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "DIA Defense Intelligence Assessment: Joint Military Intercept over Tehran",
+          "executive_summary": "Declassified intelligence evaluation (IIR 6 846 0140 76) confirming dual F-4 radar lock-ons, simultaneous avionics failures, and anomalous electronic countermeasure capabilities during intercept."
+        },
+        "zh_hk": {
+          "title": "美國國防情報局 (DIA) 情報評估報告：德黑蘭領空雙戰機聯合雷達攔截事件",
+          "executive_summary": "國防情報局解密情資檔案（編號 IIR 6 846 0140 76），向五角大廈聯參會及白宮呈報。報告證實兩架 F-4 戰鬥機目擊及雷達鎖定目標期間，遭遇同步航電失靈與異常電子反制現象。"
+        }
+      },
+      "sources": [
+        {
+          "label": "Defense Intelligence Agency FOIA Electronic Reading Room",
+          "url": "https://www.dia.mil/FOIA/FOIA-Electronic-Reading-Room/",
+          "sha256": null
+        }
+      ]
+    },
+    {
       "id": "IR-DIA-TEHRAN-F4-1976",
       "type": "declassified_archive",
       "date": {
@@ -3673,6 +3878,48 @@
       ]
     },
     {
+      "id": "GPO-CHRG-90hhrgUFO1968",
+      "type": "hearing",
+      "date": {
+        "val": "1968-07-29",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "testimony_sworn",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "House Committee on Science and Astronautics",
+          "United States Congress"
+        ],
+        "people": [
+          "J. Allen Hynek",
+          "James E. McDonald",
+          "Carl Sagan"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Symposium on Unidentified Flying Objects: Hearings Before the Committee on Science and Astronautics",
+          "executive_summary": "Official congressional symposium transcript featuring scientific testimonies and physics assessments regarding unidentified aerial phenomena by leading astronomers and atmospheric scientists."
+        },
+        "zh_hk": {
+          "title": "美國眾議院科學及航天委員會：不明飛行物科學研討聽證會正式出版公報",
+          "executive_summary": "美國國會政府出版局 (GPO) 印行之科學聽證實錄，邀集包括海尼克博士與卡爾·薩根等頂尖大氣物理學家及天文學者，就各類異常飛行特徵與大氣光學數據提出國會證詞。"
+        }
+      },
+      "sources": [
+        {
+          "label": "GovInfo (GPO) Historical Hearing Catalog",
+          "url": "https://www.govinfo.gov",
+          "sha256": null
+        }
+      ]
+    },
+    {
       "id": "USAF-SAC-MALMSTROM-19670324",
       "type": "declassified_archive",
       "date": {
@@ -3749,6 +3996,47 @@
       ]
     },
     {
+      "id": "USAF-WDC-PRESS-1952",
+      "type": "statement",
+      "date": {
+        "val": "1952-07-29",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Air Force",
+          "Department of Defense"
+        ],
+        "people": [
+          "John Samford",
+          "Roger Ramey"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Pentagon Press Conference on Washington D.C. Radar-Visual Incursions",
+          "executive_summary": "Major General John Samford, Director of Air Force Intelligence, hosts the largest military press conference since WWII following consecutive radar-visual incursions over restricted D.C. airspace."
+        },
+        "zh_hk": {
+          "title": "五角大廈就華盛頓特區禁區空域雷達與視覺目擊入侵召開之官方聯合記者會",
+          "executive_summary": "美國空軍情報總監山姆福德少將於五角大廈主持自二戰結束以來規模最大之官方記者會，回應華盛頓國家禁飛區連續多日遭多架異常雷達追蹤目標入侵之防衛應變處置。"
+        }
+      },
+      "sources": [
+        {
+          "label": "USAF Official Historical Press Release Archive",
+          "url": "https://www.archives.gov/research/military/air-force",
+          "sha256": null
+        }
+      ]
+    },
+    {
       "id": "LAC-RG24-PROJECT-MAGNET",
       "type": "declassified_archive",
       "date": {
@@ -3783,6 +4071,47 @@
           "label": "LAC Collection Search (LAC-RG24-PROJECT-MAGNET)",
           "url": "https://www.bac-lac.gc.ca/eng/discover/unusual/ufo/Pages/default.aspx",
           "sha256": "bb653820b8ae8ef61a84fa2cd11c5b68f182620ce1485cd2ff25c9bfec265e17"
+        }
+      ]
+    },
+    {
+      "id": "USA-AF-TWINING-MEMO-1947",
+      "type": "report",
+      "date": {
+        "val": "1947-09-23",
+        "precision": "day"
+      },
+      "governance": {
+        "source_tier": "Tier-1",
+        "evidence_level": "official_document",
+        "confidence_rating": "official_confirmed"
+      },
+      "entities": {
+        "agencies": [
+          "United States Army Air Forces",
+          "Air Materiel Command"
+        ],
+        "people": [
+          "Nathan Twining",
+          "George Schulgen"
+        ]
+      },
+      "content": {
+        "original_language": "en",
+        "en": {
+          "title": "Air Materiel Command Opinion Concerning Flying Discs (Twining Memo)",
+          "executive_summary": "Official classified letter from Lt. Gen. Nathan Twining to Brig. Gen. George Schulgen concluding that 'the phenomenon reported is something real and not visionary or fictitious'."
+        },
+        "zh_hk": {
+          "title": "美國陸軍航空軍航空物資司令部特文寧備忘錄（Twining Memo）",
+          "executive_summary": "航空物資司令部司令特文寧中將致陸航情報部之官方機密函件，首度以官方軍事結論確立『所通報之現象實屬真實存在，絕非虛構或幻覺』，奠定軍方後續專項調查之起點。"
+        }
+      },
+      "sources": [
+        {
+          "label": "National Archives (NARA) Record Group 341",
+          "url": "https://www.archives.gov/research/topics/uaps",
+          "sha256": null
         }
       ]
     },
